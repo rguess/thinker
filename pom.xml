@@ -14,4 +14,15 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <build>
+          <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warName>jae_deploy</warName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
