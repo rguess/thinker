@@ -1,0 +1,72 @@
+﻿# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.war
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# project settings
+/.metadata/
+# .classpath
+# .project
+.externalToolBuilders/
+.settings/
+*/.settings/
+# */.classpath
+# */.project
+*/*/.project
+*/*/*/.project
+*/*/*/*/.project
+*/*/*/*/*/.project
+/target/
+*/target/
+*/*/target/
+*/*/*/target/
+*/*/*/*/target/
+*/*/*/*/*/target/
+/bin/
+*/bin/
+*/*/bin/
+*/*/*/bin/
+*/*/*/*/bin/
+*/*/*/*/*/bin/
+*~
+# 忽略后缀为elc的文件
+*.elc
+
+# 忽略所有的隐藏文件
+.*
+
+# 在上面的规则中加入一条例外，即不要忽略.gitignore文件
+!.gitignore

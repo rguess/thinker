@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Documentation - Metronic Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet" />    
+    <link href="assets/google-code-prettify/prettify.css" rel="stylesheet" />
+    <link href="assets/css/docs.css" rel="stylesheet" />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="assets/ico/favicon.png" />
+  </head>
+  <body>
+    <!-- Subhead
+    ================================================== -->
+    <header class="jumbotron subhead">
+      <div class="container container-narrow">
+        <h1>Metronic - Admin Dashboard Template</h1>
+        <p class="lead">Documentation v1.1.2</p>
+      </div>
+    </header>
+      
+    <div class="container">
+
+      <div class="row">
+        <div class="span12">
+            <div class="well intro-text">
+                  <h3>Thank You For Purchasing Metronic, One of Our Premium Items!</h3>
+                  <p>
+                    If you have any questions that are beyond the scope of this help file, please email our support 
+                    <a href="mailto:support@keenthemes.com">support@keenthemes.com</a>.
+                  </p>
+            </div>  
+        </div> 
+      </div> 
+
+      <div class="row" style="margin-top:20px;margin-bottom:20px">
+          <div class="span12">
+              <table class="table table-bordered table-striped">
+               <tbody>
+                  <tr>
+                    <td width="50%">
+                      <ul class="menu">
+                        <h4>Overview</h4>
+                        <p>
+                          <b>Metronic</b> is a responsive admin dashboard template powered with <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap Framework</a> for admin and backend applications.  Metronic has a clean and intuitive metro style design which makes your next project look awesome and yet user friendly.  Metronic comes with a huge collection of plugins and UI components and it works in all major web browsers, tablets and phones.
+                        </p>  
+                        <hr>
+                        <p>
+                          Author: <a href="http://www.keenthemes.com" target="_blank">KeenThemes</a><br>
+                          Contact: <a href="mailto:support@keenthemes.com">support@keenthemes.com</a><br>
+                          Created On: 13/02/2013<br>
+                        </p>
+                         <hr> 
+                        <a class="btn btn-success" target="_blank" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469">
+                          Live Preview 
+                        </a>
+                         <a class="btn btn-success" target="_blank" href="http://themeforest.net/user/keenthemes/portfolio">
+                          Other Themes <i class="icon-share-alt icon-white"></i>
+                        </a>
+                      </ul>
+                    </td>
+                    <td width="50%">
+                      <h4>Table of Contents:</h4>
+                      <ul class="menu">
+                        <li><a href="javascript:;" class="clickable" data-section="#overview">1. Overview</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#template_structure">2. Template Structure</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#font">3. Font</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#theme_config">4. Theme Configuration</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#top_menu">5. Top Menu</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#main_menu">6. Main Menu</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#new_page">7. New Page</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#buttons">8. Buttons</a></li>                        
+                        <li><a href="javascript:;" class="clickable" data-section="#init">9. Javascript Initialization</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#references">10. References</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#log">11. Change Log</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#upgrade">12. Upgrade</a></li>
+                        <li><a href="javascript:;" class="clickable" data-section="#end">13. End of Documentation</a></li>
+                      </ul>
+                    </td>  
+                  </tr>
+                </tbody>
+              </table>
+          </div> 
+      </div> 
+
+       <div class="row">
+        <div class="span12">
+          <section id="template_structure">
+            <div class="page-header">
+              <h1>2. Template Structure</h1>
+               <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+            </div>
+            <p>
+               All template files have fixed structure consisting of <code>header</code>, <code>top menu</code>, <code>main menu</code>, <code>content</code> and <code>footer</code> as shown below:
+            </p>
+            <img src="assets/i/layout.jpg">
+            <h3>
+            Beginning of Page  
+            </h3>
+            <p>
+              Below code is used at the beginning of all HTML pages to detect Internet Explorer browser version 
+              and set a spesific class applied to Internet Explorer versions.
+            </p>
+            <pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;!--[if IE 8]&gt; &lt;html lang=&quot;en&quot; class=&quot;ie8&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 9]&gt; &lt;html lang=&quot;en&quot; class=&quot;ie9&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if !IE]&gt;&lt;!--&gt; &lt;html lang=&quot;en&quot;&gt; &lt;!--&lt;![endif]--&gt;
+</pre>  
+
+<h3>Page Head</h3>
+<p>
+Page head contains metadata, javascript and css files:
+</p>
+<pre class="prettyprint linenums">
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;title&gt;Metronic Admin Dashboard Template&lt;/title&gt;
+&lt;meta content=&quot;width=device-width, initial-scale=1.0&quot; name=&quot;viewport&quot; /&gt;
+&lt;meta content=&quot;&quot; name=&quot;description&quot; /&gt;
+&lt;meta content=&quot;&quot; name=&quot;author&quot; /&gt;
+&lt;link href=&quot;assets/bootstrap/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link href=&quot;assets/css/metro.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link href=&quot;assets/bootstrap/css/bootstrap-responsive.min.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link href=&quot;assets/font-awesome/css/font-awesome.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link href=&quot;assets/css/style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link href=&quot;assets/css/style_responsive.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link href=&quot;assets/css/style_default.css&quot; rel=&quot;stylesheet&quot; id=&quot;style_color&quot; /&gt;
+&lt;link href=&quot;assets/fancybox/source/jquery.fancybox.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/gritter/css/jquery.gritter.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/uniform/css/uniform.default.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/bootstrap-daterangepicker/daterangepicker.css&quot; /&gt;
+&lt;link href=&quot;assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link href=&quot;assets/jqvmap/jqvmap/jqvmap.css&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;assets/ico/apple-touch-icon-144-precomposed.png&quot;&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;assets/ico/apple-touch-icon-114-precomposed.png&quot;&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;72x72&quot; href=&quot;assets/ico/apple-touch-icon-72-precomposed.png&quot;&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;assets/ico/apple-touch-icon-57-precomposed.png&quot;&gt;
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;assets/ico/favicon.png&quot;&gt;
+&lt;/head&gt;
+</pre>  
+
+<h3>Header</h3>
+<p>
+Header contains of logo and top menu bar and it used in all pages. HTML code of header container shown below:   
+</p>
+<pre class="prettyprint linenums">
+&lt;div class=&quot;header navbar navbar-inverse navbar-fixed-top&quot;&gt;
+  &lt;!-- BEGIN TOP NAVIGATION BAR --&gt;
+  &lt;div class=&quot;navbar-inner&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+    &lt;!-- HEADER ELEMENTS GO HERE --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- END TOP NAVIGATION BAR --&gt;
+&lt;/div&gt;
+</pre>
+
+<h3>Sidebar Menu</h3>
+<p>
+Sidebar contains of quick search form and main navigation menu. HTML code of sidebar container as shown below:   
+</p>
+<pre class="prettyprint linenums">
+&lt;!-- BEGIN SIDEBAR --&gt;
+&lt;div class=&quot;page-sidebar nav-collapse collapse&quot;&gt;
+  &lt;!-- MAIN MENU GOES HERE.--&gt;
+&lt;/div&gt;
+&lt;!-- END SIDEBAR --&gt;
+</pre>
+
+<h3>Content</h3>
+<p>
+Content consists of page title, breadcrumbs and page's main body. HTML code of Content container as shown below:   
+</p>
+<pre class="prettyprint linenums">
+&lt;!-- BEGIN PAGE --&gt;
+&lt;div class=&quot;page-content&quot;&gt;
+  &lt;!-- BEGIN PAGE CONTAINER--&gt;
+  &lt;div class=&quot;container-fluid&quot;&gt;
+    &lt;!-- BEGIN PAGE HEADER--&gt;
+    &lt;div class=&quot;row-fluid&quot;&gt;
+      &lt;div class=&quot;span12&quot;&gt;
+        &lt;!-- BEGIN PAGE TITLE &amp; BREADCRUMB--&gt;   
+        &lt;h3 class=&quot;page-title&quot;&gt;
+          Dashboard
+          &lt;small&gt;statistics and more&lt;/small&gt;
+        &lt;/h3&gt;
+        &lt;ul class=&quot;breadcrumb&quot;&gt;
+          &lt;li&gt;
+            &lt;i class=&quot;icon-home&quot;&gt;&lt;/i&gt;
+            &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt; 
+            &lt;span class=&quot;icon-angle-right&quot;&gt;&lt;/span&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- END PAGE HEADER--&gt;
+    &lt;!-- CONTENT BODY GOES HERE >>>> --&gt;
+  &lt;/div&gt;   
+  &lt;!-- END PAGE CONTAINER--&gt;
+&lt;/div&gt;      
+&lt;!-- END PAGE --&gt;
+</pre>
+
+<h3>Footer</h3>
+<pre class="prettyprint linenums">
+&lt;!-- BEGIN FOOTER --&gt;
+&lt;div class=&quot;footer&quot;&gt;
+  2013 &copy; Metronic by keenthemes.
+  &lt;div class=&quot;span pull-right&quot;&gt;
+    &lt;span class=&quot;go-top&quot;&gt;&lt;i class=&quot;icon-angle-up&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- END FOOTER --&gt;
+</pre>
+
+<h3>End Of Page(Javascripts)</h3>
+<p>Javascript files loaded in the end of page. This will reduce page load time.</p>
+<pre class="prettyprint linenums">
+&lt;!-- BEGIN JAVASCRIPTS --&gt;
+&lt;script src=&quot;assets/js/jquery-1.8.3.min.js&quot;&gt;&lt;/script&gt;
+&lt;!--[if lt IE 9]&gt;
+&lt;script src=&quot;assets/js/excanvas.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/js/respond.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+&lt;script src=&quot;assets/breakpoints/breakpoints.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/jquery-slimscroll/jquery.slimscroll.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/fullcalendar/fullcalendar/fullcalendar.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/js/jquery.blockui.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/js/jquery.cookie.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/js/app.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+jQuery(document).ready(function() {
+  App.setPage(&quot;index&quot;);  // set current page
+  App.init(); // init the rest of plugins and elements
+});
+&lt;/script&gt;
+&lt;!-- END JAVASCRIPTS --&gt;
+</pre>
+                      
+            <h3>HTML Code Comment Sample</h3>
+            <p>
+            All the html, css and javascript file contents have easy to refer and meaningful comments:
+            </p> 
+            <pre class="prettyprint linenums">&lt;!-- BEGIN LOGO --&gt;
+&lt;a class=&quot;brand&quot; href=&quot;index.html&quot;&gt;
+&lt;img src=&quot;assets/img/logo.png&quot; alt=&quot;logo&quot; /&gt;
+&lt;/a&gt;
+&lt;!-- END LOGO --&gt;
+&lt;!-- BEGIN RESPONSIVE MENU TOGGLER --&gt;
+&lt;a href=&quot;javascript:;&quot; class=&quot;btn-navbar collapsed&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.nav-collapse&quot;&gt;
+&lt;img src=&quot;assets/img/menu-toggler.png&quot; alt=&quot;&quot; /&gt;
+&lt;/a&gt;          
+&lt;!-- END RESPONSIVE MENU TOGGLER --&gt;</pre>
+  
+          <h3>CSS Code Comment Sample</h3>
+          <pre class="prettyprint linenums">
+/***
+Header and header elements.
+***/
+.header {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.header .brand {
+  margin-top: -1px;
+}
+          </pre>  
+          <h3>Javascript Code Comment Sample</h3>
+          <pre class="prettyprint linenums">var initDrag = function (el) {
+  // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+  // it doesn't need to have a start or end
+  var eventObject = {
+      title: $.trim(el.text()) // use the element's text as the event title
+  };
+  // store the Event Object in the DOM element so we can get to it later
+  el.data('eventObject', eventObject);
+  // make the event draggable using jQuery UI
+}</pre>  
+          </section>
+        </div>
+      </div>
+    
+
+        <div class="row">
+          <div class="span12">
+            <section id="font">
+              <div class="page-header">
+                <h1>3. Font</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                Metronic uses Open Sans font from google fonts. The font imported in main css file: <code>assets/style.css</code>
+              </p>
+              <pre class="prettyprint linenums">
+/***
+Import fonts
+***/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+              </pre> 
+            </section> 
+          </div>  
+        </div>  
+
+
+        <div class="row">
+          <div class="span12">
+            <section id="theme_config">
+              <div class="page-header">
+                <h1>4. Theme Configuration</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+
+              <h3>Setup Theme</h3>
+              <p>
+                Metronic comes with 5 color themes, <code>default</code>, <code>blue</code>, <code>brown</code>, <code>purple</code>, <code>light</code>.
+                To setup a selected theme. Include <code>style_[theme_name].css</code> in page head.
+                For instance, if you like to use blue theme, include <code>style_blue.css</code> css file. CSS file load order should be followed as shown below:
+              </p>
+              <pre class="prettyprint linenums">
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;Metronic Admin Dashboard Template&lt;/title&gt;
+  &lt;meta content=&quot;width=device-width, initial-scale=1.0&quot; name=&quot;viewport&quot; /&gt;
+  &lt;meta content=&quot;&quot; name=&quot;description&quot; /&gt;
+  &lt;meta content=&quot;&quot; name=&quot;author&quot; /&gt;
+  &lt;link href=&quot;assets/bootstrap/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;link href=&quot;assets/css/metro.css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;link href=&quot;assets/bootstrap/css/bootstrap-responsive.min.css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;link href=&quot;assets/font-awesome/css/font-awesome.css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;link href=&quot;assets/css/style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;link href=&quot;assets/css/style_responsive.css&quot; rel=&quot;stylesheet&quot; /&gt;
+  <div class="label">&lt;link href=&quot;assets/css/style_blue.css&quot; rel=&quot;stylesheet&quot; /&gt;</div>
+  &lt;link href=&quot;assets/fancybox/source/jquery.fancybox.css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/gritter/css/jquery.gritter.css&quot; /&gt;
+  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/uniform/css/uniform.default.css&quot; /&gt;
+  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/bootstrap-daterangepicker/daterangepicker.css&quot; /&gt;
+  &lt;link href=&quot;assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;assets/ico/apple-touch-icon-57-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;shortcut icon&quot; href=&quot;assets/ico/favicon.png&quot;&gt;
+&lt;/head&gt;
+              </pre> 
+
+               <h3>Disable Fixed Header</h3>
+              <p>
+                Metronic by default uses fixed header mode. To disable fixed header:
+
+                <ol>
+                  <li>Remove <code>fixed-top</code> class from body element <code>&lt;body class=&quot;fixed-top&quot;&gt;</code></li> 
+                 <li>Remove <code>navbar-fixed</code> class from header container element <code>&lt;div class=&quot;header navbar navbar-inverse navbar-fixed-top&quot;&gt;</code></li> 
+                </ol>
+
+              </p>
+
+              <h3>Default Hidden Sidebar</h3>
+              <p>
+                To set default hidden sidebar just add <code>sidebar-closed</code> class to the page container as shown below:
+<pre class="prettyprint linenums">
+&lt;!-- BEGIN CONTAINER --&gt;
+<span class="label">&lt;div class=&quot;page-container row-fluid sidebar-closed&quot;&gt;</span>
+  &lt;div class=&quot;page-sidebar nav-collapse collapse&quot;&gt;
+  &lt;!-- SIDEBAR MENU GOES HERE --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- END CONTAINER --&gt;
+</pre>
+              </p>
+
+            </section> 
+          </div>  
+        </div>  
+
+        <div class="row">
+          <div class="span12">
+            <section id="top_menu">
+              <div class="page-header">
+                <h1>5. Top Menu</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                Top menu enables an easy access to most frequently accessed information and pages.
+              </p>  
+              <img src="assets/i/top_menu_1.png" class="img-polaroid">
+              <img src="assets/i/top_menu_2.jpg" class="img-polaroid">
+            </i>
+              <h3>Top Menu Dropdown Options</h3>              
+              <pre class="prettyprint linenums">
+&lt;!-- BEGIN TOP NAVIGATION MENU --&gt;          
+&lt;ul class=&quot;nav pull-right&quot;&gt;
+  &lt;!-- BEGIN NOTIFICATION DROPDOWN --&gt;  
+  &lt;li class=&quot;dropdown&quot; id=&quot;header_notification_bar&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+    &lt;i class=&quot;icon-warning-sign&quot;&gt;&lt;/i&gt;
+    &lt;span class=&quot;badge&quot;&gt;9&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;dropdown-menu extended notification&quot;&gt;
+      &lt;!-- BEGIN DROPDOWN HEADER --&gt;
+      &lt;li&gt;
+        &lt;p&gt;You have 14 new notifications&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;!-- END DROPDOWN  HEADER --&gt;
+      &lt;!-- BEGIN DROPDOWN ITEM --&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          &lt;span class=&quot;label label-success&quot;&gt;&lt;i class=&quot;icon-plus&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+          New user registered. 
+          &lt;span class=&quot;time&quot;&gt;Just now&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;!-- END DROPDOWN ITEM --&gt;
+      &lt;!-- BEGIN DROPDOWN ITEM --&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          &lt;span class=&quot;label label-important&quot;&gt;&lt;i class=&quot;icon-bolt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+          Server #12 overloaded. 
+          &lt;span class=&quot;time&quot;&gt;15 mins&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;!-- END DROPDOWN ITEM --&gt;
+      &lt;!-- BEGIN DROPDOWN BOTTOM PANEL --&gt;
+      &lt;li class=&quot;external&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;See all notifications &lt;i class=&quot;m-icon-swapright&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;!-- END DROPDOWN BOTTOM PANEL --&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;!-- END NOTIFICATION DROPDOWN --&gt;
+
+  &lt;!-- BEGIN USER LOGIN DROPDOWN --&gt;
+  &lt;li class=&quot;dropdown user&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+    &lt;img alt=&quot;&quot; src=&quot;assets/img/avatar-mini.png&quot; /&gt;
+    &lt;span class=&quot;username&quot;&gt;Bob Nilson&lt;/span&gt;
+    &lt;i class=&quot;icon-angle-down&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt; My Profile&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt; My Calendar&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-tasks&quot;&gt;&lt;/i&gt; My Tasks&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;login.html&quot;&gt;&lt;i class=&quot;icon-key&quot;&gt;&lt;/i&gt; Log Out&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;!-- END USER LOGIN DROPDOWN --&gt;
+&lt;/ul&gt;
+&lt;!-- END TOP NAVIGATION MENU --&gt;  
+              </pre>              
+            </section> 
+          </div>  
+        </div> 
+
+
+         <div class="row">
+          <div class="span12">
+            <section id="main_menu">
+              <div class="page-header">
+                <h1>6. Main Menu</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                Metronic supports flexible 2 level navigation menu.
+              </p>  
+              <img src="assets/i/main_menu.jpg" class="img-polaroid">
+            </i>
+              <h3>Main Menu Options</h3>              
+              <pre class="prettyprint linenums">
+&lt;!-- BEGIN SIDEBAR MENU --&gt;         
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;!-- BEGIN SIDEBAR TOGGLER BUTTON --&gt;
+    &lt;div class=&quot;sidebar-toggler hidden-phone&quot;&gt;&lt;/div&gt;
+    &lt;!-- BEGIN SIDEBAR TOGGLER BUTTON --&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;!-- BEGIN RESPONSIVE QUICK SEARCH FORM --&gt;
+    &lt;form class=&quot;sidebar-search&quot;&gt;
+      &lt;div class=&quot;input-box&quot;&gt;
+        &lt;a href=&quot;javascript:;&quot; class=&quot;remove&quot;&gt;&lt;/a&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;Search...&quot; /&gt;       
+        &lt;input type=&quot;button&quot; class=&quot;submit&quot; value=&quot; &quot; /&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;!-- END RESPONSIVE QUICK SEARCH FORM --&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;start active &quot;&gt;
+    &lt;a href=&quot;index.html&quot;&gt;
+    &lt;i class=&quot;icon-home&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Dashboard&lt;/span&gt;
+    &lt;span class=&quot;selected&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;has-sub &quot;&gt;
+    &lt;a href=&quot;javascript:;&quot;&gt;
+    &lt;i class=&quot;icon-bookmark-empty&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;UI Features&lt;/span&gt;
+    &lt;span class=&quot;arrow &quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;sub&quot;&gt;
+      &lt;li &gt;&lt;a href=&quot;ui_general.html&quot;&gt;General&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;ui_buttons.html&quot;&gt;Buttons&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;ui_tabs_accordions.html&quot;&gt;Tabs &amp; Accordions&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;ui_sliders.html&quot;&gt;Sliders&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;ui_tiles.html&quot;&gt;Tiles&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;ui_typography.html&quot;&gt;Typography&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;has-sub &quot;&gt;
+    &lt;a href=&quot;javascript:;&quot;&gt;
+    &lt;i class=&quot;icon-table&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Form Stuff&lt;/span&gt;
+    &lt;span class=&quot;arrow &quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;sub&quot;&gt;
+      &lt;li &gt;&lt;a href=&quot;form_layout.html&quot;&gt;Form Layouts&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;form_component.html&quot;&gt;Form Components&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;form_wizard.html&quot;&gt;Form Wizard&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;form_validation.html&quot;&gt;Form Validation&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;form_fileupload.html&quot;&gt;Multiple File Upload&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;form_dropzone.html&quot;&gt;Dropzone File Upload&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;has-sub &quot;&gt;
+    &lt;a href=&quot;javascript:;&quot;&gt;
+    &lt;i class=&quot;icon-th-list&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Data Tables&lt;/span&gt;
+    &lt;span class=&quot;arrow &quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;sub&quot;&gt;
+      &lt;li &gt;&lt;a href=&quot;table_basic.html&quot;&gt;Basic Tables&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;table_managed.html&quot;&gt;Managed Tables&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;table_editable.html&quot;&gt;Editable Tables&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;has-sub &quot;&gt;
+    &lt;a href=&quot;javascript:;&quot;&gt;
+    &lt;i class=&quot;icon-th-list&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Portlets&lt;/span&gt;
+    &lt;span class=&quot;arrow &quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;sub&quot;&gt;
+      &lt;li &gt;&lt;a href=&quot;portlet_general.html&quot;&gt;General Portlets&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;portlet_draggable.html&quot;&gt;Draggable Portlets&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;has-sub &quot;&gt;
+    &lt;a href=&quot;javascript:;&quot;&gt;
+    &lt;i class=&quot;icon-map-marker&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Maps&lt;/span&gt;
+    &lt;span class=&quot;arrow &quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;sub&quot;&gt;
+      &lt;li &gt;&lt;a href=&quot;maps_google.html&quot;&gt;Google Maps&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;maps_vector.html&quot;&gt;Vector Maps&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;&quot;&gt;
+    &lt;a href=&quot;charts.html&quot;&gt;
+    &lt;i class=&quot;icon-bar-chart&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Visual Charts&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;&quot;&gt;
+    &lt;a href=&quot;calendar.html&quot;&gt;
+    &lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Calendar&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;&quot;&gt;
+    &lt;a href=&quot;gallery.html&quot;&gt;
+    &lt;i class=&quot;icon-camera&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Gallery&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;has-sub &quot;&gt;
+    &lt;a href=&quot;javascript:;&quot;&gt;
+    &lt;i class=&quot;icon-briefcase&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Extra&lt;/span&gt;
+    &lt;span class=&quot;arrow &quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;sub&quot;&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_profile.html&quot;&gt;User Profile&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_faq.html&quot;&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_search.html&quot;&gt;Search Results&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_invoice.html&quot;&gt;Invoice&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_pricing_table.html&quot;&gt;Pricing Tables&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_404.html&quot;&gt;404 Page&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_500.html&quot;&gt;500 Page&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_blank.html&quot;&gt;Blank Page&lt;/a&gt;&lt;/li&gt;
+      &lt;li &gt;&lt;a href=&quot;extra_full_width.html&quot;&gt;Full Width Page&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;&quot;&gt;
+    &lt;a href=&quot;login.html&quot;&gt;
+    &lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt; 
+    &lt;span class=&quot;title&quot;&gt;Login Page&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- END SIDEBAR MENU --&gt;
+              </pre>
+           </section> 
+          </div>  
+        </div>     
+
+
+
+        <div class="row">
+          <div class="span12">
+              <section id="new_page">
+              <div class="page-header">
+                <h1>7. New Page</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                To create a new page, you can use <code>extra_blank.html</code> which provides basic page layout 
+                which you can extend and modify further.
+              </p> 
+              </section> 
+          </div>  
+        </div>    
+
+
+        <div class="row">
+          <div class="span12">
+            <section id="buttons">
+              <div class="page-header">
+                <h1>8. Buttons</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                Button styles can be applied to any element with the .btn class applied. 
+                Basically, you'll want to apply these to only  
+                <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code> elements.
+              </p> 
+              <img src="assets/i/buttons.png" class="img-polaroid">
+              <p></p>
+              <table class="table table-bordered table-striped" width="600">
+                  <thead>
+                    <tr>
+                      <th>class=""</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;Default button&lt;/button&gt;</code></td>
+                      <td>Default button</td>
+                    </tr>
+                    <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn blue&quot;&gt;Blue button&lt;/button&gt;</code></td>
+                      <td>Blue button</td>
+                    </tr>
+                    <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn red&quot;&gt;Red button&lt;/button&gt;</code></td>
+                      <td>Red button</td>
+                    </tr>
+                    <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn green&quot;&gt;Green button&lt;/button&gt;</code></td>
+                      <td>Green button</td>
+                    </tr>
+                    <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn purple&quot;&gt;Purple button&lt;/button&gt;</code></td>
+                      <td>Purple button</td>
+                    </tr>
+                    <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn yellow&quot;&gt;Yellow button&lt;/button&gt;</code></td>
+                      <td>Yellow button</td>
+                    </tr>
+                    <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn grey&quot;&gt;Grey button&lt;/button&gt;</code></td>
+                      <td>Grey button</td>
+                    </tr>
+
+                     <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn grey mini&quot;&gt;Grey Mini button&lt;/button&gt;</code></td>
+                      <td>Grey Mini button</td>
+                    </tr>
+
+                     <tr>
+                      <td><code>&lt;button type=&quot;button&quot; class=&quot;btn grey big&quot;&gt;Huge button&lt;/button&gt;</code></td>
+                      <td>Huge button</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section> 
+          </div>  
+        </div> 
+
+
+         <div class="row">
+          <div class="span12">
+              <section id="init">
+              <div class="page-header">
+                <h1>9. Javascript Initialization</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                All javascript initialization implemented in <code>assets/js/app.js</code> thorugh App object as shown below.
+                This approach enables an easy modular implementation to initialize jquery plugins and other application logics.
+              </p> 
+<pre class="prettyprint linenums">
+var App = function () {
+
+    var localVariable; //local variable
+
+    var sampleFunction = function() {
+       //sample function code
+    }
+
+    return {
+
+        //main method to initiate template pages
+        init: function () {           
+            sampleFunction() // call local function
+        },
+
+        //sample method declaration
+        sampleMethod: function (test) 
+        {
+          alert(test);
+      }
+
+    };
+
+}();
+</pre>
+
+  <h3>Handler Functions</h3>
+  <p>
+  Below will be listed all handler functons implemented in App object:
+  </p>  
+  
+  <h3>handleResponsive</h3>
+  <p>
+Handles responsive layout on screen size resize or mobile device rotate.
+  </p> 
+
+  <h3>handlePortletSortable</h3>
+  <p>
+Handles draggable portlets(grids.html).
+  </p> 
+
+   <h3>handleSidebarToggler</h3>
+  <p>
+Handles sidebar hide/close.
+  </p> 
+    
+  <h3>handleJQVMAP</h3>
+  <p>
+  Initializes JQMAP(vector maps) for Dashboard page(index.html).
+  </p> 
+
+  <h3>handleAllJQVMAP</h3>
+  <p>
+  Initializes JQMAP(vector maps) for Vector Maps page(maps_vector.html).
+  </p> 
+
+  <h3>handleDashboardCalendar</h3>
+  <p>
+  Initializes & handles Full Calendar instance for dashboard page(index.html).
+  </p> 
+
+  <h3>handleCalendar</h3>
+  <p>
+ Initializes & handles Full Calendar instance for calendar page(calendar.html).
+  </p> 
+
+  <h3>handleMainMenu</h3>
+  <p>
+ Initializes & handles sidebar navigation menu(the main menu).
+  </p> 
+
+  <h3>handlePortletTools</h3>
+  <p>
+ Initializes & handles portlet tools as described in below image.
+  </p> 
+  <img src="assets/i/portlet_tools.png">
+
+  <h3>handleDashboardCharts</h3>
+  <p>
+   Initializes & handles dashboard charts(Site Visits, Activities, Server Load).
+  </p> 
+
+  <h3>handleCharts</h3>
+  <p>
+   Initializes & handles charts for Charts page(charts.html).
+  </p> 
+
+  <h3>handleFancyBox</h3>
+  <p>
+  Initializes & handles jQuery FancyBox plugin(gallery.html)
+  </p> 
+
+   <h3>handleLoginForm</h3>
+  <p>
+  Initializes & handles login form(login.html)
+  </p>  
+
+  <h3>handleFixInputPlaceholderForIE</h3>
+  <p>
+  Fixes and enabled HTML5 input placeholder support for Internet Explorer 8 & 9.
+  </p>  
+
+  <h3>handlePulsate</h3>
+  <p>
+   Initializes & handles jQuery Pulsate plugin(ui_general.html)
+  </p>  
+
+  <h3>handleGritterNotifications</h3>
+  <p>
+   Initializes & handles jQuery Gritter Notifications Plugin(ui_general.html)
+  </p>  
+
+  <h3>handleTooltip</h3>
+  <p>
+    Initializes & handles Bootstrap Tooltip Plugin(ui_general.html)
+  </p>  
+
+
+  <h3>handlePopover</h3>
+  <p>
+    Initializes & handles Bootstrap Popover Plugin(ui_general.html)
+  </p> 
+  
+
+  <h3>handleChoosenSelect</h3>
+  <p>
+    Initializes & handles Bootstrap Choosen Plugin(form_component.html)
+  </p>  
+
+
+  <h3>handleUniform</h3>
+  <p>
+    Initializes & handles jQuery Uniform Plugin(form_component.html)
+  </p>  
+
+
+  <h3>handleWysihtml5</h3>
+  <p>
+    Initializes & handles Bootstrap WYSIHTML5 Editor Plugin(form_component.html)
+  </p>  
+
+
+  <h3>handleToggleButtons</h3>
+  <p>
+     Initializes & handles Bootstrap Toggle Button Plugin(form_component.html)
+  </p>  
+
+
+  <h3>handleTables</h3>
+  <p>
+    Initializes & handles Bootstrap DataTables(form_component.html)
+  </p> 
+
+  <h3>handleDateTimePickers</h3>
+  <p>
+     Initializes & handles Bootstrap Date Time Picker Plugin(form_component.html)
+  </p> 
+
+  <h3>handleClockfaceTimePickers</h3>
+  <p>
+     Initializes & handles Bootstrap Clockface Time Picker Plugin(form_component.html)
+  </p> 
+  
+  <h3>handleColorPicker</h3>
+  <p>
+     Initializes & handles Bootstrap Color Picker Plugin(form_component.html)
+  </p> 
+  
+  <h3>handleAccordions</h3>
+  <p>
+    Initializes & handles Bootstrap Accordion(Collapse) Plugin(ui_tabs_accordions.html)
+  </p> 
+
+  <h3>handleGoTop</h3>
+  <p>
+     Initializes & handles <code>go to top</code> button at footer.
+  </p> 
+
+
+  <h3>handleChat</h3>
+  <p>
+      Initializes & handles Chat sample in dashboard(index.html)
+  </p> 
+
+
+  <h3>handleFormWizards</h3>
+  <p>
+      Initializes & handles Form Wizard(form_wizard.html)
+  </p> 
+
+
+  <h3>handleStyler</h3>
+  <p>
+      Initializes & handles style swicher panel.
+  </p> 
+  
+  <h3>handleIntro</h3>
+  <p>
+      Initializes & handles template introduction(using gritter notifications).
+  </p> 
+
+   <h3>handleEditableTables</h3>
+  <p>
+      Initializes & handles edtiable data table samples.
+  </p> 
+  
+     <h3>handleSliders</h3>
+  <p>
+      Initializes & handles jQuery UI sliders samples.
+  </p> 
+  
+       <h3>handlKnobElements</h3>
+  <p>
+      Initializes & handles jQuery Knob(Circle dial) Element samples.
+  </p> 
+
+         <h3>handlKnobElements</h3>
+  <p>
+      Initializes & handles jQuery Knob(Circle dial) Element samples.
+  </p> 
+
+  <h3>handleFormValidation</h3>
+  <p>
+      Initializes & handles form validaiton samples with jQuery Validation Plugin.
+  </p> 
+  
+   <h3>handleTree</h3>
+  <p>
+      Initializes & handles Tree View samples with Bootstrap Tree Plugin.
+  </p> 
+
+     <h3>handleNestableList</h3>
+  <p>
+      Initializes & handles Nestable List samples with jQuery Nestable Plugin.
+  </p> 
+              </section> 
+          </div>  
+        </div>    
+
+        
+
+        <div class="row">
+          <div class="span12">
+              <section id="references">
+              <div class="page-header">
+                <h1>10. References</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                Below is the list of all plugins and external resources used to power this template.
+              </p> 
+              <table class="table table-bordered table-striped" width="600">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>URL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>jQuery 1.8.3</td>
+                      <td>Core Javascript library</td>
+                      <td><a href="http://www.jquery.com" target="_blank">http://www.jquery.com</a></td>
+                    </tr>
+                    <tr>
+                      <td>Twitter Bootstrap v2.3.1</td>
+                      <td>Sleek, intuitive, and powerful front-end framework for faster and easier web development</td>
+                      <td><a href="http://twitter.github.com/bootstrap/" target="_blank">http://twitter.github.com/bootstrap/</a></td>
+                    </tr>
+                    <tr>
+                      <td>jQuery UI Sliders</td>
+                      <td>jQuery UI Sliders</td>
+                      <td><a href="http://jqueryui.com/slider/" target="_blank">http://jqueryui.com/slider/</a></td>
+                    </tr>
+                    <tr>
+                      <td>jQuery UI Sortable</td>
+                      <td>jQuery UI Sortable</td>
+                      <td><a href="http://jqueryui.com/sortable/" target="_blank">http://jqueryui.com/sortable/</a></td>
+                    </tr>
+                    <tr>
+                      <td>jQuery BlockUI</td>
+                      <td>The jQuery BlockUI Plugin lets you simulate synchronous behavior when using AJAX, without locking the browser</td>
+                      <td><a href="http://jquery.malsup.com/block/" target="_blank">http://jquery.malsup.com/block/</a></td>
+                    </tr>
+                    <tr>
+                      <td>BREAKPOINTS.JS</td>
+                      <td>
+                        Define breakpoints for your responsive design, and Breakpoints.js will fire custom events when the browser enters and/or exits that breakpoint
+                      </td>
+                      <td><a href="http://xoxco.com/projects/code/breakpoints/" target="_blank">
+                        http://xoxco.com/projects/code/breakpoints/</a></td>
+                    </tr>
+                    <tr>
+                      <td>jQuery Cookie</td>
+                      <td>A simple, lightweight jQuery plugin for reading, writing and deleting cookies.</td>
+                      <td><a href="https://github.com/carhartl/jquery-cookie" target="_blank">https://github.com/carhartl/jquery-cookie</a></td>
+                    </tr>
+                    <tr>
+                      <td>jQuery Pulsate</td>
+                      <td>jQuery Pulsate provides animated pulsating effect that's useful for focussing attention to a certain part 
+                        of your webpage in a subtle way.</td>
+                      <td><a href="http://kilianvalkhof.com/jquerypulsate/" target="_blank">http://kilianvalkhof.com/jquerypulsate/</a></td>
+                    </tr>
+                    <tr>
+                      <td>Respond</td>
+                      <td>A fast & lightweight polyfill for min/max-width and CSS3 Media Queries (for IE 6-8, and more)</td>
+                      <td><a href="https://github.com/scottjehl/Respond" target="_blank">https://github.com/scottjehl/Respond</a></td>
+                    </tr>
+                    <tr>
+                      <td>Excanvas</td>
+                      <td>Modern browsers like Firefox, Safari, Chrome and Opera support the HTML5 canvas tag to allow 2D command-based drawing. ExplorerCanvas brings the same functionality to Internet Explorer. To use, web developers only need to include a single script tag in their existing web pages</td>
+                      <td><a href="http://excanvas.sourceforge.net/" target="_blank">http://excanvas.sourceforge.net/</a></td>
+                    </tr>
+                    <tr>
+                      <td>Colorpicker for Bootstrap</td>
+                      <td>Add color picker to field or to any other element</td>
+                      <td><a href="http://www.eyecon.ro/bootstrap-colorpicker/" target="_blank">http://www.eyecon.ro/bootstrap-colorpicker/</a></td>
+                    </tr>
+                    <tr>
+                      <td>Datepicker for Bootstrap</td>
+                      <td>Add datepicker picker to field or to any other element</td>
+                      <td><a href="http://www.eyecon.ro/bootstrap-datepicker/" target="_blank">http://www.eyecon.ro/bootstrap-datepicker/</a></td>
+                    </tr>
+                    <tr>
+                      <td>Date Range Picker for Bootstrap</td>
+                      <td>This date range picker component for Twitter Bootstrap creates a dropdown menu from which a user can select a range of dates
+                      </td>
+                      <td><a href="https://github.com/dangrossman/bootstrap-daterangepicker" target="_blank">https://github.com/dangrossman/bootstrap-daterangepicker</a></td>
+                    </tr>
+                    <tr>
+                      <td>Bootstrap Timepicker</td>
+                      <td>Easily select a time for a text input using your mouse or keyboards arrow keys.</td>
+                      <td><a href="http://jdewit.github.com/bootstrap-timepicker/" target="_blank">http://jdewit.github.com/bootstrap-timepicker/</a></td>
+                    </tr>
+                    <tr>
+                      <td>Clockface Timepicker</td>
+                      <td>Clockface is a simple timepicker for Twitter Bootstrap</td>
+                      <td><a href="http://vitalets.github.com/clockface/" target="_blank">http://vitalets.github.com/clockface/</a></td>
+                    </tr>
+                    <tr>
+                      <td>jQuery Tags Input</td>
+                      <td>Magically convert a simple text input into a cool tag list with this jQuery plugin</td>
+                      <td><a href="https://github.com/xoxco/jQuery-Tags-Input" target="_blank">https://github.com/xoxco/jQuery-Tags-Input</a></td>
+                    </tr>
+                    <tr>
+                      <td>Bootstrap Toggle</td>
+                      <td>Bootstrap Toggle Buttons Plugin</td>
+                      <td><a href="https://github.com/nostalgiaz/bootstrap-toggle-buttons" target="_blank">https://github.com/nostalgiaz/bootstrap-toggle-buttons</a></td>
+                    </tr>
+                    <tr>
+                      <td>Bootstrap WYSIWYG5</td>
+                      <td>Simple WYSIWYG Editor for Bootstrap</td>
+                      <td><a href="http://jhollingworth.github.com/bootstrap-wysihtml5/" target="_blank">http://jhollingworth.github.com/bootstrap-wysihtml5/</a></td>
+                    </tr>
+                    <tr>
+                      <td>CKEditor</td>
+                      <td>CKEditor is a ready-for-use HTML text editor designed to simplify web content creation</td>
+                      <td><a href="http://ckeditor.com/" target="_blank">http://ckeditor.com/</a></td>
+                    </tr>
+                    <tr>
+                      <td>Chosen for Twitter Bootstrap</td>
+                      <td>Chosen is a JavaScript plugin that makes long, unwieldy select boxes much more user-friendly</td>
+                      <td><a href="http://chosen-sass-bootstrap.herokuapp.com/" target="_blank">http://chosen-sass-bootstrap.herokuapp.com/</a></td>
+                    </tr>
+                    <tr>
+                      <td>DataTables</td>
+                      <td>DataTables for Twitter Bootstrap</td>
+                      <td><a href="http://www.datatables.net/blog/Twitter_Bootstrap_2" target="_blank">http://www.datatables.net/blog/Twitter_Bootstrap_2</a></td>
+                    </tr>
+                     <tr>
+                      <td>Bootstrap Fileupload</td>
+                      <td>The file upload plugin allows you to create a visually appealing file or image upload widgets</td>
+                      <td><a href="http://jasny.github.com/bootstrap/javascript.html#fileupload" target="_blank">http://jasny.github.com/bootstrap/javascript.html#fileupload</a></td>
+                    </tr>
+                    <tr>
+                      <td>FancyBox</td>
+                      <td>FancyBox is a tool for displaying images, html content and multi-media</td>
+                      <td><a href="http://fancybox.net/" target="_blank">http://fancybox.net/</a></td>
+                    </tr>
+                     <tr>
+                      <td>Flot</td>
+                      <td>Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features.</td>
+                      <td><a href="http://www.flotcharts.org/" target="_blank">http://www.flotcharts.org/</a></td>
+                    </tr>
+                    <tr>
+                      <td>gmaps.js</td>
+                      <td>gmaps.js allows you to use the potential of Google Maps in a simple way.
+                          No more extensive documentation or large amount of code
+                      </td>
+                      <td><a href="http://hpneo.github.com/gmaps/" target="_blank">http://hpneo.github.com/gmaps/</a></td>
+                    </tr>
+                     <tr>
+                      <td>FullCalendar</td>
+                      <td>FullCalendar is a jQuery plugin that provides a full-sized, drag & drop calendar</td>
+                      <td><a href="http://arshaw.com/fullcalendar/" target="_blank">http://arshaw.com/fullcalendar/</a></td>
+                    </tr>
+                     <tr>
+                      <td>Gritter Notifications</td>
+                      <td>The super awesome background is just to show you that all notifications are transparent</td>
+                      <td><a href="http://boedesign.com/demos/gritter/" target="_blank">http://boedesign.com/demos/gritter/</a></td>
+                    </tr>
+                     <tr>
+                      <td>jQuery slimScroll</td>
+                      <td>slimScroll is a small (3.7KB) jQuery plugin that transforms any div into a scrollable area with a nice scrollbar </td>
+                      <td><a href="http://rocha.la/jQuery-slimScroll" target="_blank">http://rocha.la/jQuery-slimScroll</a></td>
+                    </tr>
+                     <tr>
+                      <td>JQVMAP</td>
+                      <td>JQVMap is a jQuery plugin that renders Vector Maps.  It uses resizable Scalable Vector Graphics (SVG) for modern browsers like Firefox, Safari, Chrome, Opera and Internet Explorer 9.  Legacy support for older versions of Internet Explorer 6-8 is provided via VML.</td>
+                      <td><a href="http://jqvmap.com/" target="_blank">http://jqvmap.com/</a></td>
+                    </tr>
+                     <tr>
+                      <td>Uniform</td>
+                      <td>Uniform masks your standard form controls with custom themed controls. It works in sync with your real form elements to ensure accessibility and compatibility</td>
+                      <td><a href="http://uniformjs.com/" target="_blank">http://uniformjs.com/</a></td>
+                    </tr>
+                     <tr>
+                      <td>jQuery File Upload</td>
+                      <td>File Upload widget with multiple file selection, drag&drop support, progress bars and preview images for jQuery</td>
+                      <td><a href="http://blueimp.github.com/jQuery-File-Upload/" target="_blank">http://blueimp.github.com/jQuery-File-Upload/</a></td>
+                    </tr>
+                    <tr>
+                      <td>DropzoneJS</td>
+                      <td>DropzoneJS is an open source library that provides drag'n'drop file uploads with image previews.</td>
+                      <td><a href="http://touchpunch.furf.com/" target="_blank">http://www.dropzonejs.com/</a></td>
+                    </tr>
+                    <tr>
+                      <td>jQuery UI Touch Punch</td>
+                      <td>jQuery UI Touch Punch is a small hack that enables the use of touch events on sites using the jQuery UI user interface library.</td>
+                      <td><a href="http://touchpunch.furf.com/" target="_blank">http://touchpunch.furf.com/</a></td>
+                    </tr>
+                    <tr>
+                      <td>Bootstrap Tree</td>
+                      <td>A lightweight Tree component, built for use with the Twitter Bootstrap framework.</td>
+                      <td><a href="https://github.com/cutterbl/Bootstrap-Tree" target="_blank">https://github.com/cutterbl/Bootstrap-Tree</a></td>
+                    </tr>
+                    <tr>
+                      <td>Nestable</td>
+                      <td>Drag & drop hierarchical list with mouse and touch compatibility.</td>
+                      <td><a href="https://github.com/dbushell/Nestable" target="_blank">https://github.com/dbushell/Nestable</a></td>
+                    </tr> 
+                      <tr>
+                      <td>jQuery Validation Plugin</td>
+                      <td>The jQuery Validation Plugin provides drop-in validation for your existing forms, while making all kinds of customizations to fit your application really easy</td>
+                      <td><a href="http://bassistance.de/jquery-plugins/jquery-plugin-validation/" target="_blank">http://bassistance.de/jquery-plugins/jquery-plugin-validation/</a></td>
+                    </tr>                    
+                    <tr>
+                      <td>Font Awesome</td>
+                      <td>The iconic font designed for use with Twitter Bootstrap</td>
+                      <td><a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">http://fortawesome.github.com/Font-Awesome/</a></td>
+                    </tr>
+                     <tr>
+                      <td>Glyphicons Pro</td>
+                      <td>Icons are designed primarily for toolbars and navigation bars in OS X Lion, the application for iPhone, iPhone 4, iPad and other Apple devices.</td>
+                      <td><a href="http://glyphicons.com/" target="_blank">http://glyphicons.com/</a></td>
+                    </tr>                    
+                    <tr>
+                      <td>Open Sans</td>
+                      <td>
+                        Metornic uses Open Sans web font from google fonts:
+                        http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700</td>
+                      <td><a href="http://www.google.com/webfonts" target="_blank">http://www.google.com/webfonts</a></td>
+                    </tr>
+                  </tbody>
+               </table>     
+              </section> 
+          </div>  
+        </div>    
+
+        <div class="row">
+          <div class="span12">
+              <section id="log">
+                <div class="page-header">
+                    <h1>11. Change Log</h1>
+                    <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+                </div>
+                <h4>Version 1.1.2 – 17 March 2013</h4>
+                <ul>
+                    <li>NEW: Advance Form Samples(form_samples.html)</li>
+                    <li>NEW: Advance Form Validation(form_validation.html)</li>
+                    <li>NEW: Integrated Tree Views(ui_tree.html)</li>
+                    <li>NEW: Integrated Nestable Lists(ui_nestable.html)</li>
+                    <li>NEW: Touch Support For Sliders(ui_sliders.html)</li>
+                    <li>IMPROVEMENT: Some code improvements</li>                               
+                    <li>FIXED: Some minor bug fixing</li>
+                </ul>
+                <br>
+                <h4>Version 1.1.1 – 10 March 2013</h4>
+                <ul>
+                    <li>NEW: Integrated jQuery UI Sliders(ui_sliders.html)</li>
+                    <li>NEW: jQuery Knob - Circle Dials(ui_sliders.html)</li>
+                    <li>NEW: Windows 8 Style Tiles(ui_tiles.html)</li>
+                    <li>NEW: Integrate Multiple File Upload(form_fileupload.html)</li>
+                    <li>NEW: Integrated Dropzone File Upload(form_dropzone.html)</li>
+                    <li>NEW: Inline Editable Data Tables(table_editable.html)</li>
+                    <li>NEW: Full Width Page Layout(extra_full_width.html)</li>  
+                    <li>NEW: Draggable Portlets Moved To a Seperate Page(portlet_draggable.html)</li> 
+                    <li>UPGRADE: Twitter Bootstrap v2.3.1</li>   
+                    <li>IMPROVEMENT: Some code improvements</li>                               
+                    <li>FIXED: Some minor bug fixing</li>
+                </ul>
+                <br>
+                 <h4>Version 1.1 – 26 Februry 2013</h4>
+                <ul>
+                    <li>NEW: GLYPHICONS PRO package(Value $59)</li>
+                    <li>NEW: Show/hide sidebar</li>
+                    <li>NEW: Dragable portlets</li>
+                    <li>NEW: Buttons/dropdowns/pagination in portlet headers</li>
+                    <li>NEW: Styled accordions</li>
+                    <li>NEW: User profile page</li>
+                    <li>NEW: FAQ rage</li>
+                    <li>NEW: Search results page</li>
+                    <li>NEW: Invoice rage</li>
+                    <li>NEW: Bordered form Layout</li>
+                    <li>NEW: 2 new heme colors</li>
+                    <li>FIXED: Some minor bug fixing</li>
+                    <li>IMPROVEMENT: Some code improvements</li>
+                </ul>
+                <br>
+                <h4>Version 1.0 – 13 Februry 2013</h4>
+                <ul>
+                    <li>Initial release</li>
+                </ul>
+              </section> 
+          </div>  
+        </div>    
+
+         <div class="row">
+          <div class="span12">
+              <section id="upgrade">
+              <div class="page-header">
+                <h1>12. Upgrade</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                To upgrade from v1.1.1 to v1.1.2 just replace assets files and if you have done any changes on styles or javascript files, please manually merge those changes. Do not forget to backup your files before upgrading. If you encountered any problem during the upgrade please contact our support at <a href="mailto:support@keenthemes.com">support@keenthemes.com</a>.
+              </p> 
+              </section> 
+          </div>  
+        </div>  
+
+        <div class="row">
+          <div class="span12">
+              <section id="end">
+              <div class="page-header">
+                <h1>13. End Of Documentation</h1>
+                 <a href="javascript:;">To top <i class="icon-arrow-up"></i></a>
+              </div>
+              <p>
+                Once again, thanks for purchasing Metronic. We hope you will enjoy using it for your next project.
+              </p> 
+              </section> 
+          </div>  
+        </div>    
+
+    </div>
+    <!-- END -->
+    <footer class="footer">
+      <div class="container container-narrow">
+        <p>Metronic - Admin Dashboard Template. Designed and built with love by <a href="http://www.keenthemes.com" target="_blank">keenthemes</a> 
+      </div>
+    </footer>
+
+    <!-- Le javascript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery-1.8.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/application.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+
+/* 新加的 */
+.portlet-title .tools > a.remove1 {
+  background-image:url(../img/portlet-remove-icon.png);
+  background-repeat: no-repeat;
+  width: 11px;
+}
+
+.portlet.box .portlet-title .tools > a.remove1, 
+.portlet.solid .portlet-title .tools > a.remove1 {
+  background-image:url(../img/portlet-remove-icon-white.png);
+}
+
+/* .table-hover tbody tr:hover > td,
+.table-hover tbody tr:hover > th {
+  background-color: #35aa47;
+  color: white;
+  cursor: pointer;
+} */
+
+.queryForm{
+	margin: 0 0;
+}
+
+.selectedTr td{
+	background-color: #35aa47 !important;
+	color: white;
+}
+
+.input-append .add-on > .halflings-icon
+ .input-append .add-on > i, .input-append .add-on > [class^="icon-"]{
+ 	margin-top: 10px
+ }

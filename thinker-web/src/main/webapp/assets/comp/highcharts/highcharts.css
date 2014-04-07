@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+.highcharts-contextmenu hr{
+	margin: 0 0 !important;
+	border: 0 !important;
+	border-top: 1px !important;
+	border-bottom: 1px !important;
+}

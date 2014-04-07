@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+
+	<diskStore path="java.io.tmpdir/hibernate/mystyle" />
+
+	<!-- 默认设置-->
+	<defaultCache maxElementsInMemory="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="false" timeToIdleSeconds="300"
+		timeToLiveSeconds="300" overflowToDisk="false" diskPersistent="false" />
+
+	<cache name="org.hibernate.cache.internal.StandardQueryCache"
+		maxElementsInMemory="5" eternal="false" timeToLiveSeconds="3600"
+		overflowToDisk="true" />
+
+	<cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+		maxElementsInMemory="5" eternal="true" overflowToDisk="true" />
+
+	<!-- 特殊对象设置-->
+	<cache name="org.guess.sys.model.User" maxElementsInMemory="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+		overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<cache name="org.guess.sys.model.Role" maxElementsInMemory="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+		overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<cache name="org.guess.sys.model.Resource" maxElementsInMemory="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+		overflowToDisk="true" maxElementsOnDisk="1000000" />
+	<cache name="org.guess.sys.model.Icon" maxElementsInMemory="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+		overflowToDisk="true" maxElementsOnDisk="1000000" />
+</ehcache>
