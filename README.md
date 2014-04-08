@@ -5,7 +5,7 @@ mystyle
 
 ##功能要点简介
 
-* 以springmvc、sprng、hibernate为基础框架搭建java web快速开发手架.ps:(参考<a href="https://github.com/springside" target="_blank">springside4</a>，<a href="https://github.com/zhangkaitao/es" target="_blank">es快速开发手架</a>)
+* 以springmvc、spring、hibernate为基础框架搭建java web快速开发手架.ps:(参考<a href="https://github.com/springside" target="_blank">springside4</a>，<a href="https://github.com/zhangkaitao/es" target="_blank">es快速开发手架</a>)
 * mysql数据库
 * 前端使用基于bootstrap的metronic组件库
 * 使用泛型封装dao、service、controller基类，包含分页，查询条件封装，从而达到快速crud操作
@@ -21,7 +21,7 @@ mystyle
 	* 整合spring
   	* 工作流引擎并完成工作流通用基类、常用工具类
   	* 通用待办,已办,我的流程等常用查询
-  	* 定义业务开发需实现的借口
+  	* 定义业务开发需实现的接口
   	* 流程部署
   	* 请假流程作为例子
 * 集成jsper report动态报表工具(未完成)

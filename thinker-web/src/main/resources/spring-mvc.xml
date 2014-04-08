@@ -34,5 +34,7 @@
 	<mvc:resources mapping="/upload/**" location="/upload/" />
 	<mvc:resources mapping="/metronic_v1.1.2/**" location="/metronic_v1.1.2/" />
 	<mvc:resources mapping="/metronic.bootstrap/**" location="/metronic.bootstrap/" />
+	
+	<mvc:resources mapping="/html/**" location="/html/" />
 
 </beans>
