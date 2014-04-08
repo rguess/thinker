@@ -1,4 +1,4 @@
-mystyle
+thinker
 
 ##介绍
 * 工作中的积累，搭建的j2ee应用快速开发手架，重点在代码重构，一些常用功能的演示，工具，插件等的整理
@@ -49,6 +49,6 @@ mystyle
 	* uniform(表单美化)
 	* jquery blockUI(遮罩层)
 	* ueditor(富文本编辑器)(未完成)
-	* bootstrap-fileupload(未完成)
+	* bootstrap-fileupload(完成)
 	* jquery-file-upload(未完成)
 

@@ -16,8 +16,7 @@
 	<context:component-scan base-package="org.guess">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<value>classpath:jdbc.properties</value>
 		</property>
@@ -42,8 +41,7 @@
 		<property name="maxWait" value="1000" />
 	</bean>
 
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="packagesToScan">
 			<list>
@@ -71,8 +69,7 @@
 	
 	<bean class="org.guess.core.utils.spring.SpringContextUtil"></bean>
 
-	<bean id="txManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>

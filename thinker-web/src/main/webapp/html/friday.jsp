@@ -31,7 +31,10 @@
 					<div class="form-horizontal form-view">
 						<h3 class="form-section">人</h3>
 						<div class="row-fluid">
-							<a class="span2" href="http://baike.baidu.com/view/117611.htm" target="_blank">Linus Torvalds</a>
+							<div class="span2">
+								<a href="http://baike.baidu.com/view/117611.htm" target="_blank">Linus Torvalds</a>
+								<a href="http://www.ruanyifeng.com/blog/2012/09/linus_torvalds.html" target="_blank">自传</a>
+							</div>
 							<a class="span2" href="http://baike.baidu.com/view/3729312.htm" target="_blank">Bruce Eckel</a>
 							<div class="span2">
 								<a href="http://baike.baidu.com/view/992117.htm" target="_blank">springside</a>

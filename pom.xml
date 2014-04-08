@@ -9,6 +9,14 @@
 
 	<name>thinker</name>
 	<url>http://maven.apache.org</url>
+	
+	<repositories>
+	    <repository>
+	      <id>oschina</id>
+	      <name>oschina</name>
+	      <url>http://maven.oschina.net/content/groups/public/</url>
+	    </repository>
+	</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -297,7 +305,7 @@
 			</dependency>
 			<!-- poi end -->
 
-			<!-- apache shiro 相关jar�? -->
+			<!-- apache shiro 相关jar�? -->
 			<dependency>
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-core</artifactId>
