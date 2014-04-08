@@ -62,6 +62,11 @@
 							<a class="span2" href="http://baike.baidu.com/view/309926.htm" target="_blank">敏捷开发</a>
 							<a class="span2" href="http://baike.baidu.com/view/4169795.htm" target="_blank">瀑布模式开发</a>
 						</div>
+						<h3 class="form-section">权限</h3>
+						<div class="row-fluid">
+							<a class="span2" href="http://www.bootcss.com/" target="_blank">shiro</a>
+							<a class="span2" href="http://www.bootcss.com/" target="_blank">RBAC</a>
+						</div>
 					</div>
 				</div>
 				<!-- END FORM-->

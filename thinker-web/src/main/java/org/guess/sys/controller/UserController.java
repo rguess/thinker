@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/sys/user")
-public class UserController extends BaseController<User, UserService> {
+public class UserController extends BaseController<User> {
 
 	{
 		editView = "/sys/user/edit";

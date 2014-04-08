@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/sys/icon")
-public class IconController extends BaseController<Icon, IconService>{
+public class IconController extends BaseController<Icon>{
 
 	{
 		editView = "/sys/icon/edit";

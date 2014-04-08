@@ -160,7 +160,7 @@ public class User extends IdEntity {
 			}
 		}
 		for (Resource r1 : recs) {
-			Set<Resource> userRecs = new HashSet<Resource>();
+			List<Resource> userRecs = new ArrayList<Resource>();
 			for (Resource r2 : allRecs) {
 				if (r2.getParent() != null && r2.getGrade() == Constants.SECOND_MENU
 						&& r2.getParent().getId() == r1.getId()) {
@@ -177,19 +177,12 @@ public class User extends IdEntity {
 			}
 		});
 		for (Resource r1 : recs) {
-			List<Resource> children = new ArrayList<Resource>();
-			children.addAll(r1.getChildRes());
-			Collections.sort(children, new Comparator<Resource>(){
+			Collections.sort(r1.getChildRes(), new Comparator<Resource>(){
 				@Override
 				public int compare(Resource o1, Resource o2) {
 					return o1.getOrderNo()>o2.getOrderNo()?1:-1;
 				}
 			});
-			Set<Resource> cset = new HashSet<Resource>();
-			cset.addAll(children);
-			r1.setChildRes(cset);
-//			cset.clear();
-			children.clear();
 		}
 		
 		return recs;

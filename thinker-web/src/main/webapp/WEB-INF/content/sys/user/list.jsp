@@ -104,13 +104,13 @@ function doQuery(){
 							<div class="row-fluid">
 								<form class="queryForm span8">
 									<div class="row-fluid">
-										<div class="span3">
+										<!-- <div class="span3">
 		                                    <div class="control-group">
 		                                       <div class="controls">
 		                                          <input type="text" id="email" class="m-wrap span12" placeholder="邮箱">
 		                                       </div>
 		                                    </div>
-	                                 	</div>
+	                                 	</div> -->
 	                                 	
 	                                 	<div class="span2">
 		                                    <div class="control-group">

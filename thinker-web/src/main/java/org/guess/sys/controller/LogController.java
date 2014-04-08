@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/sys/log/")
-public class LogController extends BaseController<Log, LogService>{
+public class LogController extends BaseController<Log>{
 
 	{
 		editView = "/sys/log/edit";

@@ -1,7 +1,5 @@
 package org.guess.core.web;
 
-import java.lang.reflect.Field;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import org.guess.core.orm.Page;
 import org.guess.core.orm.PropertyFilter;
 import org.guess.core.service.BaseService;
-import org.guess.core.utils.ReflectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,8 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
  * 
  * @author guess
  */
-@SuppressWarnings("unchecked")
-public abstract class BaseController<T, M extends BaseService<T, Long>> {
+public abstract class BaseController<T> {
 
 	protected final static String REDIRECT = "redirect:";
 	protected final static String SUCCESS = "success";
@@ -50,16 +46,9 @@ public abstract class BaseController<T, M extends BaseService<T, Long>> {
 	
 	@Autowired
 	protected HttpSession session;
-
-	/**
-	 * 反射获取子类中service
-	 * @return
-	 */
-	private M getBaseService() {
-		List<Field> fields = ReflectionUtils.getFieldsByType(this,
-				ReflectionUtils.getSuperClassGenricType(getClass(), 1));
-		return (M) ReflectionUtils.getFieldValue(this, fields.get(0).getName());
-	}
+	
+	@Autowired
+	private BaseService<T, Long> baseService;
 
 	/**
 	 * 跳转到添加页面
@@ -80,7 +69,7 @@ public abstract class BaseController<T, M extends BaseService<T, Long>> {
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/edit")
 	public String create(T object) throws Exception {
-		getBaseService().save(object);
+		baseService.save(object);
 		return REDIRECT + listView;
 	}
 
@@ -92,7 +81,7 @@ public abstract class BaseController<T, M extends BaseService<T, Long>> {
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/update/{id}")
 	public ModelAndView update(@PathVariable("id") Long id) throws Exception {
-		T obj = getBaseService().get(id);
+		T obj = baseService.get(id);
 		ModelAndView mav = new ModelAndView(editView);
 		mav.addObject("obj", obj);
 		return mav;
@@ -106,7 +95,7 @@ public abstract class BaseController<T, M extends BaseService<T, Long>> {
 	 */
 	@RequestMapping(value = "/delete/{id}")
 	public String delete(@PathVariable("id") Long id) throws Exception {
-		getBaseService().removeById(id);
+		baseService.removeById(id);
 		return REDIRECT+listView;
 	}
 	
@@ -115,7 +104,7 @@ public abstract class BaseController<T, M extends BaseService<T, Long>> {
 	 */
 	@RequestMapping(value = "/delete",method=RequestMethod.POST)
 	public String delete(@RequestParam("ids") Long[] ids , HttpServletRequest request) throws Exception {
-		getBaseService().removeByIds(ids);
+		baseService.removeByIds(ids);
 		return REDIRECT+listView;
 	}
 	
@@ -127,7 +116,7 @@ public abstract class BaseController<T, M extends BaseService<T, Long>> {
 	 */
 	@RequestMapping(value = "/show/{id}")
 	public ModelAndView show(@PathVariable("id") Long id) throws Exception{
-		T object = getBaseService().get(id);
+		T object = baseService.get(id);
 		ModelAndView mav = new ModelAndView(showView);
 		mav.addObject("obj", object);
 		return mav;
@@ -141,7 +130,7 @@ public abstract class BaseController<T, M extends BaseService<T, Long>> {
 	 */
 	@RequestMapping("/page")
 	public @ResponseBody Map<String,Object> page(Page<T> page,HttpServletRequest request){
-		Page<T> pageData = getBaseService().findPage(page, PropertyFilter.buildFromHttpRequest(request, "search"));
+		Page<T> pageData = baseService.findPage(page, PropertyFilter.buildFromHttpRequest(request, "search"));
 		return pageData.returnMap();
 	}
 	
