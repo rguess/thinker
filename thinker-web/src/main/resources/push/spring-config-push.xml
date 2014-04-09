@@ -5,6 +5,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<util:properties id="push" location="classpath:push/push.properties" /> 
+	<util:properties id="push" location="classpath:push/push.properties" />
 
 </beans>
