@@ -1,6 +1,7 @@
 package org.guess.sys.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -52,7 +53,7 @@ public class Resource extends IdEntity {
 	@JoinColumn(name="PARENT_ID",updatable=false)
 	@OrderBy("orderNo ASC")
 	/*@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)*/
-	private Set<Resource> childRes;
+	private List<Resource> childRes;
 	/** 角色 */
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, targetEntity = Role.class,mappedBy="resources")
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -108,10 +109,10 @@ public class Resource extends IdEntity {
 	public void setParent(Resource parent) {
 		this.parent = parent;
 	}
-	public Set<Resource> getChildRes() {
+	public List<Resource> getChildRes() {
 		return childRes;
 	}
-	public void setChildRes(Set<Resource> childRes) {
+	public void setChildRes(List<Resource> childRes) {
 		this.childRes = childRes;
 	}
 	public Set<Role> getRoles() {

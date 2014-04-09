@@ -2,33 +2,34 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="
-          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<!-- 会话ID生成器 -->
-    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
-    
-	<!-- 会话Cookie模板 -->
-    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-        <constructor-arg value="sid"/>
-        <property name="httpOnly" value="true"/>
-        <property name="maxAge" value="-1"/>
-    </bean>
-    
-    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-        <constructor-arg value="rememberMe"/>
-        <property name="httpOnly" value="true"/>
-        <property name="maxAge" value="2592000"/><!-- 30天 -->
-    </bean>
+	<bean id="sessionIdGenerator"
+		class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator" />
 
-    <!-- rememberMe管理器 -->
-    <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
-        <!-- rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度（128 256 512 位）-->
-        <property name="cipherKey"
-                  value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}"/>
-        <property name="cookie" ref="rememberMeCookie"/>
-    </bean>
-	
+	<!-- 会话Cookie模板 -->
+	<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+		<constructor-arg value="sid" />
+		<property name="httpOnly" value="true" />
+		<property name="maxAge" value="-1" />
+	</bean>
+
+	<bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+		<constructor-arg value="rememberMe" />
+		<property name="httpOnly" value="true" />
+		<property name="maxAge" value="2592000" /><!-- 30天 -->
+	</bean>
+
+	<!-- rememberMe管理器 -->
+	<bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+		<!-- rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度（128 256 512 位） -->
+		<property name="cipherKey"
+			value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}" />
+		<property name="cookie" ref="rememberMeCookie" />
+	</bean>
+
 	<!-- Realm实现 -->
 	<bean id="myRealm" class="org.guess.security.realm.MyRealm" />
 
@@ -37,7 +38,7 @@
 		<property name="realm" ref="myRealm" />
 		<property name="cacheManager" ref="shiroEhcacheManager" />
 		<property name="sessionManager" ref="sessionManager" />
-		<property name="rememberMeManager" ref="rememberMeManager"/>
+		<property name="rememberMeManager" ref="rememberMeManager" />
 	</bean>
 
 	<!-- Shiro的Web过滤器 -->
@@ -48,7 +49,7 @@
 		<property name="filters">
 			<util:map>
 				<entry key="userSetting" value-ref="userSettingFilter" />
-				<entry key="kickout" value-ref="kickoutSessionControlFilter"/>
+				<entry key="kickout" value-ref="kickoutSessionControlFilter" />
 			</util:map>
 		</property>
 		<property name="filterChainDefinitions">
@@ -62,32 +63,34 @@
 	</bean>
 
 	<!-- 会话DAO -->
-	<bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO" >
-		<property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+	<bean id="sessionDAO"
+		class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+		<property name="sessionIdGenerator" ref="sessionIdGenerator" />
 	</bean>
-	
+
 	<!-- 会话管理器 -->
-    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-        <property name="globalSessionTimeout" value="1800000"/>
-        <property name="deleteInvalidSessions" value="true"/>
-        <property name="sessionValidationSchedulerEnabled" value="true"/>
-        <!-- <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/> -->
-        <property name="sessionDAO" ref="sessionDAO"/>
-        <property name="sessionIdCookieEnabled" value="true"/>
-        <property name="sessionIdCookie" ref="sessionIdCookie"/>
-    </bean>
+	<bean id="sessionManager"
+		class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+		<property name="globalSessionTimeout" value="1800000" />
+		<property name="deleteInvalidSessions" value="true" />
+		<property name="sessionValidationSchedulerEnabled" value="true" />
+		<!-- <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/> -->
+		<property name="sessionDAO" ref="sessionDAO" />
+		<property name="sessionIdCookieEnabled" value="true" />
+		<property name="sessionIdCookie" ref="sessionIdCookie" />
+	</bean>
 
 	<!-- 自定义filter 实现自定义session失效后重新设置 -->
 	<bean id="userSettingFilter" class="org.guess.security.filter.UserSetting" />
-	
+
 	<!-- 控制登录人数 -->
 	<bean id="kickoutSessionControlFilter" class="org.guess.security.filter.KickoutSessionControlFilter">
-        <property name="cacheManager" ref="shiroEhcacheManager"/>
-        <property name="sessionManager" ref="sessionManager"/>
-        <property name="kickoutAfter" value="false"/>
-        <property name="maxSession" value="1"/>
-        <property name="kickoutUrl" value="/login?error=kickout"/>
-    </bean>
+		<property name="cacheManager" ref="shiroEhcacheManager" />
+		<property name="sessionManager" ref="sessionManager" />
+		<property name="kickoutAfter" value="false" />
+		<property name="maxSession" value="1" />
+		<property name="kickoutUrl" value="/login?error=kickout" />
+	</bean>
 
 	<!-- 缓存管理器 -->
 	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">

@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sitemesh.version>2.4.2</sitemesh.version>
 		<junit.version>4.11</junit.version>
-		<spring.version>3.2.4.RELEASE</spring.version>
+		<spring.version>4.0.3.RELEASE</spring.version>
 		<hibernate.version>4.1.8.Final</hibernate.version>
 		<commons-lang3.version>3.1</commons-lang3.version>
 		<commons-io.version>2.4</commons-io.version>

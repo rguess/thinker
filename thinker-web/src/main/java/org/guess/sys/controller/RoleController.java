@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/sys/role/")
-public class RoleController extends BaseController<Role, RoleService> {
+public class RoleController extends BaseController<Role> {
 
 	{
 		editView = "/sys/role/edit";
