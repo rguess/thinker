@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/sys/resource/")
-public class ResourceController extends BaseController<Resource, ResourceService>{
+public class ResourceController extends BaseController<Resource>{
 
 	{
 		editView = "/sys/resource/edit";

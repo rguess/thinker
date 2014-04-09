@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LeaveServiceImpl extends BaseServiceImpl<Leave, Long, LeaveDao>
+public class LeaveServiceImpl extends BaseServiceImpl<Leave, Long>
 		implements LeaveService {
 	
 	private final static String PROCESS_KEY = "leave";
