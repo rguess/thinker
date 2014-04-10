@@ -52,7 +52,7 @@ public class Resource extends IdEntity {
 	@OneToMany(targetEntity=Resource.class,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="PARENT_ID",updatable=false)
 	@OrderBy("orderNo ASC")
-	/*@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)*/
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private List<Resource> childRes;
 	/** 角色 */
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, targetEntity = Role.class,mappedBy="resources")
