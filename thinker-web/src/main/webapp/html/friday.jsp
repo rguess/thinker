@@ -13,13 +13,13 @@
 	<div class="page-content">
 		<div class="container-fluid">
 			<!-- 页面导航 -->
-			<tool:navBar pageTitle="用户信息" pageTitleContent="系统管理-用户管理-用户信息"
+			<tool:navBar pageTitle="用户信息" pageTitleContent="showcase-星期五下午开会"
 				titleIcon="icon-home" />
 			<!-- 主体内容 -->
 			<div class="portlet box blue">
 				<div class="portlet-title">
 					<h4>
-						<i class="icon-reorder"></i>流程
+						<i class="icon-reorder"></i>主要内容
 					</h4>
 					<div class="tools">
 						<a href="javascript:;" class="collapse"></a> <a
@@ -62,11 +62,12 @@
 							<a class="span2" href="http://www.blogjava.net/ilovesimple/archive/2010/06/04/322756.html" target="_blank">优势</a>
 							<a class="span2" href="http://baike.baidu.com/view/309926.htm" target="_blank">敏捷开发</a>
 							<a class="span2" href="http://baike.baidu.com/view/4169795.htm" target="_blank">瀑布模式开发</a>
+							<a class="span2" href="http://www.cnblogs.com/zh2000g/archive/2010/02/22/1671286.html" target="_blank">比较</a>
 						</div>
 						<h3 class="form-section">权限</h3>
 						<div class="row-fluid">
-							<a class="span2" href="http://www.bootcss.com/" target="_blank">shiro</a>
-							<a class="span2" href="http://www.bootcss.com/" target="_blank">RBAC</a>
+							<a class="span2" href="http://jinnianshilongnian.iteye.com/blog/2018398" target="_blank">shiro</a>
+							<a class="span2" href="http://www.iteye.com/topic/930648" target="_blank">RBAC</a>
 						</div>
 					</div>
 				</div>
