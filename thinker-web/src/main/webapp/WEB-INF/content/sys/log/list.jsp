@@ -18,6 +18,7 @@ $(document).ready(function() {
 		},
 		null,
 		[{cName:"operName",cValue:"操作名称"},
+		 {cName:"ip",cValue:"ip地址"},
 		 {cName:"operTime",cValue:"操作时间",format:function(i,value,item){
 			 if(App.isNundef(value)){
 				 return new Date(value).format("yyyy-MM-dd hh:mm:ss");

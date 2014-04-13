@@ -5,6 +5,7 @@
 <title>发起请假流程</title>
 <%@ include file="/WEB-INF/content/common/plugins/datepicker.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
+<%@ include file="/WEB-INF/content/common/plugins/bootstrap-fileupload.jsp"%>
 <script src="${ctx}/assets/js/workflow/leave.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -34,7 +35,7 @@
 							</div>
 						</div>
 						<div class="portlet-body form">
-							<form action="${ctx }/workflow/leave/start" class="form-horizontal" method="post" id="form1">
+							<form action="${ctx }/workflow/leave/start" class="form-horizontal" method="post" id="form1" enctype="multipart/form-data">
 								<%@ include file="/WEB-INF/content/workflow/leave/form.jsp" %>
 								<div class="form-actions">
 									<button type="submit" class="btn blue">提交</button>

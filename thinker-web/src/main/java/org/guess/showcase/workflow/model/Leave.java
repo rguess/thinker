@@ -63,6 +63,33 @@ public class Leave extends IdEntity{
      * 人力审批意见
      */
     private String hrAuditOpinion;
+    
+    /**
+     * 上传文件名称
+     * @return
+     */
+    private String fileName;
+    
+    /**
+     * 上传文件uuid
+     */
+    private String fileId;
+    
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileId() {
+		return fileId;
+	}
+
+	public void setFileId(String fileId) {
+		this.fileId = fileId;
+	}
 
 	public String getProcessInstanceId() {
 		return processInstanceId;

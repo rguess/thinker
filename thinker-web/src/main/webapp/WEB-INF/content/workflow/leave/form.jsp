@@ -41,6 +41,21 @@
 </div>
 
 <div class="control-group">
+	<label class="control-label">上传文件</label>
+	<div class="controls">
+	<div class="fileupload fileupload-new" data-provides="fileupload">
+	   <span class="btn btn-file">
+	   <span class="fileupload-new">选择</span>
+	   <span class="fileupload-exists">修改</span>
+	   <input type="file" class="default" name="leavefile"/>
+	   </span>
+	   <span class="fileupload-preview"></span>
+	   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none"></a>
+	   </div>
+	</div>
+</div>
+
+<div class="control-group">
 	<label class="control-label">原因:</label>
 	<div class="controls">
 		<textarea rows="3" cols="6" class="span6 m-wrap" name="reason" id="reason"></textarea>

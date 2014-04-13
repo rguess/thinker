@@ -1,5 +1,7 @@
 package org.guess.showcase.file.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.guess.core.utils.web.ServletUtils;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -32,6 +36,17 @@ public class FileController {
 	public ModelAndView toPage(ModelAndView mav) throws Exception {
 		mav.setViewName("/file/upload");
 		return mav;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/download")
+	public void download(HttpServletResponse response,
+			HttpServletRequest request,
+			@RequestParam("fileName") String fileName,
+			@RequestParam("fileUuid") String uuid) throws Exception {
+		ServletUtils.setFileDownloadHeader(response, fileName);
+		File file = new File(ServletUtils.getRealPath(request) + "/upload/"
+				+ uuid);
+		FileCopyUtils.copy(new FileInputStream(file), response.getOutputStream());
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/upload")

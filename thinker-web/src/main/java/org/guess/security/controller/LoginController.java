@@ -81,7 +81,7 @@ public class LoginController {
 		if (currentUser.isAuthenticated()) {
 			try {
 				User curUser = userService.findByLoginId(userName);
-				logService.save(new Log("系统登录", 1, "登录系统", curUser));
+				logService.save(new Log("系统登录", 1, "登录系统", curUser,request.getRemoteAddr()));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -100,7 +100,7 @@ public class LoginController {
 		User curUser = (User) session.getAttribute(Constants.CURRENT_USER);
 		SecurityUtils.getSubject().logout();
 		try {
-			logService.save(new Log("系统登出", 1, "退出系统", curUser));
+			logService.save(new Log("系统登出", 1, "退出系统", curUser,request.getRemoteAddr()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

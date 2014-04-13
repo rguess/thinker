@@ -377,8 +377,8 @@ var Page = {
 /*******************************************************************************
  * 分页封装插件 基于jquery pagination
  */
-(function($) {
+/*(function($) {
 	$.fn.pagination = function(options, url) {
 		
 	};
-})(jQuery);
+})(jQuery);*/

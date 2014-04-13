@@ -40,6 +40,11 @@ public class Log extends IdEntity{
 	 */
 	private String content;
 	
+	/**
+	 * ip地址
+	 */
+	private String ip;
+	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE },targetEntity = User.class, fetch = FetchType.LAZY)
 	@NotFound(action=NotFoundAction.IGNORE)
 	@JoinColumn(name = "userId")
@@ -85,13 +90,23 @@ public class Log extends IdEntity{
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
 
-	public Log(String operName, int result, String content, User operUser) {
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public Log(String operName, int result, String content, User operUser,String ip) {
 		super();
 		this.operName = operName;
 		this.result = result;
 		this.content = content;
 		this.operUser = operUser;
+		this.ip = ip;
 	}
 
 	public Log() {
