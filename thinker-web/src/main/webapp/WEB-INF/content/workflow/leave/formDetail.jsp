@@ -44,6 +44,16 @@
 
 <div class="span12">
 	<div class="control-group">
+		<label class="control-label">文件：</label>
+		<div class="controls">
+			<span class="text" id="leavefile"></span>
+		</div>
+	</div>
+</div>
+
+
+<div class="span12">
+	<div class="control-group">
 		<label class="control-label">原因：</label>
 		<div class="controls">
 			<span class="text" id="leaveReason"></span>

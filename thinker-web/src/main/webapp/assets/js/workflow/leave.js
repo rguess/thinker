@@ -15,6 +15,7 @@ var Leave = {
 				$("#leaveId").val(data.leave.id);
 				$("#depAuditOpinion").val(data.leave.depAuditOpinion);
 				$("#hrAuditOpinion").val(data.leave.hrAuditOpinion);
+				$("#leavefile").html($("<a onclick='javascript:App.downloadFile(\""+data.leave.fileName+"\",\""+data.leave.fileId+"\")' href='javascript:void(0)'>"+data.leave.fileName+"</a>"));
 				if(App.isNundef(params.otherCallback)){
 					params.otherCallback(data);
 				}

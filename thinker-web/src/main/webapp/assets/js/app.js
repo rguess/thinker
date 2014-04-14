@@ -1084,6 +1084,27 @@ var App = function () {
 				minView: 2,
 				forceParse: 0
 		    });
+	    },
+	  //dateTimepicker日历控件,没时间
+	   downloadFile : function(fileName,fileUuid){
+		   var f = document.createElement("form");
+			document.body.appendChild(f);
+			
+			var m = document.createElement("input");
+			m.type = "hidden";
+			m.name = "fileName";
+			m.value = fileName;
+			f.appendChild(m);
+			
+			var n = document.createElement("input");
+			n.type = "hidden";
+			n.name = "fileUuid";
+			n.value = fileUuid;
+			f.appendChild(n);
+			
+			f.action = ctx+"/file/download";
+			f.method = "GET";
+			f.submit();
 	    }
         
     };
