@@ -29,6 +29,16 @@
 				<div class="portlet-body form">
 					<!-- BEGIN FORM-->
 					<div class="form-horizontal form-view">
+						<h3 class="form-section">key words</h3>
+						<div class="row-fluid">
+							<span class="label label-success">理想主义</span>
+							<span class="label label-important">与时俱进</span>
+							<span class="label label-inverse">开源精神</span>
+							<span class="label label-warning">技术是一把利剑</span>
+							<span class="label label-info">敏捷</span>
+							<span class="label label-important">write less,do more</span>
+							<span class="label label-success">重构</span>
+						</div>
 						<h3 class="form-section">人</h3>
 						<div class="row-fluid">
 							<a class="span2" href="http://baike.baidu.com/view/2192255.htm" target="_blank">Rod Johnson</a>
@@ -63,6 +73,16 @@
 							<a class="span2" href="http://baike.baidu.com/view/309926.htm" target="_blank">敏捷开发</a>
 							<a class="span2" href="http://baike.baidu.com/view/4169795.htm" target="_blank">瀑布模式开发</a>
 							<a class="span2" href="http://www.cnblogs.com/zh2000g/archive/2010/02/22/1671286.html" target="_blank">比较</a>
+						</div>
+						<div>
+							<h4>maven优点</h4>
+							<ul>
+								<li>统一管理包，升级</li>
+								<li>项目不依赖与开发工具</li>
+								<li>模块化</li>
+								<li>集成编译，测试，打包，发布，部署</li>
+								<li>拥有各种插件，例如，生成api，生成测试报告，pdf报表等功能</li>
+							</ul>
 						</div>
 						<h3 class="form-section">权限</h3>
 						<div class="row-fluid">

@@ -1,4 +1,4 @@
-thinker
+##thinker(像一个思想者一样去写代码)
 
 ##介绍
 * 工作中的积累，搭建的j2ee应用快速开发手架，重点在代码重构，一些常用功能的演示，工具，插件等的整理
@@ -34,6 +34,7 @@ thinker
 	* 常用日期处理工具类
 	* 各种编码,解码,加密等工作类
 	* 反射操作封装
+	* ...
 * 整理了丰富多样的js、jquery插件
 	* bootstrap
 	* jquery validation、修改验证后显示以适应bootstrap，显得更加美观、添加常用验证
@@ -50,5 +51,6 @@ thinker
 	* jquery blockUI(遮罩层)
 	* ueditor(富文本编辑器)(未完成)
 	* bootstrap-fileupload(完成)
-	* jquery-file-upload(未完成)
+	* jquery-file-upload
+	* ...
 
