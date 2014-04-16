@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -43,7 +44,8 @@ public class FileController {
 			HttpServletRequest request,
 			@RequestParam("fileName") String fileName,
 			@RequestParam("fileUuid") String uuid) throws Exception {
-		ServletUtils.setFileDownloadHeader(response, fileName);
+		String decodeFileName = URLDecoder.decode(fileName,"iso8859-1");
+		ServletUtils.setFileDownloadHeader(response, decodeFileName);
 		File file = new File(ServletUtils.getRealPath(request) + "/upload/"
 				+ uuid);
 		FileCopyUtils.copy(new FileInputStream(file), response.getOutputStream());
