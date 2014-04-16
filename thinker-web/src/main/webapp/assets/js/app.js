@@ -1087,7 +1087,7 @@ var App = function () {
 	    },
 	  //dateTimepicker日历控件,没时间
 	   downloadFile : function(fileName,fileUuid){
-		   var f = document.createElement("form");
+		   	/*var f = document.createElement("form");
 			document.body.appendChild(f);
 			
 			var m = document.createElement("input");
@@ -1104,7 +1104,8 @@ var App = function () {
 			
 			f.action = ctx+"/file/download";
 			f.method = "GET";
-			f.submit();
+			f.submit();*/
+			window.location.href = ctx+"/file/download?fileName="+encodeURI(fileName)+"&fileUuid="+fileUuid
 	    }
         
     };
