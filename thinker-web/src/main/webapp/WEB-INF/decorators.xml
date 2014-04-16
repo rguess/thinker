@@ -5,9 +5,7 @@
 		<pattern>/metronic_v1.1.2/*</pattern>
 		<pattern>/errorpage/*</pattern>
 		<pattern>/login*</pattern>
-		<pattern>/sys/icon/iconSelect</pattern>
-		<!-- <pattern>/</pattern> -->
-		<!-- <pattern>*2.jsp</pattern> -->
+		<pattern>/file/download*</pattern>
 	</excludes>
 
 	<decorator name="default" page="/WEB-INF/content/common/layouts/default.jsp">
