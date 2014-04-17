@@ -14,9 +14,6 @@
 		Leave.init({taskId:taskId});
 	});
 	
-	var callback = function(data){
-		alert(123);
-	}
 </script>
 </head>
 <body>

@@ -58,10 +58,6 @@ var Leave = {
 				unBlockUI();
 			}
 		});
-	},
-	
-	initDateTimePicker : function(){
-		App.dateTimePicker($(".form_datetime"));
 	}
 };
 

@@ -10,7 +10,6 @@
 $(document).ready(function() {
 	//高亮左侧菜单
 	App.activeMenu("sys/user/list");
-	App.datePicker($("#time"));
 	Page.initData(
 		{
 			url:"${ctx}/sys/user/page",
@@ -122,7 +121,7 @@ function doQuery(){
 	                                 	
 	                                 	<div class="span4">
 		                                    <div class="control-group">
-		                                       <div class="controls input-append date" 
+		                                       <div class="controls input-append date form_date" 
 		                                       		data-date-format="yyyy-mm-dd"
 		                                       		id="time">
 													<input id="createDate" class="span10 m-wrap" type="text" readonly="readonly" placeholder="时间">
