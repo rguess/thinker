@@ -20,8 +20,8 @@
 <link href="${ctx}/assets/comp/bootstrap/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/comp/font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/assets/css/style2.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style_responsive.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/assets/css/style2.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style_light.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/comp/gritter/css/jquery.gritter.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/comp/chosen-bootstrap/chosen/chosen.css" type="text/css" rel="stylesheet" />

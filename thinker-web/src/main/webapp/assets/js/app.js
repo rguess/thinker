@@ -910,6 +910,16 @@ var App = function () {
     	});
     };
     
+    //高度自适应
+    var responsiveWindowHeight = function(){
+    	var winHeight = $(window).height();
+		$(".page-content").css("min-height",winHeight-80+"px");
+		$(window).resize(function(){
+			var winHeight = $(window).height();
+			$(".page-content").css("min-height",winHeight-80+"px");
+		});
+    }
+    
     return {
         //main function to initiate template pages
         init: function () {
@@ -939,6 +949,7 @@ var App = function () {
             handleFormWizards(); // handles form wizards
             
             colseDIYWin();
+            responsiveWindowHeight();
         },
 
         // wrapper function to scroll to an element
