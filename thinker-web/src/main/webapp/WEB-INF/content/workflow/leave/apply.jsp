@@ -10,7 +10,6 @@
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("workflow/process");
-		Leave.initDateTimePicker();
 	});
 	
 </script>

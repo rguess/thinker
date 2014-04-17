@@ -11,7 +11,6 @@
 	$(function(){
 		App.activeMenu("workflow/todoTasks");
 		Leave.modifyInit(taskId);
-		Leave.initDateTimePicker();
 	});
 </script>
 </head>

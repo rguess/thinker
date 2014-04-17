@@ -20,8 +20,8 @@
 <link href="${ctx}/assets/comp/bootstrap/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/comp/font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/assets/css/style_responsive.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style2.css" type="text/css" rel="stylesheet" />
-<%-- <link href="${ctx}/assets/css/style_responsive.css" type="text/css" rel="stylesheet" /> --%>
 <link href="${ctx}/assets/css/style_light.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/comp/gritter/css/jquery.gritter.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/comp/chosen-bootstrap/chosen/chosen.css" type="text/css" rel="stylesheet" />
@@ -51,20 +51,7 @@
 	jQuery(document).ready(function() {
 		//初始化
 		App.init();
-		//执行随机颜色方法
-		proLetRomColor();
 	});
-	
-	//portlet随机颜色
-	function proLetRomColor(){
-		var colors = ["blue","light blue","red","yellow","green","purple","grey","light grey"];
-		var prolet = $(".portlet");
-		$.each(colors,function(i,item){
-			prolet.removeClass(item);
-		});
-		var temp = parseInt(Math.random()*colors.length);
-		prolet.addClass(colors[temp]);
-	}
 </script>
 <sitemesh:head />
 </head>

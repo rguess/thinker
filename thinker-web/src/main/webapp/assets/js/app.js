@@ -174,32 +174,6 @@ var App = function () {
                 $.cookie('sidebar-closed', 1);
             }
         });
-
-        // handle the search bar close
-        $('.sidebar-search .remove').click(function () {
-            $('.sidebar-search').removeClass("open");
-        });
-
-        // handle the search query submit on enter press
-        $('.sidebar-search input').keypress(function (e) {
-            if (e.which == 13) {
-                window.location.href = "extra_search.html";
-                return false; //<---- Add this line
-            }
-        });
-
-        // handle the search submit
-        $('.sidebar-search .submit').click(function () {
-            if ($('.page-container').hasClass("sidebar-closed")) {
-                if ($('.sidebar-search').hasClass('open') == false) {
-                    $('.sidebar-search').addClass("open");
-                } else {
-                    window.location.href = "extra_search.html";
-                }
-            } else {
-                window.location.href = "extra_search.html";
-            }
-        });
     }
 
     var handlePortletTools = function () {
@@ -240,31 +214,6 @@ var App = function () {
         */
     }
 
-
-
-
-    var handleFancyBox = function () {
-
-        if (!jQuery.fancybox) {
-            return;
-        }
-
-        if (jQuery(".fancybox-button").size() > 0) {
-            jQuery(".fancybox-button").fancybox({
-                groupAttr: 'data-rel',
-                prevEffect: 'none',
-                nextEffect: 'none',
-                closeBtn: true,
-                helpers: {
-                    title: {
-                        type: 'inside'
-                    }
-                }
-            });
-        }
-    }
-
-
     var handleFixInputPlaceholderForIE = function () {
         //fix html5 placeholder attribute for ie7 & ie8
         if (jQuery.browser.msie && jQuery.browser.version.substr(0, 1) <= 9) { // ie7&ie8
@@ -291,140 +240,6 @@ var App = function () {
         }
     }
 
-    var handlePulsate = function () {
-        if (!jQuery().pulsate) {
-            return;
-        }
-
-        if (isIE8 == true) {
-            return; // pulsate plugin does not support IE8 and below
-        }
-
-        if (jQuery().pulsate) {
-            jQuery('#pulsate-regular').pulsate({
-                color: "#bf1c56"
-            });
-
-            jQuery('#pulsate-once').click(function () {
-                $(this).pulsate({
-                    color: "#399bc3",
-                    repeat: false
-                });
-            });
-
-            jQuery('#pulsate-hover').pulsate({
-                color: "#5ebf5e",
-                repeat: false,
-                onHover: true
-            });
-
-            jQuery('#pulsate-crazy').click(function () {
-                $(this).pulsate({
-                    color: "#fdbe41",
-                    reach: 50,
-                    repeat: 10,
-                    speed: 100,
-                    glow: true
-                });
-            });
-        }
-    }
-
-
-    var handleGritterNotifications = function () {
-        if (!jQuery.gritter) {
-            return;
-        }
-        $('#gritter-sticky').click(function () {
-            var unique_id = $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a sticky notice!',
-                // (string | mandatory) the text inside the notification
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
-                // (string | optional) the image to display on the left
-                image: './assets/img/avatar1.jpg',
-                // (bool | optional) if you want it to fade out on its own or just sit there
-                sticky: true,
-                // (int | optional) the time you want it to be alive for before fading out
-                time: '',
-                // (string | optional) the class name you want to apply to that specific message
-                class_name: 'my-sticky-class'
-            });
-            return false;
-        });
-
-        $('#gritter-regular').click(function () {
-
-            $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a regular notice!',
-                // (string | mandatory) the text inside the notification
-                text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
-                // (string | optional) the image to display on the left
-                image: './assets/img/avatar1.jpg',
-                // (bool | optional) if you want it to fade out on its own or just sit there
-                sticky: false,
-                // (int | optional) the time you want it to be alive for before fading out
-                time: ''
-            });
-
-            return false;
-
-        });
-
-        $('#gritter-max').click(function () {
-
-            $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a notice with a max of 3 on screen at one time!',
-                // (string | mandatory) the text inside the notification
-                text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
-                // (string | optional) the image to display on the left
-                image: './assets/img/avatar1.jpg',
-                // (bool | optional) if you want it to fade out on its own or just sit there
-                sticky: false,
-                // (function) before the gritter notice is opened
-                before_open: function () {
-                    if ($('.gritter-item-wrapper').length == 3) {
-                        // Returning false prevents a new gritter from opening
-                        return false;
-                    }
-                }
-            });
-            return false;
-        });
-
-        $('#gritter-without-image').click(function () {
-            $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a notice without an image!',
-                // (string | mandatory) the text inside the notification
-                text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
-            });
-
-            return false;
-        });
-
-        $('#gritter-light').click(function () {
-
-            $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a light notification',
-                // (string | mandatory) the text inside the notification
-                text: 'Just add a "gritter-light" class_name to your $.gritter.add or globally to $.gritter.options.class_name',
-                class_name: 'gritter-light'
-            });
-
-            return false;
-        });
-
-        $("#gritter-remove-all").click(function () {
-
-            $.gritter.removeAll();
-            return false;
-
-        });
-    }
 
     var handleTooltip = function () {
         if (App.isTouchDevice()) { // if touch device, some tooltips can be skipped in order to not conflict with click events
@@ -547,172 +362,6 @@ var App = function () {
         });
     }
 
-    var handleDateTimePickers = function () {
-
-        if (jQuery().datepicker) {
-            $('.date-picker').datepicker();
-        }
-
-        if (jQuery().timepicker) {
-            $('.timepicker-default').timepicker();
-            $('.timepicker-24').timepicker({
-                minuteStep: 1,
-                showSeconds: true,
-                showMeridian: false
-            });
-        }
-
-        if (!jQuery().daterangepicker) {
-            return;
-        }
-
-        $('.date-range').daterangepicker();
-
-        $('#dashboard-report-range').daterangepicker({
-            ranges: {
-                'Today': ['today', 'today'],
-                'Yesterday': ['yesterday', 'yesterday'],
-                'Last 7 Days': [Date.today().add({
-                    days: -6
-                }), 'today'],
-                'Last 30 Days': [Date.today().add({
-                    days: -29
-                }), 'today'],
-                'This Month': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
-                'Last Month': [Date.today().moveToFirstDayOfMonth().add({
-                    months: -1
-                }), Date.today().moveToFirstDayOfMonth().add({
-                    days: -1
-                })]
-            },
-            opens: 'left',
-            format: 'MM/dd/yyyy',
-            separator: ' to ',
-            startDate: Date.today().add({
-                days: -29
-            }),
-            endDate: Date.today(),
-            minDate: '01/01/2012',
-            maxDate: '12/31/2014',
-            locale: {
-                applyLabel: 'Submit',
-                fromLabel: 'From',
-                toLabel: 'To',
-                customRangeLabel: 'Custom Range',
-                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                firstDay: 1
-            },
-            showWeekNumbers: true,
-            buttonClasses: ['btn-danger']
-        },
-
-        function (start, end) {
-            App.blockUI(jQuery("#dashboard"));
-            setTimeout(function () {
-                App.unblockUI(jQuery("#dashboard"));
-                $.gritter.add({
-                    title: 'Dashboard',
-                    text: 'Dashboard date range updated.'
-                });
-                App.scrollTo();
-            }, 1000);
-            $('#dashboard-report-range span').html(start.toString('MMMM d, yyyy') + ' - ' + end.toString('MMMM d, yyyy'));
-
-        });
-
-        $('#dashboard-report-range').show();
-
-        $('#dashboard-report-range span').html(Date.today().add({
-            days: -29
-        }).toString('MMMM d, yyyy') + ' - ' + Date.today().toString('MMMM d, yyyy'));
-
-        $('#form-date-range').daterangepicker({
-            ranges: {
-                'Today': ['today', 'today'],
-                'Yesterday': ['yesterday', 'yesterday'],
-                'Last 7 Days': [Date.today().add({
-                    days: -6
-                }), 'today'],
-                'Last 30 Days': [Date.today().add({
-                    days: -29
-                }), 'today'],
-                'This Month': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
-                'Last Month': [Date.today().moveToFirstDayOfMonth().add({
-                    months: -1
-                }), Date.today().moveToFirstDayOfMonth().add({
-                    days: -1
-                })]
-            },
-            opens: 'right',
-            format: 'MM/dd/yyyy',
-            separator: ' to ',
-            startDate: Date.today().add({
-                days: -29
-            }),
-            endDate: Date.today(),
-            minDate: '01/01/2012',
-            maxDate: '12/31/2014',
-            locale: {
-                applyLabel: 'Submit',
-                fromLabel: 'From',
-                toLabel: 'To',
-                customRangeLabel: 'Custom Range',
-                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                firstDay: 1
-            },
-            showWeekNumbers: true,
-            buttonClasses: ['btn-danger']
-        },
-
-        function (start, end) {
-            $('#form-date-range span').html(start.toString('MMMM d, yyyy') + ' - ' + end.toString('MMMM d, yyyy'));
-        });
-
-        $('#form-date-range span').html(Date.today().add({
-            days: -29
-        }).toString('MMMM d, yyyy') + ' - ' + Date.today().toString('MMMM d, yyyy'));
-
-
-        if (!jQuery().datepicker || !jQuery().timepicker) {
-            return;
-        }
-    }
-
-    var handleClockfaceTimePickers = function () {
-
-        if (!jQuery().clockface) {
-            return;
-        }
-
-        $('#clockface_1').clockface();
-
-        $('#clockface_2').clockface({
-            format: 'HH:mm',
-            trigger: 'manual'
-        });
-
-        $('#clockface_2_toggle-btn').click(function (e) {
-            e.stopPropagation();
-            $('#clockface_2').clockface('toggle');
-        });
-
-        $('#clockface_3').clockface({
-            format: 'H:mm'
-        }).clockface('show', '14:30');
-    }
-
-    var handleColorPicker = function () {
-        if (!jQuery().colorpicker) {
-            return;
-        }
-        $('.colorpicker-default').colorpicker({
-            format: 'hex'
-        });
-        $('.colorpicker-rgba').colorpicker();
-    }
-
     var handleAccordions = function () {
         $(".accordion").collapse().height('auto');
 
@@ -768,146 +417,72 @@ var App = function () {
 
     }
 
-
-
     var handleGoTop = function () {
-        /* set variables locally for increased performance */
         jQuery('.footer .go-top').click(function () {
             App.scrollTo();
         });
     }
 
-
-
-    var handleStyler = function () {
-
-        var panel = $('.color-panel');
-
-        $('.icon-color', panel).click(function () {
-            $('.color-mode').show();
-            $('.icon-color-close').show();
-        });
-
-        $('.icon-color-close', panel).click(function () {
-            $('.color-mode').hide();
-            $('.icon-color-close').hide();
-        });
-
-        $('li', panel).click(function () {
-            var color = $(this).attr("data-style");
-            setColor(color);
-            $('.inline li', panel).removeClass("current");
-            $(this).addClass("current");
-        });
-
-        $('input', panel).change(function () {
-            setLayout();
-        });
-
-        var setColor = function (color) {
-            $('#style_color').attr("href", "assets/css/style_" + color + ".css");
-        }
-
-        var setLayout = function () {
-            if ($('input.header', panel).is(":checked")) {
-                $("body").addClass("fixed-top");
-                $(".header").addClass("navbar-fixed-top");
-            } else {
-                $("body").removeClass("fixed-top");
-                $(".header").removeClass("navbar-fixed-top");
-            }
-        }
-    }
-
-    var handleFormWizards = function () {
-        if (!jQuery().bootstrapWizard) {
-            return;
-        }
-
-        // default form wizard
-        $('#form_wizard_1').bootstrapWizard({
-            'nextSelector': '.button-next',
-            'previousSelector': '.button-previous',
-            onTabClick: function (tab, navigation, index) {
-                alert('on tab click disabled');
-                return false;
-            },
-            onNext: function (tab, navigation, index) {
-                var total = navigation.find('li').length;
-                var current = index + 1;
-                // set wizard title
-                $('.step-title', $('#form_wizard_1')).text('Step ' + (index + 1) + ' of ' + total);
-                // set done steps
-                jQuery('li', $('#form_wizard_1')).removeClass("done");
-                var li_list = navigation.find('li');
-                for (var i = 0; i < index; i++) {
-                    jQuery(li_list[i]).addClass("done");
-                }
-
-                if (current == 1) {
-                    $('#form_wizard_1').find('.button-previous').hide();
-                } else {
-                    $('#form_wizard_1').find('.button-previous').show();
-                }
-
-                if (current >= total) {
-                    $('#form_wizard_1').find('.button-next').hide();
-                    $('#form_wizard_1').find('.button-submit').show();
-                } else {
-                    $('#form_wizard_1').find('.button-next').show();
-                    $('#form_wizard_1').find('.button-submit').hide();
-                }
-                App.scrollTo($('.page-title'));
-            },
-            onPrevious: function (tab, navigation, index) {
-                var total = navigation.find('li').length;
-                var current = index + 1;
-                // set wizard title
-                $('.step-title', $('#form_wizard_1')).text('Step ' + (index + 1) + ' of ' + total);
-                // set done steps
-                jQuery('li', $('#form_wizard_1')).removeClass("done");
-                var li_list = navigation.find('li');
-                for (var i = 0; i < index; i++) {
-                    jQuery(li_list[i]).addClass("done");
-                }
-
-                if (current == 1) {
-                    $('#form_wizard_1').find('.button-previous').hide();
-                } else {
-                    $('#form_wizard_1').find('.button-previous').show();
-                }
-
-                if (current >= total) {
-                    $('#form_wizard_1').find('.button-next').hide();
-                    $('#form_wizard_1').find('.button-submit').show();
-                } else {
-                    $('#form_wizard_1').find('.button-next').show();
-                    $('#form_wizard_1').find('.button-submit').hide();
-                }
-
-                App.scrollTo($('.page-title'));
-            },
-            onTabShow: function (tab, navigation, index) {
-                var total = navigation.find('li').length;
-                var current = index + 1;
-                var $percent = (current / total) * 100;
-                $('#form_wizard_1').find('.bar').css({
-                    width: $percent + '%'
-                });
-            }
-        });
-
-        $('#form_wizard_1').find('.button-previous').hide();
-        $('#form_wizard_1 .button-submit').click(function () {
-            alert('Finished! Hope you like it :)');
-        }).hide();
-    };
-    
     //关闭自定义弹出层
     var colseDIYWin = function(){
     	$(".remove1").click(function(){
     		$(this).closest(".diywindow").hide();
     	});
+    };
+    
+    //高度自适应
+    var responsiveWindowHeight = function(){
+    	var winHeight = $(window).height();
+		$(".page-content").css("min-height",winHeight-80+"px");
+		$(window).resize(function(){
+			var winHeight = $(window).height();
+			$(".page-content").css("min-height",winHeight-80+"px");
+		});
+    };
+    
+    //dateTimepicker日历控件,没时间
+    var handleDatePicker = function(){
+    	if($(".form_date").length <= 0){
+    		return;
+    	}
+    	$(".form_date").datetimepicker({
+		        language:  'zh-CN',
+		        weekStart: 1,
+		        todayBtn:  1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				minView: 2,
+				forceParse: 0
+		 });
+    };
+    
+    //dateTimepicker日历控件,有时间
+    var handleDateTimePicker = function(){
+    	if($(".form_datetime").length <= 0){
+    		return;
+    	}
+    	$(".form_datetime").datetimepicker({
+	        language:  'zh-CN',
+	        weekStart: 1,
+	        todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			forceParse: 0,
+	        showMeridian: 1
+	    });
+    };
+    
+    //portlet随机颜色
+    var handleProLetRomColor = function(){
+    	var colors = ["blue","light blue","red","yellow","green","purple","grey","light grey"];
+		var prolet = $(".portlet");
+		$.each(colors,function(i,item){
+			prolet.removeClass(item);
+		});
+		var temp = parseInt(Math.random()*colors.length);
+		prolet.addClass(colors[temp]);
     };
     
     return {
@@ -919,26 +494,22 @@ var App = function () {
             handleChoosenSelect(); // handles bootstrap chosen dropdowns
             handleScrollers(); // handles slim scrolling contents            
             handleTagsInput(); // handles tag input elements
-            handleDateTimePickers(); //handles form timepickers
-            handleClockfaceTimePickers(); //handles form clockface timepickers
-            handleColorPicker(); // handles form color pickers            
             handlePortletTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
-            handlePulsate(); // handles pulsate functionality on page elements
-            handleGritterNotifications(); // handles gritter notifications
             handleTooltip(); // handles bootstrap tooltips
             handlePopover(); // handles bootstrap popovers
             handleToggleButtons(); // handles form toogle buttons
             handleWysihtml5(); //handles WYSIWYG Editor           
-            handleFancyBox(); // handles fancy box image previews
-            handleStyler(); // handles style customer tool
             handleMainMenu(); // handles main menu
             handleSidebarToggler(); // handles sidebar hide/show
             handleFixInputPlaceholderForIE(); // fixes/enables html5 placeholder attribute for IE9, IE8
             handleGoTop(); //handles scroll to top functionality in the footer
             handleAccordions(); //handles accordions
-            handleFormWizards(); // handles form wizards
             
             colseDIYWin();
+            responsiveWindowHeight();
+            handleDatePicker();
+            handleDateTimePicker();
+            handleProLetRomColor();
         },
 
         // wrapper function to scroll to an element
@@ -1059,33 +630,6 @@ var App = function () {
         	bootbox.confirm("确定？", callback);
         },
         
-        //dateTimepicker日历控件,有时间
-        dateTimePicker : function($obj){
-        	$obj.datetimepicker({
-    	        language:  'zh-CN',
-    	        weekStart: 1,
-    	        todayBtn:  1,
-    			autoclose: 1,
-    			todayHighlight: 1,
-    			startView: 2,
-    			forceParse: 0,
-    	        showMeridian: 1
-    	    });
-        },
-        //dateTimepicker日历控件,没时间
-	    datePicker : function($obj){
-	    	$obj.datetimepicker({
-		        language:  'zh-CN',
-		        weekStart: 1,
-		        todayBtn:  1,
-				autoclose: 1,
-				todayHighlight: 1,
-				startView: 2,
-				minView: 2,
-				forceParse: 0
-		    });
-	    },
-	  //dateTimepicker日历控件,没时间
 	   downloadFile : function(fileName,fileUuid){
 		   /*	var f = document.createElement("form");
 			document.body.appendChild(f);
