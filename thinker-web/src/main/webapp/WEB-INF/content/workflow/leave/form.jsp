@@ -36,21 +36,25 @@
 <div class="control-group">
 	<label class="control-label">请假天数：</label>
 	<div class="controls">
-		<input type="text" id="leaveDays" class="m-wrap span6" name="leaveDays" id="leaveDays">
+		<input type="text" id="leaveDays" 
+			class="m-wrap span6" 
+			name="leaveDays"
+			validate="{required:true,number:true}"
+			id="leaveDays">
 	</div>
 </div>
 
 <div class="control-group">
 	<label class="control-label">上传文件</label>
 	<div class="controls">
-	<div class="fileupload fileupload-new" data-provides="fileupload">
-	   <span class="btn btn-file">
-	   <span class="fileupload-new">选择</span>
-	   <span class="fileupload-exists">修改</span>
-	   <input type="file" class="default" name="leavefile"/>
-	   </span>
-	   <span class="fileupload-preview"></span>
-	   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none"></a>
+		<div class="fileupload fileupload-new" data-provides="fileupload">
+		   <span class="btn btn-file">
+			   <span class="fileupload-new">选择</span>
+			   <span class="fileupload-exists">修改</span>
+			   <input type="file" class="default" name="leavefile" validate="{required:true}"/>
+		   </span>
+		   <span class="fileupload-preview"></span>
+		   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none"></a>
 	   </div>
 	</div>
 </div>

@@ -8,7 +8,8 @@
 		<documentation>自由流请假</documentation>
 		<startEvent id="startevent1" name="Start" activiti:initiator="applyUser"></startEvent>
 		<userTask id="approval" name="自由流请假" activiti:assignee="${approvalUser}">
-			<multiInstanceLoopCharacteristics isSequential="true" activiti:>
+			<multiInstanceLoopCharacteristics isSequential="true">
+				<loopCardinality>10</loopCardinality>
 				<completionCondition>${endTag}</completionCondition>
 			</multiInstanceLoopCharacteristics>
 		</userTask>

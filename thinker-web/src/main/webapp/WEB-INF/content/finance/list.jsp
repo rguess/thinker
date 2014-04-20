@@ -34,7 +34,7 @@ $(document).ready(function() {
 		 {cName:"time",cValue:"时间",format:function(i,value,item){
 			 return new Date(value).format("yyyy-MM-dd hh:mm");
 		 }},
-		 {cName:"content",cValue:"详细内容",noSort:true},
+		 {cName:"content",cValue:"详细内容",noSort:true}
 		 ]
 	);
 });

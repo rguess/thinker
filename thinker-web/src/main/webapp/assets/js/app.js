@@ -457,6 +457,7 @@ var App = function () {
 		 });
     };
     
+    //dateTimepicker日历控件,有时间
     var handleDateTimePicker = function(){
     	if($(".form_datetime").length <= 0){
     		return;
@@ -471,6 +472,17 @@ var App = function () {
 			forceParse: 0,
 	        showMeridian: 1
 	    });
+    };
+    
+    //portlet随机颜色
+    var handleProLetRomColor = function(){
+    	var colors = ["blue","light blue","red","yellow","green","purple","grey","light grey"];
+		var prolet = $(".portlet");
+		$.each(colors,function(i,item){
+			prolet.removeClass(item);
+		});
+		var temp = parseInt(Math.random()*colors.length);
+		prolet.addClass(colors[temp]);
     };
     
     return {
@@ -497,6 +509,7 @@ var App = function () {
             responsiveWindowHeight();
             handleDatePicker();
             handleDateTimePicker();
+            handleProLetRomColor();
         },
 
         // wrapper function to scroll to an element

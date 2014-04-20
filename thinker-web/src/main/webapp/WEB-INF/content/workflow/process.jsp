@@ -25,13 +25,12 @@
 							<div class="name">请假</div>
 						</div>
 					</div>
-					<div class="tile bg-green">
+					<div class="tile bg-green" onclick="javascript:window.location.href = '${ctx}/workflow/freeLeave/apply'">
 						<div class="tile-body">
 							<i class="icon-calendar"></i>
 						</div>
 						<div class="tile-object">
-							<div class="name">Meetings</div>
-							<div class="number">12</div>
+							<div class="name">自由流</div>
 						</div>
 					</div>
 					<div class="tile double selected bg-blue">

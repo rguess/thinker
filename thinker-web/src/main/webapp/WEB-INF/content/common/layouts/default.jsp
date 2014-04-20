@@ -15,6 +15,7 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 
+<!-- 基础样式 -->
 <link href="${ctx}/assets/comp/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/metro.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/comp/bootstrap/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" />
@@ -23,10 +24,12 @@
 <link href="${ctx}/assets/css/style_responsive.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style2.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style_light.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/assets/comp/gritter/css/jquery.gritter.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/assets/css/icon.css" type="text/css" rel="stylesheet" />
+
+<!-- 插件样式 -->
 <link href="${ctx}/assets/comp/chosen-bootstrap/chosen/chosen.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/comp/uniform/css/uniform.default.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/assets/css/icon.css" type="text/css" rel="stylesheet" />
+
 <link href="${ctx}/assets/favicon.ico" rel="shortcut icon"/>
 
 <script src="${ctx}/assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
@@ -51,20 +54,7 @@
 	jQuery(document).ready(function() {
 		//初始化
 		App.init();
-		//执行随机颜色方法
-		proLetRomColor();
 	});
-	
-	//portlet随机颜色
-	function proLetRomColor(){
-		var colors = ["blue","light blue","red","yellow","green","purple","grey","light grey"];
-		var prolet = $(".portlet");
-		$.each(colors,function(i,item){
-			prolet.removeClass(item);
-		});
-		var temp = parseInt(Math.random()*colors.length);
-		prolet.addClass(colors[temp]);
-	}
 </script>
 <sitemesh:head />
 </head>
