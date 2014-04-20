@@ -9,7 +9,6 @@
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("finance/list");
-		App.dateTimePicker($(".form_datetime"));
 		<c:if test="${not empty obj }">
 			init();
 		</c:if>

@@ -44,7 +44,7 @@ public class FileController {
 			HttpServletRequest request,
 			@RequestParam("fileName") String fileName,
 			@RequestParam("fileUuid") String uuid) throws Exception {
-		String decodeFileName = URLDecoder.decode(fileName,"iso8859-1");
+		String decodeFileName = URLDecoder.decode(fileName,"utf-8");
 		ServletUtils.setFileDownloadHeader(response, decodeFileName);
 		File file = new File(ServletUtils.getRealPath(request) + "/upload/"
 				+ uuid);
