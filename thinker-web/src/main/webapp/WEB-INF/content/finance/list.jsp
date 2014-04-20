@@ -3,46 +3,6 @@
 <html>
 <head>
 <title>财务列表</title>
-<%@ include file="/WEB-INF/content/common/plugins/datepicker.jsp"%>
-<%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
-
-<script type="text/javascript">
-$(document).ready(function() {
-	//高亮左侧菜单
-	App.activeMenu("finance/list");
-	Page.initData(
-		{
-			url:"${ctx}/finance/page",
-			tableId : "#sample_1",
-			pageSize : 10
-		},
-		null,
-		[{cName:"name",cValue:"名称"},
-		 {cName:"type",cValue:"类型"},
-		 {cName:"inorout",cValue:"收入or支出",format:function(i,value,item){
-			 if(value == 1){
-				 return "收入";
-			 }else if(value == 0){
-				 return "支出";
-			 }else{
-				 return "未知";
-			 }
-		 }},
-		 {cName:"money",cValue:"金额",format:function(i,value,item){
-			 return value+"元";
-		 }},
-		 {cName:"time",cValue:"时间",format:function(i,value,item){
-			 return new Date(value).format("yyyy-MM-dd hh:mm");
-		 }},
-		 {cName:"content",cValue:"详细内容",noSort:true},
-		 ]
-	);
-});
-
-function doQuery(){
-	
-}
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -110,5 +70,44 @@ function doQuery(){
 			</div>
 		</div>
 	</div>
+	<%@ include file="/WEB-INF/content/common/plugins/datepicker.jsp"%>
+	<%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//高亮左侧菜单
+			App.activeMenu("finance/list");
+			Page.initData(
+				{
+					url:"${ctx}/finance/page",
+					tableId : "#sample_1",
+					pageSize : 10
+				},
+				null,
+				[{cName:"name",cValue:"名称"},
+				 {cName:"type",cValue:"类型"},
+				 {cName:"inorout",cValue:"收入or支出",format:function(i,value,item){
+					 if(value == 1){
+						 return "收入";
+					 }else if(value == 0){
+						 return "支出";
+					 }else{
+						 return "未知";
+					 }
+				 }},
+				 {cName:"money",cValue:"金额",format:function(i,value,item){
+					 return value+"元";
+				 }},
+				 {cName:"time",cValue:"时间",format:function(i,value,item){
+					 return new Date(value).format("yyyy-MM-dd hh:mm");
+				 }},
+				 {cName:"content",cValue:"详细内容",noSort:true},
+				 ]
+			);
+		});
+		
+		function doQuery(){
+			
+		}
+	</script>
 </body>
 </html>

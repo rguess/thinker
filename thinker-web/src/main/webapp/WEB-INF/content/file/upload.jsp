@@ -3,13 +3,6 @@
 <html>
 <head>
 <title>文件上传</title>
-<%@ include file="/WEB-INF/content/common/plugins/jquery-fileupload.jsp"%>
-<script type="text/javascript">
-	$(document).ready(function() {
-		App.activeMenu("file/upload");
-		$('.fileupload-toggle-checkbox').uniform();
-	});
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -173,5 +166,12 @@
 			</div>
 		</div>
 	</div>
+	<%@ include file="/WEB-INF/content/common/plugins/jquery-fileupload.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			App.activeMenu("file/upload");
+			$('.fileupload-toggle-checkbox').uniform();
+		});
+	</script>
 </body>
 </html>

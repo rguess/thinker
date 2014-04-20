@@ -3,54 +3,6 @@
 <html>
 <head>
 <title>图标列表</title>
-<%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
-<script type="text/javascript">
-$(document).ready(function() {
-	
-	App.activeMenu("sys/log/list");
-	
-	Page.initData(
-		{
-			url:"${ctx}/sys/log/page",
-			pageNo : 1,
-			pageSize : 10,
-			tableId : "#sample_1"
-		},
-		null,
-		[{cName:"operName",cValue:"操作名称"},
-		 {cName:"ip",cValue:"ip地址"},
-		 {cName:"operTime",cValue:"操作时间",format:function(i,value,item){
-			 if(App.isNundef(value)){
-				 return new Date(value).format("yyyy-MM-dd hh:mm:ss");
-			 }
-			 return value;
-		 }},
-		 {cName:"result",cValue:"类型",format:function(i,value,item){
-			 if(value == 1){
-				 return "成功";
-			 }else if(value == 2){
-				 return "失败";
-			 }
-		 }},
-		 {cName:"operUser",cValue:"操作人",format:function(i,value,item){
-			 if(App.isNundef(value)){
-				 return value.name;
-			 }
-		 }},
-		 {cName:"content",cValue:"描述"}
-		 ]
-	);
-});
-
-function doQuery(){
-	var queryObj = {
-			search_LIKES_mark : null
-		};
-	var mark = $("#mark").val();
-	App.isNundef(mark)?queryObj.search_LIKES_mark = mark:null;
-	Page.doQuery(queryObj);
-}
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -106,5 +58,53 @@ function doQuery(){
 			</div>
 		</div>
 	</div>
+<%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	App.activeMenu("sys/log/list");
+	
+	Page.initData(
+		{
+			url:"${ctx}/sys/log/page",
+			pageNo : 1,
+			pageSize : 10,
+			tableId : "#sample_1"
+		},
+		null,
+		[{cName:"operName",cValue:"操作名称"},
+		 {cName:"ip",cValue:"ip地址"},
+		 {cName:"operTime",cValue:"操作时间",format:function(i,value,item){
+			 if(App.isNundef(value)){
+				 return new Date(value).format("yyyy-MM-dd hh:mm:ss");
+			 }
+			 return value;
+		 }},
+		 {cName:"result",cValue:"类型",format:function(i,value,item){
+			 if(value == 1){
+				 return "成功";
+			 }else if(value == 2){
+				 return "失败";
+			 }
+		 }},
+		 {cName:"operUser",cValue:"操作人",format:function(i,value,item){
+			 if(App.isNundef(value)){
+				 return value.name;
+			 }
+		 }},
+		 {cName:"content",cValue:"描述"}
+		 ]
+	);
+});
+
+function doQuery(){
+	var queryObj = {
+			search_LIKES_mark : null
+		};
+	var mark = $("#mark").val();
+	App.isNundef(mark)?queryObj.search_LIKES_mark = mark:null;
+	Page.doQuery(queryObj);
+}
+</script>
 </body>
 </html>

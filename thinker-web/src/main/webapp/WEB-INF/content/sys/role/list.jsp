@@ -3,31 +3,7 @@
 <html>
 <head>
 <title>角色列表</title>
-<%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
-<script type="text/javascript">
-$(document).ready(function() {
-	
-	App.activeMenu("sys/role/list");
-	
-	Page.initData(
-		{
-			url:"${ctx}/sys/role/page",
-			pageNo : 1,
-			pageSize : 10,
-			tableId : "#sample_1"
-		},
-		null,
-		[{cName:"name",cValue:"名称"},
-		 {cName:"realName",cValue:"中文名"},
-		 {cName:"remark",cValue:"备注",noSort:true}
-		 ]
-	);
-});
 
-function doQuery(){
-	
-}
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -84,5 +60,30 @@ function doQuery(){
 			</div>
 		</div>
 	</div>
+<%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	App.activeMenu("sys/role/list");
+	
+	Page.initData(
+		{
+			url:"${ctx}/sys/role/page",
+			pageNo : 1,
+			pageSize : 10,
+			tableId : "#sample_1"
+		},
+		null,
+		[{cName:"name",cValue:"名称"},
+		 {cName:"realName",cValue:"中文名"},
+		 {cName:"remark",cValue:"备注",noSort:true}
+		 ]
+	);
+});
+
+function doQuery(){
+	
+}
+</script>
 </body>
 </html>

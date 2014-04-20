@@ -4,6 +4,59 @@
 <head>
 <title>资源列表</title>
 <link href="${ctx}/assets/comp/jquery-treegrid/jquery.treegrid.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div class="page-content">
+		<div class="container-fluid">
+			<!-- 页面导航 -->
+			<tool:navBar pageTitle="资源列表" pageTitleContent="系统管理-资源管理-资源列表"
+				titleIcon="icon-home" />
+			<!-- 主体内容 -->
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="portlet box green">
+						<div class="portlet-title">
+							<h4>
+								<i class="icon-globe"></i>资源树
+							</h4>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a><a
+									href="javascript:;" class="remove"></a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div>
+								<div class="btn-group">
+									<shiro:hasPermission name="sys:resource:add">
+										<a class="btn green" href="${ctx}/sys/resource/create">
+											添加 <i class="icon-plus"></i>
+										</a>
+									</shiro:hasPermission>
+								</div>
+							</div>
+							<div>
+								<table id="treeTable" class="table table-striped table-bordered table-hover tree">
+									<thead>
+										<tr id="dataTr">
+											<th>名称</th>
+											<th>资源串</th>
+											<th>图标</th>
+											<th>权限标识</th>
+											<th>排序编号</th>
+											<th>备注</th>
+										</tr>
+									</thead>
+									<tbody id="treeBody">
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <script src="${ctx}/assets/comp/jquery-treegrid/jquery.treegrid.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -103,58 +156,5 @@
 		});
 	}
 </script>
-</head>
-<body>
-	<div class="page-content">
-		<div class="container-fluid">
-			<!-- 页面导航 -->
-			<tool:navBar pageTitle="资源列表" pageTitleContent="系统管理-资源管理-资源列表"
-				titleIcon="icon-home" />
-			<!-- 主体内容 -->
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="portlet box green">
-						<div class="portlet-title">
-							<h4>
-								<i class="icon-globe"></i>资源树
-							</h4>
-							<div class="tools">
-								<a href="javascript:;" class="collapse"></a><a
-									href="javascript:;" class="remove"></a>
-							</div>
-						</div>
-						<div class="portlet-body">
-							<div>
-								<div class="btn-group">
-									<shiro:hasPermission name="sys:resource:add">
-										<a class="btn green" href="${ctx}/sys/resource/create">
-											添加 <i class="icon-plus"></i>
-										</a>
-									</shiro:hasPermission>
-								</div>
-							</div>
-							<div>
-								<table id="treeTable" class="table table-striped table-bordered table-hover tree">
-									<thead>
-										<tr id="dataTr">
-											<th>名称</th>
-											<th>资源串</th>
-											<th>图标</th>
-											<th>权限标识</th>
-											<th>排序编号</th>
-											<th>备注</th>
-										</tr>
-									</thead>
-									<tbody id="treeBody">
-										
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

@@ -3,39 +3,6 @@
 <html>
 <head>
 <title>图标列表</title>
-<%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
-<script type="text/javascript">
-$(document).ready(function() {
-	
-	App.activeMenu("sys/icon/list");
-	
-	Page.initData(
-		{
-			url:"${ctx}/sys/icon/page",
-			pageNo : 1,
-			pageSize : 10,
-			tableId : "#sample_1"
-		},
-		null,
-		[{cName:"mark",cValue:"标识符 "},
-		 {cName:"mark",cValue:"生成的图标",noSort:true,format:function(i,value,item){
-			 return "<i class='"+value+"'></i>";
-		 }},
-		 {cName:"type",cValue:"类型"},
-		 {cName:"description",cValue:"描述"}
-		 ]
-	);
-});
-
-function doQuery(){
-	var queryObj = {
-			search_LIKES_mark : null
-		};
-	var mark = $("#mark").val();
-	App.isNundef(mark)?queryObj.search_LIKES_mark = mark:null;
-	Page.doQuery(queryObj);
-}
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -91,5 +58,38 @@ function doQuery(){
 			</div>
 		</div>
 	</div>
+<%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	App.activeMenu("sys/icon/list");
+	
+	Page.initData(
+		{
+			url:"${ctx}/sys/icon/page",
+			pageNo : 1,
+			pageSize : 10,
+			tableId : "#sample_1"
+		},
+		null,
+		[{cName:"mark",cValue:"标识符 "},
+		 {cName:"mark",cValue:"生成的图标",noSort:true,format:function(i,value,item){
+			 return "<i class='"+value+"'></i>";
+		 }},
+		 {cName:"type",cValue:"类型"},
+		 {cName:"description",cValue:"描述"}
+		 ]
+	);
+});
+
+function doQuery(){
+	var queryObj = {
+			search_LIKES_mark : null
+		};
+	var mark = $("#mark").val();
+	App.isNundef(mark)?queryObj.search_LIKES_mark = mark:null;
+	Page.doQuery(queryObj);
+}
+</script>
 </body>
 </html>

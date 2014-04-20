@@ -197,7 +197,7 @@
 							</a>
 						</li>
 						<li class="divider"></li>
-						<li><a href="${ctx }/logout"><i class="icon-key"></i>退出</a></li>
+						<li><a href="${ctx }/logout/"><i class="icon-key"></i>退出</a></li>
 					</ul>
 				</li>
 				<!-- END USER LOGIN DROPDOWN -->

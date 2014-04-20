@@ -5,6 +5,7 @@
 <title>调整请假申请</title>
 <%@ include file="/WEB-INF/content/common/plugins/datepicker.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
+<%@ include file="/WEB-INF/content/common/plugins/bootstrap-fileupload.jsp"%>
 <script src="${ctx}/assets/js/workflow/leave.js"></script>
 <script type="text/javascript">
 	var taskId = "${taskId}";

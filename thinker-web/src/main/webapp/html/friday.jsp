@@ -8,12 +8,6 @@
 		App.activeMenu("html/friday");
 	});
 </script>
-
-<style type="text/css">
-	 .page-content{
-		min-height: inherit ;
-	 }
-</style>
 </head>
 <body>
 	<div class="page-content">

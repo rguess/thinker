@@ -4,25 +4,6 @@
 <html>
 <head>
 <title>${pageTitle }</title>
-<%@ include file="/WEB-INF/content/common/plugins/datepicker.jsp"%>
-<%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
-<script type="text/javascript">
-	$(function(){
-		App.activeMenu("finance/list");
-		App.dateTimePicker($(".form_datetime"));
-		<c:if test="${not empty obj }">
-			init();
-		</c:if>
-	});
-	
-	function init(){
-		var type = "${obj.type}";
-		var inorout = "${obj.inorout}";
-		$("#financeType option[value="+type+"]").attr("selected","true");
-		$(":radio[name=inorout][value="+inorout+"]").attr("checked","checked").parent().addClass("checked");
-	}
-	
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -123,5 +104,22 @@
 			</div>
 		</div>
 	</div>
+	<%@ include file="/WEB-INF/content/common/plugins/datepicker.jsp"%>
+	<%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
+	<script type="text/javascript">
+		$(function(){
+			App.activeMenu("finance/list");
+			<c:if test="${not empty obj }">
+				init();
+			</c:if>
+		});
+		
+		function init(){
+			var type = "${obj.type}";
+			var inorout = "${obj.inorout}";
+			$("#financeType option[value="+type+"]").attr("selected","true");
+			$(":radio[name=inorout][value="+inorout+"]").attr("checked","checked").parent().addClass("checked");
+		}
+	</script>
 </body>
 </html>

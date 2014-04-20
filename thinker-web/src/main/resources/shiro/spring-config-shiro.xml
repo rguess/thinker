@@ -56,7 +56,7 @@
 			<value>
 				/assets/**=anon
 				/login=anon
-				/logout = logout
+				/logout=logout
 				/**=kickout,user,userSetting
 			</value>
 		</property>

@@ -4,7 +4,6 @@
 <head>
 <title>已办任务</title>
 <%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
-
 <script type="text/javascript">
 $(document).ready(function() {
 	

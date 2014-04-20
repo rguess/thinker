@@ -4,37 +4,7 @@
 <html>
 <head>
 <title>${pageTitle }</title>
-<%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
-<script src="${ctx}/assets/comp/bootstrap-tree/js/bootstrap-tree.js" type="text/javascript"></script>
 <link href="${ctx}/assets/comp/bootstrap-tree/css/bootstrap-tree.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript">
-	$(function(){
-		App.activeMenu("sys/resource/list");
-	});
-	
-	function showIcons(){
-		$('#icons').modal();
-	}
-	
-	function selIcon(mark){
-		$('#icons').modal('hide');
-		
-		var oldVal = $("#iconVal").val();
-		$("#btnIconI").removeClass(oldVal).addClass(mark);
-		$("#iconVal").val(mark);
-	}
-	
-	function showTree(){
-		$("#rcTree").modal();
-	}
-	
-	function selRec(obj){
-		$('#rcTree').modal('hide');
-		
-		$('#parentName').val($(obj).text());
-		$('#parentId').val($(obj).attr("data-id"));
-	}
-</script>
 </head>
 <body>
 	
@@ -144,5 +114,35 @@
 			</div>
 		</div>
 	</div>
+<%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
+<script src="${ctx}/assets/comp/bootstrap-tree/js/bootstrap-tree.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		App.activeMenu("sys/resource/list");
+	});
+	
+	function showIcons(){
+		$('#icons').modal();
+	}
+	
+	function selIcon(mark){
+		$('#icons').modal('hide');
+		
+		var oldVal = $("#iconVal").val();
+		$("#btnIconI").removeClass(oldVal).addClass(mark);
+		$("#iconVal").val(mark);
+	}
+	
+	function showTree(){
+		$("#rcTree").modal();
+	}
+	
+	function selRec(obj){
+		$('#rcTree').modal('hide');
+		
+		$('#parentName').val($(obj).text());
+		$('#parentId').val($(obj).attr("data-id"));
+	}
+</script>
 </body>
 </html>

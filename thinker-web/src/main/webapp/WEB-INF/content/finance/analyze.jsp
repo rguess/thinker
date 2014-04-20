@@ -3,15 +3,6 @@
 <html>
 <head>
 <title>财务分析</title>
-<%@ include file="/WEB-INF/content/common/plugins/highcharts.jsp"%>
-<script src="${ctx}/assets/js/finance/finance.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-	App.activeMenu("finance/analyze");
-	$.finance.analyze();
-});
-
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -52,5 +43,13 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</div>
+	<%@ include file="/WEB-INF/content/common/plugins/highcharts.jsp"%>
+	<script src="${ctx}/assets/js/finance/finance.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		App.activeMenu("finance/analyze");
+		$.finance.analyze();
+	});
+	</script>
 </body>
 </html>

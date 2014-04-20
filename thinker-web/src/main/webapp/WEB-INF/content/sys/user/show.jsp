@@ -3,11 +3,6 @@
 <html>
 <head>
 <title>用户信息</title>
-<script type="text/javascript">
-	$(function() {
-		App.activeMenu("sys/user/list");
-	});
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -124,5 +119,10 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript">
+	$(function() {
+		App.activeMenu("sys/user/list");
+	});
+</script>
 </body>
 </html>

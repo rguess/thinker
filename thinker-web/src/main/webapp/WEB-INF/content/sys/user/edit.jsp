@@ -4,12 +4,6 @@
 <html>
 <head>
 <title>${pageTitle }</title>
-<%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
-<script type="text/javascript">
-	$(function(){
-		App.activeMenu("sys/user/list");
-	});
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -137,5 +131,11 @@
 			</div>
 		</div>
 	</div>
+<%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
+<script type="text/javascript">
+	$(function(){
+		App.activeMenu("sys/user/list");
+	});
+</script>
 </body>
 </html>

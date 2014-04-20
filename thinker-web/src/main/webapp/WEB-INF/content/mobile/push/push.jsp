@@ -4,21 +4,6 @@
 <html>
 <head>
 <title>消息推送</title>
-<%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
-<script type="text/javascript">
-	$(function(){
-		App.activeMenu("/mobile/push");
-	});
-	
-	function formSubmit(){
-		$("#form1").ajaxSubmit(function(data){
-			if(data == "success"){
-				bootbox.alert("推送成功！");
-			};
-		});
-		return false;
-	}
-</script>
 </head>
 <body>
 	<div class="page-content">
@@ -67,5 +52,20 @@
 			</div>
 		</div>
 	</div>
+<%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
+<script type="text/javascript">
+	$(function(){
+		App.activeMenu("/mobile/push");
+	});
+	
+	function formSubmit(){
+		$("#form1").ajaxSubmit(function(data){
+			if(data == "success"){
+				bootbox.alert("推送成功！");
+			};
+		});
+		return false;
+	}
+</script>
 </body>
 </html>
