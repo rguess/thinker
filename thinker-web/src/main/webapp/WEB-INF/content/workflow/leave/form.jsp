@@ -62,6 +62,10 @@
 <div class="control-group">
 	<label class="control-label">原因:</label>
 	<div class="controls">
-		<textarea rows="3" cols="6" class="span6 m-wrap" name="reason" id="reason"></textarea>
+		<textarea rows="3" cols="6" 
+			class="span6 m-wrap" 
+			name="reason"
+			validate="{required:true}"
+			id="reason"></textarea>
 	</div>
 </div>

@@ -76,6 +76,16 @@ public class UserController extends BaseController<User> {
 		return userService.changeUserStatus(id);
 	}
 	
+	/**
+	 * 更改用户状态
+	 * @throws Exception 
+	 */
+	@RequestMapping(value="getAllUsers")
+	@ResponseBody
+	public List<User> getAllUsers() throws Exception{
+		return userService.getAll();
+	}
+	
 	
 }
 

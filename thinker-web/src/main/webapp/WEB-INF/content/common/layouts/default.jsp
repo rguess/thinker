@@ -9,7 +9,7 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<title>bootstrap:<sitemesh:title/></title>
+<title>thinker:<sitemesh:title/></title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Pragma" content="no-cache" />
@@ -60,7 +60,6 @@
 	<script src="${ctx}/assets/js/jquery.cookie.js"></script>
 	<script src="${ctx}/assets/js/jquery.blockui.js"></script>
 	<script src="${ctx}/assets/js/bootbox.js"></script>
-	<script src="${ctx}/assets/js/jquery.form.js"></script>
 	<script src="${ctx}/assets/comp/breakpoints/breakpoints.js" type="text/javascript" ></script>
 	<script src="${ctx}/assets/comp/chosen-bootstrap/chosen/chosen.jquery.min.js" type="text/javascript" ></script>
 	<script src="${ctx}/assets/comp/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
