@@ -94,7 +94,9 @@ public class WorkFlowService {
 			// 读取任务对象
 			Task task = taskService.createTaskQuery()
 					.processInstanceId(instance.getId()).singleResult();
-
+			if(task == null){
+				continue;
+			}
 			map.put("taskname", task.getName());
 			map.put("instanceId", instance.getId());
 			map.put("definitionName", definition.getName());

@@ -3,6 +3,7 @@ package org.guess.showcase.workflow.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.activiti.engine.HistoryService;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
@@ -25,6 +26,9 @@ public class BaseWorkFlowController {
 	
 	@Autowired
 	protected RepositoryService repositoryService;
+	
+	@Autowired
+	protected HistoryService historyService;
 
 	@Autowired
 	protected HttpServletRequest request;
