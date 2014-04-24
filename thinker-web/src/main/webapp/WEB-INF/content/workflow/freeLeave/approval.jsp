@@ -42,7 +42,10 @@
 										</div>
 									</div>
 								</div>
+<<<<<<< HEAD
 								<h3></h3>
+=======
+>>>>>>> 420dedbd4fac9c6f7f8152f67cd021ee9736a2b0
 							</div>
 							<form action="${ctx }/workflow/freeLeave/complete" class="form-horizontal" method="post" id="form1">
 								<input type="hidden" value="${taskId }" name="taskId">
@@ -50,7 +53,11 @@
                                    <label class="control-label">提交到:</label>
                                    <div class="controls">
                                       <select class="medium m-wrap" tabindex="1" name="approvalUser" id="approcalUsers">
+<<<<<<< HEAD
                                       	<option></option>
+=======
+                                      	
+>>>>>>> 420dedbd4fac9c6f7f8152f67cd021ee9736a2b0
                                       </select>
                                    </div>
                                 </div>
