@@ -10,6 +10,7 @@ import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.engine.impl.bpmn.diagram.ProcessDiagramGenerator;
 import org.activiti.engine.impl.context.Context;
 import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.runtime.Execution;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.guess.core.Constants;
 import org.guess.core.orm.Page;
@@ -195,7 +196,8 @@ public class WorkFlowController extends BaseWorkFlowController {
     @RequestMapping(value = "/process/trace/auto/{executionId}")
     public void readResource(@PathVariable("executionId") String executionId, HttpServletResponse response)
             throws Exception {
-        ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId(executionId).singleResult();
+    	Execution execution = runtimeService.createExecutionQuery().executionId(executionId).singleResult();
+        ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId(execution.getProcessInstanceId()).singleResult();
         BpmnModel bpmnModel = repositoryService.getBpmnModel(processInstance.getProcessDefinitionId());
         List<String> activeActivityIds = runtimeService.getActiveActivityIds(executionId);
         Context.setProcessEngineConfiguration(processEngine.getProcessEngineConfiguration());

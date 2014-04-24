@@ -8,18 +8,26 @@
         <loopCardinality>10</loopCardinality>
         <completionCondition>${endTag}</completionCondition>
       </multiInstanceLoopCharacteristics>
-    </userTask>
+    </userTask> 
     
-    <userTask id="usertask1" name="重新调整"></userTask>
+    <userTask id="usertask1" name="重新调整" activiti:assignee="${applyUser}"></userTask>
     <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
     
     <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="approval"></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="approval" targetRef="endevent1"></sequenceFlow>
-    <sequenceFlow id="flow3" sourceRef="approval" targetRef="usertask1"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="approval" targetRef="endevent1">
+    	<conditionExpression xsi:type="tFormalExpression"><![CDATA[${auditerPass}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="approval" targetRef="usertask1">
+    	<conditionExpression xsi:type="tFormalExpression"><![CDATA[${!auditerPass}]]></conditionExpression>
+    </sequenceFlow>
     <sequenceFlow id="flow4" sourceRef="usertask1" targetRef="exclusivegateway1"></sequenceFlow>
-    <sequenceFlow id="flow5" sourceRef="exclusivegateway1" targetRef="approval"></sequenceFlow>
-    <sequenceFlow id="flow6" sourceRef="exclusivegateway1" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="exclusivegateway1" targetRef="approval">
+    	<conditionExpression xsi:type="tFormalExpression"><![CDATA[${reApply}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="exclusivegateway1" targetRef="endevent1">
+    	<conditionExpression xsi:type="tFormalExpression"><![CDATA[${!reApply}]]></conditionExpression>
+    </sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_freeLeave">
     <bpmndi:BPMNPlane bpmnElement="freeLeave" id="BPMNPlane_freeLeave">

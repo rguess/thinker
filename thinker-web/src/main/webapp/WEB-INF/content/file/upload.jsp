@@ -37,7 +37,7 @@
 								<!-- The fileinput-button span is used to style the file input field as button -->
 								<span class="btn green fileinput-button"> <i
 									class="icon-plus icon-white"></i> <span>Add files...</span> <input
-									type="file" name="files[]" multiple>
+									type="file" name="files[]" multiple="multiple">
 								</span>
 								<button type="submit" class="btn blue start">
 									<i class="icon-upload icon-white"></i> <span>Start

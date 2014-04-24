@@ -63,9 +63,9 @@
 									</div>
 								</div>
 								<div class="form-actions">
-									<button type="submit" class="btn blue" value="agree">同意</button>
-									<button type="submit" class="btn green" value="agreeAndEnd">同意并结束</button>
-									<button type="submit" class="btn blue" value="">驳回请求</button>
+									<button type="submit" name="handle" class="btn blue" value="agree">同意</button>
+									<button type="submit" name="handle" class="btn green" value="agreeAndEnd">同意并结束</button>
+									<button type="submit" name="handle" class="btn red" value="reject">驳回请求</button>
 									<a class='btn' href="${header.Referer }">返回</a>
 								</div>
 							</form>

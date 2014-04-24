@@ -20,8 +20,8 @@
 								<i class="icon-globe"></i>资源树
 							</h4>
 							<div class="tools">
-								<a href="javascript:;" class="collapse"></a><a
-									href="javascript:;" class="remove"></a>
+								<a href="javascript:;" class="collapse"></a>
+								<a href="javascript:;" class="remove"></a>
 							</div>
 						</div>
 						<div class="portlet-body">
