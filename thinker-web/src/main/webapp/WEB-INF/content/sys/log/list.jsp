@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/content/common/common.jsp"%>
 <html>
 <head>
-<title>图标列表</title>
+<title>日志列表</title>
 </head>
 <body>
 	<div class="page-content">

@@ -80,12 +80,12 @@ public class WorkFlowService {
 				+ " left join "
 				+ managementService.getTableName(IdentityLinkEntity.class)
 				+ " as I on P.PROC_INST_ID_ = I.PROC_INST_ID_ where I.TYPE_ = 'starter' and I.USER_ID_ = '"
-				+ sponsor + "'";
+				+ sponsor + "' and P.IS_ACTIVE_ = 1";
 		String queryStr = "select * " + str;
 		String countStr = "select count(*) " + str;
 		NativeProcessInstanceQuery dataQuery = runtimeService.createNativeProcessInstanceQuery().sql(queryStr);
 		long count = runtimeService.createNativeProcessInstanceQuery().sql(countStr).count();
-		List<ProcessInstance> instances = dataQuery.listPage(page.getPageNo() - 1, page.getPageSize());
+		List<ProcessInstance> instances = dataQuery.listPage((page.getPageNo()-1)*page.getPageSize(), page.getPageSize());
 		for (ProcessInstance instance : instances) {
 			Map<String, String> map = new HashMap<String, String>();
 			// 读取流程定义对象

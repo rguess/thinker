@@ -65,13 +65,22 @@ public class FreeFlowController extends BaseWorkFlowController {
 	public ModelAndView complete(ModelAndView mav,
 			@RequestParam(value = "auditOpinion") String auditOpinion,
 			@RequestParam("taskId") String taskId,
-			@RequestParam(value = "approvalUser") String approvalUser)
+			@RequestParam(value = "approvalUser") String approvalUser,
+			@RequestParam(value = "handle") String handle)
 			throws Exception {
 
 		Map<String, Object> variables = new HashMap<String, Object>();
-		variables.put("approvalUser", approvalUser);
 		variables.put("auditOpinion", auditOpinion);
-		variables.put("endTag", false);
+		if(handle.equals("agree")){
+			variables.put("approvalUser", approvalUser);
+			variables.put("endTag", false);
+		}else if(handle.equals("agreeAndEnd")){
+			variables.put("endTag", true);
+			variables.put("auditerPass", true);
+		}else if(handle.equals("reject")){
+			variables.put("endTag", true);
+			variables.put("auditerPass", false);
+		}
 		taskService.complete(taskId, variables);
 		mav.setViewName("redirect:/workflow/todoTasks");
 		return mav;
