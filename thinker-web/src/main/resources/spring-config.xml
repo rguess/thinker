@@ -48,6 +48,7 @@
 				<value>org.guess.sys.model</value>
 				<value>org.guess.showcase.workflow.model</value>
 				<value>org.guess.showcase.finance.model</value>
+				<value>org.guess.showcase.cms.model</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

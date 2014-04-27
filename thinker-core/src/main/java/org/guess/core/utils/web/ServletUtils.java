@@ -17,8 +17,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.guess.core.Constants;
 import org.guess.core.utils.AssertUtils;
 import org.guess.core.utils.EncodeUtils;
+import org.guess.core.utils.FileUtil;
 
 /**
  * Http与Servlet工具类.
@@ -190,5 +192,14 @@ public abstract class ServletUtils {
 	 */
 	public static String getRealPath(HttpServletRequest request){
 		return request.getSession().getServletContext().getRealPath("/");
+	}
+	
+	/**
+	 * 生成临时文件名
+	 * @param request
+	 * @param fileName 文件名称
+	 */
+	public static String generateTempFileName(HttpServletRequest request,String fileName){
+		return getRealPath(request)+ "/"+Constants.TEMP_FOLDER_NAME+"/" +  FileUtil.uuidFileName(fileName);
 	}
 }

@@ -357,7 +357,15 @@
 				<artifactId>activiti-spring</artifactId>
 				<version>${activiti.version}</version>
 			</dependency>
-			<!-- activiti -->
+			<!-- end activiti -->
+			
+			<!-- jacob -->
+			<dependency>
+				<groupId>com.jacob</groupId>
+				<artifactId>jacob</artifactId>
+				<version>1.17</version>
+			</dependency>
+			<!-- end jacob -->
 		</dependencies>
 	</dependencyManagement>
 

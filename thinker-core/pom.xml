@@ -164,6 +164,13 @@
 			<artifactId>jackson-module-jaxb-annotations</artifactId>
 		</dependency>
 		<!-- JSON end -->
+		
+		<!-- jacob -->
+		<dependency>
+			<groupId>com.jacob</groupId>
+			<artifactId>jacob</artifactId>
+		</dependency>
+		<!-- end jacob -->
 
 		<dependency>
 			<groupId>net.sf.dozer</groupId>

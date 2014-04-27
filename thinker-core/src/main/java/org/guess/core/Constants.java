@@ -89,5 +89,15 @@ public interface Constants {
      * 登录页面
      */
     String LOGIN_URL = "/login";
+    
+    /**
+     * 上传文件夹
+     */
+    String UPLOAD_FOLDER_NAME = "upload";
+    
+    /**
+     * 临时文件夹
+     */
+    String TEMP_FOLDER_NAME = "temp";
 
 }

@@ -270,5 +270,34 @@ a.more:hover {
 	background: #c00;
 }
 
+/* 文章iframe样式 */
+.article{
+	border: 1px solid rgb(180, 206, 248);
+}
+
+.article_herder{
+	text-align: center;
+}
+
+.article_content{
+ 	height:auto;
+	top:0px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+}
+ 	 	
+.article_content iframe {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	border: 0 none;
+}
+
+.article_content>iframe { 
+	+position: absolute; 
+	+top: 0px; 
+	+bottom: 0px;
+}
 
 

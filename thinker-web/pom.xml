@@ -276,6 +276,13 @@
 		</dependency>
 		<!-- activiti -->
 		
+		<!-- jacob -->
+		<dependency>
+			<groupId>com.jacob</groupId>
+			<artifactId>jacob</artifactId>
+		</dependency>
+		<!-- end jacob -->
+		
 		<!-- thinker -->
 		<dependency>
 			<groupId>org.guess.thinker</groupId>
