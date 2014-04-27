@@ -1,0 +1,28 @@
+.scroller_roll{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+.scroller_roll ul{
+    padding: 0px;
+    margin: 0px;
+    float: left;
+}
+.scroller_roll ul li{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    float: left;
+    text-align: center;
+    display:inline;
+    overflow: hidden;
+}
+.scroller_roll ul li a{
+    text-decoration: none;
+}
+.scroller_roll ul li a:hover{
+    text-decoration: underline;
+}
+.scroller_roll ul li a img{
+    border: none;
+}

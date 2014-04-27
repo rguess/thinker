@@ -6,6 +6,8 @@
 		<pattern>/errorpage/*</pattern>
 		<pattern>/login*</pattern>
 		<pattern>/file/download*</pattern>
+		<pattern>/html/demo.jsp*</pattern>
+		<pattern>/html/xizang*</pattern>
 	</excludes>
 
 	<decorator name="default" page="/WEB-INF/content/common/layouts/default.jsp">
