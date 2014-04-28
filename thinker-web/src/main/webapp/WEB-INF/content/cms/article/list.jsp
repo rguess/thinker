@@ -24,7 +24,41 @@
 						</div>
 						<div class="portlet-body">
 							<div class="row-fluid">
-								
+								<form class="queryForm span8">
+									<div class="span2">
+	                                    <div class="control-group">
+	                                       <div class="controls">
+	                                          <input type="text" id="name" class="m-wrap span12" placeholder="标题">
+	                                       </div>
+	                                    </div>
+                                 	</div>
+                                 	<div class="span5">
+	                                    <div class="control-group">
+	                                       <div class="controls">
+	                                         <a class="btn blue" href="javascript:void(0)" onclick="javascript:doQuery();">
+	                                         	<i class="icon-search"></i>
+	                                         	查询</a>
+	                                         <button type="reset" class="btn">
+	                                         	<i class="icon-trash"></i>清空
+	                                         </button>
+	                                       </div>
+	                                    </div>
+                                 	</div>
+								</form>
+								<div class="span4 pull-right">
+									<a class="btn green" href="javascript:void(0)" onclick="Page.addObj();">
+										添加 <i class="icon-plus"></i>
+									</a>
+									<a class="btn blue" href="javascript:void(0);" onclick="Page.updateObj();">
+										修改<i class="icon-pencil"></i>
+									</a>
+									<a class="btn red" href="javascript:void(0);" onclick="Page.deleteObj();">
+										删除<i class="icon-trash"></i>
+									</a>
+									<a class="btn blue" href="javascript:void(0);" onclick="Page.viewObj();">
+										详细<i class="icon-search"></i>
+									</a>
+								</div>
 							</div>
 							<table class="table table-striped table-bordered table-hover" id="sample_1">
 								
@@ -38,6 +72,7 @@
 <%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
 <script type="text/javascript">
 	$(function(){
+		App.activeMenu("/cms/article/list")
 		Page.initData(
 			{
 				url:"${ctx}/cms/article/page",
@@ -48,12 +83,12 @@
 			[{cName:"title",cValue:"标题"},
 			 {cName:"description",cValue:"描述"},
 			 {cName:"htmlid",cValue:"操作",noSort:true,format:function(i,value,item){
-				 var $a = $("<a href='${ctx}/cms/article/view/"+value+"'>查看</a>");
+				 var $a = $("<a href='${ctx}/cms/article/view/"+value+"' target='_blank'>预览</a>");
 				 return $a;
 			 }}
 			 ]
 		);
-	})
+	});
 </script>
 </body>
 </html>

@@ -33,7 +33,6 @@
 			<%-- <img src="${ctx}/assets/demo/img/cover.png" /> --%>
 		</div>
 		<div class="top-nav">
-			<div class="nav-l"></div>
 			<div class="nav-m">
 				<ul class="white">
 					<li><a href="index.html">首页</a></li>
@@ -76,7 +75,7 @@
 			</div>
 			<div class="span9 article">
 				<div class="article_herder">
-					<h2>这是一个测试标题</h2>
+					<h2 style="color: ${article.color}">${article.title }</h2>
 				</div>
 				<div class="article_content">
 					<iframe src="${ctx }/upload/article/${htmlid }/index.htm"></iframe>

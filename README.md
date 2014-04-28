@@ -9,6 +9,7 @@
 * mysql数据库
 * 前端使用基于bootstrap的metronic组件库
 * 使用泛型封装dao、service、controller基类，包含分页，查询条件封装，从而达到快速crud操作
+* 参考<a href="https://github.com/thinkgem/jeesite" target="_blank">jeesite</a>做了个简易代码生成器
 * 基于hibernate简单查询条件的封装
 * ehcache缓存
 * 权限管理——使用框架apache shiro进行系统认证、授权操作(完成)

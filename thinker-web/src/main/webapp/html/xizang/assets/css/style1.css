@@ -113,9 +113,16 @@
 	height: 40px;
 	width: 4px;
 	background: url(../img/navleft.jpg) no-repeat;
-	position: absolute;
 	left: 0px;
 	top: 0px;
+	float: left;
+}
+
+.nav-r{
+	height: 40px;
+	width: 4px;
+	background: url(../img/navright.jpg) no-repeat;
+	float: right;
 }
 
 .nav-m {

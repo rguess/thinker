@@ -233,30 +233,15 @@ var Page = {
 	},
 	
 	updateObj : function() {
-		var boxes = $(Page.defaultVal.tableId).find("td :checkbox:checked");
-		if(boxes.length == 0){
-			App.alert("请选中一条记录");
-			return;
-		}
-		if(boxes.length > 1){
-			App.alert("请只选择一条记录");
-			return;
-		}
-		var id = boxes.first().attr("data-id");
-		window.location.href = Page.subUrl() + "/update/" + id;
+		var flag = Page.selectsPrompt();
+		if(!flag) return;
+		window.location.href = Page.subUrl() + "/update/" + flag;
 	},
 	
-	viewObj : function(id) {var boxes = $(Page.defaultVal.tableId).find("td :checkbox:checked");
-		if(boxes.length == 0){
-			App.alert("请选中一条记录");
-			return;
-		}
-		if(boxes.length > 1){
-			App.alert("请只选择一条记录");
-			return;
-		}
-		var id = boxes.first().attr("data-id");
-		window.location.href = Page.subUrl() + "/show/" + id;
+	viewObj : function(id) {
+		var flag = Page.selectsPrompt();
+		if(!flag) return;
+		window.location.href = Page.subUrl() + "/show/" + flag;
 	},
 	
 	deleteObj : function(id) {
@@ -281,6 +266,22 @@ var Page = {
 			f.submit();
 		};
 		App.confirm(delFun);
+	},
+	
+	/**
+	 * 根据选择checkbox的情况作出选择只能选择一条记录，如果是返回id，否则返回false
+	 */
+	selectsPrompt : function(){
+		var boxes = $(Page.defaultVal.tableId).find("td :checkbox:checked");
+		if(boxes.length == 0){
+			App.alert("请选中一条记录");
+			return false;
+		}
+		if(boxes.length > 1){
+			App.alert("请只选择一条记录");
+			return false;
+		}
+		return boxes.first().attr("data-id");;
 	},
 	/**
 	 * 截取url供修改，删除，查看等使用

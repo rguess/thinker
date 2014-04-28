@@ -283,6 +283,11 @@
 		</dependency>
 		<!-- end jacob -->
 		
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+		</dependency>
+		
 		<!-- thinker -->
 		<dependency>
 			<groupId>org.guess.thinker</groupId>

@@ -80,6 +80,24 @@ public class ArticleController {
 		return mav;
 	}
 
+	@RequestMapping("/delete")
+	public ModelAndView delete(ModelAndView mav,
+			@RequestParam("ids") Long[] ids, HttpServletRequest request) {
+		
+		for (Long id : ids) {
+			try {
+				Article article = aService.get(id);
+				aService.remove(article);
+				System.gc();
+				FileUtil.deleteDirectory(CmsUtil.getArticleFilePath(request)+"/"+article.getHtmlid());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		mav.setViewName("redirect:" + listView);
+		return mav;
+	}
+
 	@RequestMapping("/page")
 	public @ResponseBody
 	Map<String, Object> page(Page<Article> page, HttpServletRequest request) {
@@ -91,8 +109,8 @@ public class ArticleController {
 	@RequestMapping("/view/{htmlid}")
 	public ModelAndView toArticle(ModelAndView mav,
 			@PathVariable("htmlid") String htmlid) {
-		
-		mav.addObject("htmlid", htmlid);
+		Article article = aService.findUniqueBy("htmlid", htmlid);
+		mav.addObject("article", article);
 		mav.setViewName("/cms/article");
 		return mav;
 	}

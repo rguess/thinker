@@ -34,7 +34,6 @@
 			<img src="${ctx}/assets/demo/img/cover.png" />
 		</div>
 		<div class="top-nav">
-			<div class="nav-l"></div>
 			<div class="nav-m">
 				<ul class="white">
 					<li><a href="index.html">首页</a></li>
