@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.guess.core.orm.Page;
 import org.guess.core.orm.PropertyFilter;
-import org.guess.core.utils.FileUtil;
+import org.guess.core.utils.FileUtils;
 import org.guess.core.utils.UuidUtil;
 import org.guess.core.utils.WordToHtml;
 import org.guess.core.utils.web.ServletUtils;
@@ -63,7 +63,7 @@ public class ArticleController {
 			String uuid = UuidUtil.uuid();
 			String articlefolerName = CmsUtil.getArticleFilePath(request) + "/"
 					+ uuid;
-			FileUtil.isFolderExitAndCreate(articlefolerName);
+			FileUtils.isFolderExitAndCreate(articlefolerName);
 
 			// word转为html
 			String htmlFileName = articlefolerName + "/index";
@@ -74,7 +74,7 @@ public class ArticleController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			FileUtil.deleteFile(tempFile);
+			FileUtils.deleteFile(tempFile);
 		}
 		mav.setViewName("redirect:" + listView);
 		return mav;
@@ -89,7 +89,7 @@ public class ArticleController {
 				Article article = aService.get(id);
 				aService.remove(article);
 				System.gc();
-				FileUtil.deleteDirectory(CmsUtil.getArticleFilePath(request)+"/"+article.getHtmlid());
+				FileUtils.deleteDirectory(CmsUtil.getArticleFilePath(request)+"/"+article.getHtmlid());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

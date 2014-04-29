@@ -12,7 +12,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.guess.core.utils.DateUtil;
-import org.guess.core.utils.FileUtil;
+import org.guess.core.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -41,12 +41,12 @@ public class Generate {
 
 		// packageName
 		// 包名，这里如果更改包名，请在applicationContext.xml和srping-mvc.xml中配置base-package、packagesToScan属性，来指定多个（共4处需要修改）。
-		String packageName = "com.thinkgem.jeesite.modules";
+		String packageName = "org.guess.showcase";
 
 		String moduleName = "factory"; // 模块名，例：sys
 		String subModuleName = ""; // 子模块名（可选）
-		String className = "product"; // 类名，例：user
-		String classAuthor = "ThinkGem"; // 类作者，例：ThinkGem
+		String className = "user"; // 类名，例：user
+		String classAuthor = "rguess"; // 类作者，例：ThinkGem
 		String functionName = "产品"; // 功能名，例：用户
 
 		// 是否启用生成工具
@@ -72,6 +72,7 @@ public class Generate {
 		// 获取工程路径
 		File projectPath = new DefaultResourceLoader().getResource("")
 				.getFile();
+//		File projectPath = new File("D:/template");
 		while (!new File(projectPath.getPath() + separator + "src" + separator
 				+ "main").exists()) {
 			projectPath = projectPath.getParentFile();
@@ -79,26 +80,28 @@ public class Generate {
 		logger.info("Project Path: {}", projectPath);
 
 		// 模板文件路径
-		String tplPath = StringUtils.replace(projectPath
-				+ "/src/test/java/org/guess/template", "/",
-				separator);
+		String tplPath = StringUtils.replace(projectPath.getAbsolutePath()
+				+ "/src/test/java/org/guess/temp", "/", separator);
 		logger.info("Template Path: {}", tplPath);
 
 		// Java文件路径
-		String javaPath = StringUtils.replaceEach(projectPath
+		String javaPath = StringUtils.replaceEach(projectPath.getAbsolutePath()
 				+ "/src/main/java/" + StringUtils.lowerCase(packageName),
 				new String[] { "/", "." },
 				new String[] { separator, separator });
+//		String javaPath = "D:/template";
 		logger.info("Java Path: {}", javaPath);
 
 		// 视图文件路径
-		String viewPath = StringUtils.replace(projectPath
-				+ "/src/main/webapp/WEB-INF/views", "/", separator);
-		logger.info("View Path: {}", viewPath);
+		/*
+		 * String viewPath = StringUtils.replace(projectPath +
+		 * "/src/main/webapp/WEB-INF/views", "/", separator);
+		 * logger.info("View Path: {}", viewPath);
+		 */
 
 		// 代码模板配置
 		Configuration cfg = new Configuration();
-		FileUtil.isFolderExitAndCreate(tplPath);
+		FileUtils.isFolderExitAndCreate(tplPath);
 		cfg.setDirectoryForTemplateLoading(new File(tplPath));
 
 		// 定义模板变量
@@ -139,7 +142,7 @@ public class Generate {
 		Template template = cfg.getTemplate("entity.ftl");
 		String content = FreeMarkers.renderTemplate(template, model);
 		String filePath = javaPath + separator + model.get("moduleName")
-				+ separator + "entity" + separator
+				+ separator + "model" + separator
 				+ StringUtils.lowerCase(subModuleName) + separator
 				+ model.get("ClassName") + ".java";
 		writeFile(content, filePath);
@@ -154,6 +157,15 @@ public class Generate {
 		writeFile(content, filePath);
 		logger.info("Dao: {}", filePath);
 
+		// 生成 DaoImpl
+		template = cfg.getTemplate("daoImpl.ftl");
+		content = FreeMarkers.renderTemplate(template, model);
+		filePath = javaPath + separator + model.get("moduleName") + separator
+				+ "dao"+ separator+ "impl" + separator + StringUtils.lowerCase(subModuleName)
+				+ separator + model.get("ClassName") + "DaoImpl.java";
+		writeFile(content, filePath);
+		logger.info("Dao: {}", filePath);
+
 		// 生成 Service
 		template = cfg.getTemplate("service.ftl");
 		content = FreeMarkers.renderTemplate(template, model);
@@ -163,54 +175,63 @@ public class Generate {
 		writeFile(content, filePath);
 		logger.info("Service: {}", filePath);
 
+		// 生成 Service
+		template = cfg.getTemplate("serviceImpl.ftl");
+		content = FreeMarkers.renderTemplate(template, model);
+		filePath = javaPath + separator + model.get("moduleName") + separator
+				+ "service" + separator+ "impl" + separator + StringUtils.lowerCase(subModuleName)
+				+ separator + model.get("ClassName") + "ServiceImpl.java";
+		writeFile(content, filePath);
+		logger.info("Service: {}", filePath);
+
 		// 生成 Controller
 		template = cfg.getTemplate("controller.ftl");
 		content = FreeMarkers.renderTemplate(template, model);
 		filePath = javaPath + separator + model.get("moduleName") + separator
-				+ "web" + separator + StringUtils.lowerCase(subModuleName)
+				+ "controller" + separator + StringUtils.lowerCase(subModuleName)
 				+ separator + model.get("ClassName") + "Controller.java";
 		writeFile(content, filePath);
 		logger.info("Controller: {}", filePath);
 
 		// 生成 ViewForm
-		template = cfg.getTemplate("viewForm.ftl");
-		content = FreeMarkers.renderTemplate(template, model);
-		filePath = viewPath + separator
-				+ StringUtils.substringAfterLast(model.get("packageName"), ".")
-				+ separator + model.get("moduleName") + separator
-				+ StringUtils.lowerCase(subModuleName) + separator
-				+ model.get("className") + "Form.jsp";
-		writeFile(content, filePath);
-		logger.info("ViewForm: {}", filePath);
+		/*
+		 * template = cfg.getTemplate("viewForm.ftl"); content =
+		 * FreeMarkers.renderTemplate(template, model); filePath = viewPath +
+		 * separator + StringUtils.substringAfterLast(model.get("packageName"),
+		 * ".") + separator + model.get("moduleName") + separator +
+		 * StringUtils.lowerCase(subModuleName) + separator +
+		 * model.get("className") + "Form.jsp"; writeFile(content, filePath);
+		 * logger.info("ViewForm: {}", filePath);
+		 */
 
-		/*// 生成 ViewList
-		template = cfg.getTemplate("viewList.ftl");
-		content = FreeMarkers.renderTemplate(template, model);
-		filePath = viewPath + separator
-				+ StringUtils.substringAfterLast(model.get("packageName"), ".")
-				+ separator + model.get("moduleName") + separator
-				+ StringUtils.lowerCase(subModuleName) + separator
-				+ model.get("className") + "List.jsp";
-		writeFile(content, filePath);
-		logger.info("ViewList: {}", filePath);*/
+		/*
+		 * // 生成 ViewList template = cfg.getTemplate("viewList.ftl"); content =
+		 * FreeMarkers.renderTemplate(template, model); filePath = viewPath +
+		 * separator + StringUtils.substringAfterLast(model.get("packageName"),
+		 * ".") + separator + model.get("moduleName") + separator +
+		 * StringUtils.lowerCase(subModuleName) + separator +
+		 * model.get("className") + "List.jsp"; writeFile(content, filePath);
+		 * logger.info("ViewList: {}", filePath);
+		 */
 
-		logger.info("Generate Success.");
+//		logger.info("Generate Success.");
 	}
 
 	/**
 	 * 将内容写入文件
+	 * 
 	 * @param content
 	 * @param filePath
 	 */
 	public static void writeFile(String content, String filePath) {
 		try {
-			if (FileUtils.createFile(filePath)){
+			if (FileUtils.createFile(filePath)) {
 				FileWriter fileWriter = new FileWriter(filePath, true);
 				BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 				bufferedWriter.write(content);
 				bufferedWriter.close();
 				fileWriter.close();
-			}else{
+			} else {
 				logger.info("生成失败，文件已存在！");
 			}
 		} catch (Exception e) {

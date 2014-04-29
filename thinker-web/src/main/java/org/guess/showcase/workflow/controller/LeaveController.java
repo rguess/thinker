@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.activiti.engine.task.Task;
 import org.guess.core.Constants;
-import org.guess.core.utils.FileUtil;
+import org.guess.core.utils.FileUtils;
 import org.guess.core.utils.web.ServletUtils;
 import org.guess.showcase.workflow.model.Leave;
 import org.guess.showcase.workflow.service.LeaveService;
@@ -41,7 +41,7 @@ public class LeaveController extends BaseWorkFlowController {
 			@RequestParam(value = "leavefile", required = false) MultipartFile leavefile)
 			throws Exception {
 
-		String fileUuid = FileUtil.uuidFileName(leavefile.getOriginalFilename());
+		String fileUuid = FileUtils.uuidFileName(leavefile.getOriginalFilename());
 
 		// 上传文件
 		File targetFile = new File(ServletUtils.getRealPath(request)

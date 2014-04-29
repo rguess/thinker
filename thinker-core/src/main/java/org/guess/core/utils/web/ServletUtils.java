@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.guess.core.Constants;
 import org.guess.core.utils.AssertUtils;
 import org.guess.core.utils.EncodeUtils;
-import org.guess.core.utils.FileUtil;
+import org.guess.core.utils.FileUtils;
 
 /**
  * Http与Servlet工具类.
@@ -200,6 +200,6 @@ public abstract class ServletUtils {
 	 * @param fileName 文件名称
 	 */
 	public static String generateTempFileName(HttpServletRequest request,String fileName){
-		return getRealPath(request)+ "/"+Constants.TEMP_FOLDER_NAME+"/" +  FileUtil.uuidFileName(fileName);
+		return getRealPath(request)+ "/"+Constants.TEMP_FOLDER_NAME+"/" +  FileUtils.uuidFileName(fileName);
 	}
 }
