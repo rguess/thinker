@@ -42,7 +42,7 @@
 									</div>
 								</div>
 								<div class="form-actions">
-									<button type="submit" class="btn blue" onclick="javascript:return formSubmit();">提交</button>
+									<button type="submit" class="btn blue">提交</button>
 									<a class='btn' href="${header.Referer }">返回</a>
 								</div>
 							</form>
@@ -56,15 +56,13 @@
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("/mobile/push");
+		App.initAsyncFormValidate("#form1",formSubmitCallback);
 	});
 	
-	function formSubmit(){
-		$("#form1").ajaxSubmit(function(data){
-			if(data == "success"){
-				bootbox.alert("推送成功！");
-			};
-		});
-		return false;
+	function formSubmitCallback(data){
+		if(data == "success"){
+			bootbox.alert("推送成功！");
+		};
 	}
 </script>
 </body>

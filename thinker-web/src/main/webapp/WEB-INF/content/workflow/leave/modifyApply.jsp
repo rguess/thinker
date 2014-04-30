@@ -35,7 +35,7 @@
 							</div>
 						</div>
 						<div class="portlet-body form">
-							<form action="${ctx }/workflow/leave/modifyApply" class="form-horizontal" method="post" id="form1">
+							<form action="${ctx }/workflow/leave/modifyApply" class="form-horizontal form_sync" method="post" id="form1">
 								<%@ include file="/WEB-INF/content/workflow/leave/form.jsp" %>
 								<input type="hidden" value="" name="id" id="leaveId">
 								<input type="hidden" value="${taskId }" name="taskId">

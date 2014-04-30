@@ -28,6 +28,18 @@
 }
 
 .input-append .add-on > .halflings-icon
- .input-append .add-on > i, .input-append .add-on > [class^="icon-"]{
+.input-append .add-on > i, .input-append .add-on > [class^="icon-"]{
  	margin-top: 10px
  }
+ 
+/* 调低导航与内容的距离 */
+.page-content .breadcrumb{
+	margin-bottom: 10px;
+}
+.breadcrumb{
+	margin: 0 0 10px;
+}
+
+.table th, .table td{
+	padding: 5px;
+}

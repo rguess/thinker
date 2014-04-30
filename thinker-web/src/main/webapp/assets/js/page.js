@@ -327,11 +327,13 @@ var Page = {
 		if(page.totalSize == 0){
 			$(Page.defaultVal.tableId).hide();
 			$("#Pagination").parent().hide();
-			$(Page.defaultVal.tableId).parent().append("<span id='noneData'>没有数据！</span>");
+			if($(".noneData").length == 0){
+				$(Page.defaultVal.tableId).parent().append("<span class='noneData'>没有数据！</span>");
+			}
 			unBlockUI();
 			return true;
 		}else{
-			$("#noneData").remove();
+			$(".noneData").remove();
 			$(Page.defaultVal.tableId).parent().children().show();
 			return false;
 		}

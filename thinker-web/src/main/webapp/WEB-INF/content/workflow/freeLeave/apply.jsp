@@ -30,7 +30,7 @@
 							</div>
 						</div>
 						<div class="portlet-body form">
-							<form action="${ctx }/workflow/freeLeave/start" class="form-horizontal" method="post" id="form1">
+							<form action="${ctx }/workflow/freeLeave/start" class="form-horizontal form_sync" method="post" id="form1">
 								<div class="control-group">
                                    <label class="control-label">提交到</label>
                                    <div class="controls">

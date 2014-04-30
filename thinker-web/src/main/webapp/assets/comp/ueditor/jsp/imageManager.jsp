@@ -5,12 +5,14 @@
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <% 
     //仅做示例用，请自行修改
-	String path = "upload";
+    String[] paths = {"upload","upload1","upload2"};
 	String imgStr ="";
-	String realpath = getRealPath(request,path)+"/"+path;
-	List<File> files = getFiles(realpath,new ArrayList());
-	for(File file :files ){
-		imgStr+=file.getPath().replace(getRealPath(request,path),"")+"ue_separate_ue";
+	for(String path : paths){
+		String realpath = getRealPath(request,path)+"/"+path;
+		List<File> files = getFiles(realpath,new ArrayList());
+		for(File file :files ){
+			imgStr+=file.getPath().replace(getRealPath(request,path),"")+"ue_separate_ue";
+		}
 	}
 	if(imgStr!=""){
         imgStr = imgStr.substring(0,imgStr.lastIndexOf("ue_separate_ue")).replace(File.separator, "/").trim();

@@ -3,6 +3,9 @@ package org.guess.showcase.cms.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -11,6 +14,8 @@ import org.guess.core.IdEntity;
 import org.guess.core.utils.DateUtil;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -25,6 +30,14 @@ public class Article extends IdEntity {
 	
 	public static final Integer WORD_CONTENT = 0;
 	public static final Integer RICHTEXT_CONTENT = 1;
+	
+	/**
+	 * 分类编号
+	 */
+	@ManyToOne(targetEntity = Category.class,fetch = FetchType.LAZY)
+    @JoinColumn(name = "CATEGORY_ID")
+    @NotFound(action=NotFoundAction.IGNORE)
+	private Category category;
 	
 	/**
 	 * 标题
@@ -82,6 +95,13 @@ public class Article extends IdEntity {
 	@Temporal(TemporalType.DATE)
 	private Date createDate = DateUtil.parseFormat("yyyy-MM-dd");
 	
+	
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	public String getHtmlid() {
 		return htmlid;
 	}

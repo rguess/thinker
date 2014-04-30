@@ -43,7 +43,7 @@
 									</div>
 								</div>
 							</div>
-							<form action="${ctx }/workflow/freeLeave/complete" class="form-horizontal" method="post" id="form1">
+							<form action="${ctx }/workflow/freeLeave/complete" class="form-horizontal form_sync" method="post" id="form1">
 								<input type="hidden" value="${taskId }" name="taskId">
 								<div class="control-group">
                                    <label class="control-label">提交到:</label>

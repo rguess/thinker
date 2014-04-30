@@ -485,6 +485,15 @@ var App = function () {
 		prolet.addClass(colors[temp]);
     };
     
+    //初始化同步提交form的validate
+    var handleSyncFormValidate = function(){
+		if($(".form_sync").length !=0){
+			$.each($(".form_sync"),function(i,item){
+				$(item).validate();
+			});
+		}
+    };
+    
     return {
         //main function to initiate template pages
         init: function () {
@@ -510,6 +519,7 @@ var App = function () {
             handleDatePicker();
             handleDateTimePicker();
             handleProLetRomColor();
+            handleSyncFormValidate();
         },
 
         // wrapper function to scroll to an element
@@ -630,6 +640,7 @@ var App = function () {
         	bootbox.confirm("确定？", callback);
         },
         
+        //文件下载
 	   downloadFile : function(fileName,fileUuid){
 		   /*	var f = document.createElement("form");
 			document.body.appendChild(f);
@@ -653,6 +664,14 @@ var App = function () {
 			window.location.href = encodeURI(url);
 //			window.location.href = ctx+"/file/download?fileName="+encodeURI(fileName)+"&fileUuid="+fileUuid;
 //			window.location.href = ctx+"/file/download?fileName="+fileName+"&fileUuid="+fileUuid;
+	    },
+	    
+	    initAsyncFormValidate : function(form,callback){
+	    	$(form).validate({
+			    submitHandler: function(form){
+			    	$(form).ajaxSubmit(callback);
+			    }
+			});
 	    }
         
     };

@@ -51,7 +51,7 @@
 									</div>
 								</div>
 							</div>
-							<form action="${ctx }/workflow/leave/hrAudit" class="form-horizontal" method="post" id="form1">
+							<form action="${ctx }/workflow/leave/hrAudit" class="form-horizontal form_sync" method="post" id="form1">
 								<input type="hidden" value="" name="leaveId" id="leaveId">
 								<input type="hidden" value="${taskId }" name="taskId">
 								<div class="control-group">

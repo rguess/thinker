@@ -1,6 +1,7 @@
 package org.guess.showcase.cms.controller;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -131,15 +132,16 @@ public class ArticleController {
 
 	@RequestMapping("/page")
 	public @ResponseBody
-	Map<String, Object> page(Page<Article> page, HttpServletRequest request) {
-		Page<Article> pageData = aService.findPage(page,
-				PropertyFilter.buildFromHttpRequest(request, "search"));
+	Map<String, Object> page(Page<Article> page, HttpServletRequest request,@RequestParam("categoryid") String categoryid) {
+		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request, "search");
+		filters.add(new PropertyFilter("EQL_category.id", categoryid));
+		Page<Article> pageData = aService.findPage(page,filters);
 		return pageData.returnMap();
 	}
 
 	@RequestMapping("/view/{id}")
-	public ModelAndView toArticle(ModelAndView mav,
-			@PathVariable("id") Long id) throws Exception {
+	public ModelAndView toArticle(ModelAndView mav, @PathVariable("id") Long id)
+			throws Exception {
 		Article article = aService.get(id);
 		mav.addObject("article", article);
 		mav.setViewName("/cms/article");

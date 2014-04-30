@@ -34,7 +34,7 @@
 							</div>
 						</div>
 						<div class="portlet-body form">
-							<form action="${ctx }/workflow/leave/start" class="form-horizontal" method="post" id="form1" enctype="multipart/form-data">
+							<form action="${ctx }/workflow/leave/start" class="form-horizontal form_sync" method="post" id="form1" enctype="multipart/form-data">
 								<%@ include file="/WEB-INF/content/workflow/leave/form.jsp" %>
 								<div class="form-actions">
 									<button type="submit" class="btn blue">提交</button>

@@ -40,45 +40,17 @@
 		</dependency>
 
 		<!-- LOGGING begin -->
-		<!-- slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+			<optional>true</optional> 
 		</dependency>
-
-		<!-- slf4j-log4j绑定 -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<scope>runtime</scope>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<optional>true</optional>
 		</dependency>
-
-		<!-- common-logging 实际调用slf4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- java.util.logging 实际调用slf4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jul-to-slf4j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- log4j -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
-
-		<!-- log4jdbc -->
-		<dependency>
-			<groupId>org.lazyluke</groupId>
-			<artifactId>log4jdbc-remix</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+		<!-- LOGGING end -->
 
 		<!-- google java library -->
 		<dependency>

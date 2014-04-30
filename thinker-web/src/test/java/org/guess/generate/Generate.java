@@ -43,10 +43,10 @@ public class Generate {
 		// 包名，这里如果更改包名，请在applicationContext.xml和srping-mvc.xml中配置base-package、packagesToScan属性，来指定多个（共4处需要修改）。
 		String packageName = "org.guess.showcase";
 
-		String moduleName = "factory"; // 模块名，例：sys
-		String className = "hello"; // 类名，例：user
+		String moduleName = "cms"; // 模块名，例：sys
+		String className = "category"; // 类名，例：user
 		String classAuthor = "rguess"; // 类作者，例：ThinkGem
-		String functionName = "产品"; // 功能名，例：用户
+		String functionName = "栏目entity"; // 功能名，例：用户
 
 		// 是否启用生成工具
 		Boolean isEnable = true;
@@ -84,11 +84,11 @@ public class Generate {
 		logger.info("Template Path: {}", tplPath);
 
 		// Java文件路径
-		String javaPath = StringUtils.replaceEach(projectPath.getAbsolutePath()
-				+ "/src/main/java/" + StringUtils.lowerCase(packageName),
-				new String[] { "/", "." },
-				new String[] { separator, separator });
-//		String javaPath = "D:/template";
+//		String javaPath = StringUtils.replaceEach(projectPath.getAbsolutePath()
+//				+ "/src/main/java/" + StringUtils.lowerCase(packageName),
+//				new String[] { "/", "." },
+//				new String[] { separator, separator });
+		String javaPath = "D:/template";
 		logger.info("Java Path: {}", javaPath);
 
 		// 代码模板配置

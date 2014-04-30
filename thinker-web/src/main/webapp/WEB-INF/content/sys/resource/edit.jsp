@@ -31,7 +31,7 @@
 							</div>
 						</div>
 						<div class="portlet-body form">
-							<form action="${ctx }/sys/resource/edit" class="form-horizontal"
+							<form action="${ctx }/sys/resource/edit" class="form-horizontal form_sync"
 								method="post" id="form1">
 								<!-- 资源 -->
 								<input type="hidden" value="${obj.id }" name="id">
