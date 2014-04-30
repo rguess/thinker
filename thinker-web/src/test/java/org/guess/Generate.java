@@ -55,14 +55,14 @@ public class Generate {
 		// ========== ↑↑↑↑↑↑ 执行前请修改参数，谨慎执行。↑↑↑↑↑↑ ====================
 
 		if (!isEnable) {
-			logger.error("请启用代码生成工具，设置参数：isEnable = true");
+//			logger.error("请启用代码生成工具，设置参数：isEnable = true");
 			return;
 		}
 
 		if (StringUtils.isBlank(moduleName) || StringUtils.isBlank(moduleName)
 				|| StringUtils.isBlank(className)
 				|| StringUtils.isBlank(functionName)) {
-			logger.error("参数设置错误：包名、模块名、类名、功能名不能为空。");
+//			logger.error("参数设置错误：包名、模块名、类名、功能名不能为空。");
 			return;
 		}
 
@@ -77,7 +77,7 @@ public class Generate {
 				+ "main").exists()) {
 			projectPath = projectPath.getParentFile();
 		}
-		logger.info("Project Path: {}", projectPath);
+//		logger.info("Project Path: {}", projectPath);
 
 		// 模板文件路径
 		String tplPath = StringUtils.replace(projectPath.getAbsolutePath()
@@ -146,7 +146,7 @@ public class Generate {
 				+ StringUtils.lowerCase(subModuleName) + separator
 				+ model.get("ClassName") + ".java";
 		writeFile(content, filePath);
-		logger.info("Entity: {}", filePath);
+//		logger.info("Entity: {}", filePath);
 
 		// 生成 Dao
 		template = cfg.getTemplate("dao.ftl");
@@ -155,7 +155,16 @@ public class Generate {
 				+ "dao" + separator + StringUtils.lowerCase(subModuleName)
 				+ separator + model.get("ClassName") + "Dao.java";
 		writeFile(content, filePath);
-		logger.info("Dao: {}", filePath);
+//		logger.info("Dao: {}", filePath);
+
+		// 生成 DaoImpl
+		template = cfg.getTemplate("daoImpl.ftl");
+		content = FreeMarkers.renderTemplate(template, model);
+		filePath = javaPath + separator + model.get("moduleName") + separator
+				+ "dao"+ separator+ "impl" + separator + StringUtils.lowerCase(subModuleName)
+				+ separator + model.get("ClassName") + "DaoImpl.java";
+		writeFile(content, filePath);
+//		logger.info("Dao: {}", filePath);
 
 		// 生成 DaoImpl
 		template = cfg.getTemplate("daoImpl.ftl");
@@ -173,7 +182,16 @@ public class Generate {
 				+ "service" + separator + StringUtils.lowerCase(subModuleName)
 				+ separator + model.get("ClassName") + "Service.java";
 		writeFile(content, filePath);
-		logger.info("Service: {}", filePath);
+//		logger.info("Service: {}", filePath);
+
+		// 生成 Service
+		template = cfg.getTemplate("serviceImpl.ftl");
+		content = FreeMarkers.renderTemplate(template, model);
+		filePath = javaPath + separator + model.get("moduleName") + separator
+				+ "service" + separator+ "impl" + separator + StringUtils.lowerCase(subModuleName)
+				+ separator + model.get("ClassName") + "ServiceImpl.java";
+		writeFile(content, filePath);
+//		logger.info("Service: {}", filePath);
 
 		// 生成 Service
 		template = cfg.getTemplate("serviceImpl.ftl");
@@ -191,7 +209,7 @@ public class Generate {
 				+ "controller" + separator + StringUtils.lowerCase(subModuleName)
 				+ separator + model.get("ClassName") + "Controller.java";
 		writeFile(content, filePath);
-		logger.info("Controller: {}", filePath);
+//		logger.info("Controller: {}", filePath);
 
 		// 生成 ViewForm
 		/*
