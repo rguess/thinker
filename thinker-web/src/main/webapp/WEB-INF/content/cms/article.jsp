@@ -78,11 +78,32 @@
 					<h2 style="color: ${article.color}">${article.title }</h2>
 				</div>
 				<div class="article_content">
-					<iframe src="${ctx }/upload/article/${htmlid }/index.htm"></iframe>
+					<c:choose>
+						<c:when test="${article.isWord ==0 }">
+							<iframe src="${ctx }/upload/article/${article.htmlid }/index.htm" id="article_iframe"></iframe>
+						</c:when>
+						<c:otherwise>
+							${article.content }
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>
 	</div>
 	<script src="${ctx}/assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			<c:if test="${article.isWord ==0 }">
+				setArticleContentHeight();
+			</c:if>
+		});
+		
+		function setArticleContentHeight(){
+			$("#article_iframe").load(function(){
+				var height = $(document.getElementById('article_iframe').contentWindow.document).height();
+				$(".article_content").css("height",height+20+"px");
+			})
+		}
+	</script>
 </body>
 </html>

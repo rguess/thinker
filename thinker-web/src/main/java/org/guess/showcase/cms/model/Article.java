@@ -23,16 +23,57 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Article extends IdEntity {
 	
-	private String title;			// 标题
-	private String color;			// 标题颜色（red：红色；green：绿色；blue：蓝色；yellow：黄色；orange：橙色）
-	private String image;			// 文章图片
-	private String keywords;		// 关键字
-	private String description;		// 描述、摘要
-	private Integer weight;			// 权重，越大越靠前
-	private Integer hits;			// 点击数
-	private Integer isWord = 0;		//是否是word解析方式时为0,不是为1
-	private String content;			//不用word解析时添加富文本内容
-	private String htmlid;			//通过word解析为html方式的html文件路劲
+	public static final Integer WORD_CONTENT = 0;
+	public static final Integer RICHTEXT_CONTENT = 1;
+	
+	/**
+	 * 标题
+	 */
+	private String title;
+	
+	/**
+	 * 标题颜色（red：红色；green：绿色；blue：蓝色；yellow：黄色；orange：橙色）
+	 */
+	private String color;
+	
+	/**
+	 * 文章图片
+	 */
+	private String image;
+	
+	/**
+	 * 关键字
+	 */
+	private String keywords;
+	
+	/**
+	 * 描述、摘要
+	 */
+	private String description;
+	
+	/**
+	 * 权重，越大越靠前
+	 */
+	private Integer weight;
+	
+	/**
+	 * 点击数
+	 */
+	private Integer hits;
+	/**
+	 * 是否是word解析方式是为0,不是为1
+	 */
+	private Integer isWord = WORD_CONTENT;
+	
+	/**
+	 * 通过word解析为html方式的html文件路劲
+	 */
+	private String htmlid;
+	
+	/**
+	 * 不用word解析时添加富文本内容
+	 */
+	private String content;
 	
 	/**
 	 * 发表日期

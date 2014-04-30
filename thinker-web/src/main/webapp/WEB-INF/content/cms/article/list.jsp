@@ -83,7 +83,7 @@
 			[{cName:"title",cValue:"标题"},
 			 {cName:"description",cValue:"描述"},
 			 {cName:"htmlid",cValue:"操作",noSort:true,format:function(i,value,item){
-				 var $a = $("<a href='${ctx}/cms/article/view/"+value+"' target='_blank'>预览</a>");
+				 var $a = $("<a href='${ctx}/cms/article/view/"+item.id+"' target='_blank'>预览</a>");
 				 return $a;
 			 }}
 			 ]

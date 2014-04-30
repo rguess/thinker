@@ -49,9 +49,27 @@ public class ArticleController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/edit")
-	public ModelAndView edit(ModelAndView mav, Article article,
-			@RequestParam(value = "articleFile") MultipartFile articleFile) {
+	public ModelAndView edit(
+			ModelAndView mav,
+			Article article,
+			@RequestParam(value = "articleFile", required = false) MultipartFile articleFile)
+			throws Exception {
 
+		if (article.getIsWord() == Article.WORD_CONTENT) {
+			handleWordType(article, articleFile);
+		} else if (article.getIsWord() == Article.RICHTEXT_CONTENT) {
+			handleRichTextType(article);
+		}
+		mav.setViewName("redirect:" + listView);
+		return mav;
+	}
+
+	/**
+	 * 处理word上传方式的组件
+	 * 
+	 * @return
+	 */
+	private void handleWordType(Article article, MultipartFile articleFile) {
 		File tempFile = new File(ServletUtils.generateTempFileName(request,
 				articleFile.getOriginalFilename()));
 		try {
@@ -76,20 +94,33 @@ public class ArticleController {
 		} finally {
 			FileUtils.deleteFile(tempFile);
 		}
-		mav.setViewName("redirect:" + listView);
-		return mav;
+	}
+
+	/**
+	 * 处理富文本方式上传
+	 * 
+	 * @param article
+	 * @param articleFile
+	 */
+	private void handleRichTextType(Article article) {
+		try {
+			aService.save(article);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@RequestMapping("/delete")
 	public ModelAndView delete(ModelAndView mav,
 			@RequestParam("ids") Long[] ids, HttpServletRequest request) {
-		
+
+		System.gc();
 		for (Long id : ids) {
 			try {
 				Article article = aService.get(id);
 				aService.remove(article);
-				System.gc();
-				FileUtils.deleteDirectory(CmsUtil.getArticleFilePath(request)+"/"+article.getHtmlid());
+				FileUtils.deleteDirectory(CmsUtil.getArticleFilePath(request)
+						+ "/" + article.getHtmlid());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -106,10 +137,10 @@ public class ArticleController {
 		return pageData.returnMap();
 	}
 
-	@RequestMapping("/view/{htmlid}")
+	@RequestMapping("/view/{id}")
 	public ModelAndView toArticle(ModelAndView mav,
-			@PathVariable("htmlid") String htmlid) {
-		Article article = aService.findUniqueBy("htmlid", htmlid);
+			@PathVariable("id") Long id) throws Exception {
+		Article article = aService.get(id);
 		mav.addObject("article", article);
 		mav.setViewName("/cms/article");
 		return mav;

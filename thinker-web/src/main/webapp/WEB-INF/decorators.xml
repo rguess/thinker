@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/WEB-INF/layouts/">
 	<excludes>
-		<pattern>/asserts/*</pattern>
+		<pattern>/assets/*</pattern>
 		<pattern>/metronic_v1.1.2/*</pattern>
 		<pattern>/errorpage/*</pattern>
 		<pattern>/login*</pattern>
