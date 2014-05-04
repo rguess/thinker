@@ -8,9 +8,10 @@
 
 ##模块
 ###common
-* 泛型封装dao、service、controller基类，包含分页，查询条件封装，从而达到快速crud操作(参考<a href="https://github.com/springside")
+* 泛型封装dao、service、controller基类，包含分页，查询条件封装，从而达到快速crud操作(参考<a href="https://github.com/springside" target="_blank">springside4</a>")
 * 简易代码生成器(参考<a href="https://github.com/thinkgem/jeesite" target="_blank">jeesite</a>)
 * ehcache缓存
+
 ###系统权限管理
 * 系统管理——包含用户、角色、权限、资源、菜单管理
 * 权限管理——使用框架apache shiro进行系统认证、授权操作
@@ -18,6 +19,7 @@
 	* 按钮粒度的权限控制
 	* 并发登录人数控制
 * 系统登录,操作日志记录,查询,分析
+
 ###OA工作流程
 * 集成activiti(工作流引擎)
 	* 整合spring
@@ -27,10 +29,12 @@
   	* 流程部署
   	* 请假流程例子
   	* 自由工作流设计例子
+
 ###内容管理
-*实现栏目，文章，系统静态资源的管理
-*实现上传word发表文章
-*实现ueditor富文本方式发表文章
+* 实现栏目，文章，系统静态资源的管理
+* 实现上传word发表文章
+* 实现ueditor富文本方式发表文章
+
 ###utils
 * 开发中常用工具类整理
 	* 基于apache poi的通用导出excel工具类
@@ -60,8 +64,7 @@
 	* bootstrap-fileupload
 	* jquery fileupload多文件上传带进度条
 	* ....
+
 ###others
 * 集成jsper report动态报表工具(未完成)
 * jpush消息推送
-
-
