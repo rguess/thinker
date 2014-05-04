@@ -4,7 +4,6 @@
 <html>
 <head>
 <title>${pageTitle }</title>
-<link href="${ctx}/assets/comp/bootstrap-tree/css/bootstrap-tree.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/content/cms/category/tree.jsp" %>
@@ -92,7 +91,7 @@
 		</div>
 	</div>
 <%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
-<script src="${ctx}/assets/comp/bootstrap-tree/js/bootstrap-tree.js" type="text/javascript"></script>
+<%@ include file="/WEB-INF/content/common/plugins/bootstrap-tree.jsp"%>
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("cms/category/list");

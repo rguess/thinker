@@ -11,6 +11,7 @@
 </style>
 </head>
 <body>
+<%@ include file="/WEB-INF/content/cms/category/tree.jsp" %>
 	<div class="page-content">
 		<div class="container-fluid">
 			<!-- 页面导航 -->
@@ -53,13 +54,35 @@
 <%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-fileupload.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/ueditor.jsp"%>
+<%@ include file="/WEB-INF/content/common/plugins/bootstrap-tree.jsp"%>
 <script type="text/javascript" src="${ctx }/assets/js/cms/article.js"></script>
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("cms/article/list");
+		showTab();
 		UE.getEditor('ueditor');
-		$("#tab_1_2").removeClass("active").removeClass("open");
 	});
+	function showCaTree(){
+		$("#caTree").modal();
+	}
+	function selCategory(obj){
+		$('#caTree').modal('hide');
+		$('input[id=caName]').val($(obj).text());
+		$('input[id=caId]').val($(obj).attr("data-id"));
+	}
+	function showTab(){
+		<c:choose>
+			<c:when test="${empty obj or obj.isWord eq 0}">
+				$("#tab_1_2").removeClass("active").removeClass("open");
+			</c:when>
+			<c:otherwise>
+				$("a[href=#tab_1_2]").parent().addClass("active");
+				$("a[href=#tab_1_1]").parent().removeClass("active");
+				$("#tab_1_1").removeClass("active").removeClass("open");
+				$("#tab_1_2").addClass("active");
+			</c:otherwise>
+		</c:choose>
+	}
 </script>
 </body>
 </html>

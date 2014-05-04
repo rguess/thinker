@@ -42,6 +42,14 @@ public class ArticleController {
 	public String list() {
 		return listView;
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/update/{id}")
+	public ModelAndView update(@PathVariable("id") Long id) throws Exception {
+		Article obj = aService.get(id);
+		ModelAndView mav = new ModelAndView(editView);
+		mav.addObject("obj", obj);
+		return mav;
+	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/create")
 	public ModelAndView create() throws Exception {
