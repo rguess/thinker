@@ -76,8 +76,8 @@
 		</div>
 	</div>
 <%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
-<script type="text/javascript" src="${ctx}/assets/js/cms/article.js"></script>
 <script src="${ctx}/assets/comp/jquery-ztree/jquery.ztree.all-3.5.min.js" type="text/javascript"></script>
+<script src="${ctx}/assets/js/cms/article.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("/cms/article/list")
