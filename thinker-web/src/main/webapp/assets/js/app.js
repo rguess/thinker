@@ -494,6 +494,18 @@ var App = function () {
 		}
     };
     
+    //覆盖js原生重置表单方法
+    var handleResetForm = function(){
+    	$("form").bind("reset",function(){
+    		if(isIE8 || isIE9){
+    			$.each($(this).find("input"),function(i,item){
+    				$(item).val($(item).attr("placeholder"));
+    			});
+    			return false;
+    		}
+    	});
+    }
+    
     return {
         //main function to initiate template pages
         init: function () {
@@ -520,6 +532,7 @@ var App = function () {
             handleDateTimePicker();
             handleProLetRomColor();
             handleSyncFormValidate();
+            handleResetForm();
         },
 
         // wrapper function to scroll to an element
@@ -594,6 +607,14 @@ var App = function () {
         //判断值是否为null,"",undefined
         isNundef : function(value){
         	return value !== null && value !== "" && typeof(value) != "undefined";
+        },
+        
+        //判断值是否等于placeholder的值,
+        isEqPlacehoder : function($obj){
+        	if(App.isNundef($obj.attr("placeholder")) && $obj.val() === $obj.attr("placeholder")){
+        		return null;
+        	}
+        	return $obj.val();
         },
         
         //高亮菜单

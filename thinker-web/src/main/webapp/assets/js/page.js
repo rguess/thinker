@@ -343,10 +343,29 @@ var Page = {
 	 * 执行查询函数
 	 */
 	doQuery : function(queryObj) {
+		console.log(queryObj);
+		Page.clearFilters();
+		for ( var obj in queryObj ){
+			if(!App.isNundef(queryObj[obj])){
+				delete queryObj[obj]
+			}
+		}
+		console.log(queryObj);
 		Page.cqData = $.extend(Page.cqData, queryObj);
 		Page.cqData.pageNo = 1;
 		Page.accToSer(Page.pageChangedCallBack);
 		$('#Pagination').bootstrapPaginator("showFirst");
+	},
+	
+	/**
+	 * 清楚filter开头的查询条件
+	 */
+	clearFilters : function(){
+		for ( var obj in Page.cqData ){
+			if(obj.startWith("search_")){
+				delete Page.cqData[obj];
+			}
+		}
 	},
 	
 	/**********************************************************

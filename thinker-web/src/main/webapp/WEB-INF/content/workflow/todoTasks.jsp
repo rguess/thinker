@@ -11,11 +11,6 @@ $(document).ready(function() {
 	App.activeMenu("workflow/todoTasks");
 	TodoTasks.init();
 });
-
-function show(pid){
-	$("#rcs").show().center().move();
-	$("#rcs").initFlowChart(pid);
-}
 </script>
 </head>
 <body>

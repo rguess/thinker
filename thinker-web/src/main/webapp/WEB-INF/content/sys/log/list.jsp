@@ -26,14 +26,21 @@
 							<div class="row-fluid">
 								<form class="queryForm span8">
 									<div class="row-fluid">
-	                                 	<div class="span2 ">
+	                                 	<div class="span5 ">
 		                                    <div class="control-group">
 		                                       <div class="controls">
-		                                          <input type="text" id="mark" class="m-wrap span12" placeholder="标识">
+		                                          <input type="text" id="filters" class="m-wrap span12" placeholder="操作名称，操作人，ip">
 		                                       </div>
 		                                    </div>
 	                                 	</div>
-	                                 	<div class="span5">
+	                                 	<div class="span3 ">
+		                                    <div class="control-group">
+		                                       <div class="controls">
+		                                          <input type="text" id="daterange" class="m-wrap span12" placeholder="时间范围">
+		                                       </div>
+		                                    </div>
+	                                 	</div>
+	                                 	<div class="span4">
 		                                    <div class="control-group">
 		                                       <div class="controls">
 		                                         <a class="btn blue" href="javascript:void(0)" onclick="javascript:doQuery();">
@@ -59,10 +66,15 @@
 		</div>
 	</div>
 <%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
+<%@ include file="/WEB-INF/content/common/plugins/daterangepicker.jsp"%>
 <script type="text/javascript">
 $(document).ready(function() {
 	
 	App.activeMenu("sys/log/list");
+	
+	$('#daterange').daterangepicker({
+		format: 'yyyy-MM-dd'
+	});
 	
 	Page.initData(
 		{
@@ -99,10 +111,8 @@ $(document).ready(function() {
 
 function doQuery(){
 	var queryObj = {
-			search_LIKES_mark : null
+			"search_LIKES_operName_OR_ip_OR_operUser.name" : App.isEqPlacehoder($("#filters"))
 		};
-	var mark = $("#mark").val();
-	App.isNundef(mark)?queryObj.search_LIKES_mark = mark:null;
 	Page.doQuery(queryObj);
 }
 </script>

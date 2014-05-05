@@ -39,10 +39,10 @@
 							<div class="portlet-body">
 								<div class="row-fluid">
 									<form class="queryForm span8">
-										<div class="span2">
+										<div class="span3">
 		                                    <div class="control-group">
 		                                       <div class="controls">
-		                                          <input type="text" id="name" class="m-wrap span12" placeholder="标题">
+		                                          <input type="text" id="title" class="m-wrap span12" placeholder="名称">
 		                                       </div>
 		                                    </div>
 	                                 	</div>
@@ -60,7 +60,7 @@
 	                                 	</div>
 									</form>
 									<div class="span4 pull-right">
-										<a class="btn green" href="javascript:void(0)" onclick="Page.addObj();">
+										<a class="btn green" href="${ctx }/cms/article/create">
 											添加 <i class="icon-plus"></i>
 										</a>
 									</div>
@@ -83,6 +83,13 @@
 		App.activeMenu("/cms/article/list")
 		Article.init();
 	});
+	
+	function doQuery(){
+		var queryObj = {
+			"search_LIKES_title" : App.isEqPlacehoder($("#title"))
+		};
+		Page.doQuery(queryObj);
+	}
 </script>
 </body>
 </html>

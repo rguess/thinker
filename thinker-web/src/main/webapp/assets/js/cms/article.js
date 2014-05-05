@@ -101,6 +101,8 @@ var Article = {
 		var treeObj = $.fn.zTree.getZTreeObj(treeId);
 		var nodes = treeObj.getSelectedNodes();
 		var nodeid = nodes[0].id;
+		Page.clear();
+		$(".queryForm")[0].reset();
 		var queryObj = {
 			categoryid : nodeid
 		};

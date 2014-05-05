@@ -67,7 +67,6 @@ $.finance = {
         tooltip: {
     	    valueSuffix: '%',
     	    formatter: function() {
-    	    	console.log(this);
     	    	if(typeof(this.point.parent_name) == "undefined"){
     	    		return '<b>'+ this.point.name +'合计:</b> '+ this.y +'%';
     	    	}
@@ -93,7 +92,6 @@ $.finance = {
             dataLabels: {
                 formatter: function() {
                     // display only if larger than 1
-                	console.log(this.point);
                 	return this.y > 1 ? '<b>'+ this.point.name+this.point.parent_name +':</b> '+ this.y +'%'  : null;
                 }
             }

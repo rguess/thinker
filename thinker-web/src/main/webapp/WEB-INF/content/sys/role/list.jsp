@@ -82,7 +82,10 @@ $(document).ready(function() {
 });
 
 function doQuery(){
-	
+	var queryObj = {
+			search_LIKES_name_OR_realName : App.isEqPlacehoder($("#name"))
+		};
+	Page.doQuery(queryObj);
 }
 </script>
 </body>

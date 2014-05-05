@@ -142,16 +142,10 @@ function changeUserStatus(obj){
 
 function doQuery(){
 	var queryObj = {
-		search_LIKES_email : null,
-		search_LIKES_name : null,
-		search_EQD_createDate : null
+		search_LIKES_email : App.isEqPlacehoder($("#email")),
+		search_LIKES_name : App.isEqPlacehoder($("#name")),
+		search_EQD_createDate : App.isEqPlacehoder($("#createDate"))
 	};
-	var email = $("#email").val();
-	var name = $("#name").val();
-	var time = $("#createDate").val();
-	App.isNundef(email)?queryObj.search_LIKES_email = email:null;
-	App.isNundef(name)?queryObj.search_LIKES_name = name:null;
-	App.isNundef(time)?queryObj.search_EQD_createDate = time:null;
 	Page.doQuery(queryObj);
 }
 </script>

@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.guess.core.orm.Page;
 import org.guess.core.orm.PageRequest;
 import org.guess.core.orm.PageRequest.Sort;
@@ -43,6 +44,7 @@ import org.hibernate.transform.ResultTransformer;
  * @param <ID> 主键类型
  * 
  * @author calvin
+ * @author guess
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao<T, ID> {
@@ -322,10 +324,39 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 
 	/**
 	 * 按属性过滤条件列表分页查找对象.
+	 * 增加联级查询
 	 */
 	public Page<T> findPage(final PageRequest pageRequest, final List<PropertyFilter> filters) {
+		AssertUtils.notNull(pageRequest, "page不能为空");
 		Criterion[] criterions = buildCriterionByPropertyFilter(filters);
-		return findPage(pageRequest, criterions);
+		Page<T> page = new Page<T>(pageRequest);
+		Criteria c = createCriteria(criterions);
+		for (PropertyFilter filter : filters) {
+			if(!filter.hasMultiProperties()){
+				if(filter.getPropertyName().indexOf(".") != -1){
+					String objName = StringUtils.substringBefore(filter.getPropertyName(), ".");
+					c.createAlias(objName,objName);
+				}
+			}else{
+				for (String param : filter.getPropertyNames()) {
+					if(param.indexOf(".") != -1){
+						String objName = StringUtils.substringBefore(param, ".");
+						c.createAlias(objName,objName);
+					}
+				}
+			}
+		}
+
+		if (pageRequest.isCountTotal()) {
+			long totalCount = countCriteriaResult(c);
+			page.setTotalItems(totalCount);
+		}
+
+		setPageRequestToCriteria(c, pageRequest);
+
+		List result = c.list();
+		page.setResult(result);
+		return page;
 	}
 
 	/**

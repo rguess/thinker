@@ -84,10 +84,8 @@ $(document).ready(function() {
 
 function doQuery(){
 	var queryObj = {
-			search_LIKES_mark : null
+			search_LIKES_mark : App.isEqPlacehoder($("#mark"))
 		};
-	var mark = $("#mark").val();
-	App.isNundef(mark)?queryObj.search_LIKES_mark = mark:null;
 	Page.doQuery(queryObj);
 }
 </script>
