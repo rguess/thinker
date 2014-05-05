@@ -26,14 +26,14 @@
 							<div class="row-fluid">
 								<form class="queryForm span8">
 									<div class="row-fluid">
-	                                 	<div class="span5 ">
+	                                 	<div class="span3 ">
 		                                    <div class="control-group">
 		                                       <div class="controls">
 		                                          <input type="text" id="filters" class="m-wrap span12" placeholder="操作名称，操作人，ip">
 		                                       </div>
 		                                    </div>
 	                                 	</div>
-	                                 	<div class="span3 ">
+	                                 	<div class="span4 ">
 		                                    <div class="control-group">
 		                                       <div class="controls">
 		                                          <input type="text" id="daterange" class="m-wrap span12" placeholder="时间范围">
@@ -73,7 +73,17 @@ $(document).ready(function() {
 	App.activeMenu("sys/log/list");
 	
 	$('#daterange').daterangepicker({
-		format: 'yyyy-MM-dd'
+		ranges: {
+			'今日': ['today', 'today'],
+			'昨日': ['yesterday', 'yesterday'],
+			'本月': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
+			'今日开始到本周五': [Date.today(), Date.today().next().friday()],
+			'今日开始的一周': ['today', Date.today().add( {days: 7} )],
+			'今日到本月末尾': ['today', Date.today().moveToLastDayOfMonth()]
+		},
+		startDate: "2014/05/05",
+		endDate: "2014/05/05",
+		maxDate: new Date()
 	});
 	
 	Page.initData(
@@ -110,9 +120,15 @@ $(document).ready(function() {
 });
 
 function doQuery(){
-	var queryObj = {
-			"search_LIKES_operName_OR_ip_OR_operUser.name" : App.isEqPlacehoder($("#filters"))
-		};
+	var queryObj = {};
+	if(App.isNundef($("#daterange").val()) && App.isEqPlacehoder($("#daterange")) != null){
+		var arr = $("#daterange").val().split("-")
+		queryObj ={
+			"search_GTD_operTime" : arr[0].replaceAll("/","-")+" 00:00:00",
+			"search_LTD_operTime" : arr[1].replaceAll("/","-")+" 23:59:59"
+		}
+	}
+	queryObj["search_LIKES_operName_OR_ip_OR_operUser.name"] = App.isEqPlacehoder($("#filters"));
 	Page.doQuery(queryObj);
 }
 </script>
