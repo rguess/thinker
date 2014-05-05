@@ -9,7 +9,7 @@
 ##模块
 ###common
 * 泛型封装dao、service、controller基类，包含分页，查询条件封装，从而达到快速crud操作(参考<a href="https://github.com/springside" target="_blank">springside4</a>")
-* 简易代码生成器(参考<a href="https://github.com/thinkgem/jeesite" target="_blank">jeesite</a>)
+* 简易代码生成器,增加字段配置功能、生成页面功能，实现增删查改不需要写一句代码(参考<a href="https://github.com/thinkgem/jeesite" target="_blank">jeesite</a>)
 * ehcache缓存
 
 ###系统权限管理

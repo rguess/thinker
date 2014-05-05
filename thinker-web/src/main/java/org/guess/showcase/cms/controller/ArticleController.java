@@ -3,6 +3,7 @@ package org.guess.showcase.cms.controller;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,6 +15,7 @@ import org.guess.core.utils.WordToHtml;
 import org.guess.core.utils.web.ServletUtils;
 import org.guess.showcase.cms.model.Article;
 import org.guess.showcase.cms.service.ArticleService;
+import org.guess.showcase.cms.service.CategoryService;
 import org.guess.showcase.cms.util.CmsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.collect.Lists;
+
 @Controller
 @RequestMapping("/cms/article")
 public class ArticleController {
@@ -34,6 +38,9 @@ public class ArticleController {
 
 	@Autowired
 	private ArticleService aService;
+	
+	@Autowired
+	private CategoryService categoryService;
 
 	@Autowired
 	private HttpServletRequest request;
@@ -141,9 +148,14 @@ public class ArticleController {
 	@RequestMapping("/page")
 	public @ResponseBody
 	Map<String, Object> page(Page<Article> page, HttpServletRequest request,@RequestParam("categoryid") String categoryid) {
+		
+		Set<String> cids = categoryService.getChlidIdsById(categoryid);
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request, "search");
-		filters.add(new PropertyFilter("EQL_category.id", categoryid));
-		Page<Article> pageData = aService.findPage(page,filters);
+		List<PropertyFilter> orfilters = Lists.newArrayList();
+		for (String id :cids) {
+			orfilters.add(new PropertyFilter("EQL_category.id", id));
+		}
+		Page<Article> pageData = aService.findPage(page,filters,orfilters);
 		return pageData.returnMap();
 	}
 

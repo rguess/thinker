@@ -103,6 +103,15 @@ public interface BaseService<T,ID extends Serializable> {
 	Page<T> findPage(final PageRequest pageRequest,final List<PropertyFilter> filters);
 	
 	/**
+	 * 添加orfilters
+	 * @param pageRequest
+	 * @param filters
+	 * @param orfilters
+	 * @return
+	 */
+	Page<T> findPage(final PageRequest pageRequest, final List<PropertyFilter> filters, final List<PropertyFilter> orfilters);
+	
+	/**
 	 * 根据属性值查找唯一对象
 	 * @param propertyName
 	 * @param value

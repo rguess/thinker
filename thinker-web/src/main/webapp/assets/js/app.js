@@ -2,6 +2,7 @@ var App = function () {
 
     var isIE8 = false; // IE8 mode
     var isIE9 = false;
+    var isIE10 = false;
 
     // this function handles responsive layout on screen size resize or mobile device rotate.
     var handleResponsive = function () {
@@ -13,7 +14,7 @@ var App = function () {
             isIE9 = true;
         }
 
-        var isIE10 = !! navigator.userAgent.match(/MSIE 10/);
+        isIE10 = !! navigator.userAgent.match(/MSIE 10/);
 
         if (isIE10) {
             jQuery('html').addClass('ie10'); // set ie10 class on html element.
@@ -494,16 +495,37 @@ var App = function () {
 		}
     };
     
-    //覆盖js原生重置表单方法
+    //处理IE8,9重置form的清除placeholder的问题
     var handleResetForm = function(){
     	$("form").bind("reset",function(){
-    		if(isIE8 || isIE9){
-    			$.each($(this).find("input"),function(i,item){
-    				$(item).val($(item).attr("placeholder"));
-    			});
-    			return false;
-    		}
+			$.each($(this).find("input"),function(i,item){
+				$(item).val($(item).attr("placeholder"));
+			});
+			return false;
     	});
+    };
+    
+    //处理IE8,9placeholder字体颜色问题
+    var handleBindEventPlaceHolderFontColorForIE = function(){
+    	$("input[placeholder]").live({
+    		keyup : handlePlaceHolderFontColorForIE,
+    		focus : handlePlaceHolderFontColorForIE,
+    		blur  : handlePlaceHolderFontColorForIE
+    	})
+    };
+    
+    //处理IE8,9placeholder字体颜色问题
+    var handlePlaceHolderFontColorForIE = function(){
+		if($(this).val() != "" && $(this).val() != $(this).attr("placeholder")){
+			$(this).removeClass("placeholder");
+		}else{
+			$(this).addClass("placeholder");
+		}
+    }
+    
+    //缩小操作th宽度
+    var handleThWidth = function(){
+    	
     }
     
     return {
@@ -532,7 +554,11 @@ var App = function () {
             handleDateTimePicker();
             handleProLetRomColor();
             handleSyncFormValidate();
-            handleResetForm();
+            
+            if(isIE8 || isIE9 || isIE10){
+            	handleResetForm();
+            	handleBindEventPlaceHolderFontColorForIE();
+            }
         },
 
         // wrapper function to scroll to an element

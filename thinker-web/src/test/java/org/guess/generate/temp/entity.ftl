@@ -17,5 +17,19 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class ${ClassName} extends IdEntity {
 
+	<#list fields as item>
+	private String ${item};
+	</#list>
+	
+	<#list fields as item>
+	public String get${item?cap_first}() {
+		return ${item};
+	}
+
+	public void set${item?cap_first}(String ${item}) {
+		this.${item} = ${item};
+	}
+	
+	</#list>
 	
 }

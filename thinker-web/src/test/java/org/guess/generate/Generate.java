@@ -41,12 +41,13 @@ public class Generate {
 
 		// packageName
 		// 包名，这里如果更改包名，请在applicationContext.xml和srping-mvc.xml中配置base-package、packagesToScan属性，来指定多个（共4处需要修改）。
-		String packageName = "org.guess.showcase";
+		String packageName = "org.guess";
 
-		String moduleName = "cms"; // 模块名，例：sys
-		String className = "category"; // 类名，例：user
+		String moduleName = "sys"; // 模块名，例：sys
+		String className = "test"; // 类名，例：user
 		String classAuthor = "rguess"; // 类作者，例：ThinkGem
-		String functionName = "栏目entity"; // 功能名，例：用户
+		String functionName = "test"; // 功能名，例：用户
+		String[] fields = {"one","tow","three","four","five","six","seven","eight","nine","ten","aaa","bbb","ccc","ddd","eee","fff","ggg","hhh","iii","jjj","kkk","lll"};
 
 		// 是否启用生成工具
 		Boolean isEnable = true;
@@ -84,20 +85,23 @@ public class Generate {
 		logger.info("Template Path: {}", tplPath);
 
 		// Java文件路径
-//		String javaPath = StringUtils.replaceEach(projectPath.getAbsolutePath()
-//				+ "/src/main/java/" + StringUtils.lowerCase(packageName),
-//				new String[] { "/", "." },
-//				new String[] { separator, separator });
-		String javaPath = "D:/template";
+		String javaPath = StringUtils.replaceEach(projectPath.getAbsolutePath()
+				+ "/src/main/java/" + StringUtils.lowerCase(packageName),
+				new String[] { "/", "." },
+				new String[] { separator, separator });
+//		String javaPath = "D:/template";
 		logger.info("Java Path: {}", javaPath);
-
+		
+		String viewPath = StringUtils.replace(projectPath+"/src/main/webapp/WEB-INF/content/"+moduleName+"/"+className, "/", separator);
+//		String viewPath = "D:/template";
+				
 		// 代码模板配置
 		Configuration cfg = new Configuration();
 		FileUtils.isFolderExitAndCreate(tplPath);
 		cfg.setDirectoryForTemplateLoading(new File(tplPath));
 
 		// 定义模板变量
-		Map<String, String> model = Maps.newHashMap();
+		Map<String, Object> model = Maps.newHashMap();
 		model.put("packageName", StringUtils.lowerCase(packageName));
 		model.put("moduleName", StringUtils.lowerCase(moduleName));
 		model.put("className", StringUtils.uncapitalize(className));
@@ -108,6 +112,10 @@ public class Generate {
 		model.put("classVersion", DateUtil.getCurrenDate());
 		model.put("functionName", functionName);
 		model.put("tableName",model.get("moduleName") + "_" + model.get("className"));
+		
+		model.put("fields", fields);
+		
+		
 
 		// 生成 Entity
 		Template template = cfg.getTemplate("entity.ftl");
@@ -155,6 +163,20 @@ public class Generate {
 		content = FreeMarkers.renderTemplate(template, model);
 		filePath = javaPath + separator + model.get("moduleName") + separator
 				+ "controller" + separator + model.get("ClassName") + "Controller.java";
+		writeFile(content, filePath);
+		logger.info("Controller: {}", filePath);
+		
+		// 生成 list.jsp
+		template = cfg.getTemplate("list.ftl");
+		content = FreeMarkers.renderTemplate(template, model);
+		filePath = viewPath + separator + "list.jsp";
+		writeFile(content, filePath);
+		logger.info("Controller: {}", filePath);
+		
+		// 生成 edit.jsp
+		template = cfg.getTemplate("edit.ftl");
+		content = FreeMarkers.renderTemplate(template, model);
+		filePath = viewPath + separator + "edit.jsp";
 		writeFile(content, filePath);
 		logger.info("Controller: {}", filePath);
 
