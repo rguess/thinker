@@ -2,13 +2,13 @@
 <%@ include file="/WEB-INF/content/common/common.jsp"%>
 <html>
 <head>
-<title>测试列表</title>
+<title>${functionName}列表</title>
 </head>
 <body>
 	<div class="page-content">
 		<div class="container-fluid">
 			<!-- 页面导航 -->
-			<tool:navBar pageTitle="测试列表" pageTitleContent="系统管理-测试管理-测试列表" titleIcon="icon-home"/>
+			<tool:navBar pageTitle="${functionName}列表" pageTitleContent="内容管理-${functionName}管理-${functionName}列表" titleIcon="icon-home"/>
 			<!-- 主体内容 -->
 			<div class="row-fluid">
 				<div class="span12">
@@ -74,9 +74,9 @@ $(document).ready(function() {
 		null,
 		[<#list fields as item>
 			 <#if item_has_next>
-			 	{cName:"${item}",cValue:"${item}"},
+			 	{cName:"${item.name}",cValue:"${item.value}"},
 			 <#else>
-			  	{cName:"${item}",cValue:"${item}"}
+			  	{cName:"${item.name}",cValue:"${item.value}"}
 			 </#if>
 		 </#list>
 		 ]
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 function doQuery(){
 	var queryObj = {
-			search_LIKES_<#list fields as item><#if item_has_next>${item}_OR_<#else>${item}</#if></#list> : App.isEqPlacehoder($("#filters"))
+			search_LIKES_<#list fields as item><#if item_has_next>${item.name}_OR_<#else>${item.name}</#if></#list> : App.isEqPlacehoder($("#filters"))
 		};
 	Page.doQuery(queryObj);
 }

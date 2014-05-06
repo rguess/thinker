@@ -37,7 +37,7 @@
 										<tr id="dataTr">
 											<th>名称</th>
 											<th>关键字</th>
-											<th>描述</th>
+											<th>栏目类型</th>
 											<th>操作</th>
 										</tr>
 									</thead>
@@ -60,6 +60,8 @@ var btns = [];
 btns.push({clickFn : "edit(this)",name : "修改",icon : "icon-pencil"});
 btns.push({clickFn : "del(this)",name : "删除",icon : "icon-trash"});
 btns.push({clickFn : "show(this)",name : "查看",icon : "icon-search"});
+
+var mudoleKV = {article:"文章",picture:"图片",download:"下载",link:"链接",special:"专题"}
 
 
 $(document).ready(function() {
@@ -93,7 +95,7 @@ function fillData(data){
 		}
 		tr.append($("<td></td>").html(item.name));
 		tr.append($("<td></td>").html(item.keywords));
-		tr.append($("<td></td>").html(item.description));
+		tr.append($("<td></td>").html(mudoleKV[item.module]+"类型"));
 		tr.append($("<td></td>").html(operBtn(item.id)));
 		$("#treeBody").append(tr);
 		

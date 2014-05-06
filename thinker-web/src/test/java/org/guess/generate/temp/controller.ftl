@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ${ClassName}Controller extends BaseController<${ClassName}>{
 
 	{
-		editView = "/sys/${className}/edit";
-		listView = "/sys/${className}/list";
-		showView = "/sys/${className}/show";
+		editView = "/${moduleName}/${className}/edit";
+		listView = "/${moduleName}/${className}/list";
+		showView = "/${moduleName}/${className}/show";
 	}
 	
 	@Autowired

@@ -8,6 +8,8 @@ package org.guess.generate;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -41,13 +43,21 @@ public class Generate {
 
 		// packageName
 		// 包名，这里如果更改包名，请在applicationContext.xml和srping-mvc.xml中配置base-package、packagesToScan属性，来指定多个（共4处需要修改）。
-		String packageName = "org.guess";
+		String packageName = "org.guess.showcase";
 
-		String moduleName = "sys"; // 模块名，例：sys
-		String className = "test"; // 类名，例：user
+		String moduleName = "cms"; // 模块名，例：sys
+		String className = "link"; // 类名，例：user
 		String classAuthor = "rguess"; // 类作者，例：ThinkGem
-		String functionName = "test"; // 功能名，例：用户
-		String[] fields = {"one","tow","three","four","five","six","seven","eight","nine","ten","aaa","bbb","ccc","ddd","eee","fff","ggg","hhh","iii","jjj","kkk","lll"};
+		String functionName = "链接"; // 功能名，例：用户
+		
+		List<Field> fields = new ArrayList<Field>();
+		fields.add(new Field("category", "分类编号", "Category"));
+		fields.add(new Field("title", "链接名称", "String"));
+		fields.add(new Field("color", "标题颜色（red：红色；green：绿色；blue：蓝色；yellow：黄色；orange：橙色）", "String"));
+		fields.add(new Field("image", "链接图片", "String"));
+		fields.add(new Field("href", "链接地址", "String"));
+		fields.add(new Field("weight", "权重，越大越靠前", "Integer"));
+		fields.add(new Field("weightDate", "权重期限，超过期限，将weight设置为0", "Date"));
 
 		// 是否启用生成工具
 		Boolean isEnable = true;

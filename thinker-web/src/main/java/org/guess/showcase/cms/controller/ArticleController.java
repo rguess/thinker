@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.guess.core.orm.Page;
 import org.guess.core.orm.PropertyFilter;
 import org.guess.core.utils.FileUtils;
@@ -34,7 +35,7 @@ import com.google.common.collect.Lists;
 public class ArticleController {
 
 	private static final String editView = "/cms/article/edit";
-	private static final String listView = "/cms/article/list";
+	private static final String listView = "/cms/";
 
 	@Autowired
 	private ArticleService aService;
@@ -44,11 +45,6 @@ public class ArticleController {
 
 	@Autowired
 	private HttpServletRequest request;
-
-	@RequestMapping(value = "/*")
-	public String list() {
-		return listView;
-	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/update/{id}")
 	public ModelAndView update(@PathVariable("id") Long id) throws Exception {
@@ -88,22 +84,29 @@ public class ArticleController {
 	private void handleWordType(Article article, MultipartFile articleFile) {
 		File tempFile = new File(ServletUtils.generateTempFileName(request,
 				articleFile.getOriginalFilename()));
+		System.gc();
 		try {
+			if(!articleFile.isEmpty()){
+				//删除原来的文件
+				if(StringUtils.isNotBlank(article.getHtmlid())){
+					FileUtils.deleteDirectory(CmsUtil.getArticleFilePath(request) + "/"
+							+ article.getHtmlid());
+				}
+				// 把文件保存到临时文件夹
+				articleFile.transferTo(tempFile);
 
-			// 把文件保存到临时文件夹
-			articleFile.transferTo(tempFile);
+				// 生成要保存的html文件路径
+				String uuid = UuidUtil.uuid();
+				
+				String articlefolerName = CmsUtil.getArticleFilePath(request) + "/"+ uuid;
+				FileUtils.isFolderExitAndCreate(articlefolerName);
 
-			// 生成要保存的html文件路径
-			String uuid = UuidUtil.uuid();
-			String articlefolerName = CmsUtil.getArticleFilePath(request) + "/"
-					+ uuid;
-			FileUtils.isFolderExitAndCreate(articlefolerName);
-
-			// word转为html
-			String htmlFileName = articlefolerName + "/index";
-			WordToHtml.wordToHtml(tempFile.getAbsolutePath(), htmlFileName);
-			// 保存到数据库
-			article.setHtmlid(uuid);
+				// word转为html
+				String htmlFileName = articlefolerName + "/index";
+				WordToHtml.wordToHtml(tempFile.getAbsolutePath(), htmlFileName);
+				// 保存到数据库
+				article.setHtmlid(uuid);
+			}
 			aService.save(article);
 		} catch (Exception e) {
 			e.printStackTrace();

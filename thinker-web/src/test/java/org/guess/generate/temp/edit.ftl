@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/content/common/common.jsp"%>
-<c:set var="pageTitle" value="${r"${empty obj ? '添加测试':'修改测试' }"}" scope="page" />
+<c:set var="pageTitle" value="${r"$"}{empty obj ? '添加${functionName}':'修改${functionName}' }" scope="page" />
 <html>
 <head>
 <title>${r"${pageTitle }"}</title>
@@ -10,7 +10,7 @@
 		<div class="container-fluid">
 			<!-- 页面导航 -->
 			<tool:navBar pageTitle="${r"${pageTitle }"}"
-				pageTitleContent="系统管理-测试管理-${r"${pageTitle }"}" titleIcon="icon-home" />
+				pageTitleContent="内容管理-{functionName}管理-${r"${pageTitle }"}" titleIcon="icon-home" />
 			<!-- 主体内容 -->
 			<div class="row-fluid">
 				<div class="span12">
@@ -31,11 +31,11 @@
 								<input type="hidden" value="${r"${obj.id}"}" name="id">
 								<#list fields as item>
 								<div class="control-group">
-									<label class="control-label">${item}:</label>
+									<label class="control-label">${item.value}:</label>
 									<div class="controls">
 										<input type="text" class="span6 m-wrap"
 											validate="{required:true}"
-											name="${item}" value="${r"$"}{obj.${item} }" />
+											name="${item.name}" value="${r"$"}{obj.${item.name} }" />
 									</div>
 								</div>
 								</#list>

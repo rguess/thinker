@@ -33,6 +33,7 @@
 	<label class="control-label">标题颜色:</label>
 	<div class="controls">
 		<select class="medium m-wrap" tabindex="1" name="color">
+			<option value="black">黑色</option>
 			<option value="red">红色</option>
 			<option value="green">绿色</option>
 			<option value="blue">蓝色</option>

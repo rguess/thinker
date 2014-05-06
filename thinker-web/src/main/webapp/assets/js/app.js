@@ -477,7 +477,7 @@ var App = function () {
     
     //portlet随机颜色
     var handleProLetRomColor = function(){
-    	var colors = ["blue","light blue","red","yellow","green","purple","grey","light grey"];
+    	var colors = ["blue","light blue","red","yellow","green","purple","light grey"];
 		var prolet = $(".portlet");
 		$.each(colors,function(i,item){
 			prolet.removeClass(item);
@@ -488,9 +488,30 @@ var App = function () {
     
     //初始化同步提交form的validate
     var handleSyncFormValidate = function(){
+    	/*if(isIE8){
+    		handleSyncFormValidateIE8();
+    		return;
+    	}*/
+//    	handleSyncFormValidateIE8();
 		if($(".form_sync").length !=0){
 			$.each($(".form_sync"),function(i,item){
 				$(item).validate();
+			});
+		}
+    };
+    
+    var handleSyncFormValidateIE8 = function(){
+    	if($(".form_sync").length !=0){
+			$.each($(".form_sync"),function(i,item){
+				var rules = {};
+				$.each($(item).find("input[validate]"),function(n,m){
+					rules[$(m).attr("name")] = eval('(' + $(m).attr("validate") + ')');
+				})
+				var cur_rules = $(item).validate({rules:rules}).settings.rules;
+				console.log(JSON.stringify(cur_rules));
+//				console.log($(item).validate({rules:rules}));
+//				console.log(JSON.stringify(cur_rules));
+//				$(item).validate({rules:rules});
 			});
 		}
     };
@@ -651,6 +672,11 @@ var App = function () {
         	var parent = li.parent().parent();
         	parent.addClass("active").addClass("open");
         	parent.find("a .arrow").addClass("open");
+        },
+        
+        //取消高亮
+        cancleActiveMenu : function(href){
+        	$("a[href*='"+href+"']").parent().removeClass("active");
         },
         
         //生成操作按钮{icon:"iconUser",name:"操作",group:[{clickFn:"edit(2)",icon:"icon-pencil",name:"修改"}]}

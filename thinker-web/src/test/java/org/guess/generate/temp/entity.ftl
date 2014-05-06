@@ -18,16 +18,19 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class ${ClassName} extends IdEntity {
 
 	<#list fields as item>
-	private String ${item};
+	/**
+	 * ${item.value}
+	 */
+	private ${item.type} ${item.name};
 	</#list>
 	
 	<#list fields as item>
-	public String get${item?cap_first}() {
-		return ${item};
+	public ${item.type} get${item.name?cap_first}() {
+		return ${item.name};
 	}
 
-	public void set${item?cap_first}(String ${item}) {
-		this.${item} = ${item};
+	public void set${item.name?cap_first}(String ${item.name}) {
+		this.${item.name} = ${item.name};
 	}
 	
 	</#list>

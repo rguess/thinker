@@ -55,10 +55,10 @@
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-fileupload.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/ueditor.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-tree.jsp"%>
-<script type="text/javascript" src="${ctx }/assets/js/cms/article.js"></script>
 <script type="text/javascript">
 	$(function(){
-		App.activeMenu("cms/article/list");
+		App.activeMenu("cms/");
+		App.cancleActiveMenu("/cms/category/list");
 		showTab();
 		UE.getEditor('ueditor');
 	});
