@@ -59,7 +59,7 @@
 		                                         <a class="btn blue" href="javascript:void(0)" onclick="javascript:doQuery();">
 		                                         	<i class="icon-search"></i>
 		                                         	查询</a>
-		                                         <button type="reset" class="btn">
+		                                         <button type="reset" class="btn" onclick="javascript:Page.clearQuery();">
 		                                         	<i class="icon-trash"></i>清空
 		                                         </button>
 		                                       </div>

@@ -56,7 +56,7 @@
                     <div id="flashContainer"></div>
                     <div><div id="upload" style="display: none" ></div><div id="duiqi"></div><div id="localFloat"></div></div>
 
-                    <div class="saveDir">
+                    <div class="saveDir" style="display: none;">
                         <var id="lang_savePath" ></var><span id="saveDirSelector"><var id="lang_load_savePath"></var></span>
                     </div>
                 </div>
@@ -200,7 +200,8 @@
                  * 其中有一个特殊的保留key值为action，若设置，可以更改本次提交的处理地址
                  */
                 var postParams = {
-                    "dir":baidu.g("savePath").value
+                	"dir":"upload"
+//                  "dir":baidu.g("savePath").value
                 };
                 imageUploader.setPostParams(postParams);
                 flashObj.upload();

@@ -356,6 +356,14 @@ var Page = {
 	},
 	
 	/**
+	 * 清楚查询条件并查询
+	 */
+	clearQuery : function(){
+		Page.clearFilters();
+		Page.doQuery({});
+	},
+	
+	/**
 	 * 清楚filter开头的查询条件
 	 */
 	clearFilters : function(){

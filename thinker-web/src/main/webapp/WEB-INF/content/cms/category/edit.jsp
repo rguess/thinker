@@ -101,11 +101,14 @@
 		$("#caTree").modal();
 	}
 	
-	function selCategory(obj){
+	function selCategory(){
+		
+		$obj = $("#tree_1").find("a.selected:first");
+		
 		$('#caTree').modal('hide');
 		
-		$('#parentName').val($(obj).text());
-		$('#parentId').val($(obj).attr("data-id"));
+		$('#parentName').val($obj.text());
+		$('#parentId').val($obj.attr("data-id"));
 	}
 </script>
 </body>

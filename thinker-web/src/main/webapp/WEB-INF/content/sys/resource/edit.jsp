@@ -136,12 +136,16 @@
 		$("#rcTree").modal();
 	}
 	
-	function selRec(obj){
+	function selRec(){
+		
+		$obj = $("#tree_1").find("a.selected:first");
+		
 		$('#rcTree').modal('hide');
 		
-		$('#parentName').val($(obj).text());
-		$('#parentId').val($(obj).attr("data-id"));
+		$('#parentName').val($obj.text());
+		$('#parentId').val($obj.attr("data-id"));
 	}
+	
 </script>
 </body>
 </html>

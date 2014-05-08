@@ -43,3 +43,9 @@
 .table th, .table td{
 	padding: 5px;
 }
+
+/* 增加树状被选中样式 */
+.tree a.selected{
+	text-decoration: none;
+	background-color: rgb(28, 243, 183);
+}

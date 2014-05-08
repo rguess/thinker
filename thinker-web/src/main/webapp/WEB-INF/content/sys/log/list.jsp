@@ -46,7 +46,7 @@
 		                                         <a class="btn blue" href="javascript:void(0)" onclick="javascript:doQuery();">
 		                                         	<i class="icon-search"></i>
 		                                         	查询</a>
-		                                         <button type="reset" class="btn">
+		                                         <button type="reset" class="btn" onclick="javascript:Page.clearQuery();">
 		                                         	<i class="icon-trash"></i>清空
 		                                         </button>
 		                                       </div>
@@ -82,8 +82,7 @@ $(document).ready(function() {
 			'今日到本月末尾': ['today', Date.today().moveToLastDayOfMonth()]
 		},
 		startDate: "2014/05/05",
-		endDate: "2014/05/05",
-		maxDate: new Date()
+		endDate: "2014/05/05"
 	});
 	
 	Page.initData(

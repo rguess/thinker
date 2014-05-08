@@ -77,7 +77,6 @@ var Cms = {
 				pageSize : 10
 			},
 			params,Cms.objs[module].colums
-			
 		);
 		$("th:contains('操作')").css("width","50px");
 	},

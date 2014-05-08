@@ -20,7 +20,7 @@
 	function insertData(data){
 		var flag = data.childRes.length > 0;
 		var li = $("<li></li>");
-		var a = $("<a href='#' onclick='javascript:selRec(this)' data-id="+data.id+"></a>");
+		var a = $("<a href='javascript:void(0);' onclick='javascript:selTree(this);' data-id="+data.id+"></a>");
 		if(flag){
 			a.attr("data-role","branch").attr("data-toggle","branch").attr("data-value","Bootstrap_Tree").addClass("tree-toggle").text(data.name);
 		}else{
@@ -38,6 +38,12 @@
 		li.append(a).append(ul);
 		return li
 	}
+	
+	//切换选中状态
+	function selTree(obj){
+		$(obj).closest(".tree").find("a").removeClass("selected");
+		$(obj).addClass("selected");
+	}
 </script>
 <div id="rcTree" class="modal hide fade" role="dialog"
 	aria-labelledby="myModalLabel" aria-hidden="true">
@@ -48,86 +54,12 @@
 	</div>
 	<div class="modal-body">
 		<ul class="tree" id="tree_1">
-			<!-- <li>
-				<a href="#" data-role="branch" class="tree-toggle" data-toggle="branch" data-value="Bootstrap_Tree">
-				Bootstrap Tree
-				</a>
-				<ul class="branch in">
-					<li>
-						<a href="#" class="tree-toggle" data-toggle="branch" data-value="Bootstrap_Tree" id="nut1">
-						Documents
-						</a>
-						<ul class="branch in">
-							<li>
-								<a href="#" class="tree-toggle closed" data-toggle="branch" data-value="Bootstrap_Tree" id="nut2">
-								Finance
-								</a>
-								<ul class="branch">
-									<li><a href="#" data-role="leaf"><i class="icon-suitcase"></i> Sale Revenue</a></li>
-									<li><a href="#" data-role="leaf"><i class="icon-signal"></i> Promotions</a></li>
-									<li><a href="#" data-role="leaf"><i class="icon-sitemap"></i> IPO</a></li>
-								</ul>
-							</li>
-							<li><a href="#" data-role="leaf"><i class="icon-signal"></i> ICT</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-sitemap"></i> Human Resources</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#" class="tree-toggle closed" data-toggle="branch" data-value="Bootstrap_Tree" id="nut3">
-						Projects
-						</a>
-						<ul class="branch">
-							<li><a href="#" data-role="leaf"><i class="icon-glass"></i> Internal</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-group"></i> Client Base</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-retweet"></i> Product Base</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#" class="tree-toggle" data-toggle="branch" data-value="Bootstrap_Tree" id="nut4">
-						Tasks
-						</a>
-						<ul class="branch in">
-							<li><a href="#" data-role="leaf"><i class="icon-suitcase"></i> Internal Projects</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-cloud-download"></i> Outsourcing</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-sitemap"></i> Bug Tracking</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#" class="tree-toggle closed" data-toggle="branch" data-value="Bootstrap_Tree" id="nut6">
-						Customers
-						</a>
-						<ul class="branch">
-							<li><a href="#" data-role="leaf"><i class="icon-suitcase"></i> Finance</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-signal"></i> ICT</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-sitemap"></i> Human Resources</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#" class="tree-toggle closed" data-toggle="branch" data-value="Bootstrap_Tree" id="nut8">
-						Reports
-						</a>
-						<ul class="branch">
-							<li><a href="#" data-role="leaf"><i class="icon-suitcase"></i> Finance</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-signal"></i> ICT</a></li>
-							<li><a href="#" data-role="leaf"><i class="icon-sitemap"></i> Human Resources</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469" target="_blank" data-role="leaf">
-						<i class="icon-share"></i> External Link
-						</a>
-					</li>
-					<li>
-						<a href="http://themeforest.net/item/conquer-responsive-admin-dashboard-template/3716838" target="_blank" data-role="leaf">
-						<i class="icon-share"></i> Another External Link
-						</a>
-					</li>
-				</ul>
-			</li> -->
+			
 		</ul> 
 	</div>
 	<div class="modal-footer">
-		<button type="button red" class="btn" data-dismiss="modal"
+		<button type="button" class="btn green" onclick="javascript:selRec();">确定</button>
+		<button type="button" class="btn red" data-dismiss="modal"
 			aria-hidden="true">关闭</button>
 	</div>
 </div>

@@ -23,6 +23,7 @@ import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
+import org.guess.core.utils.web.ServletUtils;
 
 import sun.misc.BASE64Decoder;
 
@@ -129,8 +130,7 @@ public class Uploader {
 			this.type = this.getFileExt(this.fileName);
 			this.url = savePath + "/" + this.fileName;
 
-			FileOutputStream fos = new FileOutputStream(
-					this.getPhysicalPath(this.url));
+			FileOutputStream fos = new FileOutputStream(this.getPhysicalPath(this.url));
 			BufferedInputStream bis = new BufferedInputStream(this.inputStream);
 			byte[] buff = new byte[128];
 			int count = -1;
@@ -289,10 +289,11 @@ public class Uploader {
 	 * @return
 	 */
 	private String getPhysicalPath(String path) {
-		String servletPath = this.request.getServletPath();
+		/*String servletPath = this.request.getServletPath();
 		String realPath = this.request.getSession().getServletContext()
-				.getRealPath(servletPath);
-		return new File(realPath).getParent() + "/" + path;
+				.getRealPath(servletPath);*/
+		String realPath = ServletUtils.getRealPath(request) ;
+		return new File(realPath) + "/" + path;
 	}
 
 	/**

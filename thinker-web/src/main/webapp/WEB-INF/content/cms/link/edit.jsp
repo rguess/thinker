@@ -121,9 +121,10 @@
 		$("#caTree").modal();
 	}
 	function selCategory(obj){
+		$obj = $("#tree_1").find("a.selected:first");
 		$('#caTree').modal('hide');
-		$('input[id=caName]').val($(obj).text());
-		$('input[id=caId]').val($(obj).attr("data-id"));
+		$('input[id=caName]').val($obj.text());
+		$('input[id=caId]').val($obj.attr("data-id"));
 	}
 </script>
 </body>
