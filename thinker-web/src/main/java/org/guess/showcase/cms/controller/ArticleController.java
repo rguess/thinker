@@ -128,6 +128,16 @@ public class ArticleController {
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = "/delete/{id}")
+	public String delete(@PathVariable("id") Long id) throws Exception {
+		System.gc();
+		Article article = aService.get(id);
+		aService.removeById(id);
+		FileUtils.deleteDirectory(CmsUtil.getArticleFilePath(request)
+				+ "/" + article.getHtmlid());
+		return "redirect:" + listView;
+	}
 
 	@RequestMapping("/delete")
 	public ModelAndView delete(ModelAndView mav,

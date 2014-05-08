@@ -4,19 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/cms")
-public class CmsController {
+public class FrontController {
 
-	private static final String listView = "/cms/list";
 	private static final String IndexView = "/cms/front/index";
 	
-	@RequestMapping("/*")
-	public String list() {
-		return listView;
+	@RequestMapping("/{cmspath}/index.html")
+	public String index() {
+		return IndexView;
 	}
 	
-	@RequestMapping("/index.html")
-	public String index() {
-		return "redirecr:"+IndexView;
-	}
+	
 }

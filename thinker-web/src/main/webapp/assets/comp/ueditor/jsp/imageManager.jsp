@@ -1,3 +1,4 @@
+<%@page import="org.guess.core.utils.web.ServletUtils"%>
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.io.*"%>
@@ -39,9 +40,9 @@ public List getFiles(String realpath, List files) {
 }
 
 public String getRealPath(HttpServletRequest request,String path){
-	ServletContext application = request.getSession().getServletContext();
-	String str = application.getRealPath(request.getServletPath());
-	return new File(str).getParent();
+	/* ServletContext application = request.getSession().getServletContext();
+	String str = application.getRealPath(request.getServletPath()); */
+	return new File(ServletUtils.getRealPath(request)).getAbsolutePath();
 }
 
 public String getFileType(String fileName){

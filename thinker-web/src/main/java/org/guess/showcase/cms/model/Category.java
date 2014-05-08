@@ -29,6 +29,9 @@ import com.google.common.collect.Lists;
 @JsonIgnoreProperties(value = { "parent"})
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Category extends IdEntity {
+	
+	public static final int ISSHOW_SHOW = 0;
+	public static final int ISSHOW_HIDE = 1;
 
 	/**
 	 * 父级菜单
@@ -58,14 +61,9 @@ public class Category extends IdEntity {
 	private String image;
 	
 	/**
-	 * 链接
+	 * 是否显示0:显示,1:显示
 	 */
-	private String href;
-	
-	/**
-	 * 目标（ _blank、_self、_parent、_top）
-	 */
-	private String target;
+	private int isShow = ISSHOW_SHOW;
 	
 	/**
 	 * 描述，填写有助于搜索引擎优化
@@ -84,6 +82,14 @@ public class Category extends IdEntity {
 	@JoinColumn(name="PARENT_ID",updatable=false)
 	private List<Category> childList = Lists.newArrayList();
 	
+	public int getIsShow() {
+		return isShow;
+	}
+
+	public void setIsShow(int isShow) {
+		this.isShow = isShow;
+	}
+
 	public int getGrade() {
 		return grade;
 	}
@@ -122,22 +128,6 @@ public class Category extends IdEntity {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	public String getTarget() {
-		return target;
-	}
-
-	public void setTarget(String target) {
-		this.target = target;
 	}
 
 	public String getDescription() {
