@@ -15,6 +15,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.guess.core.utils.DateUtil;
 import org.guess.core.utils.FileUtils;
+import org.guess.core.utils.FreeMarkers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
