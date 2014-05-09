@@ -1,6 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <div>
-	<img src="${ctx}/assets/demo/img/cover.png" />
+	<%-- <img src="${ctx}/assets/demo/img/cover.png" /> --%>
 </div>
 <div class="top-nav">
 	<div class="nav-m">
@@ -14,6 +14,7 @@
 				<li><a href="${ctx }/front/list/12.html">法律法规</a></li>
 				<li><a href="${ctx }/front/list/13.html">专项工作</a></li>
 				<li><a href="${ctx }/front/list/15.html">队伍建设</a></li>
+				<li><a href="${ctx }/front/list/24.html">留言薄</a></li>
 		</ul>
 		<form class="search" style="float:right">
 			<div class=".input-box">

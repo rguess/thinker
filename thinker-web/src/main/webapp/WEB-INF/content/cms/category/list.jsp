@@ -38,6 +38,7 @@
 											<th>名称</th>
 											<th>关键字</th>
 											<th>栏目类型</th>
+											<th>排序</th>
 											<th>操作</th>
 										</tr>
 									</thead>
@@ -82,6 +83,8 @@ function initTree() {
 			unBlockUI();
 		}
 	});
+	App.setDataThWidth();
+	$("th:contains('排序')").css("width","60px");
 }
 
 //填充数据
@@ -96,12 +99,27 @@ function fillData(data){
 		tr.append($("<td></td>").html(item.name));
 		tr.append($("<td></td>").html(item.keywords));
 		tr.append($("<td></td>").html(mudoleKV[item.module]+"类型"));
+		tr.append($("<td></td>").html("<i class='diy_icon_03_08 ibtn tooltips' data-original-title='向上' data-placement='right' onclick='javascript:reOrder(\"up\","+item.id+")'></i>"
+				+"&nbsp&nbsp&nbsp&nbsp<i class='diy_icon_03_07 ibtn tooltips' data-original-title='向下' data-placement='right' onclick='javascript:reOrder(\"down\","+item.id+")'></i>"));
 		tr.append($("<td></td>").html(operBtn(item.id)));
 		$("#treeBody").append(tr);
 		
 		if(item.childList && item.childList.length>0){
 			parentId = item.id;
 			fillData(item.childList);
+		}
+	});
+}
+
+//排序
+function reOrder(type,id){
+	$.ajax({
+		type : "POST",
+		dataType : "json",
+		url : "${ctx}/cms/category/order",
+		data :{type:type,id:id},
+		success : function(data) {
+			
 		}
 	});
 }

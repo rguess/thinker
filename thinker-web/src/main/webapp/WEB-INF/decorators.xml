@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/WEB-INF/layouts/">
 	<excludes>
-		<pattern>/assets/*</pattern>
-		<pattern>/metronic_v1.1.2/*</pattern>
-		<pattern>/errorpage/*</pattern>
-		<pattern>/login*</pattern>
-		
 		<pattern>/cms/article/view/*</pattern>
-		
-		<pattern>/html/xizang*</pattern>
-		<pattern>/html/cms*</pattern>
-		<pattern>/front*</pattern>
-		
-		<pattern>/upload/*</pattern>
 	</excludes>
 
 	<decorator name="default" page="/WEB-INF/content/common/layouts/default.jsp">
-		<pattern>/*</pattern>
+		<pattern>/sys*</pattern>
+		<pattern>/cms*</pattern>
+		<pattern>/file*</pattern>
+		<pattern>/finance*</pattern>
+		<pattern>/mobile*</pattern>
+		<pattern>/workflow*</pattern>
 	</decorator>
 </decorators>

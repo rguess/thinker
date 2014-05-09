@@ -78,7 +78,7 @@ var Cms = {
 			},
 			params,Cms.objs[module].colums
 		);
-		$("th:contains('操作')").css("width","50px");
+		App.setDataThWidth();
 	},
 	
 	//生成栏目树

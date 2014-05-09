@@ -49,3 +49,8 @@
 	text-decoration: none;
 	background-color: rgb(28, 243, 183);
 }
+
+/* 定义i图标的按钮样式 */
+i.ibtn{
+	cursor: pointer;
+}

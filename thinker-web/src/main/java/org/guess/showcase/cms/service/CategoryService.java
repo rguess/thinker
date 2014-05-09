@@ -17,4 +17,6 @@ public interface CategoryService extends BaseService<Category, Long>{
 	 */
 	public Set<String> getChlidIdsById(String id);
 
+	public void order(Long id, String type);
+
 }

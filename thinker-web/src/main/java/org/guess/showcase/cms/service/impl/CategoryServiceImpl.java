@@ -44,4 +44,11 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 		}
 	}
 
+	@Override
+	public void order(Long id, String type) {
+		Category category = categoryDao.get(id);
+		List<Category> list = categoryDao.findBy(propertyName, value, orderByProperty, isAsc)
+		categoryDao.batchExecute(hql, values)
+	}
+
 }

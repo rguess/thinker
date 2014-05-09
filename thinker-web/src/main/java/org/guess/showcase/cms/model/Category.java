@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.guess.core.IdEntity;
@@ -76,12 +77,26 @@ public class Category extends IdEntity {
 	private String keywords;
 	
 	/**
+	 * 排序字段
+	 */
+	private int orderNo = 0;
+	
+	/**
 	 * 拥有子分类列表
 	 */
 	@OneToMany(targetEntity=Category.class,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="PARENT_ID",updatable=false)
+	@OrderBy("orderNo")
 	private List<Category> childList = Lists.newArrayList();
 	
+	public int getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(int orderNo) {
+		this.orderNo = orderNo;
+	}
+
 	public int getIsShow() {
 		return isShow;
 	}

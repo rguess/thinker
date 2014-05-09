@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -32,7 +33,7 @@ public class CategoryController extends BaseController<Category>{
 	@RequestMapping(method=RequestMethod.GET,value="/tree")
 	@ResponseBody
 	public List<Category> tree() throws Exception{
-		List<Category> res = categoryService.findBy("grade", 1);
+		List<Category> res = categoryService.findBy("grade", 1,"orderNo",true);
 		return res;
 	}
 	
@@ -48,6 +49,18 @@ public class CategoryController extends BaseController<Category>{
 		Category parent = categoryService.get(object.getParent().getId());
 		object.setGrade(parent.getGrade() + 1);
 		return super.create(object);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/order")
+	@ResponseBody
+	public String order(@RequestParam("type") String type,@RequestParam("id") Long id){
+		categoryService.order(id,type);
+		return "success";
+	}
+	
+	@Override
+	public String delete(Long id) throws Exception {
+		return super.delete(id);
 	}
 	
 }

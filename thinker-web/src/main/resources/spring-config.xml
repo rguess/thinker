@@ -11,6 +11,7 @@
      		http://www.springframework.org/schema/tx
        		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+    <aop:aspectj-autoproxy/>
 	<context:annotation-config />
 	<!-- 使用annotation模式 -->
 	<context:component-scan base-package="org.guess">

@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 abstract public class BaseServiceImpl<T, ID extends Serializable> implements
 		BaseService<T, ID> {
-	
+
 	@Autowired
-	private EntityDao<T,ID> entityDao;
+	private EntityDao<T, ID> entityDao;
 
 	@Override
 	public T get(ID id) throws Exception {
@@ -52,27 +52,30 @@ abstract public class BaseServiceImpl<T, ID extends Serializable> implements
 		entityDao.delete(id);
 
 	}
-	
+
 	@Override
 	public void removeByIds(ID[] ids) throws Exception {
 		entityDao.batchDelete((ID[]) ids);
 	}
 
 	@Override
-	public Page<T> findPage(PageRequest pageRequest, String hql, Map<String, ?> values) {
+	public Page<T> findPage(PageRequest pageRequest, String hql,
+			Map<String, ?> values) {
 		return entityDao.findPage(pageRequest, hql, values);
 	}
 
 	@Override
-	public Page<T> findPage(PageRequest pageRequest, String hql, Object... values) {
+	public Page<T> findPage(PageRequest pageRequest, String hql,
+			Object... values) {
 		return entityDao.findPage(pageRequest, hql, values);
 	}
 
 	@Override
-	public Page<T> findPage(PageRequest pageRequest, List<PropertyFilter> filters) {
+	public Page<T> findPage(PageRequest pageRequest,
+			List<PropertyFilter> filters) {
 		return entityDao.findPage(pageRequest, filters);
 	}
-	
+
 	@Override
 	public Page<T> findPage(PageRequest pageRequest,
 			List<PropertyFilter> filters, List<PropertyFilter> orfilters) {
@@ -92,6 +95,12 @@ abstract public class BaseServiceImpl<T, ID extends Serializable> implements
 	@Override
 	public List<T> findBy(String propertyName, Object value) {
 		return entityDao.findBy(propertyName, value);
+	}
+
+	@Override
+	public List<T> findBy(String propertyName, Object value,
+			String orderByProperty, boolean isAsc) {
+		return entityDao.findBy(propertyName, value, orderByProperty, isAsc);
 	}
 
 }

@@ -739,13 +739,18 @@ var App = function () {
 //			window.location.href = ctx+"/file/download?fileName="+fileName+"&fileUuid="+fileUuid;
 	    },
 	    
+	    //初始化异步提交表单的验证
 	    initAsyncFormValidate : function(form,callback){
 	    	$(form).validate({
 			    submitHandler: function(form){
 			    	$(form).ajaxSubmit(callback);
 			    }
 			});
-	    }
-        
+	    },
+	    
+		//设置数据列表th宽度
+		setDataThWidth : function(){
+			$("th:contains('操作')").css("width","50px");
+		}
     };
 }();

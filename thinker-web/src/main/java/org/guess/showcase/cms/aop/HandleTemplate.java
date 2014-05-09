@@ -41,7 +41,8 @@ public class HandleTemplate {
 	@Autowired 
 	private HttpServletRequest request;
 
-	@After("execution(* org.guess.showcase.cms.controller.CategoryController.create(..))")
+	@After("execution(* org.guess.showcase.cms.controller.CategoryController.create(..))||"
+			+ "execution(* org.guess.showcase.cms.controller.CategoryController.delete(..))")
 	public void after() throws IOException {
 		filePath = ServletUtils.getRealPath(request)+NAV_FILE_PATH;
 		Thread thread= new Thread(new Runnable() {

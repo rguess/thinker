@@ -3,6 +3,7 @@
 <html>
 <head>
 <title>用户信息</title>
+<meta name="decorator" content="default"/>
 <script type="text/javascript">
 	$(function() {
 		App.activeMenu("html/friday");

@@ -1,6 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <div>
-	<img src="${r'$'}{ctx}/assets/demo/img/cover.png" />
+	<%-- <img src="${ctx}/assets/demo/img/cover.png" /> --%>
 </div>
 <div class="top-nav">
 	<div class="nav-m">
