@@ -8,6 +8,7 @@
 			<li><a href="${r'$'}{ctx }/front/index.html">首页</a></li>
 			<#list categorys as item>
 				<li><a href="${r'$'}{ctx }/front/list/${item.id}.html">${item.name}</a></li>
+
 			</#list>
 		</ul>
 		<form class="search" style="float:right">
