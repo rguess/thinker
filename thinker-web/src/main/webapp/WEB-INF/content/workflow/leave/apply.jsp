@@ -11,7 +11,6 @@
 	$(function(){
 		App.activeMenu("workflow/process");
 	});
-	
 </script>
 </head>
 <body>

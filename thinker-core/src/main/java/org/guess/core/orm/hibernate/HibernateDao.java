@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.guess.core.orm.Page;
 import org.guess.core.orm.PageRequest;
 import org.guess.core.orm.PageRequest.Sort;
@@ -34,26 +36,30 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.internal.CriteriaImpl;
 import org.hibernate.transform.ResultTransformer;
 
+import com.google.common.collect.Maps;
+
 /**
  * 封装SpringSide扩展功能的Hibernat DAO泛型基类.
  * 
  * 扩展功能包括分页查询,按属性过滤条件列表查询.
  * 
- * @param <T> DAO操作的对象类型
- * @param <ID> 主键类型
+ * @param <T>
+ *            DAO操作的对象类型
+ * @param <ID>
+ *            主键类型
  * 
  * @author calvin
+ * @author guess
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao<T, ID> {
+public class HibernateDao<T, ID extends Serializable> extends
+		SimpleHibernateDao<T, ID> {
 
 	public static final String DEFAULT_ALIAS = "x";
 
 	/**
-	 * 通过子类的泛型定义取得对象类型Class.
-	 * eg.
-	 * public class UserDao extends HibernateDao<User, Long>{
-	 * }
+	 * 通过子类的泛型定义取得对象类型Class. eg. public class UserDao extends HibernateDao<User,
+	 * Long>{ }
 	 */
 	public HibernateDao() {
 		super();
@@ -63,7 +69,7 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 		super(entityClass);
 	}
 
-	//-- 分页查询函数 --//
+	// -- 分页查询函数 --//
 
 	/**
 	 * 分页获取全部对象.
@@ -75,13 +81,17 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	/**
 	 * 按HQL分页查询.
 	 * 
-	 * @param pageRequest 分页参数.
-	 * @param hql hql语句.
-	 * @param values 数量可变的查询参数,按顺序绑定.
+	 * @param pageRequest
+	 *            分页参数.
+	 * @param hql
+	 *            hql语句.
+	 * @param values
+	 *            数量可变的查询参数,按顺序绑定.
 	 * 
 	 * @return 分页查询结果, 附带结果列表及所有查询输入参数.
 	 */
-	public Page<T> findPage(final PageRequest pageRequest, String hql, final Object... values) {
+	public Page<T> findPage(final PageRequest pageRequest, String hql,
+			final Object... values) {
 		AssertUtils.notNull(pageRequest, "pageRequest不能为空");
 
 		Page<T> page = new Page<T>(pageRequest);
@@ -106,13 +116,17 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	/**
 	 * 按HQL分页查询.
 	 * 
-	 * @param page 分页参数.
-	 * @param hql hql语句.
-	 * @param values 命名参数,按名称绑定.
+	 * @param page
+	 *            分页参数.
+	 * @param hql
+	 *            hql语句.
+	 * @param values
+	 *            命名参数,按名称绑定.
 	 * 
 	 * @return 分页查询结果, 附带结果列表及所有查询输入参数.
 	 */
-	public Page<T> findPage(final PageRequest pageRequest, String hql, final Map<String, ?> values) {
+	public Page<T> findPage(final PageRequest pageRequest, String hql,
+			final Map<String, ?> values) {
 		AssertUtils.notNull(pageRequest, "page不能为空");
 
 		Page<T> page = new Page<T>(pageRequest);
@@ -137,12 +151,15 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	/**
 	 * 按Criteria分页查询.
 	 * 
-	 * @param page 分页参数.
-	 * @param criterions 数量可变的Criterion.
+	 * @param page
+	 *            分页参数.
+	 * @param criterions
+	 *            数量可变的Criterion.
 	 * 
 	 * @return 分页查询结果.附带结果列表及所有查询输入参数.
 	 */
-	public Page<T> findPage(final PageRequest pageRequest, final Criterion... criterions) {
+	public Page<T> findPage(final PageRequest pageRequest,
+			final Criterion... criterions) {
 		AssertUtils.notNull(pageRequest, "page不能为空");
 
 		Page<T> page = new Page<T>(pageRequest);
@@ -164,12 +181,14 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	/**
 	 * 在HQL的后面添加分页参数定义的orderBy, 辅助函数.
 	 */
-	protected String setOrderParameterToHql(final String hql, final PageRequest pageRequest) {
+	protected String setOrderParameterToHql(final String hql,
+			final PageRequest pageRequest) {
 		StringBuilder builder = new StringBuilder(hql);
 		builder.append(" order by");
 
 		for (Sort orderBy : pageRequest.getSort()) {
-			builder.append(String.format(" %s.%s %s,", DEFAULT_ALIAS, orderBy.getProperty(), orderBy.getDir()));
+			builder.append(String.format(" %s.%s %s,", DEFAULT_ALIAS,
+					orderBy.getProperty(), orderBy.getDir()));
 		}
 
 		builder.deleteCharAt(builder.length() - 1);
@@ -180,7 +199,8 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	/**
 	 * 设置分页参数到Query对象,辅助函数.
 	 */
-	protected Query setPageParameterToQuery(final Query q, final PageRequest pageRequest) {
+	protected Query setPageParameterToQuery(final Query q,
+			final PageRequest pageRequest) {
 		q.setFirstResult(pageRequest.getOffset());
 		q.setMaxResults(pageRequest.getPageSize());
 		return q;
@@ -189,8 +209,10 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	/**
 	 * 设置分页参数到Criteria对象,辅助函数.
 	 */
-	protected Criteria setPageRequestToCriteria(final Criteria c, final PageRequest pageRequest) {
-		AssertUtils.isTrue(pageRequest.getPageSize() > 0, "Page Size must larger than zero");
+	protected Criteria setPageRequestToCriteria(final Criteria c,
+			final PageRequest pageRequest) {
+		AssertUtils.isTrue(pageRequest.getPageSize() > 0,
+				"Page Size must larger than zero");
 
 		c.setFirstResult(pageRequest.getOffset());
 		c.setMaxResults(pageRequest.getPageSize());
@@ -219,7 +241,8 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 			Long count = findUnique(countHql, values);
 			return count;
 		} catch (Exception e) {
-			throw new RuntimeException("hql can't be auto count, hql is:" + countHql, e);
+			throw new RuntimeException("hql can't be auto count, hql is:"
+					+ countHql, e);
 		}
 	}
 
@@ -235,12 +258,14 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 			Long count = findUnique(countHql, values);
 			return count;
 		} catch (Exception e) {
-			throw new RuntimeException("hql can't be auto count, hql is:" + countHql, e);
+			throw new RuntimeException("hql can't be auto count, hql is:"
+					+ countHql, e);
 		}
 	}
 
 	private String prepareCountHql(String orgHql) {
-		String countHql = "select count (*) " + removeSelect(removeOrders(orgHql));
+		String countHql = "select count (*) "
+				+ removeSelect(removeOrders(orgHql));
 		return countHql;
 	}
 
@@ -250,7 +275,8 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	}
 
 	private static String removeOrders(String hql) {
-		Pattern p = Pattern.compile("order\\s*by[\\w|\\W|\\s|\\S]*", Pattern.CASE_INSENSITIVE);
+		Pattern p = Pattern.compile("order\\s*by[\\w|\\W|\\s|\\S]*",
+				Pattern.CASE_INSENSITIVE);
 		Matcher m = p.matcher(hql);
 		StringBuffer sb = new StringBuffer();
 		while (m.find()) {
@@ -272,14 +298,17 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 
 		List<CriteriaImpl.OrderEntry> orderEntries = null;
 		try {
-			orderEntries = (List) ReflectionUtils.getFieldValue(impl, "orderEntries");
-			ReflectionUtils.setFieldValue(impl, "orderEntries", new ArrayList());
+			orderEntries = (List) ReflectionUtils.getFieldValue(impl,
+					"orderEntries");
+			ReflectionUtils
+					.setFieldValue(impl, "orderEntries", new ArrayList());
 		} catch (Exception e) {
 			logger.error("不可能抛出的异常:{}", e.getMessage());
 		}
 
 		// 执行Count查询
-		Long totalCountObject = (Long) c.setProjection(Projections.rowCount()).uniqueResult();
+		Long totalCountObject = (Long) c.setProjection(Projections.rowCount())
+				.uniqueResult();
 		long totalCount = (totalCountObject != null) ? totalCountObject : 0;
 
 		// 将之前的Projection,ResultTransformer和OrderBy条件重新设回去
@@ -300,14 +329,16 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 		return totalCount;
 	}
 
-	//-- 属性过滤条件(PropertyFilter)查询函数 --//
+	// -- 属性过滤条件(PropertyFilter)查询函数 --//
 
 	/**
 	 * 按属性查找对象列表,支持多种匹配方式.
 	 * 
-	 * @param matchType 匹配方式,目前支持的取值见PropertyFilter的MatcheType enum.
+	 * @param matchType
+	 *            匹配方式,目前支持的取值见PropertyFilter的MatcheType enum.
 	 */
-	public List<T> findBy(final String propertyName, final Object value, final MatchType matchType) {
+	public List<T> findBy(final String propertyName, final Object value,
+			final MatchType matchType) {
 		Criterion criterion = buildCriterion(propertyName, value, matchType);
 		return find(criterion);
 	}
@@ -321,26 +352,83 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	}
 
 	/**
-	 * 按属性过滤条件列表分页查找对象.
+	 * 按属性过滤条件列表分页查找对象. 增加联级查询
 	 */
 	public Page<T> findPage(final PageRequest pageRequest, final List<PropertyFilter> filters) {
+		AssertUtils.notNull(pageRequest, "page不能为空");
 		Criterion[] criterions = buildCriterionByPropertyFilter(filters);
-		return findPage(pageRequest, criterions);
+		return findPage(pageRequest,criterions,filters);
 	}
+	
+	/**
+	 * 增加or查询
+	 */
+	public Page<T> findPage(final PageRequest pageRequest, final List<PropertyFilter> filters, final List<PropertyFilter> orfilters) {
+		AssertUtils.notNull(pageRequest, "page不能为空");
+		Criterion[] criterions = buildCriterionByPropertyFilter(filters);
+		Criterion[] orcriterions = buildOrCriterionByPropertyFilter(orfilters);
+		filters.addAll(orfilters);
+		return findPage(pageRequest,ArrayUtils.addAll(criterions, orcriterions),filters);
+	}
+	
+
+	/**
+	 * 扩展
+	 */
+	public Page<T> findPage(final PageRequest pageRequest,Criterion[] criterions, final List<PropertyFilter> filters) {
+		Page<T> page = new Page<T>(pageRequest);
+		Criteria c = createCriteria(criterions);
+		Map<String, String> alias = Maps.newHashMap();
+		for (PropertyFilter filter : filters) {
+			if (!filter.hasMultiProperties()) {
+				if (filter.getPropertyName().indexOf(".") != -1) {
+					String objName = StringUtils.substringBefore(
+							filter.getPropertyName(), ".");
+					alias.put(objName, objName);
+				}
+			} else {
+				for (String param : filter.getPropertyNames()) {
+					if (param.indexOf(".") != -1) {
+						String objName = StringUtils
+								.substringBefore(param, ".");
+						alias.put(objName, objName);
+					}
+				}
+			}
+		}
+
+		for (String key : alias.keySet()) {
+			c.createAlias(key, alias.get(key));
+		}
+
+		if (pageRequest.isCountTotal()) {
+			long totalCount = countCriteriaResult(c);
+			page.setTotalItems(totalCount);
+		}
+
+		setPageRequestToCriteria(c, pageRequest);
+
+		List result = c.list();
+		page.setResult(result);
+		return page;
+	}
+	
 
 	/**
 	 * 按属性条件参数创建Criterion,辅助函数.
 	 */
-	protected Criterion buildCriterion(final String propertyName, final Object propertyValue, final MatchType matchType) {
+	protected Criterion buildCriterion(final String propertyName,
+			final Object propertyValue, final MatchType matchType) {
 		AssertUtils.hasText(propertyName, "propertyName不能为空");
 		Criterion criterion = null;
-		//根据MatchType构造criterion
+		// 根据MatchType构造criterion
 		switch (matchType) {
 		case EQ:
 			criterion = Restrictions.eq(propertyName, propertyValue);
 			break;
 		case LIKE:
-			criterion = Restrictions.like(propertyName, (String) propertyValue, MatchMode.ANYWHERE);
+			criterion = Restrictions.like(propertyName, (String) propertyValue,
+					MatchMode.ANYWHERE);
 			break;
 
 		case LE:
@@ -361,21 +449,48 @@ public class HibernateDao<T, ID extends Serializable> extends SimpleHibernateDao
 	/**
 	 * 按属性条件列表创建Criterion数组,辅助函数.
 	 */
-	protected Criterion[] buildCriterionByPropertyFilter(final List<PropertyFilter> filters) {
+	protected Criterion[] buildCriterionByPropertyFilter(
+			final List<PropertyFilter> filters) {
 		List<Criterion> criterionList = new ArrayList<Criterion>();
 		for (PropertyFilter filter : filters) {
-			if (!filter.hasMultiProperties()) { //只有一个属性需要比较的情况.
-				Criterion criterion = buildCriterion(filter.getPropertyName(), filter.getMatchValue(),
-						filter.getMatchType());
+			if (!filter.hasMultiProperties()) { // 只有一个属性需要比较的情况.
+				Criterion criterion = buildCriterion(filter.getPropertyName(),
+						filter.getMatchValue(), filter.getMatchType());
 				criterionList.add(criterion);
-			} else {//包含多个属性需要比较的情况,进行or处理.
+			} else {// 包含多个属性需要比较的情况,进行or处理.
 				Disjunction disjunction = Restrictions.disjunction();
 				for (String param : filter.getPropertyNames()) {
-					Criterion criterion = buildCriterion(param, filter.getMatchValue(), filter.getMatchType());
+					Criterion criterion = buildCriterion(param,
+							filter.getMatchValue(), filter.getMatchType());
 					disjunction.add(criterion);
 				}
 				criterionList.add(disjunction);
 			}
+		}
+		return criterionList.toArray(new Criterion[criterionList.size()]);
+	}
+	
+	/**
+	 * 暗属性创建orCriterion数组,辅助函数.
+	 * @param orfilters
+	 * @return
+	 */
+	protected Criterion[] buildOrCriterionByPropertyFilter(List<PropertyFilter> orfilters) {
+		List<Criterion> criterionList = new ArrayList<Criterion>();
+		Disjunction disjunction = Restrictions.disjunction();
+		for (PropertyFilter filter : orfilters) {
+			if (!filter.hasMultiProperties()) { // 只有一个属性需要比较的情况.
+				Criterion criterion = buildCriterion(filter.getPropertyName(),
+						filter.getMatchValue(), filter.getMatchType());
+				disjunction.add(criterion);
+			} else {// 包含多个属性需要比较的情况,进行or处理.
+				for (String param : filter.getPropertyNames()) {
+					Criterion criterion = buildCriterion(param,
+							filter.getMatchValue(), filter.getMatchType());
+					disjunction.add(criterion);
+				}
+			}
+			criterionList.add(disjunction);
 		}
 		return criterionList.toArray(new Criterion[criterionList.size()]);
 	}

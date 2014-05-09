@@ -8,9 +8,9 @@
 		
 		<pattern>/cms/article/view/*</pattern>
 		
-		<pattern>/html/demo.jsp*</pattern>
 		<pattern>/html/xizang*</pattern>
 		<pattern>/html/cms*</pattern>
+		<pattern>/front*</pattern>
 		
 		<pattern>/upload/*</pattern>
 	</excludes>

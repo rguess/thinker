@@ -14,6 +14,7 @@
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
+<!-- <meta http-equiv="X-UA-Compatible" content="chrome=1" /> -->
 
 <!-- 基础样式 -->
 <link href="${ctx}/assets/comp/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />

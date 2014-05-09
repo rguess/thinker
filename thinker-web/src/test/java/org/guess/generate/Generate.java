@@ -8,11 +8,14 @@ package org.guess.generate;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.guess.core.utils.DateUtil;
 import org.guess.core.utils.FileUtils;
+import org.guess.core.utils.FreeMarkers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -44,9 +47,18 @@ public class Generate {
 		String packageName = "org.guess.showcase";
 
 		String moduleName = "cms"; // 模块名，例：sys
-		String className = "category"; // 类名，例：user
+		String className = "link"; // 类名，例：user
 		String classAuthor = "rguess"; // 类作者，例：ThinkGem
-		String functionName = "栏目entity"; // 功能名，例：用户
+		String functionName = "链接"; // 功能名，例：用户
+		
+		List<Field> fields = new ArrayList<Field>();
+		fields.add(new Field("category", "分类编号", "Category"));
+		fields.add(new Field("title", "链接名称", "String"));
+		fields.add(new Field("color", "标题颜色（red：红色；green：绿色；blue：蓝色；yellow：黄色；orange：橙色）", "String"));
+		fields.add(new Field("image", "链接图片", "String"));
+		fields.add(new Field("href", "链接地址", "String"));
+		fields.add(new Field("weight", "权重，越大越靠前", "Integer"));
+		fields.add(new Field("weightDate", "权重期限，超过期限，将weight设置为0", "Date"));
 
 		// 是否启用生成工具
 		Boolean isEnable = true;
@@ -84,20 +96,23 @@ public class Generate {
 		logger.info("Template Path: {}", tplPath);
 
 		// Java文件路径
-//		String javaPath = StringUtils.replaceEach(projectPath.getAbsolutePath()
-//				+ "/src/main/java/" + StringUtils.lowerCase(packageName),
-//				new String[] { "/", "." },
-//				new String[] { separator, separator });
-		String javaPath = "D:/template";
+		String javaPath = StringUtils.replaceEach(projectPath.getAbsolutePath()
+				+ "/src/main/java/" + StringUtils.lowerCase(packageName),
+				new String[] { "/", "." },
+				new String[] { separator, separator });
+//		String javaPath = "D:/template";
 		logger.info("Java Path: {}", javaPath);
-
+		
+		String viewPath = StringUtils.replace(projectPath+"/src/main/webapp/WEB-INF/content/"+moduleName+"/"+className, "/", separator);
+//		String viewPath = "D:/template";
+				
 		// 代码模板配置
 		Configuration cfg = new Configuration();
 		FileUtils.isFolderExitAndCreate(tplPath);
 		cfg.setDirectoryForTemplateLoading(new File(tplPath));
 
 		// 定义模板变量
-		Map<String, String> model = Maps.newHashMap();
+		Map<String, Object> model = Maps.newHashMap();
 		model.put("packageName", StringUtils.lowerCase(packageName));
 		model.put("moduleName", StringUtils.lowerCase(moduleName));
 		model.put("className", StringUtils.uncapitalize(className));
@@ -108,6 +123,10 @@ public class Generate {
 		model.put("classVersion", DateUtil.getCurrenDate());
 		model.put("functionName", functionName);
 		model.put("tableName",model.get("moduleName") + "_" + model.get("className"));
+		
+		model.put("fields", fields);
+		
+		
 
 		// 生成 Entity
 		Template template = cfg.getTemplate("entity.ftl");
@@ -155,6 +174,20 @@ public class Generate {
 		content = FreeMarkers.renderTemplate(template, model);
 		filePath = javaPath + separator + model.get("moduleName") + separator
 				+ "controller" + separator + model.get("ClassName") + "Controller.java";
+		writeFile(content, filePath);
+		logger.info("Controller: {}", filePath);
+		
+		// 生成 list.jsp
+		template = cfg.getTemplate("list.ftl");
+		content = FreeMarkers.renderTemplate(template, model);
+		filePath = viewPath + separator + "list.jsp";
+		writeFile(content, filePath);
+		logger.info("Controller: {}", filePath);
+		
+		// 生成 edit.jsp
+		template = cfg.getTemplate("edit.ftl");
+		content = FreeMarkers.renderTemplate(template, model);
+		filePath = viewPath + separator + "edit.jsp";
 		writeFile(content, filePath);
 		logger.info("Controller: {}", filePath);
 

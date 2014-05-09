@@ -99,6 +99,17 @@ Array.prototype.byValue=function(value) {
 	}
 };
 
+/**
+ * ja组织冒泡事件
+ */
+function stopPropagation(e) {
+    e = e || window.event;
+    if(e.stopPropagation) { //W3C阻止冒泡方法
+        e.stopPropagation();
+    } else {
+        e.cancelBubble = true; //IE阻止冒泡方法
+    }
+}
 
 /**
  * 遮罩层函数

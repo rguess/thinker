@@ -93,9 +93,11 @@
 	<script src="${ctx}/assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
-			<c:if test="${article.isWord ==0 }">
-				setArticleContentHeight();
-			</c:if>
+			<c:choose>
+				<c:when test="${article.isWord ==0 }">
+					setArticleContentHeight();
+				</c:when>
+			</c:choose>
 		});
 		
 		function setArticleContentHeight(){

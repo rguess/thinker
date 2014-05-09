@@ -343,10 +343,35 @@ var Page = {
 	 * 执行查询函数
 	 */
 	doQuery : function(queryObj) {
+		Page.clearFilters();
+		for ( var obj in queryObj ){
+			if(!App.isNundef(queryObj[obj])){
+				delete queryObj[obj]
+			}
+		}
 		Page.cqData = $.extend(Page.cqData, queryObj);
 		Page.cqData.pageNo = 1;
 		Page.accToSer(Page.pageChangedCallBack);
 		$('#Pagination').bootstrapPaginator("showFirst");
+	},
+	
+	/**
+	 * 清楚查询条件并查询
+	 */
+	clearQuery : function(){
+		Page.clearFilters();
+		Page.doQuery({});
+	},
+	
+	/**
+	 * 清楚filter开头的查询条件
+	 */
+	clearFilters : function(){
+		for ( var obj in Page.cqData ){
+			if(obj.startWith("search_")){
+				delete Page.cqData[obj];
+			}
+		}
 	},
 	
 	/**********************************************************
@@ -372,6 +397,10 @@ var Page = {
 			}else{
 				box.attr("checked","checked");
 			}
+		});
+		
+		$("td input:checkbox[data-id]").click(function(e){
+			stopPropagation(e);
 		});
 	}
 };

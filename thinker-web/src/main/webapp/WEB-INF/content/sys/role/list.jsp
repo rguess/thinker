@@ -41,7 +41,7 @@
 		                                         <a class="btn blue" href="javascript:void(0)" onclick="javascript:doQuery();">
 		                                         	<i class="icon-search"></i>
 		                                         	查询</a>
-		                                         <button type="reset" class="btn">
+		                                         <button type="reset" class="btn"  onclick="javascript:Page.clearQuery();">
 		                                         	<i class="icon-trash"></i>清空
 		                                         </button>
 		                                       </div>
@@ -82,7 +82,10 @@ $(document).ready(function() {
 });
 
 function doQuery(){
-	
+	var queryObj = {
+			search_LIKES_name_OR_realName : App.isEqPlacehoder($("#name"))
+		};
+	Page.doQuery(queryObj);
 }
 </script>
 </body>

@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div>
-			<img src="${ctx}/assets/demo/img/cover.png" />
+			<%-- <img src="${ctx}/assets/demo/img/cover.png" /> --%>
 		</div>
 		<div class="top-nav">
 			<div class="nav-m">

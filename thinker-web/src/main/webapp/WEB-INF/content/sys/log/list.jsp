@@ -26,20 +26,27 @@
 							<div class="row-fluid">
 								<form class="queryForm span8">
 									<div class="row-fluid">
-	                                 	<div class="span2 ">
+	                                 	<div class="span3 ">
 		                                    <div class="control-group">
 		                                       <div class="controls">
-		                                          <input type="text" id="mark" class="m-wrap span12" placeholder="标识">
+		                                          <input type="text" id="filters" class="m-wrap span12" placeholder="操作名称，操作人，ip">
 		                                       </div>
 		                                    </div>
 	                                 	</div>
-	                                 	<div class="span5">
+	                                 	<div class="span4 ">
+		                                    <div class="control-group">
+		                                       <div class="controls">
+		                                          <input type="text" id="daterange" class="m-wrap span12" placeholder="时间范围" readonly="readonly">
+		                                       </div>
+		                                    </div>
+	                                 	</div>
+	                                 	<div class="span4">
 		                                    <div class="control-group">
 		                                       <div class="controls">
 		                                         <a class="btn blue" href="javascript:void(0)" onclick="javascript:doQuery();">
 		                                         	<i class="icon-search"></i>
 		                                         	查询</a>
-		                                         <button type="reset" class="btn">
+		                                         <button type="reset" class="btn" onclick="javascript:Page.clearQuery();">
 		                                         	<i class="icon-trash"></i>清空
 		                                         </button>
 		                                       </div>
@@ -59,10 +66,24 @@
 		</div>
 	</div>
 <%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
+<%@ include file="/WEB-INF/content/common/plugins/daterangepicker.jsp"%>
 <script type="text/javascript">
 $(document).ready(function() {
 	
 	App.activeMenu("sys/log/list");
+	
+	$('#daterange').daterangepicker({
+		ranges: {
+			'今日': ['today', 'today'],
+			'昨日': ['yesterday', 'yesterday'],
+			'本月': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
+			'今日开始到本周五': [Date.today(), Date.today().next().friday()],
+			'今日开始的一周': ['today', Date.today().add( {days: 7} )],
+			'今日到本月末尾': ['today', Date.today().moveToLastDayOfMonth()]
+		},
+		startDate: "2014/05/05",
+		endDate: "2014/05/05"
+	});
 	
 	Page.initData(
 		{
@@ -98,11 +119,15 @@ $(document).ready(function() {
 });
 
 function doQuery(){
-	var queryObj = {
-			search_LIKES_mark : null
-		};
-	var mark = $("#mark").val();
-	App.isNundef(mark)?queryObj.search_LIKES_mark = mark:null;
+	var queryObj = {};
+	if(App.isNundef($("#daterange").val()) && App.isEqPlacehoder($("#daterange")) != null){
+		var arr = $("#daterange").val().split("-")
+		queryObj ={
+			"search_GTD_operTime" : arr[0].replaceAll("/","-")+" 00:00:00",
+			"search_LTD_operTime" : arr[1].replaceAll("/","-")+" 23:59:59"
+		}
+	}
+	queryObj["search_LIKES_operName_OR_ip_OR_operUser.name"] = App.isEqPlacehoder($("#filters"));
 	Page.doQuery(queryObj);
 }
 </script>

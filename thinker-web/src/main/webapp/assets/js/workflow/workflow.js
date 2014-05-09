@@ -10,6 +10,16 @@
 	    $this.find(".portlet-body").html($("<img src='" + imageUrl + "'/>"));
 	};
 	
+	$.fn.showFlowChart = function (pid){
+		var $this = $(this);
+		blockUI();
+		$this.initFlowChart(pid);
+		$this.find(".portlet-body img").load(function(){
+			$this.show().center().move();
+			unBlockUI();
+		});
+	};
+	
 })(jQuery);
 
 /**
@@ -48,7 +58,7 @@ var MyProcess = {
 			null,
 			[{cName:"definitionName",cValue:"流程名称 ",noSort:true},
 			 {cName:"taskname",cValue:"当前节点 ",noSort:true,format:function(i,value,item){
-				 return $("<a href='javascript:void(0)' class='tooltips' data-original-title='点击查看流程图' data-placement='right' onclick='javascript:show("+item.instanceId+")'>"+value+"</a>");
+				 return $("<a href='javascript:void(0)' class='tooltips' data-original-title='点击查看流程图' data-placement='right' onclick='$(\"#rcs\").showFlowChart("+item.instanceId+")'>"+value+"</a>");
 			 }},
 			 {cName:"definitionKey",cValue:"key",noSort:true},
 			 {cName:"instanceId",cValue:"实例ID",noSort:true},
@@ -96,7 +106,7 @@ var TodoTasks = {
 			 {cName:"sponsor",cValue:"发起人",noSort:true},
 			 //{cName:"taskKey",cValue:"任务Key",noSort:true},
 			 {cName:"taskName",cValue:"任务名称",noSort:true,format:function(i,value,item){
-				 return $("<a href='javascript:void(0)' class='tooltips' data-original-title='点击查看流程图' data-placement='right' onclick='javascript:show("+item.processInstanceId+")'>"+value+"</a>");
+				 return $("<a href='javascript:void(0)' class='tooltips' data-original-title='点击查看流程图' data-placement='right' onclick='$(\"#rcs\").showFlowChart("+item.processInstanceId+")'>"+value+"</a>");
 			 }},
 			 //{cName:"processDefinitionId",cValue:"流程定义ID",noSort:true},
 			 //{cName:"processInstanceId",cValue:"流程实例ID",noSort:true},
@@ -157,23 +167,3 @@ var TodoTasks = {
 		window.location.href = ctx+"/workflow/task/handle/"+$(obj).attr("data-definition-key")+"/"+$(obj).attr("data-task-key")+"/"+$(obj).attr("data-task-id");
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

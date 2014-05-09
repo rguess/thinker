@@ -2,6 +2,7 @@ var App = function () {
 
     var isIE8 = false; // IE8 mode
     var isIE9 = false;
+    var isIE10 = false;
 
     // this function handles responsive layout on screen size resize or mobile device rotate.
     var handleResponsive = function () {
@@ -13,7 +14,7 @@ var App = function () {
             isIE9 = true;
         }
 
-        var isIE10 = !! navigator.userAgent.match(/MSIE 10/);
+        isIE10 = !! navigator.userAgent.match(/MSIE 10/);
 
         if (isIE10) {
             jQuery('html').addClass('ie10'); // set ie10 class on html element.
@@ -476,7 +477,7 @@ var App = function () {
     
     //portlet随机颜色
     var handleProLetRomColor = function(){
-    	var colors = ["blue","light blue","red","yellow","green","purple","grey","light grey"];
+    	var colors = ["blue","light blue","red","yellow","green","purple","light grey"];
 		var prolet = $(".portlet");
 		$.each(colors,function(i,item){
 			prolet.removeClass(item);
@@ -487,12 +488,66 @@ var App = function () {
     
     //初始化同步提交form的validate
     var handleSyncFormValidate = function(){
+    	/*if(isIE8){
+    		handleSyncFormValidateIE8();
+    		return;
+    	}*/
+//    	handleSyncFormValidateIE8();
 		if($(".form_sync").length !=0){
 			$.each($(".form_sync"),function(i,item){
 				$(item).validate();
 			});
 		}
     };
+    
+    var handleSyncFormValidateIE8 = function(){
+    	if($(".form_sync").length !=0){
+			$.each($(".form_sync"),function(i,item){
+				var rules = {};
+				$.each($(item).find("input[validate]"),function(n,m){
+					rules[$(m).attr("name")] = eval('(' + $(m).attr("validate") + ')');
+				})
+				var cur_rules = $(item).validate({rules:rules}).settings.rules;
+				console.log(JSON.stringify(cur_rules));
+//				console.log($(item).validate({rules:rules}));
+//				console.log(JSON.stringify(cur_rules));
+//				$(item).validate({rules:rules});
+			});
+		}
+    };
+    
+    //处理IE8,9重置form的清除placeholder的问题
+    var handleResetForm = function(){
+    	$("form").bind("reset",function(){
+			$.each($(this).find("input"),function(i,item){
+				$(item).val($(item).attr("placeholder"));
+			});
+			return false;
+    	});
+    };
+    
+    //处理IE8,9placeholder字体颜色问题
+    var handleBindEventPlaceHolderFontColorForIE = function(){
+    	$("input[placeholder]").live({
+    		keyup : handlePlaceHolderFontColorForIE,
+    		focus : handlePlaceHolderFontColorForIE,
+    		blur  : handlePlaceHolderFontColorForIE
+    	})
+    };
+    
+    //处理IE8,9placeholder字体颜色问题
+    var handlePlaceHolderFontColorForIE = function(){
+		if($(this).val() != "" && $(this).val() != $(this).attr("placeholder")){
+			$(this).removeClass("placeholder");
+		}else{
+			$(this).addClass("placeholder");
+		}
+    }
+    
+    //缩小操作th宽度
+    var handleThWidth = function(){
+    	
+    }
     
     return {
         //main function to initiate template pages
@@ -520,6 +575,11 @@ var App = function () {
             handleDateTimePicker();
             handleProLetRomColor();
             handleSyncFormValidate();
+            
+            if(isIE8 || isIE9 || isIE10){
+            	handleResetForm();
+            	handleBindEventPlaceHolderFontColorForIE();
+            }
         },
 
         // wrapper function to scroll to an element
@@ -596,6 +656,14 @@ var App = function () {
         	return value !== null && value !== "" && typeof(value) != "undefined";
         },
         
+        //判断值是否等于placeholder的值,
+        isEqPlacehoder : function($obj){
+        	if(App.isNundef($obj.attr("placeholder")) && $obj.val() === $obj.attr("placeholder")){
+        		return null;
+        	}
+        	return $obj.val();
+        },
+        
         //高亮菜单
         activeMenu : function(href){
         	var a = $("a[href*='"+href+"']");
@@ -604,6 +672,11 @@ var App = function () {
         	var parent = li.parent().parent();
         	parent.addClass("active").addClass("open");
         	parent.find("a .arrow").addClass("open");
+        },
+        
+        //取消高亮
+        cancleActiveMenu : function(href){
+        	$("a[href*='"+href+"']").parent().removeClass("active");
         },
         
         //生成操作按钮{icon:"iconUser",name:"操作",group:[{clickFn:"edit(2)",icon:"icon-pencil",name:"修改"}]}

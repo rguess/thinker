@@ -3,4 +3,4 @@
 .treegrid-expander {width:16px; height: 16px; display: inline-block; position: relative; cursor: pointer;}
 
 .treegrid-expander-expanded{background-image: url(../../img/sys/collapse.png); }
-.treegrid-expander-collapsed{background-image: url(../../img/sys/expand.png);}
+.treegrid-expander-collapsed{background-image: url(../../img/sys/expand.png);margin-top: 2px;}

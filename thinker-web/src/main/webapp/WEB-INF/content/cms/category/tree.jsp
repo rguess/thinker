@@ -20,7 +20,7 @@
 	function insertData(data){
 		var flag = data.childList.length > 0;
 		var li = $("<li></li>");
-		var a = $("<a href='#' onclick='javascript:selCategory(this)' data-id="+data.id+"></a>");
+		var a = $("<a href='#' onclick='javascript:selTree(this)' data-id="+data.id+"></a>");
 		if(flag){
 			a.attr("data-role","branch").attr("data-toggle","branch").attr("data-value","Bootstrap_Tree").addClass("tree-toggle").text(data.name);
 		}else{
@@ -38,6 +38,12 @@
 		li.append(a).append(ul);
 		return li
 	}
+	
+	//切换选中状态
+	function selTree(obj){
+		$(obj).closest(".tree").find("a").removeClass("selected");
+		$(obj).addClass("selected");
+	}
 </script>
 <div id="caTree" class="modal hide fade" role="dialog"
 	aria-labelledby="myModalLabel" aria-hidden="true">
@@ -52,6 +58,7 @@
 		</ul> 
 	</div>
 	<div class="modal-footer">
+		<button type="button" class="btn green" onclick="javascript:selCategory();">确定</button>
 		<button type="button red" class="btn" data-dismiss="modal"
 			aria-hidden="true">关闭</button>
 	</div>

@@ -13,8 +13,12 @@ $(document).ready(function() {
 });
 
 function show(pid){
-	$("#rcs").show().center().move();
+	blockUI();
 	$("#rcs").initFlowChart(pid);
+	$("#rcs .portlet-body img").load(function(){
+		$("#rcs").show().center().move();
+		unBlockUI();
+	})
 }
 </script>
 </head>

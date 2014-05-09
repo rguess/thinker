@@ -4,7 +4,6 @@
 <html>
 <head>
 <title>${pageTitle }</title>
-<link href="${ctx}/assets/comp/bootstrap-tree/css/bootstrap-tree.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	
@@ -115,7 +114,7 @@
 		</div>
 	</div>
 <%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
-<script src="${ctx}/assets/comp/bootstrap-tree/js/bootstrap-tree.js" type="text/javascript"></script>
+<%@ include file="/WEB-INF/content/common/plugins/bootstrap-tree.jsp"%>
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("sys/resource/list");
@@ -137,12 +136,16 @@
 		$("#rcTree").modal();
 	}
 	
-	function selRec(obj){
+	function selRec(){
+		
+		$obj = $("#tree_1").find("a.selected:first");
+		
 		$('#rcTree').modal('hide');
 		
-		$('#parentName').val($(obj).text());
-		$('#parentId').val($(obj).attr("data-id"));
+		$('#parentName').val($obj.text());
+		$('#parentId').val($obj.attr("data-id"));
 	}
+	
 </script>
 </body>
 </html>

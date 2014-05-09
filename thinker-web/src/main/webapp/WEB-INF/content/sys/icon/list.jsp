@@ -39,7 +39,7 @@
 		                                         <a class="btn blue" href="javascript:void(0)" onclick="javascript:doQuery();">
 		                                         	<i class="icon-search"></i>
 		                                         	查询</a>
-		                                         <button type="reset" class="btn">
+		                                         <button type="reset" class="btn" onclick="javascript:Page.clearQuery();">
 		                                         	<i class="icon-trash"></i>清空
 		                                         </button>
 		                                       </div>
@@ -84,10 +84,8 @@ $(document).ready(function() {
 
 function doQuery(){
 	var queryObj = {
-			search_LIKES_mark : null
+			search_LIKES_mark : App.isEqPlacehoder($("#mark"))
 		};
-	var mark = $("#mark").val();
-	App.isNundef(mark)?queryObj.search_LIKES_mark = mark:null;
 	Page.doQuery(queryObj);
 }
 </script>
