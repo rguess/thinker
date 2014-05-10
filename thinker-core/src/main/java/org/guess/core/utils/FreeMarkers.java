@@ -68,6 +68,7 @@ public class FreeMarkers {
 		try {
 			Configuration cfg = FreeMarkers.buildConfiguration(configPath);
 			template = cfg.getTemplate(tempFilePath);
+			template.setEncoding("UTF-8");
 			template.process(model, new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(filePath)), "utf-8")));
 		} catch (IOException e) {
 			logger.error("写入文件失败");
@@ -104,14 +105,14 @@ public class FreeMarkers {
 	
 	public static void main(String[] args) throws IOException {
 //		// renderString
-//		Map<String, String> model = com.google.common.collect.Maps.newHashMap();
+		Map<String, String> model = com.google.common.collect.Maps.newHashMap();
 //		model.put("userName", "calvin");
 //		String result = FreeMarkers.renderString("hello ${userName}", model);
 //		System.out.println(result);
 //		// renderTemplate
-//		Configuration cfg = FreeMarkers.buildConfiguration("classpath:/");
-//		Template template = cfg.getTemplate("testTemplate.ftl");
-//		String result2 = FreeMarkers.renderTemplate(template, model);
+		Configuration cfg = FreeMarkers.buildConfiguration("classpath:/");
+		Template template = cfg.getTemplate("testTemplate.ftl");
+		String result2 = FreeMarkers.renderTemplate(template, model);
 //		System.out.println(result2);
 		
 //		Map<String, String> model = com.google.common.collect.Maps.newHashMap();

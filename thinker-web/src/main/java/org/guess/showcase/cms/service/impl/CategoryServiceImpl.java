@@ -1,5 +1,6 @@
 package org.guess.showcase.cms.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import org.guess.core.service.BaseServiceImpl;
@@ -47,8 +48,8 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 	@Override
 	public void order(Long id, String type) {
 		Category category = categoryDao.get(id);
-		List<Category> list = categoryDao.findBy(propertyName, value, orderByProperty, isAsc)
-		categoryDao.batchExecute(hql, values)
+		List<Category> list = categoryDao.findBy("grade", category.getGrade(), "orderNo", true);
+		
 	}
 
 }

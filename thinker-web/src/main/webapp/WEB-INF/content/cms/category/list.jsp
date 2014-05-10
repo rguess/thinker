@@ -84,6 +84,7 @@ function initTree() {
 		}
 	});
 	App.setDataThWidth();
+	$('.tooltips').tooltip();
 	$("th:contains('排序')").css("width","60px");
 }
 

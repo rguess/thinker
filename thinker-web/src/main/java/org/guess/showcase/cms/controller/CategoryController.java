@@ -7,6 +7,7 @@ import org.guess.showcase.cms.model.Category;
 import org.guess.showcase.cms.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,7 +60,7 @@ public class CategoryController extends BaseController<Category>{
 	}
 	
 	@Override
-	public String delete(Long id) throws Exception {
+	public String delete(@PathVariable("id") Long id) throws Exception {
 		return super.delete(id);
 	}
 	

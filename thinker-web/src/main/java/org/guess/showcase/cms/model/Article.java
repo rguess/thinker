@@ -28,8 +28,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Article extends IdEntity {
 	
-	public static final Integer WORD_CONTENT = 0;
-	public static final Integer RICHTEXT_CONTENT = 1;
+	public static final int WORD_CONTENT = 0;
+	public static final int RICHTEXT_CONTENT = 1;
 	
 	/**
 	 * 分类编号
@@ -67,16 +67,16 @@ public class Article extends IdEntity {
 	/**
 	 * 权重，越大越靠前
 	 */
-	private Integer weight;
+	private int weight = 0;
 	
 	/**
 	 * 点击数
 	 */
-	private Integer hits;
+	private int hits  = 0;
 	/**
 	 * 是否是word解析方式是为0,不是为1
 	 */
-	private Integer isWord = WORD_CONTENT;
+	private int isWord = WORD_CONTENT;
 	
 	/**
 	 * 通过word解析为html方式的html文件路劲
@@ -114,12 +114,6 @@ public class Article extends IdEntity {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public Integer getIsWord() {
-		return isWord;
-	}
-	public void setIsWord(Integer isWord) {
-		this.isWord = isWord;
-	}
 	public String getContent() {
 		return content;
 	}
@@ -156,19 +150,33 @@ public class Article extends IdEntity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Integer getWeight() {
+	public int getWeight() {
 		return weight;
 	}
-	public void setWeight(Integer weight) {
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	public Integer getHits() {
+	public int getHits() {
 		return hits;
 	}
-	public void setHits(Integer hits) {
+	public void setHits(int hits) {
 		this.hits = hits;
 	}
-
+	public int getIsWord() {
+		return isWord;
+	}
+	public void setIsWord(int isWord) {
+		this.isWord = isWord;
+	}
+	@Override
+	public String toString() {
+		return "Article [category=" + category + ", title=" + title
+				+ ", color=" + color + ", image=" + image + ", keywords="
+				+ keywords + ", description=" + description + ", weight="
+				+ weight + ", hits=" + hits + ", isWord=" + isWord
+				+ ", htmlid=" + htmlid + ", content=" + content
+				+ ", createDate=" + createDate + "]";
+	}
 }
 
 
