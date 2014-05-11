@@ -36,6 +36,8 @@
 		<!-- 最大空闲时，当经过一个高峰之后，连接池可以将一些用不到的连接释放，一直减少到maxIdle为止 -->
 		<!-- <property name="maxIdle" value="2"/> -->
 		<!-- 当最小空闲时，当连接少于minIdle时会自动去申请一些连接 -->
+		<property name="timeBetweenEvictionRunsMillis" value="20000" />
+		<property name="minEvictableIdleTimeMillis" value="28000" />
 		<property name="minIdle" value="1" />
 		<property name="maxActive" value="100" />
 		<property name="maxIdle" value="20" />
