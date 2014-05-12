@@ -25,7 +25,7 @@
 					<!-- BEGIN FORM-->
 					<div class="form-horizontal form-view">
 						<h3>系统用户- ${obj.name }</h3>
-						<h3 class="form-section">个人信息</h3>
+						<h3 class="form-section">个人信息<a class='btn purple pull-right' href="${header.Referer }">返回</a></h3>
 						<div class="row-fluid">
 							<div class="span6 ">
 								<div class="control-group">
@@ -83,7 +83,7 @@
 								<div class="control-group">
 									<label class="control-label">状态:</label>
 									<div class="controls">
-										<span class="text bold">${obj.status }</span>
+										<span class="text bold">${obj.status eq 1 ? '启用':'禁用' }</span>
 									</div>
 								</div>
 							</div>
@@ -96,7 +96,7 @@
 									<div class="controls">
 										<c:forEach var="role" items="${obj.roles }">
 											<span class="text bold">
-												<a href="${ctx }/sys/role/show/${role.id}" class="yellow" title="点击查看">${role.name }</a>
+												<a href="${ctx }/sys/role/show/${role.id}" title="点击查看">${role.name }(${role.realName })</a>
 											</span>
 										</c:forEach>
 									</div>

@@ -715,28 +715,8 @@ var App = function () {
         
         //文件下载
 	   downloadFile : function(fileName,fileUuid){
-		   /*	var f = document.createElement("form");
-			document.body.appendChild(f);
-			
-			var m = document.createElement("input");
-			m.type = "hidden";
-			m.name = "fileName";
-			m.value = fileName;
-			f.appendChild(m);
-			
-			var n = document.createElement("input");
-			n.type = "hidden";
-			n.name = "fileUuid";
-			n.value = fileUuid;
-			f.appendChild(n);
-			
-			f.action = ctx+"/file/download";
-			f.method = "GET";
-			f.submit();*/
 		    var url = encodeURI(ctx+"/file/download?fileName="+fileName+"&fileUuid="+fileUuid);
 			window.location.href = encodeURI(url);
-//			window.location.href = ctx+"/file/download?fileName="+encodeURI(fileName)+"&fileUuid="+fileUuid;
-//			window.location.href = ctx+"/file/download?fileName="+fileName+"&fileUuid="+fileUuid;
 	    },
 	    
 	    //初始化异步提交表单的验证
@@ -751,6 +731,23 @@ var App = function () {
 		//设置数据列表th宽度
 		setDataThWidth : function(){
 			$("th:contains('操作')").css("width","50px");
+		},
+		
+		//菜单过滤
+		doMenuFilter : function(obj){
+			if(!App.isNundef($(obj).val())){
+				$("li.menu,li.menu-child").show();
+				$("li.menu").removeClass("open");
+				$("li.menu-child.active").parent().closest("li").show();
+				return;
+			}
+			$("li.menu").addClass("open");
+			var value = $(obj).val();
+			$("li.menu,li.menu-child").hide();
+			$("li.menu-child:has(a:contains('"+value+"'))").show().parent().closest("li").show();
+			$("li.menu:has(a span:contains('"+value+"'))").show().find("li").show();
 		}
+		//为了兼容IE8在window.location.href不把header[referer]带上的问题,做以下封装
+//		gotoUrl
     };
 }();

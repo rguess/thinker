@@ -1,5 +1,3 @@
 var Header = {
-	init : function(){
-		
-	}
+	
 }

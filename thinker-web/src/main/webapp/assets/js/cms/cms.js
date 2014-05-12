@@ -69,6 +69,7 @@ var Cms = {
 	//执行查询显示数
 	initData : function(params,module){
 		$("#pageInfo").parent().remove();
+		$("#sample_1").show().next().remove();
 		Page.clear();
 		Page.initData(
 			{
@@ -116,7 +117,7 @@ var Cms = {
 		return data;
 	},
 	
-	//点击左侧栏目是刷新
+	//点击左侧栏目时刷新
 	refreshContent : function(event, treeId, treeNode){
 		var treeObj = $.fn.zTree.getZTreeObj(treeId);
 		var nodes = treeObj.getSelectedNodes();

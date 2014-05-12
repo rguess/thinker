@@ -8,6 +8,17 @@
 			<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 			<div class="sidebar-toggler hidden-phone"></div> <!-- END SIDEBAR TOGGLER BUTTON -->
 		</li>
+		<li>
+			<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+			<form class="sidebar-search">
+				<div class="input-box">
+					<a href="javascript:;" class="remove"></a>
+					<input type="text" placeholder="菜单过滤" onkeyup="javascript:App.doMenuFilter(this)"/>
+					<input type="button" class="submit" value=" " />
+				</div>
+			</form>
+			<!-- END RESPONSIVE QUICK SEARCH FORM -->
+		</li>
 		<li class="start"><a href="index.html"> <i class="icon-home"></i>
 				<span class="title">首页</span> <span class="selected"></span>
 		</a></li>
@@ -15,21 +26,31 @@
 		<c:forEach var="menu" items="${sessionScope.menus }">
 			<c:choose>
 				<c:when test="${not empty menu.childRes }">
-					<li class="has-sub"><a href="javascript:;"> <i
-							class="${menu.icon }"></i> <span class="title">${menu.name }</span>
+					<li class="has-sub menu">
+						<a href="javascript:;"> 
+							<i class="${menu.icon }"></i> 
+							<span class="title">${menu.name }</span>
 							<span class="arrow"></span>
-					</a>
+						</a>
 						<ul class="sub">
 							<c:forEach var="child" items="${menu.childRes }">
-								<li><a href="${ctx }${child.resString}"><i
-										class="${child.icon }"></i>${child.name }</a></li>
+								<li class="menu-child">
+									<a href="${ctx }${child.resString}">
+										<i class="${child.icon }"></i>
+										${child.name }
+									</a>
+								</li>
 							</c:forEach>
-						</ul></li>
+						</ul>
+				  </li>
 				</c:when>
 				<c:otherwise>
-					<li class=""><a href="${ctx }${menu.resString}"> <i
-							class="${menu.icon }"></i> <span class="title">${menu.name }</span>
-					</a></li>
+					<li class="menu">
+						<a href="${ctx }${menu.resString}"> 
+							<i class="${menu.icon }"></i>
+							<span class="title">${menu.name }</span>
+						</a>
+					</li>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>

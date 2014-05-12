@@ -6,7 +6,10 @@ import org.guess.core.Constants;
 import org.guess.core.utils.web.ServletUtils;
 
 public class CmsUtil {
-
+	
+	@SuppressWarnings("unused")
+	private static final String CURRENT_SITE_ID = "cur_siteid";
+	
 	/**
 	 * 返回文章上传路径
 	 */

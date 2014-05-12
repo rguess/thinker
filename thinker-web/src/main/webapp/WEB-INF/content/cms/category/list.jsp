@@ -3,7 +3,6 @@
 <html>
 <head>
 <title>栏目</title>
-<link href="${ctx}/assets/comp/jquery-treegrid/jquery.treegrid.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div class="page-content">
@@ -53,7 +52,7 @@
 			</div>
 		</div>
 	</div>
-<script src="${ctx}/assets/comp/jquery-treegrid/jquery.treegrid.js" type="text/javascript"></script>
+<%@ include file="/WEB-INF/content/common/plugins/jquery-treegrid.jsp"%>
 <script type="text/javascript">
 
 //根据权限添加按钮

@@ -89,6 +89,22 @@ public class Category extends IdEntity {
 	@OrderBy("orderNo")
 	private List<Category> childList = Lists.newArrayList();
 	
+	/**
+	 * 归属站点
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="site_id")
+	@NotFound(action = NotFoundAction.IGNORE)
+	private Site site;
+	
+	public Site getSite() {
+		return site;
+	}
+
+	public void setSite(Site site) {
+		this.site = site;
+	}
+
 	public int getOrderNo() {
 		return orderNo;
 	}

@@ -47,18 +47,18 @@ public class Generate {
 		String packageName = "org.guess.showcase";
 
 		String moduleName = "cms"; // 模块名，例：sys
-		String className = "link"; // 类名，例：user
+		String className = "site"; // 类名，例：user
 		String classAuthor = "rguess"; // 类作者，例：ThinkGem
-		String functionName = "链接"; // 功能名，例：用户
+		String functionName = "站点"; // 功能名，例：用户
 		
 		List<Field> fields = new ArrayList<Field>();
-		fields.add(new Field("category", "分类编号", "Category"));
-		fields.add(new Field("title", "链接名称", "String"));
-		fields.add(new Field("color", "标题颜色（red：红色；green：绿色；blue：蓝色；yellow：黄色；orange：橙色）", "String"));
-		fields.add(new Field("image", "链接图片", "String"));
-		fields.add(new Field("href", "链接地址", "String"));
-		fields.add(new Field("weight", "权重，越大越靠前", "Integer"));
-		fields.add(new Field("weightDate", "权重期限，超过期限，将weight设置为0", "Date"));
+		fields.add(new Field("name", "站点名称", "String"));
+		fields.add(new Field("title", "站点标题", "String"));
+		fields.add(new Field("logo", "站点logo", "String"));
+		fields.add(new Field("description", "描述", "String"));
+		fields.add(new Field("keywords", "关键字", "String"));
+		fields.add(new Field("theme", "主题", "String"));
+		fields.add(new Field("copyright", "版权信息", "String"));
 
 		// 是否启用生成工具
 		Boolean isEnable = true;
