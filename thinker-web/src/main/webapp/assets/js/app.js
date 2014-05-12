@@ -751,6 +751,21 @@ var App = function () {
 		//设置数据列表th宽度
 		setDataThWidth : function(){
 			$("th:contains('操作')").css("width","50px");
+		},
+		
+		//菜单过滤
+		doMenuFilter : function(obj){
+			if(!App.isNundef($(obj).val())){
+				$("li.menu,li.menu-child").show();
+				$("li.munu").removeClass("open");
+				$("li.menu-child").hasClass("active").parent().closest("li").show();
+				return;
+			}
+			$("li.menu").addClass("open");
+			var value = $(obj).val();
+			$("li.menu,li.menu-child").hide();
+			$("li.menu-child:has(a:contains('"+value+"'))").show().parent().closest("li").show();
+			$("li.menu:has(a span:contains('"+value+"'))").show().find("li").show();
 		}
     };
 }();

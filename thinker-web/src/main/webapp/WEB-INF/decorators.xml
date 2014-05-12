@@ -2,14 +2,15 @@
 <decorators defaultdir="/WEB-INF/layouts/">
 	<excludes>
 		<pattern>/cms/article/view/*</pattern>
+		<pattern>/upload/*</pattern>
 	</excludes>
 
 	<decorator name="default" page="/WEB-INF/content/common/layouts/default.jsp">
-		<pattern>/sys*</pattern>
-		<pattern>/cms*</pattern>
-		<pattern>/file*</pattern>
-		<pattern>/finance*</pattern>
-		<pattern>/mobile*</pattern>
-		<pattern>/workflow*</pattern>
+		<pattern>/sys/*</pattern>
+		<pattern>/cms/*</pattern>
+		<pattern>/file/*</pattern>
+		<pattern>/finance/*</pattern>
+		<pattern>/mobile/*</pattern>
+		<pattern>/workflow/*</pattern>
 	</decorator>
 </decorators>
