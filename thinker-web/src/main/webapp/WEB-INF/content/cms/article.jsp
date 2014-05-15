@@ -18,10 +18,10 @@
 <link href="${ctx}/assets/comp/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/metro.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/assets/demo/css/style.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/assets/xyz/xiz/css/style.css" type="text/css" rel="stylesheet" />
 </head>
 <body
-	style="background: url(${ctx}/assets/demo/img/bg.jpg) no-repeat top center">
+	style="background: url(${ctx}/assets/xyz/xiz/img/bg.jpg) no-repeat top center">
 	<div class="container">
 		<div class="row-fluid">
 			<div class="span6">今天是：2014年4月27日 星期日 农历甲午年 三月廿八</div>
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<div>
-			<%-- <img src="${ctx}/assets/demo/img/cover.png" /> --%>
+			<%-- <img src="${ctx}/assets/xyz/xiz/img/cover.png" /> --%>
 		</div>
 		<div class="top-nav">
 			<div class="nav-m">
