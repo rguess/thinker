@@ -15,7 +15,6 @@ import org.guess.showcase.cms.service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Maps;
 
@@ -26,7 +25,7 @@ import com.google.common.collect.Maps;
  * 
  */
 @Aspect
-@Component
+//@Component
 public class HandleTemplate {
 	
 	private static Logger logger = LoggerFactory.getLogger(HandleTemplate.class);

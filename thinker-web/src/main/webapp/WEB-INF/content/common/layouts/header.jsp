@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/content/common/common.jsp"%>
-
 <!-- BEGIN HEADER -->
 <div class="header navbar navbar-inverse navbar-fixed-top">
 	<!-- BEGIN TOP NAVIGATION BAR -->
@@ -55,13 +54,13 @@
 						<li>
 							<p>当前站点:(点击菜单切换)</p>
 						</li>
-						<li>
-							<a href="javascript:Header.changeSite();">
+						<li class="active" data-sitename="blog">
+							<a href="javascript:Header.changeSite('blog');">
 								个人博客
 							</a>
 						</li>
-						<li>
-							<a href="javascript:Header.changeSite();">
+						<li data-sitename="news">
+							<a href="javascript:Header.changeSite('news');">
 								门户网站
 							</a>
 						</li>
@@ -104,14 +103,12 @@
 	<!-- END TOP NAVIGATION BAR -->
 </div>
 <script src="${ctx}/assets/js/sys/header.js"></script>
-
-
-
-
-
-
-
-
-
-
-
+<c:if test="${not empty sessionScope.cursite }">
+<script type="text/javascript">
+	var siteName = "${sessionScope.cursite.name}"
+	$(function(){
+		$(".notification li").removeClass("active");
+		$(".notification li[data-sitename='"+siteName+"']").addClass("active");
+	});
+</script>
+</c:if>

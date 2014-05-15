@@ -1,9 +1,11 @@
 package org.guess.showcase.cms.service;
 
+import java.util.List;
 import java.util.Set;
 
 import org.guess.core.service.BaseService;
 import org.guess.showcase.cms.model.Category;
+import org.guess.showcase.cms.model.Site;
 
 /**
  * 栏目entityservice
@@ -18,5 +20,15 @@ public interface CategoryService extends BaseService<Category, Long>{
 	public Set<String> getChlidIdsById(String id);
 
 	public void order(Long id, String type);
+	
+	/**
+	 * 根据当前站点获取等级为1的栏目列表
+	 */
+	public List<Category> listGradeOne(Site curSite);
+	
+	/**
+	 * 根据当前站点获取顶级栏目
+	 */
+	public List<Category> listGradeTop(Site curSite);
 
 }

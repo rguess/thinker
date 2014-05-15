@@ -2,9 +2,14 @@ package org.guess.showcase.cms.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.guess.core.web.BaseController;
 import org.guess.showcase.cms.model.Category;
+import org.guess.showcase.cms.model.Site;
 import org.guess.showcase.cms.service.CategoryService;
+import org.guess.showcase.cms.util.CmsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,17 +36,22 @@ public class CategoryController extends BaseController<Category>{
 	@Autowired
 	private CategoryService categoryService;
 	
+	@Autowired
+	private HttpSession session;
+	
 	@RequestMapping(method=RequestMethod.GET,value="/tree")
 	@ResponseBody
-	public List<Category> tree() throws Exception{
-		List<Category> res = categoryService.findBy("grade", 1,"orderNo",true);
+	public List<Category> tree(HttpServletRequest request) throws Exception{
+		Site curSite = CmsUtil.getCurrentSite(request);
+		List<Category> res = categoryService.listGradeOne(curSite);
 		return res;
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/showTree")
 	@ResponseBody
 	public List<Category> showTree() throws Exception{
-		List<Category> res = categoryService.findBy("grade", 0);
+		Site curSite = CmsUtil.getCurrentSite(request);
+		List<Category> res = categoryService.listGradeTop(curSite);
 		return res;
 	}
 	
@@ -49,6 +59,7 @@ public class CategoryController extends BaseController<Category>{
 	public String create(Category object) throws Exception {
 		Category parent = categoryService.get(object.getParent().getId());
 		object.setGrade(parent.getGrade() + 1);
+		object.setSite((Site) session.getAttribute(CmsUtil.CURRENT_SITE_STR));
 		return super.create(object);
 	}
 	

@@ -3,13 +3,17 @@ package org.guess.showcase.cms.service.impl;
 import java.util.List;
 import java.util.Set;
 
+import org.guess.core.orm.PageRequest;
+import org.guess.core.orm.PropertyFilter;
 import org.guess.core.service.BaseServiceImpl;
 import org.guess.showcase.cms.dao.CategoryDao;
 import org.guess.showcase.cms.model.Category;
+import org.guess.showcase.cms.model.Site;
 import org.guess.showcase.cms.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 /**
@@ -50,6 +54,24 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 		Category category = categoryDao.get(id);
 		List<Category> list = categoryDao.findBy("grade", category.getGrade(), "orderNo", true);
 		
+	}
+
+	@Override
+	public List<Category> listGradeOne(Site curSite) {
+		List<PropertyFilter> filters = Lists.newArrayList();
+		filters.add(new PropertyFilter("EQI_grade", "1"));
+		filters.add(new PropertyFilter("EQL_site.id", String.valueOf(curSite.getId())));
+		PageRequest pageRequest = new PageRequest(1, 1000);
+		return categoryDao.findPage(pageRequest, filters).getResult();
+	}
+
+	@Override
+	public List<Category> listGradeTop(Site curSite) {
+		List<PropertyFilter> filters = Lists.newArrayList();
+		filters.add(new PropertyFilter("EQI_grade", "0"));
+		filters.add(new PropertyFilter("EQL_site.id", String.valueOf(curSite.getId())));
+		PageRequest pageRequest = new PageRequest(1, 1000);
+		return categoryDao.findPage(pageRequest, filters).getResult();
 	}
 
 }

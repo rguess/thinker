@@ -54,3 +54,8 @@
 i.ibtn{
 	cursor: pointer;
 }
+
+/* 当前站点样式 */
+.notification .active>a{
+	background-color: green !important;
+}

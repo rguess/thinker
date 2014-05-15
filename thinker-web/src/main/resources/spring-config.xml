@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
      		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         	http://www.springframework.org/schema/context
@@ -9,7 +10,9 @@
      		http://www.springframework.org/schema/aop 
      		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd    		
      		http://www.springframework.org/schema/tx
-       		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+       		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       		http://www.springframework.org/schema/util
+       		http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
     <aop:aspectj-autoproxy/>
 	<context:annotation-config />
@@ -105,7 +108,9 @@
 		</tx:attributes>
 	</tx:advice>
 	
+	<!-- 加载配置文件，可以直接注入到属性中 -->
+	<util:properties id="app" location="classpath:application.properties" />
+	
 	<import resource="shiro/spring-config-shiro.xml"/>
-	<import resource="push/spring-config-push.xml"/>
 	<import resource="workflow/spring-config-activiti.xml"/>
 </beans>
