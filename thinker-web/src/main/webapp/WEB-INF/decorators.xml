@@ -13,4 +13,7 @@
 		<pattern>/mobile/*</pattern>
 		<pattern>/workflow/*</pattern>
 	</decorator>
+	
+	<!-- CMS博客主题 -->
+	<decorator name="cms_blog" page="/WEB-INF/content/front/blog/template/default.jsp" />
 </decorators>

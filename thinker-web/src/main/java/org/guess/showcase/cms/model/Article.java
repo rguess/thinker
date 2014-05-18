@@ -18,6 +18,8 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 文章Entity
  * @author ThinkGem
@@ -25,6 +27,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Entity
 @Table(name = "cms_article")
+@JsonIgnoreProperties(value = { "content"})
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Article extends IdEntity {
 	

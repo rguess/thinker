@@ -15,7 +15,9 @@ var Cms = {
 					  {cName:"module",cValue:"栏目",format:function(i,value,item){
 						  return item.category.name;
 					  }},
-					  {cName:"description",cValue:"描述"},
+					  {cName:"description",cValue:"描述",format:function(i,value,item){
+						  return value.substr(0,20)+"...";
+					  }},
 					  {cName:"htmlid",cValue:"操作",noSort:true,format:function(i,value,item){
 							 return Cms.objs.article.operBtn(item.id);
 					  }}

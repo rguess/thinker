@@ -74,4 +74,14 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 		return categoryDao.findPage(pageRequest, filters).getResult();
 	}
 
+	@Override
+	public List<Category> listIsShow(Site curSite) {
+		List<PropertyFilter> filters = Lists.newArrayList();
+		filters.add(new PropertyFilter("EQI_grade", "1"));
+		filters.add(new PropertyFilter("EQL_site.id", String.valueOf(curSite.getId())));
+		filters.add(new PropertyFilter("EQI_isShow", String.valueOf(Category.ISSHOW_SHOW)));
+		PageRequest pageRequest = new PageRequest(1, 1000);
+		return categoryDao.findPage(pageRequest, filters).getResult();
+	}
+
 }

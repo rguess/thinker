@@ -30,5 +30,10 @@ public interface CategoryService extends BaseService<Category, Long>{
 	 * 根据当前站点获取顶级栏目
 	 */
 	public List<Category> listGradeTop(Site curSite);
+	
+	/**
+	 * 获取当前现在在导航栏的栏目列表
+	 */
+	public List<Category> listIsShow(Site curSite);
 
 }

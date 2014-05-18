@@ -59,7 +59,7 @@ public class CategoryController extends BaseController<Category>{
 	public String create(Category object) throws Exception {
 		Category parent = categoryService.get(object.getParent().getId());
 		object.setGrade(parent.getGrade() + 1);
-		object.setSite((Site) session.getAttribute(CmsUtil.CURRENT_SITE_STR));
+		object.setSite(CmsUtil.getCurrentSite(request));
 		return super.create(object);
 	}
 	
