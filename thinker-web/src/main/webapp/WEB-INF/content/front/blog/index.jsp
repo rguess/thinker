@@ -30,6 +30,35 @@
 		<div class="art_img_box clearfix">
  			<div class="fr box_content">
 				<h2>
+					<a href="${ctx}/blog/article/34.html" title="测试复杂内容" target="_blank">测试复杂内容</a>
+				</h2>
+	            <div class="jiange"></div>
+				<p class="intro">
+					测试图片加文本等复杂内容
+				</p>
+				<ul class="clearfix"></ul>
+				<div class="info">
+					<table width="650" border="0" cellspacing="0" cellpadding="0">
+	                	<tbody>
+	                    	<tr>
+	                        	<td width="570">&nbsp;&nbsp;
+	                   				<span> 时间 : 2014-05-19</span>| 
+									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
+									<span>浏览 :  0</span>|
+									<span>标签：<a href="#">test</a></span>    
+									<span></span>
+								</td>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/34.html" title="测试复杂内容" target	="_blank">[阅读全文]</a></span>
+	                           	</td>
+	                        </tr>
+	                     </tbody>
+	            	</table>
+				</div>
+    		</div>
+     	</div>
+		<div class="art_img_box clearfix">
+ 			<div class="fr box_content">
+				<h2>
 					<a href="${ctx}/blog/article/29.html" title="测试文章" target="_blank">测试文章</a>
 				</h2>
 	            <div class="jiange"></div>
@@ -59,7 +88,7 @@
 		<div class="art_img_box clearfix">
  			<div class="fr box_content">
 				<h2>
-					<a href="${ctx}/blog/article/31.html" title="测试一下代码" target="_blank">测试一下代码</a>
+					<a href="${ctx}/blog/article/31.html" title="测下代码片段" target="_blank">测下代码片段</a>
 				</h2>
 	            <div class="jiange"></div>
 				<p class="intro">
@@ -77,7 +106,7 @@
 									<span>标签：<a href="#">code</a></span>    
 									<span></span>
 								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/31.html" title="测试一下代码" target	="_blank">[阅读全文]</a></span>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/31.html" title="测下代码片段" target	="_blank">[阅读全文]</a></span>
 	                           	</td>
 	                        </tr>
 	                     </tbody>
@@ -117,7 +146,7 @@
 		<div class="art_img_box clearfix">
  			<div class="fr box_content">
 				<h2>
-					<a href="${ctx}/blog/article/33.html" title="测一测xml代码" target="_blank">测一测xml代码</a>
+					<a href="${ctx}/blog/article/33.html" title="测xml代码片段" target="_blank">测xml代码片段</a>
 				</h2>
 	            <div class="jiange"></div>
 				<p class="intro">
@@ -130,99 +159,12 @@
 	                    	<tr>
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-18</span>| 
-									<span>栏目 : <a href="#" title="查看中的全部文章"></a></span>| 
+									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
 									<span>浏览 :  0</span>|
 									<span>标签：<a href="#">xml</a></span>    
 									<span></span>
 								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/33.html" title="测一测xml代码" target	="_blank">[阅读全文]</a></span>
-	                           	</td>
-	                        </tr>
-	                     </tbody>
-	            	</table>
-				</div>
-    		</div>
-     	</div>
-		<div class="art_img_box clearfix">
- 			<div class="fr box_content">
-				<h2>
-					<a href="${ctx}/blog/article/28.html" title="写于2014-5-15" target="_blank">写于2014-5-15</a>
-				</h2>
-	            <div class="jiange"></div>
-				<p class="intro">
-					只谈心情
-				</p>
-				<ul class="clearfix"></ul>
-				<div class="info">
-					<table width="650" border="0" cellspacing="0" cellpadding="0">
-	                	<tbody>
-	                    	<tr>
-	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-15</span>| 
-									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  0</span>|
-									<span>标签：<a href="#">日记</a></span>    
-									<span></span>
-								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/28.html" title="写于2014-5-15" target	="_blank">[阅读全文]</a></span>
-	                           	</td>
-	                        </tr>
-	                     </tbody>
-	            	</table>
-				</div>
-    		</div>
-     	</div>
-		<div class="art_img_box clearfix">
- 			<div class="fr box_content">
-				<h2>
-					<a href="${ctx}/blog/article/27.html" title="2014-5-14" target="_blank">2014-5-14</a>
-				</h2>
-	            <div class="jiange"></div>
-				<p class="intro">
-					
-				</p>
-				<ul class="clearfix"></ul>
-				<div class="info">
-					<table width="650" border="0" cellspacing="0" cellpadding="0">
-	                	<tbody>
-	                    	<tr>
-	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-14</span>| 
-									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  0</span>|
-									<span>标签：<a href="#">日记</a></span>    
-									<span></span>
-								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/27.html" title="2014-5-14" target	="_blank">[阅读全文]</a></span>
-	                           	</td>
-	                        </tr>
-	                     </tbody>
-	            	</table>
-				</div>
-    		</div>
-     	</div>
-		<div class="art_img_box clearfix">
- 			<div class="fr box_content">
-				<h2>
-					<a href="${ctx}/blog/article/25.html" title="写于2014-5" target="_blank">写于2014-5</a>
-				</h2>
-	            <div class="jiange"></div>
-				<p class="intro">
-					你好，这是我发的blog，今天还是很一般，很多工作还是没有做，贵在坚持，但是不说说起这么简单的。看到时间管理脑壳痛，怎么才能不痛呢，额。。。，尼玛坑爹啊 ，怎么content哪个字段又变成varchar255了。蛋疼
-				</p>
-				<ul class="clearfix"></ul>
-				<div class="info">
-					<table width="650" border="0" cellspacing="0" cellpadding="0">
-	                	<tbody>
-	                    	<tr>
-	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-12</span>| 
-									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  0</span>|
-									<span>标签：<a href="#">日记,胡扯</a></span>    
-									<span></span>
-								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/25.html" title="写于2014-5" target	="_blank">[阅读全文]</a></span>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/33.html" title="测xml代码片段" target	="_blank">[阅读全文]</a></span>
 	                           	</td>
 	                        </tr>
 	                     </tbody>

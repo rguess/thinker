@@ -1,6 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
 <head>
@@ -35,13 +39,12 @@
 					<div id="topic_content">
 						${obj.content }
 					</div> 
-					<div class="clear"></div>           							
+					<div class="clear"></div>
 					<p>
 						<strong>本文标签</strong>： 
 					</p>				
-					<p> 除非注明，文章均为(
-						<a href="${ctx }/blog/index.html"> 木春 </a>)原创，转载请保留链接: 
-						<a href="http://www.muchun.net/105.html" title="要靠自己，也要靠别人">http://www.muchun.net/105.html</a>
+					<p> 转载请保留链接:
+						<a href="<%=basePath %>blog/article/${obj.id}.html" title="要靠自己，也要靠别人"><%=basePath %>blog/article/${obj.id}.html</a>
 					</p>
 				</div>
 			</div>

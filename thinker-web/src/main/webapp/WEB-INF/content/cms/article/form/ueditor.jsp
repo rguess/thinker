@@ -13,5 +13,3 @@
 		<a class='btn' href="${header.Referer }">返回</a>
 	</div>
 </form>
-
-

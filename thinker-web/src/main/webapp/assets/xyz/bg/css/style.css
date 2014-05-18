@@ -418,7 +418,7 @@ ol.commentlist li div.floor{ float:right;color:#bbb}
 #nav_in  ul li ul li a:hover { background:#02131f; color:#fff; }
 
 .info { background:#FAFAFA; border:1px solid #e1e1e1; color:#9E9E9E;font-size:12px; }
-.info a{color:#797979; }
+/* .info a{color:#797979; } */
 /*#content { background:#fff url(../images/content_centerbg.png) repeat-y left top;  }
 */.content_top { background:url(../images/content_top.png) no-repeat left top;  }
 .content_bottom { padding:30px;  }
