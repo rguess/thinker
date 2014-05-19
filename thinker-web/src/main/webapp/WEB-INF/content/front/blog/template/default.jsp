@@ -12,6 +12,7 @@
 <meta http-equiv="Expires" content="0" />
 <link href="${ctx}/assets/xyz/bg/css/scrollNav.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/xyz/bg/css/style.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/assets/xyz/bg/css/manhuatoTop.1.0.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/xyz/bg/rguess.ico" rel="shortcut icon"/>
 <script type="text/javascript" src="${ctx}/assets/xyz/bg/js/jquery-1.8.3.min.js"></script>
 <sitemesh:head />
@@ -26,11 +27,18 @@
 <%@ include file="footer.jsp"%>
 <script type="text/javascript" src="${ctx}/assets/xyz/bg/js/jquery_muchun.js"></script>
 <script type="text/javascript" src="${ctx}/assets/xyz/bg/js/navScroll.js"></script>
+<script type="text/javascript" src="${ctx}/assets/xyz/bg/js/manhuatoTop.1.0.js"></script>
 <script type="text/javascript">
 	$(".nav02 > ul > li").ScrollNav({
 		scrollObj:".nav02 > .scrollObj02", //滑动的对象
 		speed:"fast" //速度
 	});
+	$(function(){
+		$(window).manhuatoTop({
+			showHeight : 100,//设置滚动高度时显示
+			speed : 500 //返回顶部的速度以毫秒为单位
+		});
+	})
 </script>
 </body>
 </html>

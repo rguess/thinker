@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.guess.core.orm.PageRequest;
+import org.guess.core.orm.PageRequest.Sort;
 import org.guess.core.orm.PropertyFilter;
 import org.guess.core.service.BaseServiceImpl;
 import org.guess.showcase.cms.dao.CategoryDao;
@@ -81,6 +82,8 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 		filters.add(new PropertyFilter("EQL_site.id", String.valueOf(curSite.getId())));
 		filters.add(new PropertyFilter("EQI_isShow", String.valueOf(Category.ISSHOW_SHOW)));
 		PageRequest pageRequest = new PageRequest(1, 1000);
+		pageRequest.setOrderBy("orderNo");
+		pageRequest.setOrderDir(Sort.ASC);
 		return categoryDao.findPage(pageRequest, filters).getResult();
 	}
 

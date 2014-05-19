@@ -7,6 +7,7 @@ import org.guess.core.orm.hibernate.HibernateDao;
 import org.guess.showcase.cms.dao.ArticleDao;
 import org.guess.showcase.cms.model.Article;
 import org.guess.showcase.cms.model.Site;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 import com.google.common.collect.Sets;
@@ -25,6 +26,12 @@ public class ArticleDaoImpl extends HibernateDao<Article, Long> implements
 		Set<String> set = Sets.newHashSet();
 		set.addAll(list);
 		return set;
+	}
+	
+	@Override
+	public void save(Article entity) {
+		Session session = getSession();
+		session.merge(entity);
 	}
 
 }

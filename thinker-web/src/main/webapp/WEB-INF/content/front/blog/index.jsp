@@ -44,7 +44,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-19</span>| 
 									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  0</span>|
+									<span>浏览 :  6</span>|
 									<span>标签：<a href="#">test</a></span>    
 									<span></span>
 								</td>
@@ -73,7 +73,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-18</span>| 
 									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  0</span>|
+									<span>浏览 :  9</span>|
 									<span>标签：<a href="#">测试,java,jquery,hello,world,就这样</a></span>    
 									<span></span>
 								</td>

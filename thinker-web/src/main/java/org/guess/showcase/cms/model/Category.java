@@ -77,7 +77,7 @@ public class Category extends IdEntity {
 	private String keywords;
 	
 	/**
-	 * 排序字段
+	 * 排序字段 ，越小越靠前
 	 */
 	private int orderNo = 0;
 	
@@ -86,7 +86,7 @@ public class Category extends IdEntity {
 	 */
 	@OneToMany(targetEntity=Category.class,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="PARENT_ID",updatable=false)
-	@OrderBy("orderNo")
+	@OrderBy("orderNo ASC")
 	private List<Category> childList = Lists.newArrayList();
 	
 	/**

@@ -263,14 +263,14 @@ ol.commentlist li div.floor{ float:right;color:#bbb}
 .copyright p.powered a, .footer_right p a{color:#e23a0a;}
 ---*/
 /*footer*/
-.footer { width:100%; padding:0px 0px 5px 0px; background:#fff; border-top:1px solid #ddd; }
+.footer { width:100%; padding:0px 0px 0px 0px; background:#fff; border-top:1px solid #ddd; }
 .footer .bottom_nav { width:auto; border-bottom:1px solid #ddd; padding:15px 0px; }
 .footer .bottom_nav ul { width:980px; list-style:none; margin:0px auto;}
 .footer .bottom_nav li { float:left; height:14px; line-height:14px; padding:0px 20px; border-right:2px solid #ccc;  }
 .footer .bottom_nav li a,
 .footer .bottom_nav li a:visited { color:#777; text-decoration:none; }
 .footer .bottom_nav li a:hover { color:#FF7200;}
-.footer .footer_nav {width:980px; padding:10px 0px 20px 0px; margin:0px auto; }
+.footer .footer_nav {width:980px; padding:0px 0px 0px 0px; margin:0px auto; }
 .footer .footer_nav p{text-align:center;}
 .footer .footer_nav a { color:#282828;line-height:25px;text-decoration:none;}
 .footer .footer_nav a:hover {color:#FF7200; }
