@@ -55,6 +55,7 @@
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-fileupload.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/ueditor.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-tree.jsp"%>
+<%@ include file="/WEB-INF/content/common/plugins/jquery-tagsinput.jsp"%>
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("cms/");
@@ -62,6 +63,8 @@
 		App.cancleActiveMenu("/cms/site/list");
 		showTab();
 		UE.getEditor('ueditor');
+		
+		$('.tags').tagsInput();
 	});
 	function showCaTree(){
 		$("#caTree").modal();

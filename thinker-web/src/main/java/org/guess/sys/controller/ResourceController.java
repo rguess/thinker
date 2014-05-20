@@ -30,7 +30,7 @@ public class ResourceController extends BaseController<Resource> {
 	@RequestMapping(method = RequestMethod.GET, value = "/tree")
 	@ResponseBody
 	public List<Resource> tree() throws Exception {
-		List<Resource> res = rService.findBy("grade", Constants.FIRST_MENU);
+		List<Resource> res = rService.findBy("grade", Constants.FIRST_MENU, "orderNo", true);
 		return res;
 	}
 

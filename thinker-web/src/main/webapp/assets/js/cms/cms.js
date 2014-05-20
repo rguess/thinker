@@ -9,7 +9,12 @@ var Cms = {
 		article : {
 			url : ctx + "/cms/article",
 			colums : [{cName:"title",cValue:"标题",format:function(i,value,item){
-							var $a = $('<a href="javascript:void(0)" data-original-title="点击预览" data-placement="right" class="tooltips" onclick="javascript:Cms.view(\'article\','+item.id+');">'+value+'</a>');
+							var str = value;
+							if(value.length > 20){
+								str = value.substr(0,20)+"...";
+							}
+							var $a = $('<a href="javascript:void(0)" data-original-title="'+value+'" data-placement="right" class="tooltips" onclick="javascript:Cms.view(\'article\','+item.id+');">'
+									+str+'</a>');
 							return $a;
 					  }},
 					  {cName:"module",cValue:"栏目",format:function(i,value,item){

@@ -30,11 +30,11 @@
 		<div class="art_img_box clearfix">
  			<div class="fr box_content">
 				<h2>
-					<a href="${ctx}/blog/article/36.html" title="测试javascript代码" target="_blank">测试javascript代码</a>
+					<a href="${ctx}/blog/article/37.html" title="shiro在remember me状态下登录，自定义session失效解决方法 " target="_blank">shiro在remember me状态下登录，自定义session失效解决方法 </a>
 				</h2>
 	            <div class="jiange"></div>
 				<p class="intro">
-					测试javascript代码
+					使用shiro的时候，当我们使用remember me功能登录系统的时候，我们在用户登录自定义的session已经失效，这样就会影响系统正常运行；对于这种情况，我的解决方案是在shiro中自定义一个filter检测自定义的session是否失效，如果失效就读取数据加入到session中 
 				</p>
 				<ul class="clearfix"></ul>
 				<div class="info">
@@ -42,13 +42,13 @@
 	                	<tbody>
 	                    	<tr>
 	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-20</span>| 
-									<span>栏目 : <a href="#" title="查看js中的全部文章">js</a></span>| 
-									<span>浏览 :  7</span>|
-									<span>标签：<a href="#">js</a></span>    
+	                   				<span> 时间 : 2014-05-21</span>| 
+									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
+									<span>浏览 :  17</span>|
+									<span>标签：<a href="#">shiro,java</a></span>    
 									<span></span>
 								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/36.html" title="测试javascript代码" target	="_blank">[阅读全文]</a></span>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/37.html" title="shiro在remember me状态下登录，自定义session失效解决方法 " target	="_blank">[阅读全文]</a></span>
 	                           	</td>
 	                        </tr>
 	                     </tbody>
@@ -59,11 +59,11 @@
 		<div class="art_img_box clearfix">
  			<div class="fr box_content">
 				<h2>
-					<a href="${ctx}/blog/article/34.html" title="测试复杂内容" target="_blank">测试复杂内容</a>
+					<a href="${ctx}/blog/article/39.html" title="java文件操作工具类" target="_blank">java文件操作工具类</a>
 				</h2>
 	            <div class="jiange"></div>
 				<p class="intro">
-					测试图片加文本等复杂内容
+					文件操作工具类，实现文件的创建、删除、复制、压缩、解压以及目录的创建、删除、复制、压缩解压等功能
 				</p>
 				<ul class="clearfix"></ul>
 				<div class="info">
@@ -71,13 +71,71 @@
 	                	<tbody>
 	                    	<tr>
 	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-19</span>| 
-									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  23</span>|
-									<span>标签：<a href="#">test</a></span>    
+	                   				<span> 时间 : 2014-05-21</span>| 
+									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
+									<span>浏览 :  7</span>|
+									<span>标签：<a href="#">java</a></span>    
 									<span></span>
 								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/34.html" title="测试复杂内容" target	="_blank">[阅读全文]</a></span>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/39.html" title="java文件操作工具类" target	="_blank">[阅读全文]</a></span>
+	                           	</td>
+	                        </tr>
+	                     </tbody>
+	            	</table>
+				</div>
+    		</div>
+     	</div>
+		<div class="art_img_box clearfix">
+ 			<div class="fr box_content">
+				<h2>
+					<a href="${ctx}/blog/article/38.html" title="jquery实现居中可拖拽窗体" target="_blank">jquery实现居中可拖拽窗体</a>
+				</h2>
+	            <div class="jiange"></div>
+				<p class="intro">
+					
+				</p>
+				<ul class="clearfix"></ul>
+				<div class="info">
+					<table width="650" border="0" cellspacing="0" cellpadding="0">
+	                	<tbody>
+	                    	<tr>
+	                        	<td width="570">&nbsp;&nbsp;
+	                   				<span> 时间 : 2014-05-21</span>| 
+									<span>栏目 : <a href="#" title="查看js中的全部文章">js</a></span>| 
+									<span>浏览 :  8</span>|
+									<span>标签：<a href="#">jquery</a></span>    
+									<span></span>
+								</td>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/38.html" title="jquery实现居中可拖拽窗体" target	="_blank">[阅读全文]</a></span>
+	                           	</td>
+	                        </tr>
+	                     </tbody>
+	            	</table>
+				</div>
+    		</div>
+     	</div>
+		<div class="art_img_box clearfix">
+ 			<div class="fr box_content">
+				<h2>
+					<a href="${ctx}/blog/article/40.html" title="js回调函数传参数" target="_blank">js回调函数传参数</a>
+				</h2>
+	            <div class="jiange"></div>
+				<p class="intro">
+					js回调函数传参数，简单代码蕴藏大智慧
+				</p>
+				<ul class="clearfix"></ul>
+				<div class="info">
+					<table width="650" border="0" cellspacing="0" cellpadding="0">
+	                	<tbody>
+	                    	<tr>
+	                        	<td width="570">&nbsp;&nbsp;
+	                   				<span> 时间 : 2014-05-21</span>| 
+									<span>栏目 : <a href="#" title="查看js中的全部文章">js</a></span>| 
+									<span>浏览 :  2</span>|
+									<span>标签：<a href="#">js</a></span>    
+									<span></span>
+								</td>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/40.html" title="js回调函数传参数" target	="_blank">[阅读全文]</a></span>
 	                           	</td>
 	                        </tr>
 	                     </tbody>
@@ -102,77 +160,11 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-19</span>| 
 									<span>栏目 : <a href="#" title="查看关于我中的全部文章">关于我</a></span>| 
-<<<<<<< HEAD
-									<span>浏览 :  38</span>|
-=======
-									<span>浏览 :  29</span>|
->>>>>>> 14762aeda8fbb6516cd60119ab10e447dceb8198
+									<span>浏览 :  70</span>|
 									<span>标签：<a href="#">about me</a></span>    
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/35.html" title="关于我" target	="_blank">[阅读全文]</a></span>
-	                           	</td>
-	                        </tr>
-	                     </tbody>
-	            	</table>
-				</div>
-    		</div>
-     	</div>
-		<div class="art_img_box clearfix">
- 			<div class="fr box_content">
-				<h2>
-					<a href="${ctx}/blog/article/29.html" title="测试文章" target="_blank">测试文章</a>
-				</h2>
-	            <div class="jiange"></div>
-				<p class="intro">
-					这是一篇测试用的文章就是来测试用的没什么意义
-				</p>
-				<ul class="clearfix"></ul>
-				<div class="info">
-					<table width="650" border="0" cellspacing="0" cellpadding="0">
-	                	<tbody>
-	                    	<tr>
-	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-18</span>| 
-									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-<<<<<<< HEAD
-									<span>浏览 :  31</span>|
-=======
-									<span>浏览 :  29</span>|
->>>>>>> 14762aeda8fbb6516cd60119ab10e447dceb8198
-									<span>标签：<a href="#">测试,java,jquery,hello,world,就这样</a></span>    
-									<span></span>
-								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/29.html" title="测试文章" target	="_blank">[阅读全文]</a></span>
-	                           	</td>
-	                        </tr>
-	                     </tbody>
-	            	</table>
-				</div>
-    		</div>
-     	</div>
-		<div class="art_img_box clearfix">
- 			<div class="fr box_content">
-				<h2>
-					<a href="${ctx}/blog/article/31.html" title="测下代码片段" target="_blank">测下代码片段</a>
-				</h2>
-	            <div class="jiange"></div>
-				<p class="intro">
-					测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码测试代码
-				</p>
-				<ul class="clearfix"></ul>
-				<div class="info">
-					<table width="650" border="0" cellspacing="0" cellpadding="0">
-	                	<tbody>
-	                    	<tr>
-	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-18</span>| 
-									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
-									<span>浏览 :  11</span>|
-									<span>标签：<a href="#">code</a></span>    
-									<span></span>
-								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/31.html" title="测下代码片段" target	="_blank">[阅读全文]</a></span>
 	                           	</td>
 	                        </tr>
 	                     </tbody>
@@ -197,40 +189,11 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-18</span>| 
 									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  7</span>|
+									<span>浏览 :  12</span>|
 									<span>标签：<a href="#">日记,心情</a></span>    
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/32.html" title="写于2014-5-18" target	="_blank">[阅读全文]</a></span>
-	                           	</td>
-	                        </tr>
-	                     </tbody>
-	            	</table>
-				</div>
-    		</div>
-     	</div>
-		<div class="art_img_box clearfix">
- 			<div class="fr box_content">
-				<h2>
-					<a href="${ctx}/blog/article/33.html" title="测xml代码片段" target="_blank">测xml代码片段</a>
-				</h2>
-	            <div class="jiange"></div>
-				<p class="intro">
-					测试一下xml代码
-				</p>
-				<ul class="clearfix"></ul>
-				<div class="info">
-					<table width="650" border="0" cellspacing="0" cellpadding="0">
-	                	<tbody>
-	                    	<tr>
-	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-18</span>| 
-									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
-									<span>浏览 :  7</span>|
-									<span>标签：<a href="#">xml</a></span>    
-									<span></span>
-								</td>
-	                           	<td width="80"><span><a href="${ctx}/blog/article/33.html" title="测xml代码片段" target	="_blank">[阅读全文]</a></span>
 	                           	</td>
 	                        </tr>
 	                     </tbody>
