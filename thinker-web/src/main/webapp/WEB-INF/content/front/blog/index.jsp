@@ -30,6 +30,35 @@
 		<div class="art_img_box clearfix">
  			<div class="fr box_content">
 				<h2>
+					<a href="${ctx}/blog/article/36.html" title="测试javascript代码" target="_blank">测试javascript代码</a>
+				</h2>
+	            <div class="jiange"></div>
+				<p class="intro">
+					测试javascript代码
+				</p>
+				<ul class="clearfix"></ul>
+				<div class="info">
+					<table width="650" border="0" cellspacing="0" cellpadding="0">
+	                	<tbody>
+	                    	<tr>
+	                        	<td width="570">&nbsp;&nbsp;
+	                   				<span> 时间 : 2014-05-20</span>| 
+									<span>栏目 : <a href="#" title="查看js中的全部文章">js</a></span>| 
+									<span>浏览 :  7</span>|
+									<span>标签：<a href="#">js</a></span>    
+									<span></span>
+								</td>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/36.html" title="测试javascript代码" target	="_blank">[阅读全文]</a></span>
+	                           	</td>
+	                        </tr>
+	                     </tbody>
+	            	</table>
+				</div>
+    		</div>
+     	</div>
+		<div class="art_img_box clearfix">
+ 			<div class="fr box_content">
+				<h2>
 					<a href="${ctx}/blog/article/34.html" title="测试复杂内容" target="_blank">测试复杂内容</a>
 				</h2>
 	            <div class="jiange"></div>
@@ -44,11 +73,40 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-19</span>| 
 									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  6</span>|
+									<span>浏览 :  23</span>|
 									<span>标签：<a href="#">test</a></span>    
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/34.html" title="测试复杂内容" target	="_blank">[阅读全文]</a></span>
+	                           	</td>
+	                        </tr>
+	                     </tbody>
+	            	</table>
+				</div>
+    		</div>
+     	</div>
+		<div class="art_img_box clearfix">
+ 			<div class="fr box_content">
+				<h2>
+					<a href="${ctx}/blog/article/35.html" title="关于我" target="_blank">关于我</a>
+				</h2>
+	            <div class="jiange"></div>
+				<p class="intro">
+					
+				</p>
+				<ul class="clearfix"></ul>
+				<div class="info">
+					<table width="650" border="0" cellspacing="0" cellpadding="0">
+	                	<tbody>
+	                    	<tr>
+	                        	<td width="570">&nbsp;&nbsp;
+	                   				<span> 时间 : 2014-05-19</span>| 
+									<span>栏目 : <a href="#" title="查看关于我中的全部文章">关于我</a></span>| 
+									<span>浏览 :  38</span>|
+									<span>标签：<a href="#">about me</a></span>    
+									<span></span>
+								</td>
+	                           	<td width="80"><span><a href="${ctx}/blog/article/35.html" title="关于我" target	="_blank">[阅读全文]</a></span>
 	                           	</td>
 	                        </tr>
 	                     </tbody>
@@ -73,7 +131,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-18</span>| 
 									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  9</span>|
+									<span>浏览 :  31</span>|
 									<span>标签：<a href="#">测试,java,jquery,hello,world,就这样</a></span>    
 									<span></span>
 								</td>
@@ -102,7 +160,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-18</span>| 
 									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
-									<span>浏览 :  0</span>|
+									<span>浏览 :  11</span>|
 									<span>标签：<a href="#">code</a></span>    
 									<span></span>
 								</td>
@@ -131,7 +189,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-18</span>| 
 									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-									<span>浏览 :  0</span>|
+									<span>浏览 :  7</span>|
 									<span>标签：<a href="#">日记,心情</a></span>    
 									<span></span>
 								</td>
@@ -160,7 +218,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-18</span>| 
 									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
-									<span>浏览 :  0</span>|
+									<span>浏览 :  7</span>|
 									<span>标签：<a href="#">xml</a></span>    
 									<span></span>
 								</td>

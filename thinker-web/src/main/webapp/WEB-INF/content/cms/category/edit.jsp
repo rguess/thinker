@@ -30,6 +30,7 @@
 								method="post" id="form1">
 								<!-- 栏目ID -->
 								<input type="hidden" value="${obj.id }" name="id">
+								<input type="hidden" value="${obj.orderNo }" name="orderNo">
 								<input type="hidden" value="${obj.parent.id }" name="parent.id" id="parentId">
 								
 								<div class="control-group">
@@ -62,6 +63,17 @@
 							               	<option value="link">链接</option>
 							               	<option value="special">专题</option>
 							             </select>
+									</div>
+								</div>
+								
+								<div class="control-group">
+									<label class="control-label">链接:</label>
+									<div class="controls">
+										<input type="text"
+											name="url"
+											validate="{url:true}"
+											class="span6 m-wrap" 
+											value="${obj.url }"/>
 									</div>
 								</div>
 								
@@ -106,6 +118,7 @@
 		App.activeMenu("cms/category/list");
 		<c:if test="${not empty obj }">
 			initIsShowRadio();
+			initIsShowRadio();
 		</c:if>
 	});
 	
@@ -123,6 +136,7 @@
 		$('#parentId').val($obj.attr("data-id"));
 	}
 	
+	//初始化是否显示radio
 	function initIsShowRadio(){
 		var isShow = "${obj.isShow}"
 		var $radio = $("input:radio[name=isShow][value="+isShow+"]");
@@ -130,6 +144,11 @@
 		$radios.removeAttr("checked").parent().removeClass("checked");
 		$radio.attr("checked","checked").parent().addClass("checked");
 		$("input:radio[name=leaveType][value="+isShow+"]").attr("checked","checked").parent().addClass("checked");
+	}
+	//初始化栏目类型类型
+	function initIsShowRadio(){
+		var module = "${obj.module}"
+		$("select[name=module] option[value="+module+"]").attr("selected",true);
 	}
 </script>
 </body>

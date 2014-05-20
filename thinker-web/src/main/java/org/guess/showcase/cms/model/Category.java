@@ -97,6 +97,20 @@ public class Category extends IdEntity {
 	@NotFound(action = NotFoundAction.IGNORE)
 	private Site site;
 	
+	/**
+	 * 栏目地址
+	 * @return
+	 */
+	private String url;
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public Site getSite() {
 		return site;
 	}

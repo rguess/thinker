@@ -43,7 +43,8 @@
 				$.each(data,function(i,item){
 					var color = colors[parseInt(Math.random()*colors.length)];
 					var fontSize = fontSizes[parseInt(Math.random()*fontSizes.length)];
-					$("#ar_tags").append('<a href="#" css="tags" style="color:'+color+';font-size: '+fontSize+';">'+item+'</a>&nbsp&nbsp&nbsp')
+					var url = encodeURI(encodeURI('${ctx}/blog/tag/'+item+'.html'))
+					$("#ar_tags").append('<a href="'+url+'" css="tags" style="color:'+color+';font-size: '+fontSize+';">'+item+'</a>&nbsp&nbsp&nbsp')
 				})
 			}
 		});
