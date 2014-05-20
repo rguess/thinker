@@ -53,7 +53,16 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 	@Override
 	public void order(Long id, String type) {
 		Category category = categoryDao.get(id);
-		List<Category> list = categoryDao.findBy("grade", category.getGrade(), "orderNo", true);
+		Category adjacent = categoryDao.getAdjacent(category,type);
+		if(adjacent == null){
+			return;
+		}
+		int a1 = category.getOrderNo();
+		int a2 = adjacent.getOrderNo();
+		category.setOrderNo(a2);
+		adjacent.setOrderNo(a1);
+		categoryDao.save(category);
+		categoryDao.save(adjacent);
 		
 	}
 
@@ -62,8 +71,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 		List<PropertyFilter> filters = Lists.newArrayList();
 		filters.add(new PropertyFilter("EQI_grade", "1"));
 		filters.add(new PropertyFilter("EQL_site.id", String.valueOf(curSite.getId())));
-		PageRequest pageRequest = new PageRequest(1, 1000);
-		return categoryDao.findPage(pageRequest, filters).getResult();
+		return categoryDao.findPage(getOrderNoASCPage(), filters).getResult();
 	}
 
 	@Override
@@ -81,10 +89,14 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 		filters.add(new PropertyFilter("EQI_grade", "1"));
 		filters.add(new PropertyFilter("EQL_site.id", String.valueOf(curSite.getId())));
 		filters.add(new PropertyFilter("EQI_isShow", String.valueOf(Category.ISSHOW_SHOW)));
+		return categoryDao.findPage(getOrderNoASCPage(), filters).getResult();
+	}
+	
+	private PageRequest getOrderNoASCPage(){
 		PageRequest pageRequest = new PageRequest(1, 1000);
 		pageRequest.setOrderBy("orderNo");
 		pageRequest.setOrderDir(Sort.ASC);
-		return categoryDao.findPage(pageRequest, filters).getResult();
+		return pageRequest;
 	}
 
 }

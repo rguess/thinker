@@ -45,7 +45,8 @@ public class HandleTemplate {
 	private HttpServletRequest request;
 
 	@After("execution(* org.guess.showcase.cms.controller.CategoryController.create(..))||"
-			+ "execution(* org.guess.showcase.cms.controller.CategoryController.delete(..))")
+			+ "execution(* org.guess.showcase.cms.controller.CategoryController.delete(..))||"
+			+ "execution(* org.guess.showcase.cms.controller.CategoryController.order(..))")
 	public void updateNav() throws IOException {
 		Site curSite = CmsUtil.getCurrentSite(request);
 		String dirPath = ServletUtils.getRealPath(request)+"/WEB-INF/content/front/"+curSite.getName()+"/template/nav.jsp";

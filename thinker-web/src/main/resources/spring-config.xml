@@ -105,6 +105,7 @@
 			<tx:method name="clear*" propagation="REQUIRED" />
 			<tx:method name="change*" propagation="REQUIRED" />
 			<tx:method name="start*" propagation="REQUIRED" />
+			<tx:method name="order" propagation="REQUIRED" />
 		</tx:attributes>
 	</tx:advice>
 	

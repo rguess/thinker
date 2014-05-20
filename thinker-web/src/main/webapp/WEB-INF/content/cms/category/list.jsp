@@ -79,12 +79,12 @@ function initTree() {
 		success : function(data) {
 			fillData(data);
 			$('#treeTable').treegrid({initialState:"collapsed"});
+			App.setDataThWidth();
+			$('.tooltips').tooltip();
+			$("th:contains('排序')").css("width","60px");
 			unBlockUI();
 		}
 	});
-	App.setDataThWidth();
-	$('.tooltips').tooltip();
-	$("th:contains('排序')").css("width","60px");
 }
 
 //填充数据
@@ -115,11 +115,11 @@ function fillData(data){
 function reOrder(type,id){
 	$.ajax({
 		type : "POST",
-		dataType : "json",
 		url : "${ctx}/cms/category/order",
 		data :{type:type,id:id},
 		success : function(data) {
-			
+			$("#treeBody").empty();
+			initTree();
 		}
 	});
 }
