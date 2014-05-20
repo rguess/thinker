@@ -112,6 +112,8 @@ var Cms = {
 		$.each(data,function(i,item){
 			//添加属性
 			item.open = true;
+			//删除url属性
+			delete item.url;
 			if(item.childList.length > 0){
 				Cms.operCaData(item.childList);
 			}
