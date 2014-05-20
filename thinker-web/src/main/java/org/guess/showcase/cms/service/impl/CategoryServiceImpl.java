@@ -63,6 +63,8 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 		filters.add(new PropertyFilter("EQI_grade", "1"));
 		filters.add(new PropertyFilter("EQL_site.id", String.valueOf(curSite.getId())));
 		PageRequest pageRequest = new PageRequest(1, 1000);
+		pageRequest.setOrderBy("orderNo");
+		pageRequest.setOrderDir(Sort.ASC);
 		return categoryDao.findPage(pageRequest, filters).getResult();
 	}
 
@@ -72,6 +74,8 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> impleme
 		filters.add(new PropertyFilter("EQI_grade", "0"));
 		filters.add(new PropertyFilter("EQL_site.id", String.valueOf(curSite.getId())));
 		PageRequest pageRequest = new PageRequest(1, 1000);
+		pageRequest.setOrderBy("orderNo");
+		pageRequest.setOrderDir(Sort.ASC);
 		return categoryDao.findPage(pageRequest, filters).getResult();
 	}
 

@@ -17,7 +17,7 @@
 	<label class="control-label">标题:</label>
 	<div class="controls">
 		<input type="text" class="span6 m-wrap"
-			validate="{required:true,minlength:4,maxlength:20}" name="title"
+			validate="{required:true,minlength:2,maxlength:20}" name="title"
 			value="${obj.title }" />
 	</div>
 </div>
