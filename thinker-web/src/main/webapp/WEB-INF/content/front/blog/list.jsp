@@ -8,7 +8,14 @@
 	<div id="breadcrumbs" class="con_box clearfix">
 		<div class="bcrumbs"><strong>
 			<a href="${ctx }/blog/index.html" title="返回首页">home</a></strong>
-			<a>栏目为${category.name }的文章</a>
+			<c:choose>
+				<c:when test="${not empty category }">
+					<a>栏目为${category.name }的文章</a>
+				</c:when>
+				<c:when test="${not empty tag }">
+					<a>标签为${tag }的文章</a>
+				</c:when>
+			</c:choose>
 		</div>
 	</div>
 	<div id="art_container clearfix">

@@ -80,7 +80,7 @@ public class FrontController {
 			throws Exception {
 		String decodeTag = URLDecoder.decode(tag, "utf-8");
 		List<PropertyFilter> filters = Lists.newArrayList();
-		filters.add(new PropertyFilter("LIKES", decodeTag));
+		filters.add(new PropertyFilter("LIKES_keywords", decodeTag));
 		List<Article> articles = articleService.find(filters);
 		
 		mav.addObject("articles", articles);

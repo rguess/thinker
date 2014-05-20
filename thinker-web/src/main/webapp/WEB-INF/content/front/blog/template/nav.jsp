@@ -23,7 +23,7 @@
 			            </ul>
 				</li>
 				<li>
-						    <a href="http://192.168.1.13:8084/thinker/blog/article/35.html">关于我</a>
+						    <a href="http://192.168.1.103:8084/thinker/blog/article/35.html">关于我</a>
 				</li>
 	    </ul>
 	    <div class="scrollObj02"></div>

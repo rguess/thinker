@@ -44,8 +44,8 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-20</span>| 
 									<span>栏目 : <a href="#" title="查看js中的全部文章">js</a></span>| 
-									<span>浏览 :  7</span>|
-									<span>标签：<a href="#">js</a></span>    
+									<span>浏览 :  6</span>|
+									<span>标签：<a href="#">ja</a></span>    
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/36.html" title="测试javascript代码" target	="_blank">[阅读全文]</a></span>
@@ -102,11 +102,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-19</span>| 
 									<span>栏目 : <a href="#" title="查看关于我中的全部文章">关于我</a></span>| 
-<<<<<<< HEAD
-									<span>浏览 :  38</span>|
-=======
-									<span>浏览 :  29</span>|
->>>>>>> 14762aeda8fbb6516cd60119ab10e447dceb8198
+									<span>浏览 :  32</span>|
 									<span>标签：<a href="#">about me</a></span>    
 									<span></span>
 								</td>
@@ -135,12 +131,8 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-05-18</span>| 
 									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
-<<<<<<< HEAD
 									<span>浏览 :  31</span>|
-=======
-									<span>浏览 :  29</span>|
->>>>>>> 14762aeda8fbb6516cd60119ab10e447dceb8198
-									<span>标签：<a href="#">测试,java,jquery,hello,world,就这样</a></span>    
+									<span>标签：<a href="#">测试,java,hello,world,就这样</a></span>    
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/29.html" title="测试文章" target	="_blank">[阅读全文]</a></span>
