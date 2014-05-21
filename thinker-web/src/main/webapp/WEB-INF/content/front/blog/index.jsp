@@ -100,10 +100,17 @@
 	                	<tbody>
 	                    	<tr>
 	                        	<td width="570">&nbsp;&nbsp;
+<<<<<<< HEAD
 	                   				<span> 时间 : 2014-05-21</span>| 
 									<span>栏目 : <a href="#" title="查看js中的全部文章">js</a></span>| 
 									<span>浏览 :  8</span>|
 									<span>标签：<a href="#">jquery</a></span>    
+=======
+	                   				<span> 时间 : 2014-05-19</span>| 
+									<span>栏目 : <a href="#" title="查看关于我中的全部文章">关于我</a></span>| 
+									<span>浏览 :  32</span>|
+									<span>标签：<a href="#">about me</a></span>    
+>>>>>>> 6aded112d582153cda95d57cae7a26a250e6c685
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/38.html" title="jquery实现居中可拖拽窗体" target	="_blank">[阅读全文]</a></span>
@@ -129,10 +136,17 @@
 	                	<tbody>
 	                    	<tr>
 	                        	<td width="570">&nbsp;&nbsp;
+<<<<<<< HEAD
 	                   				<span> 时间 : 2014-05-21</span>| 
 									<span>栏目 : <a href="#" title="查看js中的全部文章">js</a></span>| 
 									<span>浏览 :  2</span>|
 									<span>标签：<a href="#">js</a></span>    
+=======
+	                   				<span> 时间 : 2014-05-18</span>| 
+									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
+									<span>浏览 :  31</span>|
+									<span>标签：<a href="#">测试,java,hello,world,就这样</a></span>    
+>>>>>>> 6aded112d582153cda95d57cae7a26a250e6c685
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/40.html" title="js回调函数传参数" target	="_blank">[阅读全文]</a></span>
