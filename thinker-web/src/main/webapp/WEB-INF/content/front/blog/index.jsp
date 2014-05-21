@@ -71,10 +71,10 @@
 	                	<tbody>
 	                    	<tr>
 	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-21</span>| 
-									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
-									<span>浏览 :  7</span>|
-									<span>标签：<a href="#">java</a></span>    
+	                   				<span> 时间 : 2014-05-21</span>|
+									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>|
+									<span>浏览 : 7</span>|
+									<span>标签：<a href="#">java</a></span>
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/39.html" title="java文件操作工具类" target	="_blank">[阅读全文]</a></span>
@@ -187,10 +187,10 @@
 	                	<tbody>
 	                    	<tr>
 	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-18</span>| 
-									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
+	                   				<span> 时间 : 2014-05-18</span>|
+									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>|
 									<span>浏览 :  12</span>|
-									<span>标签：<a href="#">日记,心情</a></span>    
+									<span>标签：<a href="#">日记,心情</a></span>
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/32.html" title="写于2014-5-18" target	="_blank">[阅读全文]</a></span>

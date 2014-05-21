@@ -28,6 +28,8 @@
 <script type="text/javascript" src="${ctx}/assets/xyz/bg/js/jquery_muchun.js"></script>
 <script type="text/javascript" src="${ctx}/assets/xyz/bg/js/navScroll.js"></script>
 <script type="text/javascript" src="${ctx}/assets/xyz/bg/js/manhuatoTop.1.0.js"></script>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"223.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <script type="text/javascript">
 	$(".nav02 > ul > li").ScrollNav({
 		scrollObj:".nav02 > .scrollObj02", //滑动的对象
