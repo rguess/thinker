@@ -39,8 +39,7 @@ public class LoginController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String index() {
-		System.out.println("index");
-		return "login";
+		return "/front/blog/index";
 	}
 
 	@RequestMapping(method = RequestMethod.GET,value="/login")

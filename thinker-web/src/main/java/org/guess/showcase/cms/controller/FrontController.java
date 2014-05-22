@@ -4,6 +4,8 @@ import java.net.URLDecoder;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.guess.core.orm.Page;
 import org.guess.core.orm.PageRequest;
 import org.guess.core.orm.PropertyFilter;
@@ -11,10 +13,12 @@ import org.guess.showcase.cms.model.Article;
 import org.guess.showcase.cms.model.Category;
 import org.guess.showcase.cms.service.ArticleService;
 import org.guess.showcase.cms.service.CategoryService;
+import org.guess.showcase.cms.util.CmsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.common.collect.Lists;
@@ -54,6 +58,14 @@ public class FrontController {
 		return mav;
 	}
 
+	/**
+	 * 根据栏目获取列表
+	 * @param mav
+	 * @param site
+	 * @param cid
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("{site}/list/{cid}.html")
 	public ModelAndView list(ModelAndView mav,
 			@PathVariable("site") String site, @PathVariable("cid") Long cid)
@@ -74,6 +86,14 @@ public class FrontController {
 		return mav;
 	}
 
+	/**
+	 * 根据标签获取列表
+	 * @param mav
+	 * @param site
+	 * @param tag
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("{site}/tag/{tag}.html")
 	public ModelAndView tag(ModelAndView mav,
 			@PathVariable("site") String site, @PathVariable("tag") String tag)
@@ -88,6 +108,24 @@ public class FrontController {
 		
 		mav.setViewName("/front/" + site + "/list");
 		return mav;
+	}
+	
+	/**
+	 * 获取最热文章
+	 */
+	@RequestMapping("{site}/showHots")
+	@ResponseBody
+	public List<Article> showHots(HttpServletRequest request){
+		return articleService.listHots(CmsUtil.getCurrentSite(request));
+	}
+	
+	/**
+	 * 获取标签
+	 */
+	@RequestMapping("{site}/getTags")
+	@ResponseBody
+	public Set<String> getTags(HttpServletRequest request){
+		return articleService.listTags(CmsUtil.getCurrentSite(request));
 	}
 
 }

@@ -57,6 +57,8 @@
 				/assets/**=anon
 				/login=anon
 				/logout=logout
+				/blog/**=anon
+				/=anon
 				/**=kickout,user,userSetting
 			</value>
 		</property>

@@ -186,22 +186,4 @@ public class ArticleController {
 		return mav;
 	}
 	
-	/**
-	 * 获取最热文章
-	 */
-	@RequestMapping("/showHots")
-	@ResponseBody
-	public List<Article> showHots(HttpServletRequest request){
-		return aService.listHots(CmsUtil.getCurrentSite(request));
-	}
-	
-	/**
-	 * 获取标签
-	 */
-	@RequestMapping("/getTags")
-	@ResponseBody
-	public Set<String> getTags(HttpServletRequest request){
-		return aService.listTags(CmsUtil.getCurrentSite(request));
-	}
-
 }

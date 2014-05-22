@@ -24,7 +24,7 @@
 		$.ajax({
 			type : "GET",
 			dataType : "json",
-			url : "${ctx}/cms/article/showHots",
+			url : "${ctx}/blog/showHots",
 			success : function(data){
 				$.each(data,function(i,item){
 					$("#hots").append($("<li></li>").append($("<a href='${ctx}/blog/article/"+item.id+".html'>"+item.title+"</a>")))
@@ -38,7 +38,7 @@
 		$.ajax({
 			type : "GET",
 			dataType : "json",
-			url : "${ctx}/cms/article/getTags",
+			url : "${ctx}/blog/getTags",
 			success : function(data){
 				$.each(data,function(i,item){
 					var color = colors[parseInt(Math.random()*colors.length)];
