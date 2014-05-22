@@ -129,10 +129,10 @@
 	                	<tbody>
 	                    	<tr>
 	                        	<td width="570">&nbsp;&nbsp;
-	                   				<span> 时间 : 2014-05-21</span>| 
-									<span>栏目 : <a href="#" title="查看js中的全部文章">js</a></span>| 
-									<span>浏览 :  2</span>|
-									<span>标签：<a href="#">js</a></span>    
+	                   				<span> 时间 : 2014-05-18</span>| 
+									<span>栏目 : <a href="#" title="查看日记中的全部文章">日记</a></span>| 
+									<span>浏览 :  31</span>|
+									<span>标签：<a href="#">测试,java,hello,world,就这样</a></span>    
 									<span></span>
 								</td>
 	                           	<td width="80"><span><a href="${ctx}/blog/article/40.html" title="js回调函数传参数" target	="_blank">[阅读全文]</a></span>
