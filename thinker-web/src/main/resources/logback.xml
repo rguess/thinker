@@ -9,11 +9,6 @@
 
 	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<File>logs/thinker.log</File>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-           	<level>DEBUG</level>
-           	<onMatch>ACCEPT</onMatch>
-           	<onMismatch>DENY </onMismatch>
-        </filter>
 		<encoder>
 			<Pattern>%d %5p [%t] %c:%L - %m%n</Pattern>
 		</encoder>
