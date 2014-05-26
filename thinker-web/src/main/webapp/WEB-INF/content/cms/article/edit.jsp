@@ -33,15 +33,15 @@
 						<div class="portlet-body form">
 							<div class="tabbable tabbable-custom">
 								<ul class="nav nav-tabs">
-									<li class="active"><a href="#tab_1_1" data-toggle="tab">上传word方式</a></li>
-									<li><a href="#tab_1_2" data-toggle="tab">富文本方式</a></li>
+									<li class="active"><a href="#tab_1_2" data-toggle="tab">富文本方式</a></li>
+									<li><a href="#tab_1_1" data-toggle="tab">上传word方式</a></li>
 								</ul>
 								<div class="tab-content">
-									<div class="tab-pane active" id="tab_1_1">
-										<%@ include file="/WEB-INF/content/cms/article/form/word.jsp"%>										
-									</div>
-									<div class="tab-pane" id="tab_1_2">
+									<div class="tab-pane active" id="tab_1_2">
 										<%@ include file="/WEB-INF/content/cms/article/form/ueditor.jsp"%>
+									</div>
+									<div class="tab-pane" id="tab_1_1">
+										<%@ include file="/WEB-INF/content/cms/article/form/word.jsp"%>										
 									</div>
 								</div>
 							</div>
@@ -55,12 +55,16 @@
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-fileupload.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/ueditor.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-tree.jsp"%>
+<%@ include file="/WEB-INF/content/common/plugins/jquery-tagsinput.jsp"%>
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("cms/");
 		App.cancleActiveMenu("/cms/category/list");
+		App.cancleActiveMenu("/cms/site/list");
 		showTab();
 		UE.getEditor('ueditor');
+		
+		$('.tags').tagsInput();
 	});
 	function showCaTree(){
 		$("#caTree").modal();
@@ -73,8 +77,8 @@
 	}
 	function showTab(){
 		<c:choose>
-			<c:when test="${empty obj or obj.isWord eq 0}">
-				$("#tab_1_2").removeClass("active").removeClass("open");
+			<c:when test="${empty obj or obj.isWord eq 1}">
+				$("#tab_1_1").removeClass("active").removeClass("open");
 			</c:when>
 			<c:otherwise>
 				$("a[href=#tab_1_2]").parent().addClass("active");

@@ -1,0 +1,30 @@
+/*定义全局样式*/
+body{margin:0px; padding:0px 0 0 0px; font-size:12px;}
+ul,ol,li,img{margin:0px; padding:0px; list-style:none; border:0px; vertical-align:top; }
+
+/*scrollNav Css*/
+.gridNav{ width:100%;box-shadow: 4px 4px 4px rgba(15, 96, 158, 0.4);  background:#2099f7; z-index:1; position:relative;}
+.nav02{ width:960px; height:35px; margin: 0 auto; position:relative;}
+.nav02 ul.ulBox02{ display:block; width:100%; height:35px; position:relative; z-index:2;}
+.nav02 ul.ulBox02 li{ display:block; width:100px;  height:35px; float:left; position:relative;}
+.nav02 ul.ulBox02 li a{ display:block; width:100%; text-decoration:none; height:35px; line-height:35px; text-align:center; color:#eaf5fe;text-shadow: 1px 1px 1px #0c73c3; font-family:'Microsoft YaHei'; font-size:14px;}
+.nav02 ul.ulBox02 li a:hover{color:#fff;}
+.nav02 ul.ulBox02 li ul{ display: block; overflow:hidden; width:100%; height:0px; background:#1c87d9; position:absolute; top:35px; left:0px;}
+.nav02 ul.ulBox02 li ul li{ height:30px; width:100%;}
+.nav02 ul.ulBox02 li ul li a{ height:30px; line-height:30px;}
+.nav02 ul.ulBox02 li ul li a:hover{ background:#1074c0; height:30px; line-height:30px; color:#fff;}
+
+.nav02 .scrollObj02{ width:100px; height:35px; position:absolute; z-index:1; left:0px; top:0px; background:#1c87d9;}
+
+
+
+
+
+
+
+
+
+
+
+
+

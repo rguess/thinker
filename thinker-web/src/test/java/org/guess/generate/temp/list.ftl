@@ -29,7 +29,7 @@
 	                                 	<div class="span7 ">
 		                                    <div class="control-group">
 		                                       <div class="controls">
-		                                          <input type="text" id="filters" class="m-wrap span12" placeholder="<#list fields as item><#if item_has_next>${item},<#else>${item}</#if></#list>">
+		                                          <input type="text" id="filters" class="m-wrap span12" placeholder="<#list fields as item><#if item_has_next>${item.value},<#else>${item.value}</#if></#list>">
 		                                       </div>
 		                                    </div>
 	                                 	</div>
@@ -39,7 +39,7 @@
 		                                         <a class="btn blue" href="javascript:void(0)" onclick="javascript:doQuery();">
 		                                         	<i class="icon-search"></i>
 		                                         	查询</a>
-		                                         <button type="reset" class="btn">
+		                                         <button type="reset" class="btn" onclick="javascript:Page.clearQuery();">
 		                                         	<i class="icon-trash"></i>清空
 		                                         </button>
 		                                       </div>

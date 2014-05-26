@@ -9,13 +9,20 @@ var Cms = {
 		article : {
 			url : ctx + "/cms/article",
 			colums : [{cName:"title",cValue:"标题",format:function(i,value,item){
-							var $a = $('<a href="javascript:void(0)" data-original-title="点击预览" data-placement="right" class="tooltips" onclick="javascript:Cms.view(\'article\','+item.id+');">'+value+'</a>');
+							var str = value;
+							if(value.length > 20){
+								str = value.substr(0,20)+"...";
+							}
+							var $a = $('<a href="javascript:void(0)" data-original-title="'+value+'" data-placement="right" class="tooltips" onclick="javascript:Cms.view(\'article\','+item.id+');">'
+									+str+'</a>');
 							return $a;
 					  }},
 					  {cName:"module",cValue:"栏目",format:function(i,value,item){
 						  return item.category.name;
 					  }},
-					  {cName:"description",cValue:"描述"},
+					  {cName:"description",cValue:"描述",format:function(i,value,item){
+						  return value.substr(0,20)+"...";
+					  }},
 					  {cName:"htmlid",cValue:"操作",noSort:true,format:function(i,value,item){
 							 return Cms.objs.article.operBtn(item.id);
 					  }}
@@ -69,6 +76,7 @@ var Cms = {
 	//执行查询显示数
 	initData : function(params,module){
 		$("#pageInfo").parent().remove();
+		$("#sample_1").show().next().remove();
 		Page.clear();
 		Page.initData(
 			{
@@ -78,7 +86,7 @@ var Cms = {
 			},
 			params,Cms.objs[module].colums
 		);
-		$("th:contains('操作')").css("width","50px");
+		App.setDataThWidth();
 	},
 	
 	//生成栏目树
@@ -109,6 +117,8 @@ var Cms = {
 		$.each(data,function(i,item){
 			//添加属性
 			item.open = true;
+			//删除url属性
+			delete item.url;
 			if(item.childList.length > 0){
 				Cms.operCaData(item.childList);
 			}
@@ -116,7 +126,7 @@ var Cms = {
 		return data;
 	},
 	
-	//点击左侧栏目是刷新
+	//点击左侧栏目时刷新
 	refreshContent : function(event, treeId, treeNode){
 		var treeObj = $.fn.zTree.getZTreeObj(treeId);
 		var nodes = treeObj.getSelectedNodes();

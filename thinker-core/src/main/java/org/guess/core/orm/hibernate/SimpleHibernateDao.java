@@ -168,6 +168,22 @@ public class SimpleHibernateDao<T, ID extends Serializable> {
 		Criterion criterion = Restrictions.eq(propertyName, value);
 		return find(criterion);
 	}
+	
+	/**
+	 * 按属性查询,并按某个属性排序
+	 */
+	public List<T> findBy(final String propertyName, final Object value,String orderByProperty,boolean isAsc) {
+		AssertUtils.hasText(propertyName, "propertyName不能为空");
+		Criteria c = createCriteria();
+		if (isAsc) {
+			c.addOrder(Order.asc(orderByProperty));
+		} else {
+			c.addOrder(Order.desc(orderByProperty));
+		}
+		Criterion criterion = Restrictions.eq(propertyName, value);
+		c.add(criterion);
+		return c.list();
+	}
 
 	/**
 	 * 按属性查找唯一对象, 匹配方式为相等.

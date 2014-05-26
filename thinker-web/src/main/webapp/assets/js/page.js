@@ -42,7 +42,6 @@ var Page = {
 			type : "POST",
 			dataType : "json",
 			url : Page.defaultVal.url,
-			async : false,
 			data : Page.cqData,
 			success : callBack,
 			error : function(error) {

@@ -30,6 +30,7 @@
 								method="post" id="form1">
 								<!-- 栏目ID -->
 								<input type="hidden" value="${obj.id }" name="id">
+								<input type="hidden" value="${obj.orderNo }" name="orderNo">
 								<input type="hidden" value="${obj.parent.id }" name="parent.id" id="parentId">
 								
 								<div class="control-group">
@@ -66,6 +67,25 @@
 								</div>
 								
 								<div class="control-group">
+									<label class="control-label">链接:</label>
+									<div class="controls">
+										<input type="text"
+											name="url"
+											validate="{url:true}"
+											class="span6 m-wrap" 
+											value="${obj.url }"/>
+									</div>
+								</div>
+								
+								<div class="control-group">
+									<label class="control-label">是否显示：</label>
+									<div class="controls">
+										<label class="radio"> <input type="radio" name="isShow" value="0"  checked="checked"/>显示 </label>
+										<label class="radio"> <input type="radio" name="isShow" value="1"/>隐藏 </label>
+									</div>
+								</div>
+								
+								<div class="control-group">
 									<label class="control-label">关键字:</label>
 									<div class="controls">
 										<input type="text" class="span6 m-wrap"
@@ -93,8 +113,13 @@
 <%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-tree.jsp"%>
 <script type="text/javascript">
+
 	$(function(){
 		App.activeMenu("cms/category/list");
+		<c:if test="${not empty obj }">
+			initIsShowRadio();
+			initIsShowRadio();
+		</c:if>
 	});
 	
 	function showTree(){
@@ -109,6 +134,21 @@
 		
 		$('#parentName').val($obj.text());
 		$('#parentId').val($obj.attr("data-id"));
+	}
+	
+	//初始化是否显示radio
+	function initIsShowRadio(){
+		var isShow = "${obj.isShow}"
+		var $radio = $("input:radio[name=isShow][value="+isShow+"]");
+		var $radios = $("input:radio[name=isShow]");
+		$radios.removeAttr("checked").parent().removeClass("checked");
+		$radio.attr("checked","checked").parent().addClass("checked");
+		$("input:radio[name=leaveType][value="+isShow+"]").attr("checked","checked").parent().addClass("checked");
+	}
+	//初始化栏目类型类型
+	function initIsShowRadio(){
+		var module = "${obj.module}"
+		$("select[name=module] option[value="+module+"]").attr("selected",true);
 	}
 </script>
 </body>

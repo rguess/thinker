@@ -5,7 +5,6 @@
 <html>
 <head>
 <title>${pageTitle }</title>
-<link href="${ctx}/assets/comp/jquery-ztree/zTreeStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div class="page-content">
@@ -79,7 +78,7 @@
 		</div>
 	</div>
 <%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp"%>
-<script src="${ctx}/assets/comp/jquery-ztree/jquery.ztree.all-3.5.min.js" type="text/javascript"></script>
+<%@ include file="/WEB-INF/content/common/plugins/ztree.jsp"%>
 <script type="text/javascript">
 
 	var recIds = new Array();

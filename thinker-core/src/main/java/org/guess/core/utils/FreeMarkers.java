@@ -60,6 +60,7 @@ public class FreeMarkers {
 		Configuration cfg = new Configuration();
 		Resource path = new DefaultResourceLoader().getResource(directory);
 		cfg.setDirectoryForTemplateLoading(path.getFile());
+		cfg.setDefaultEncoding("utf-8");
 		return cfg;
 	}
 	
@@ -68,6 +69,7 @@ public class FreeMarkers {
 		try {
 			Configuration cfg = FreeMarkers.buildConfiguration(configPath);
 			template = cfg.getTemplate(tempFilePath);
+			template.setEncoding("utf-8");
 			template.process(model, new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(filePath)), "utf-8")));
 		} catch (IOException e) {
 			logger.error("写入文件失败");

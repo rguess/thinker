@@ -3,7 +3,6 @@
 <html>
 <head>
 <title>资源列表</title>
-<link href="${ctx}/assets/comp/jquery-treegrid/jquery.treegrid.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div class="page-content">
@@ -57,8 +56,7 @@
 			</div>
 		</div>
 	</div>
-<script src="${ctx}/assets/comp/jquery-treegrid/jquery.treegrid.js" type="text/javascript"></script>
-
+<%@ include file="/WEB-INF/content/common/plugins/jquery-treegrid.jsp"%>
 <script type="text/javascript">
 
 	//根据权限添加按钮
@@ -68,9 +66,6 @@
 	</shiro:hasPermission>
 	<shiro:hasPermission name="sys:resource:delete">
 		btns.push({clickFn : "del(this)",name : "删除",icon : "icon-trash"});
-	</shiro:hasPermission>
-	<shiro:hasPermission name="sys:resource:show">
-		btns.push({clickFn : "show(this)",name : "查看",icon : "icon-search"});
 	</shiro:hasPermission>
 
 	$(document).ready(function() {

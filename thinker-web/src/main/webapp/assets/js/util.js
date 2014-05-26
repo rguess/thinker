@@ -91,7 +91,7 @@ Array.prototype.del=function(n) {
 /**
  * 数组扩展---根据一个值删除某元素
  */
-Array.prototype.byValue=function(value) {
+Array.prototype.delByValue=function(value) {
 	for(var i = 0;i<this.length;i++){
 		if(this[i] == value){
 			this.del(i);
@@ -100,7 +100,19 @@ Array.prototype.byValue=function(value) {
 };
 
 /**
- * ja组织冒泡事件
+ * 数组扩展判断某值知否在数组中
+ */
+Array.prototype.isContainsValue=function(value) {
+	for(var i in this){
+        if(this[i]==value){
+            return true;
+        }
+    }
+    return false;
+};
+
+/**
+ * js阻止冒泡事件
  */
 function stopPropagation(e) {
     e = e || window.event;

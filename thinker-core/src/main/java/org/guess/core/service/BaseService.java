@@ -133,5 +133,15 @@ public interface BaseService<T,ID extends Serializable> {
 	 * @return
 	 */
 	List<T> findBy(final String propertyName, final Object value);
+	
+	/**
+	 * 按属性查询,并按某个属性排序
+	 * @param propertyName
+	 * @param value
+	 * @param orderByProperty
+	 * @param isAsc
+	 * @return
+	 */
+	List<T> findBy(final String propertyName, final Object value,String orderByProperty,boolean isAsc);
 
 }

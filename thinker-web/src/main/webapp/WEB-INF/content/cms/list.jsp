@@ -3,7 +3,6 @@
 <html>
 <head>
 <title>内容发布</title>
-<link href="${ctx}/assets/comp/jquery-ztree/zTreeStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div class="page-content">
@@ -68,9 +67,10 @@
 										</a>
 									</div>
 								</div>
-								<table class="table table-striped table-bordered table-hover" id="sample_1">
+								<table class="table table-striped table-bordered table-hover" id="sample_1" style="display: none">
 									
 								</table>
+								<span style="color: red">注：请点击右边栏目查询</span>
 							</div>
 						</div>
 					</div>
@@ -79,12 +79,13 @@
 		</div>
 	</div>
 <%@ include file="/WEB-INF/content/common/plugins/page.jsp"%>
-<script src="${ctx}/assets/comp/jquery-ztree/jquery.ztree.all-3.5.min.js" type="text/javascript"></script>
+<%@ include file="/WEB-INF/content/common/plugins/ztree.jsp"%>
 <script src="${ctx}/assets/js/cms/cms.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(function(){
 		App.activeMenu("/cms")
 		App.cancleActiveMenu("/cms/category/list");
+		App.cancleActiveMenu("/cms/site/list");
 		Cms.init();
 	});
 	

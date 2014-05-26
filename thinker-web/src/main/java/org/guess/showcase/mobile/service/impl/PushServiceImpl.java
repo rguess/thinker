@@ -15,19 +15,19 @@ import cn.jpush.api.push.ReceiverTypeEnum;
 @Service
 public class PushServiceImpl implements PushService {
 	
-	@Value("#{push[masterSecret]}")
+	@Value("#{app[jpushmasterSecret]}")
 	private String masterSecret;
 	
-	@Value("#{push[appKey]}")
+	@Value("#{app[jpushappKey]}")
 	private String appKey;
 	
-	@Value("#{push[timeToLive]}")
+	@Value("#{app[jpushtimeToLive]}")
 	private int timeToLive;
 	
-	@Value("#{push[deviceEnumDevice]}")
+	@Value("#{app[jpushdeviceEnumDevice]}")
 	private DeviceEnum deviceEnumDevice;
 	
-	@Value("#{push[apnsProduction]}")
+	@Value("#{app[jpushapnsProduction]}")
 	private Boolean apnsProduction;
 
 	@Override

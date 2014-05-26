@@ -3,7 +3,6 @@
 <html>
 <head>
 <title>栏目</title>
-<link href="${ctx}/assets/comp/jquery-treegrid/jquery.treegrid.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div class="page-content">
@@ -38,6 +37,7 @@
 											<th>名称</th>
 											<th>关键字</th>
 											<th>栏目类型</th>
+											<th>排序</th>
 											<th>操作</th>
 										</tr>
 									</thead>
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 	</div>
-<script src="${ctx}/assets/comp/jquery-treegrid/jquery.treegrid.js" type="text/javascript"></script>
+<%@ include file="/WEB-INF/content/common/plugins/jquery-treegrid.jsp"%>
 <script type="text/javascript">
 
 //根据权限添加按钮
@@ -79,6 +79,9 @@ function initTree() {
 		success : function(data) {
 			fillData(data);
 			$('#treeTable').treegrid({initialState:"collapsed"});
+			App.setDataThWidth();
+			$('.tooltips').tooltip();
+			$("th:contains('排序')").css("width","60px");
 			unBlockUI();
 		}
 	});
@@ -96,12 +99,27 @@ function fillData(data){
 		tr.append($("<td></td>").html(item.name));
 		tr.append($("<td></td>").html(item.keywords));
 		tr.append($("<td></td>").html(mudoleKV[item.module]+"类型"));
+		tr.append($("<td></td>").html("<i class='diy_icon_03_08 ibtn tooltips' data-original-title='向上' data-placement='right' onclick='javascript:reOrder(\"up\","+item.id+")'></i>"
+				+"&nbsp&nbsp&nbsp&nbsp<i class='diy_icon_03_07 ibtn tooltips' data-original-title='向下' data-placement='right' onclick='javascript:reOrder(\"down\","+item.id+")'></i>"));
 		tr.append($("<td></td>").html(operBtn(item.id)));
 		$("#treeBody").append(tr);
 		
 		if(item.childList && item.childList.length>0){
 			parentId = item.id;
 			fillData(item.childList);
+		}
+	});
+}
+
+//排序
+function reOrder(type,id){
+	$.ajax({
+		type : "POST",
+		url : "${ctx}/cms/category/order",
+		data :{type:type,id:id},
+		success : function(data) {
+			$("#treeBody").empty();
+			initTree();
 		}
 	});
 }

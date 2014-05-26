@@ -53,7 +53,7 @@ public class Link extends IdEntity {
 	/**
 	 * 权重，越大越靠前
 	 */
-	private Integer weight;
+	private int weight = 0;
 	/**
 	 * 权重期限，超过期限，将weight设置为0
 	 */
@@ -91,10 +91,10 @@ public class Link extends IdEntity {
 	public void setHref(String href) {
 		this.href = href;
 	}
-	public Integer getWeight() {
+	public int getWeight() {
 		return weight;
 	}
-	public void setWeight(Integer weight) {
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
 	public Date getWeightDate() {

@@ -17,7 +17,7 @@
 	<label class="control-label">标题:</label>
 	<div class="controls">
 		<input type="text" class="span6 m-wrap"
-			validate="{required:true,minlength:2,maxlength:10}" name="title"
+			validate="{required:true,minlength:2,maxlength:40}" name="title"
 			value="${obj.title }" />
 	</div>
 </div>
@@ -45,8 +45,7 @@
 <div class="control-group">
 	<label class="control-label">关键字:</label>
 	<div class="controls">
-		<input type="text" class="span6 m-wrap" name="keywords"
-			value="${obj.keywords }" />
+		<input type="text" class="span6 m-wrap tags" name="keywords" value="${obj.keywords }" />
 	</div>
 </div>
 <div class="control-group">

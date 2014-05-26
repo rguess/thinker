@@ -18,11 +18,11 @@
 <link href="${ctx}/assets/comp/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/metro.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/css/style.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/assets/demo/css/style.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/assets/demo/scoller/scroller_roll.css" rel="stylesheet" type="text/css"></link>
+<link href="${ctx}/assets/xyz/xiz/css/style.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/assets/xyz/xiz/scoller/scroller_roll.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body
-	style="background: url(${ctx}/assets/demo/img/bg.jpg) no-repeat top center">
+	style="background: url(${ctx}/assets/xyz/xiz/img/bg.jpg) no-repeat top center">
 	<div class="container">
 		<div class="row-fluid">
 			<div class="span6">今天是：2014年4月27日 星期日 农历甲午年 三月廿八</div>
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div>
-			<%-- <img src="${ctx}/assets/demo/img/cover.png" /> --%>
+			<%-- <img src="${ctx}/assets/xyz/xiz/img/cover.png" /> --%>
 		</div>
 		<div class="top-nav">
 			<div class="nav-m">
@@ -59,7 +59,7 @@
 			<div class="container" class="last_news">
 				<div style="float: left;">
 					<a href="#">
-						<img src="${ctx }/assets/demo/img/00e6ebe7ee0b1ba32a2d3dd895cd2370.png" class="last_news_img" title="最新新闻" alt="最新新闻"/>
+						<img src="${ctx }/assets/xyz/xiz/img/00e6ebe7ee0b1ba32a2d3dd895cd2370.png" class="last_news_img" title="最新新闻" alt="最新新闻"/>
 					</a>
 				</div>
 				<div class="last_news_content">
@@ -79,15 +79,15 @@
 				<div class="span8">
 					<div class="banner-slide" id="banner-slide">
 		                <a href="javascript:;" class="slide-item">
-		                    <img src="${ctx }/assets/demo/img/slide-01.jpg" />
+		                    <img src="${ctx }/assets/xyz/xiz/img/slide-01.jpg" />
 		                    <p>幻灯片标题1</p>
 		                </a>
 		                <a href="javascript:;" class="slide-item">
-		                    <img src="${ctx }/assets/demo/img/slide-02.jpg" />
+		                    <img src="${ctx }/assets/xyz/xiz/img/slide-02.jpg" />
 		                    <p>幻灯片标题2</p>
 		                </a>
 		                <a href="javascript:;" class="slide-item">
-		                    <img src="${ctx }/assets/demo/img/slide-03.jpg" />
+		                    <img src="${ctx }/assets/xyz/xiz/img/slide-03.jpg" />
 		                    <p>幻灯片标题3</p>
 		                </a>
 		                <div class="banner-thumb" id="banner-thumb">
@@ -180,14 +180,14 @@
 			</div>
 			<div id="scroller_roll1" class="scroller_roll m-mudle">
 			    <ul style="margin-top: 5px">
-			        <li><a href="link1" title="title1"><img src="${ctx}/assets/demo/img/1ef6beec62015f11effd7083a5e93073.jpg" alt="title"/></a></li>
-			        <li><a href="link2" title="title2"><img src="${ctx}/assets/demo/img/59ebb53e5b3b3554025942ae2ed10996.jpg" alt="title"/></a></li>
-			        <li><a href="link3" title="title3"><img src="${ctx}/assets/demo/img/8ee632bf246a709faa30c8db4df75b9b.jpg" alt="title"/></a></li>
-			        <li><a href="link4" title="title5"><img src="${ctx}/assets/demo/img/9d96ef6a68658db2458c30246bf91215.jpg" alt="title"/></a></li>
-			        <li><a href="link4" title="title6"><img src="${ctx}/assets/demo/img/e1236b9dbbb0d9dc0ac6ed6f4400baa3.jpg" alt="title"/></a></li>
-			        <li><a href="link4" title="title7"><img src="${ctx}/assets/demo/img/8ee632bf246a709faa30c8db4df75b9b.jpg" alt="title"/></a></li>
-			        <li><a href="link4" title="title8"><img src="${ctx}/assets/demo/img/8ee632bf246a709faa30c8db4df75b9b.jpg" alt="title"/></a></li>
-			        <li><a href="link4" title="title9"><img src="${ctx}/assets/demo/img/e1236b9dbbb0d9dc0ac6ed6f4400baa3.jpg" alt="title"/></a></li>
+			        <li><a href="link1" title="title1"><img src="${ctx}/assets/xyz/xiz/img/1ef6beec62015f11effd7083a5e93073.jpg" alt="title"/></a></li>
+			        <li><a href="link2" title="title2"><img src="${ctx}/assets/xyz/xiz/img/59ebb53e5b3b3554025942ae2ed10996.jpg" alt="title"/></a></li>
+			        <li><a href="link3" title="title3"><img src="${ctx}/assets/xyz/xiz/img/8ee632bf246a709faa30c8db4df75b9b.jpg" alt="title"/></a></li>
+			        <li><a href="link4" title="title5"><img src="${ctx}/assets/xyz/xiz/img/9d96ef6a68658db2458c30246bf91215.jpg" alt="title"/></a></li>
+			        <li><a href="link4" title="title6"><img src="${ctx}/assets/xyz/xiz/img/e1236b9dbbb0d9dc0ac6ed6f4400baa3.jpg" alt="title"/></a></li>
+			        <li><a href="link4" title="title7"><img src="${ctx}/assets/xyz/xiz/img/8ee632bf246a709faa30c8db4df75b9b.jpg" alt="title"/></a></li>
+			        <li><a href="link4" title="title8"><img src="${ctx}/assets/xyz/xiz/img/8ee632bf246a709faa30c8db4df75b9b.jpg" alt="title"/></a></li>
+			        <li><a href="link4" title="title9"><img src="${ctx}/assets/xyz/xiz/img/e1236b9dbbb0d9dc0ac6ed6f4400baa3.jpg" alt="title"/></a></li>
 			    </ul>
 			    <div style="clear: both"></div>
 			</div>
@@ -314,9 +314,9 @@
 	</div>
 	<script src="${ctx}/assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 	<script src="${ctx}/assets/comp/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="${ctx}/assets/demo/js/bootstrap-ie.js"></script>
-	<script type="text/javascript" src="${ctx}/assets/demo/js/jquery.sochange.js"></script>
-	<script type="text/javascript" src="${ctx}/assets/demo/scoller/scroller_roll.js"></script>
+	<script type="text/javascript" src="${ctx}/assets/xyz/xiz/js/bootstrap-ie.js"></script>
+	<script type="text/javascript" src="${ctx}/assets/xyz/xiz/js/jquery.sochange.js"></script>
+	<script type="text/javascript" src="${ctx}/assets/xyz/xiz/scoller/scroller_roll.js"></script>
 	<!--[if IE 6]>
 	<script src="assets/js/pngfix.js"></script>
 	<script type="text/javascript">DD_belatedPNG.fix('.header-logo img');</script>
