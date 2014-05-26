@@ -30,7 +30,9 @@
 								method="post" id="form1">
 								<!-- 栏目ID -->
 								<input type="hidden" value="${obj.id }" name="id">
+								<c:if test="${not empty obj }">
 								<input type="hidden" value="${obj.orderNo }" name="orderNo">
+								</c:if>
 								<input type="hidden" value="${obj.parent.id }" name="parent.id" id="parentId">
 								
 								<div class="control-group">
