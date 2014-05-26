@@ -104,7 +104,7 @@ public class FrontController {
 		List<Article> articles = articleService.find(filters);
 		
 		mav.addObject("articles", articles);
-		mav.addObject("tag", tag);
+		mav.addObject("tag", decodeTag);
 		
 		mav.setViewName("/front/" + site + "/list");
 		return mav;
