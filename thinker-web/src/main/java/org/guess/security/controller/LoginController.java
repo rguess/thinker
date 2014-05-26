@@ -84,7 +84,7 @@ public class LoginController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return "redirect:/sys/user/list";
+			return "redirect:/sys/index";
 		} else {
 			token.clear();
 		}

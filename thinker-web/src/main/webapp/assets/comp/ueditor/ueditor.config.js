@@ -59,7 +59,7 @@
 
         //图片在线管理配置区
         ,imageManagerUrl:URL + "jsp/imageManager.jsp"       //图片在线管理的处理地址
-        ,imageManagerPath:ctx+"/"                                    //图片修正地址，同imagePath
+        ,imageManagerPath:ctx                                    //图片修正地址，同imagePath
 
         //屏幕截图配置区
         ,snapscreenHost: location.hostname                                 //屏幕截图的server端文件所在的网站地址或者ip，请不要加http://

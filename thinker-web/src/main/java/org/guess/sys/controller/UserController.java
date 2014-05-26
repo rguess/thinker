@@ -77,7 +77,7 @@ public class UserController extends BaseController<User> {
 	}
 	
 	/**
-	 * 更改用户状态
+	 * 获取所有用户
 	 * @throws Exception 
 	 */
 	@RequestMapping(value="getAllUsers")
@@ -88,20 +88,3 @@ public class UserController extends BaseController<User> {
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

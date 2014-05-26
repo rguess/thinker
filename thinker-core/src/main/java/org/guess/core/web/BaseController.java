@@ -29,7 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Delete action : POST /user/delete
  * show page     : GET /user/show/{id}
  * 
- * @author guess
+ * @author rguess
  */
 public abstract class BaseController<T> {
 

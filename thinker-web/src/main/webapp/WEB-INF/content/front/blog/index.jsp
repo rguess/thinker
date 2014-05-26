@@ -11,17 +11,17 @@
 			<ul>
 				<li>
 					<h2>
-						<span class="date fr">2014-01-29</span>
+						<span class="date fr">2014-05-26</span>
 						<span class="zhiding">[置顶]</span>
-						<a href="http://www.muchun.net/105.html" rel="bookmark" title="详细阅读 要靠自己，也要靠别人"> 要靠自己，也要靠别人
+						<a href="${ctx }/blog/article/35.html" title="关于我"> 关于我
 						</a>			
 					</h2>
 				</li>
 				<li>
 					<h2>
-						<span class="date fr">2014-01-29</span> 
+						<span class="date fr">2014-05-26</span> 
 						<span class="zhiding">[置顶]</span>
-						<a href="http://www.muchun.net/105.html" rel="bookmark" title="详细阅读 要靠自己，也要靠别人"> 要靠自己，也要靠别人
+						<a href="http://git.oschina.net/rguess/thinkerl" target="_blank" title="打硬广...我的开源 thinker">打硬广...我的开源 thinker
 						</a>			
 					</h2>
 				</li>
