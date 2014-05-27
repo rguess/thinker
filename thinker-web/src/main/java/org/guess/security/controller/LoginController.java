@@ -13,6 +13,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.guess.core.Constants;
 import org.guess.core.utils.security.Coder;
+import org.guess.core.utils.web.ServletUtils;
 import org.guess.sys.model.Log;
 import org.guess.sys.model.User;
 import org.guess.sys.service.LogService;
@@ -80,11 +81,11 @@ public class LoginController {
 		if (currentUser.isAuthenticated()) {
 			try {
 				User curUser = userService.findByLoginId(userName);
-				logService.save(new Log("系统登录", 1, "登录系统", curUser,request.getRemoteAddr()));
+				logService.save(new Log("系统登录", 1, "登录系统", curUser,ServletUtils.getIpAddr(request)));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return "redirect:/sys/index";
+			return "redirect:/sys/user/list";
 		} else {
 			token.clear();
 		}
@@ -99,7 +100,7 @@ public class LoginController {
 		User curUser = (User) session.getAttribute(Constants.CURRENT_USER);
 		SecurityUtils.getSubject().logout();
 		try {
-			logService.save(new Log("系统登出", 1, "退出系统", curUser,request.getRemoteAddr()));
+			logService.save(new Log("系统登出", 1, "退出系统", curUser,ServletUtils.getIpAddr(request)));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

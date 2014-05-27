@@ -21,7 +21,7 @@
 					<h2>
 						<span class="date fr">2014-05-26</span> 
 						<span class="zhiding">[置顶]</span>
-						<a href="http://git.oschina.net/rguess/thinkerl" target="_blank" title="打硬广...我的开源 thinker">打硬广...我的开源 thinker
+						<a href="http://git.oschina.net/rguess/thinker" target="_blank" title="打硬广...我的开源 thinker">打硬广...我的开源 thinker
 						</a>			
 					</h2>
 				</li>

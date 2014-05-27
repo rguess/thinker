@@ -25,8 +25,8 @@
 					<ul class="al_mon_list">
 						<c:forEach var="obj" items="${articles }">
 							<li>
-								<fmt:formatDate value="${obj.createDate}" pattern="yyyy-MM-dd"/>:
 								<a href="${ctx }/blog/article/${obj.id}.html">${obj.title }</a>
+								<fmt:formatDate value="${obj.createDate}" pattern="yyyy-MM-dd"/>
 								<em>(${obj.hits})</em>
 							</li>
 						</c:forEach>

@@ -159,6 +159,6 @@ var Cms = {
 	
 	//预览
 	view : function(module,id){
-		window.open(ctx+"/cms/"+module+"/view/"+id, "_blank");
+		window.open(ctx+"/blog/article/"+id+".html", "_blank");
 	}
 }

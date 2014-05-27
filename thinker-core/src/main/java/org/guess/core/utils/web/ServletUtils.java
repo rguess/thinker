@@ -202,4 +202,21 @@ public abstract class ServletUtils {
 	public static String generateTempFileName(HttpServletRequest request,String fileName){
 		return getRealPath(request)+ "/"+Constants.TEMP_FOLDER_NAME+"/" +  FileUtils.uuidFileName(fileName);
 	}
+	
+	/**
+	 * nginx代理和不能获取getRemoteAddr不能获取真实ip，用一下方法
+	 */
+	public static String getIpAddr(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
+	}
 }
