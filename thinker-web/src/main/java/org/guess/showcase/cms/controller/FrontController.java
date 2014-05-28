@@ -50,8 +50,7 @@ public class FrontController {
 		}
 
 		// 增加点击量
-		article.setHits(article.getHits() + 1);
-		articleService.save(article);
+		articleService.addHits(article);
 
 		mav.addObject("obj", article);
 		mav.setViewName("/front/" + site + "/detail");

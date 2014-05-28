@@ -107,10 +107,6 @@ public class ArticleController {
 				// 保存到数据库
 				article.setHtmlid(uuid);
 			}
-			if(article.getId() != null){
-				Article dbArticle = aService.get(article.getId());
-				article.setHits(dbArticle.getHits());
-			}
 			aService.save(article);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -127,10 +123,6 @@ public class ArticleController {
 	 * @throws Exception 
 	 */
 	private void handleRichTextType(Article article) throws Exception {
-		if(article.getId() != null){
-			Article dbArticle = aService.get(article.getId());
-			article.setHits(dbArticle.getHits());
-		}
 		aService.save(article);
 	}
 	

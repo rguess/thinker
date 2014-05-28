@@ -605,3 +605,10 @@ ol.commentlist li div.floor{float:right;color:#bbb}
 a.tags:HOVER {
 	color: red !important;
 }
+
+/*自己加的*/
+.date{
+	font-size: 12px;
+	font-weight: normal;
+	color: rgb(153, 153, 153);
+}

@@ -8,12 +8,9 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
 <head>
+<title>${obj.title }</title>
 <meta name="decorator" content="cms_blog"/>
 <link href="${ctx }/assets/comp/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />  
-<script type="text/javascript" src="${ctx }/assets/comp/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>  
-<script type="text/javascript">    
-	SyntaxHighlighter.all();
-</script>
 </head>
 <body>
 	<div id="breadcrumbs" class="con_box clearfix">
@@ -49,5 +46,9 @@
 			</p>
 		</div>
 	</div>
+<script type="text/javascript" src="${ctx }/assets/comp/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>  
+<script type="text/javascript">    
+	SyntaxHighlighter.all();
+</script>
 </body>
 </html>

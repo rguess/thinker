@@ -14,5 +14,10 @@ public interface ArticleService extends BaseService<Article, Long>{
 	List<Article> listHots(Site curSite);
 
 	Set<String> listTags(Site curSite);
+	
+	/**
+	 * 增加点击量
+	 */
+	void addHits(Article article);
 
 }

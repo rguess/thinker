@@ -3,6 +3,7 @@
 <c:set var="ctx" value="${r'$'}{pageContext.request.contextPath}" />
 <html>
 <head>
+<title>rguess's博客</title>
 <meta name="decorator" content="cms_blog"/>
 </head>
 <body>
@@ -19,10 +20,10 @@
 				</li>
 				<li>
 					<h2>
-						<span class="date fr">2014-05-26</span> 
+						<span class="date fr">2014-05-26</span>
 						<span class="zhiding">[置顶]</span>
 						<a href="http://git.oschina.net/rguess/thinker" target="_blank" title="打硬广...我的开源 thinker">打硬广...我的开源 thinker
-						</a>			
+						</a>
 					</h2>
 				</li>
 			</ul>

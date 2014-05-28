@@ -1,22 +1,16 @@
 package org.guess.showcase.cms.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.guess.core.IdEntity;
-import org.guess.core.utils.DateUtil;
+import org.guess.showcase.cms.model.pa.DataEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "cms_article")
 @JsonIgnoreProperties(value = { "content"})
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Article extends IdEntity {
+public class Article extends DataEntity {
 	
 	public static final int WORD_CONTENT = 0;
 	public static final int RICHTEXT_CONTENT = 1;
@@ -91,14 +85,6 @@ public class Article extends IdEntity {
 	 */
 	private String content;
 	
-	/**
-	 * 发表日期
-	 */
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
-	private Date createDate = DateUtil.parseFormat("yyyy-MM-dd");
-	
-	
 	public Category getCategory() {
 		return category;
 	}
@@ -110,12 +96,6 @@ public class Article extends IdEntity {
 	}
 	public void setHtmlid(String htmlid) {
 		this.htmlid = htmlid;
-	}
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
 	}
 	public String getContent() {
 		return content;

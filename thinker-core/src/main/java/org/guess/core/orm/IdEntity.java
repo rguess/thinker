@@ -1,4 +1,4 @@
-package org.guess.core;
+package org.guess.core.orm;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

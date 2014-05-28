@@ -10,6 +10,8 @@ import org.guess.showcase.cms.dao.ArticleDao;
 import org.guess.showcase.cms.model.Article;
 import org.guess.showcase.cms.model.Site;
 import org.guess.showcase.cms.service.ArticleService;
+import org.guess.sys.model.User;
+import org.guess.sys.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,5 +55,34 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article, Long> implement
 			set.add(tag);
 		}
 		return set;
+	}
+	
+	@Override
+	public void save(Article article) throws Exception {
+		if(article.getId() != null){
+			
+			Article dbArticle = articleDao.get(article.getId());
+			
+			//点击量
+			article.setHits(dbArticle.getHits());
+			
+			//保留发表者以及发表提起
+			article.setCreateBy(dbArticle.getCreateBy());
+			article.setCreateDate(dbArticle.getCreateDate());
+			
+			//更新者
+			User cuser = UserUtil.getCurrentUser();
+			article.setUpdateBy(cuser);
+		}else{
+			article.setCreateBy(UserUtil.getCurrentUser());
+		}
+		
+		super.save(article);
+	}
+
+	@Override
+	public void addHits(Article article) {
+		article.setHits(article.getHits()+1);
+		articleDao.save(article);
 	}
 }

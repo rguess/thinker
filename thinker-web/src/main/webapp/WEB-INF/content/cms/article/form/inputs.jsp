@@ -9,10 +9,6 @@
 <!--ID -->
 <input type="hidden" value="${obj.id }" name="id">
 <input type="hidden" value="${obj.category.id }" name="category.id" id="caId">
-<!-- 用户创建日期 -->
-<c:if test="${not empty obj }">
-	<input type="hidden" value="<fmt:formatDate value='${obj.createDate }'/>" name="createDate">
-</c:if>
 <div class="control-group">
 	<label class="control-label">标题:</label>
 	<div class="controls">

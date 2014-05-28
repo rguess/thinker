@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.guess.core.IdEntity;
+import org.guess.core.orm.IdEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
