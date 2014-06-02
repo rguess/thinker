@@ -13,8 +13,9 @@
 <link href="${ctx}/assets/xyz/bg/css/scrollNav.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/xyz/bg/css/style.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/assets/xyz/bg/css/manhuatoTop.1.0.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/assets/xyz/bg/rguess.ico" rel="shortcut icon"/>
+<link href="${ctx}/assets/xyz/bg/r.ico" rel="shortcut icon"/>
 <script type="text/javascript" src="${ctx}/assets/xyz/bg/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
 <sitemesh:head />
 </head>
 <body>

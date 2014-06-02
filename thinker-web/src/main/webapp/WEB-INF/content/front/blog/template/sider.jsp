@@ -14,6 +14,13 @@
 			
 		</div>
 	</div>
+	
+	<div class="widget">
+		<h3>百度广告</h3>	
+		<div>
+			<script type="text/javascript">BAIDU_CLB_fillSlot("923370");</script>
+		</div>
+	</div>
 </div>
 <script type="text/javascript">
 	$(function(){

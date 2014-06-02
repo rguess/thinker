@@ -3,9 +3,14 @@ package org.guess.showcase.finance.controller;
 import org.guess.core.web.BaseController;
 import org.guess.showcase.finance.model.Finance;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 
 @Controller
@@ -22,6 +27,13 @@ public class FinanceController extends BaseController<Finance>{
 	public ModelAndView analyze(ModelAndView mav){
 		mav.setViewName("/finance/analyze");
 		return mav;
+	}
+	
+	@RequestMapping(value="/jsonp.json")
+	@ResponseBody
+	public JSONPObject gethyinfo(ModelMap map,@RequestParam String callback){
+	    map.put("pi", "hello,I'm Fjtss");
+	    return new JSONPObject(callback, map);
 	}
 	
 	
