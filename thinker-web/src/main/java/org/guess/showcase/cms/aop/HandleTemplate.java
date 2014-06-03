@@ -3,6 +3,7 @@ package org.guess.showcase.cms.aop;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -76,11 +77,22 @@ public class HandleTemplate {
 			+ "execution(* org.guess.showcase.cms.controller.ArticleController.delete(..))")
 	public void updateMainContent() throws IOException {
 		Site curSite = CmsUtil.getCurrentSite(request);
+		
+		//静态化主要文章内容
 		List<Article> list = articleService.listIndexs(curSite);
-		String dirPath = ServletUtils.getRealPath(request)+"/WEB-INF/content/front/"+curSite.getName()+"/index.jsp";
+		String indexPath = ServletUtils.getRealPath(request)+"/WEB-INF/content/front/"+curSite.getName()+"/index.jsp";
 		Map<String,Object> model = Maps.newHashMap();
 		model.put("list", list);
-		FreeMarkers.writeFile("classpath:/template/"+curSite.getName(), "index.ftl", dirPath, model);
+		FreeMarkers.writeFile("classpath:/template/"+curSite.getName(), "index.ftl", indexPath, model);
+		
+		//静态化最热文章和标签
+		List<Article> hots = articleService.listHots(curSite);
+		Set<String> tags = articleService.listTags(curSite);
+		String sidePath = ServletUtils.getRealPath(request)+"/WEB-INF/content/front/"+curSite.getName()+"/template/sider.jsp";
+		Map<String,Object> sideModel = Maps.newHashMap();
+		sideModel.put("hots", hots);
+		sideModel.put("tags", tags);
+		FreeMarkers.writeFile("classpath:/template/"+curSite.getName(), "sider.ftl", sidePath, sideModel);
 		
 	}
 	

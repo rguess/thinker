@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache>
 
-	<diskStore path="java.io.tmpdir/hibernate/mystyle" />
+	<diskStore path="java.io.tmpdir/hibernate/thinker" />
 
 	<!-- 默认设置-->
 	<defaultCache maxElementsInMemory="10000"

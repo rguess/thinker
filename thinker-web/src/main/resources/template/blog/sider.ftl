@@ -1,30 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<c:set var="ctx" value="${r'$'}{pageContext.request.contextPath}" />
 <div id="sider" class="fr">
 	<div class="widget widget_recent_entries">
 		<h3>最热文章</h3>	
 		<ul id="hots">
-				<li><a href="${ctx}/blog/article/35.html">关于我</a></li>
-				<li><a href="${ctx}/blog/article/39.html">java文件操作工具类</a></li>
-				<li><a href="${ctx}/blog/article/32.html">写于2014-5-18</a></li>
-				<li><a href="${ctx}/blog/article/37.html">shiro在remember me状态下登录，自定义session失效解决方法 </a></li>
-				<li><a href="${ctx}/blog/article/38.html">jquery实现居中可拖拽窗体</a></li>
-				<li><a href="${ctx}/blog/article/40.html">js回调函数传参数</a></li>
-				<li><a href="${ctx}/blog/article/41.html">test1</a></li>
+			<#list hots as hot>
+				<li><a href="${r'$'}{ctx}/blog/article/${hot.id}.html">${hot.title}</a></li>
+			</#list>
 		</ul>
 	</div>
 	<div class="widget widget_tag_cloud">
 		<h3>标签</h3>
 		<div class="tagcloud" id="ar_tags">
-			<a href="${ctx}/blog/tag/心情.html" css="tags">心情</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/about me.html" css="tags">about me</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/test.html" css="tags">test</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/js.html" css="tags">js</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/shiro.html" css="tags">shiro</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/java.html" css="tags">java</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/日记.html" css="tags">日记</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/jquery.html" css="tags">jquery</a>&nbsp&nbsp&nbsp
+		<#list tags as tag>
+			<a href="${r'$'}{ctx}/blog/tag/${tag}.html" css="tags">${tag}</a>&nbsp&nbsp&nbsp
+		</#list>
 		</div>
 	</div>
 	
