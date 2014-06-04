@@ -47,18 +47,20 @@ public class Generate {
 		String packageName = "org.guess.showcase";
 
 		String moduleName = "cms"; // 模块名，例：sys
-		String className = "site"; // 类名，例：user
+		String className = "comment"; // 类名，例：user
 		String classAuthor = "rguess"; // 类作者，例：ThinkGem
-		String functionName = "站点"; // 功能名，例：用户
+		String functionName = "评论"; // 功能名，例：用户
 		
 		List<Field> fields = new ArrayList<Field>();
-		fields.add(new Field("name", "站点名称", "String"));
-		fields.add(new Field("title", "站点标题", "String"));
-		fields.add(new Field("logo", "站点logo", "String"));
-		fields.add(new Field("description", "描述", "String"));
-		fields.add(new Field("keywords", "关键字", "String"));
-		fields.add(new Field("theme", "主题", "String"));
-		fields.add(new Field("copyright", "版权信息", "String"));
+		fields.add(new Field("content", "内容", "String"));
+		fields.add(new Field("name", "名称", "String"));
+		fields.add(new Field("ip", "ip地址", "String"));
+		fields.add(new Field("createDate", "日期", "Date"));
+		fields.add(new Field("auditUser", "审核人", "User"));
+		fields.add(new Field("auditDate", "审核日期", "Date"));
+		fields.add(new Field("delFlag", "标记", "int"));
+		
+		
 
 		// 是否启用生成工具
 		Boolean isEnable = true;

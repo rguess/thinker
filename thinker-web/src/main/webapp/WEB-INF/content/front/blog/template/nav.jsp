@@ -12,13 +12,19 @@
 			            </ul>
 				</li>
 				<li>
-						    <a href="${ctx }/blog/list/26.html">日记</a>
-				</li>
-				<li>
 						    <a href="${ctx }/blog/list/31.html">随意</a>
 				</li>
 				<li>
-						    <a href="http://192.168.1.13:8084/thinker/blog/article/35.html">关于我</a>
+						    <a href="${ctx }/blog/list/26.html">日记</a>
+				</li>
+				<li>
+						<a href="${ctx }/blog/list/33.html">小伙伴</a>
+						<ul>
+							    <li><a href="${ctx }/blog/list/34.html">syc</a></li>
+			            </ul>
+				</li>
+				<li>
+						    <a href="http://114.215.121.37/blog/article/35.html">关于我</a>
 				</li>
 	    </ul>
 	    <div class="scrollObj02"></div>

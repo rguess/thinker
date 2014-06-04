@@ -1,9 +1,14 @@
 package org.guess.showcase.cms.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.guess.showcase.cms.model.pa.DataEntity;
@@ -21,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name = "cms_article")
-@JsonIgnoreProperties(value = { "content"})
+@JsonIgnoreProperties(value = { "content","comments"})
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Article extends DataEntity {
 	
@@ -85,6 +90,20 @@ public class Article extends DataEntity {
 	 */
 	private String content;
 	
+	/**
+	 * 评论
+	 * @return
+	 */
+	@OneToMany(targetEntity=Comment.class,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+	@OrderBy("id ASC")
+	private Set<Comment> comments;
+	
+	public Set<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
 	public Category getCategory() {
 		return category;
 	}

@@ -6,25 +6,38 @@
 		<h3>最热文章</h3>	
 		<ul id="hots">
 				<li><a href="${ctx}/blog/article/35.html">关于我</a></li>
-				<li><a href="${ctx}/blog/article/39.html">java文件操作工具类</a></li>
+				<li><a href="${ctx}/blog/article/37.html">shiro在remember me状态下session失效解决办法 </a></li>
+				<li><a href="${ctx}/blog/article/41.html">写于2014-5-24</a></li>
 				<li><a href="${ctx}/blog/article/32.html">写于2014-5-18</a></li>
-				<li><a href="${ctx}/blog/article/37.html">shiro在remember me状态下登录，自定义session失效解决方法 </a></li>
 				<li><a href="${ctx}/blog/article/38.html">jquery实现居中可拖拽窗体</a></li>
+				<li><a href="${ctx}/blog/article/39.html">java文件操作工具类</a></li>
 				<li><a href="${ctx}/blog/article/40.html">js回调函数传参数</a></li>
-				<li><a href="${ctx}/blog/article/41.html">test1</a></li>
+				<li><a href="${ctx}/blog/article/45.html">spring mvc与strusts比较</a></li>
+				<li><a href="${ctx}/blog/article/46.html">厚黑学之我见</a></li>
+				<li><a href="${ctx}/blog/article/42.html">vi操作</a></li>
 		</ul>
 	</div>
 	<div class="widget widget_tag_cloud">
 		<h3>标签</h3>
 		<div class="tagcloud" id="ar_tags">
+			<a href="${ctx}/blog/tag/maven.html" css="tags">maven</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/vi.html" css="tags">vi</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/js.html" css="tags">js</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/日记.html" css="tags">日记</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/厚黑.html" css="tags">厚黑</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/jquery.html" css="tags">jquery</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/spring.html" css="tags">spring</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/struts.html" css="tags">struts</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/nginx.html" css="tags">nginx</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/生活.html" css="tags">生活</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/心情.html" css="tags">心情</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/about me.html" css="tags">about me</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/test.html" css="tags">test</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/js.html" css="tags">js</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/shiro.html" css="tags">shiro</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/工作.html" css="tags">工作</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/java.html" css="tags">java</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/日记.html" css="tags">日记</a>&nbsp&nbsp&nbsp
-			<a href="${ctx}/blog/tag/jquery.html" css="tags">jquery</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/迷茫.html" css="tags">迷茫</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/第一次.html" css="tags">第一次</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/跨域.html" css="tags">跨域</a>&nbsp&nbsp&nbsp
 		</div>
 	</div>
 	
