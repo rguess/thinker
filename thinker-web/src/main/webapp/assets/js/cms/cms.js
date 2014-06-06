@@ -17,7 +17,7 @@ var Cms = {
 									+str+'</a>');
 							return $a;
 					  }},
-					  {cName:"module",cValue:"栏目",format:function(i,value,item){
+					  {cName:"category",cValue:"栏目",format:function(i,value,item){
 						  return item.category.name;
 					  }},
 					  {cName:"description",cValue:"描述",format:function(i,value,item){
