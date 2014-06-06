@@ -57,6 +57,11 @@
 <%@ include file="/WEB-INF/content/common/plugins/bootstrap-tree.jsp"%>
 <%@ include file="/WEB-INF/content/common/plugins/jquery-tagsinput.jsp"%>
 <script type="text/javascript">
+	/* alert(window.UEDITOR_CONFIG.listiconpath);
+	ueditor列表本地化
+	uParse('.content',{
+	    'liiconpath':window.UEDITOR_CONFIG.listiconpath
+	}) */
 	$(function(){
 		App.activeMenu("cms/");
 		App.cancleActiveMenu("/cms/category/list");

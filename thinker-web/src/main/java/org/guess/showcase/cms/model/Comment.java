@@ -42,11 +42,17 @@ public class Comment extends IdEntity {
 	 */
 	private String ip;
 	/**
+	 * email
+	 */
+	private String email;
+	/**
+	 * 评论人网址
+	 */
+	private String url;
+	/**
 	 * 日期
 	 */
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
-	private Date createDate = DateUtil.parseFormat("yyyy-MM-dd");
+	private Date createDate = new Date();
 	/**
 	 * 审核人
 	 */
@@ -74,6 +80,24 @@ public class Comment extends IdEntity {
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private Article article;
 	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Article getArticle() {
+		return article;
+	}
+	public void setArticle(Article article) {
+		this.article = article;
+	}
 	public String getContent() {
 		return content;
 	}

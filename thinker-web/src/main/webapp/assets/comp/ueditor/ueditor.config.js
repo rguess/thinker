@@ -152,7 +152,7 @@
         //,initialStyle:'p{line-height:1em}'//编辑器层级的基数,可以用来改变字体等
 
         //,autoSyncData:true //自动同步编辑器要提交的数据
-        //,emotionLocalization:false //是否开启表情本地化，默认关闭。若要开启请确保emotion文件夹下包含官网提供的images表情文件夹
+        ,emotionLocalization:true //是否开启表情本地化，默认关闭。若要开启请确保emotion文件夹下包含官网提供的images表情文件夹
 
         //,pasteplain:false  //是否默认为纯文本粘贴。false为不使用纯文本粘贴，true为使用纯文本粘贴
         //纯文本粘贴模式下的过滤规则
@@ -219,6 +219,7 @@
         //    'square' : ''   //'■ 小方块'
         //}
 //        ,listDefaultPaddingLeft : '30'//默认的左边缩进的基数倍
+//      ,listiconpath : URL+'themes/ueditor-list/'
 //        ,listiconpath : 'http://bs.baidu.com/listicon/'//自定义标号的路径
 //        ,maxListLevel : 3 //限制可以tab的级数-1不限制
         //fontfamily

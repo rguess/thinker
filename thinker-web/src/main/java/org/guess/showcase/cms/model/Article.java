@@ -94,7 +94,7 @@ public class Article extends DataEntity {
 	 * 评论
 	 * @return
 	 */
-	@OneToMany(targetEntity=Comment.class,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToMany(targetEntity=Comment.class,fetch = FetchType.LAZY,cascade=CascadeType.ALL,mappedBy = "article")
 	@OrderBy("id ASC")
 	private Set<Comment> comments;
 	

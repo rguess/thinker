@@ -11,8 +11,10 @@ import org.guess.core.orm.PageRequest;
 import org.guess.core.orm.PropertyFilter;
 import org.guess.showcase.cms.model.Article;
 import org.guess.showcase.cms.model.Category;
+import org.guess.showcase.cms.model.Comment;
 import org.guess.showcase.cms.service.ArticleService;
 import org.guess.showcase.cms.service.CategoryService;
+import org.guess.showcase.cms.service.CommentService;
 import org.guess.showcase.cms.util.CmsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,9 @@ public class FrontController {
 
 	@Autowired
 	private CategoryService categoryService;
+
+	@Autowired
+	private CommentService commentService;
 
 	// 首页
 	@RequestMapping("{site}/index.html")
@@ -59,6 +64,7 @@ public class FrontController {
 
 	/**
 	 * 根据栏目获取列表
+	 * 
 	 * @param mav
 	 * @param site
 	 * @param cid
@@ -87,6 +93,7 @@ public class FrontController {
 
 	/**
 	 * 根据标签获取列表
+	 * 
 	 * @param mav
 	 * @param site
 	 * @param tag
@@ -101,30 +108,43 @@ public class FrontController {
 		List<PropertyFilter> filters = Lists.newArrayList();
 		filters.add(new PropertyFilter("LIKES_keywords", decodeTag));
 		List<Article> articles = articleService.find(filters);
-		
+
 		mav.addObject("articles", articles);
 		mav.addObject("tag", decodeTag);
-		
+
 		mav.setViewName("/front/" + site + "/list");
 		return mav;
 	}
-	
+
 	/**
 	 * 获取最热文章
 	 */
 	@RequestMapping("{site}/showHots")
 	@ResponseBody
-	public List<Article> showHots(HttpServletRequest request){
+	public List<Article> showHots(HttpServletRequest request) {
 		return articleService.listHots(CmsUtil.getCurrentSite(request));
 	}
-	
+
 	/**
 	 * 获取标签
 	 */
 	@RequestMapping("{site}/getTags")
 	@ResponseBody
-	public Set<String> getTags(HttpServletRequest request){
+	public Set<String> getTags(HttpServletRequest request) {
 		return articleService.listTags(CmsUtil.getCurrentSite(request));
+	}
+
+	/**
+	 * 评论文章
+	 * 
+	 * @throws Exception
+	 */
+	@RequestMapping("{site}/comment")
+	public String comment(Comment comment, @PathVariable("site") String site)
+			throws Exception {
+		commentService.save(comment);
+		return "redirect:/" + site + "/article/" + comment.getArticle().getId()
+				+ ".html#comment-" + comment.getId();
 	}
 
 }
