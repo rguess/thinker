@@ -11,7 +11,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.guess.core.orm.IdEntity;
-import org.guess.core.utils.DateUtil;
 import org.guess.sys.model.User;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -52,6 +51,8 @@ public class Comment extends IdEntity {
 	/**
 	 * 日期
 	 */
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:MM:ss")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createDate = new Date();
 	/**
 	 * 审核人
@@ -64,9 +65,9 @@ public class Comment extends IdEntity {
 	/**
 	 * 审核日期
 	 */
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
-	private Date auditDate = DateUtil.parseFormat("yyyy-MM-dd");
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:MM:ss")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date auditDate;
 	/**
 	 * 删除标记删除标记（0：正常；1：删除；2：审核）
 	 */

@@ -43,7 +43,7 @@
 				<strong>本文标签</strong>： 
 			</p>				
 			<p> 转载请保留链接:
-				<a href="<%=basePath %>blog/article/${obj.id}.html" title="${obj.title }"><%=basePath %>blog/article/${obj.id}.html</a>
+				<a href="http://www.rguess.com/blog/article/${obj.id}.html" title="${obj.title }">http://www.rguess.com/blog/article/${obj.id}.html</a>
 			</p>
 		</div>
 		<!-- 评论 -->
@@ -106,7 +106,7 @@
 		</p>
 		<script type="text/javascript">	//Crel+Enter
 			$(document).keypress(function(e){
-				if(e.ctrlKey && e.which == 13 || e.which == 10) { 
+				if(e.ctrlKey && e.which == 13 || e.which == 10) {
 					$(".submit").click();
 					document.body.focus();
 				} else if (e.shiftKey && e.which==13 || e.which == 10) {
@@ -114,29 +114,29 @@
 				}          
 			})
 			
-			function isBlank(str){
+			function isNotBlank(str){
 				if(str == null || str == "" || typeof(str) == "undefined"){
 					return false;
 				}
 				return true;
 			}
 			
+			//提交前验证
 			function validate(){
 				var name = $("#c_name").val();
-				if(!isBlank(name)){
+				if(!isNotBlank(name)){
 					alert("请填写昵称！");
 					return false;
 				}
 				
 				var editor=$('#ceditor').xheditor();
 				var content = editor.getSource();
-				if(!isBlank(content)){
+				if(!isNotBlank(content)){
 					alert("请填写内容！");
 					return false;
 				}
 				
 				return true;
-				
 			}
 		</script>
 		    </form>

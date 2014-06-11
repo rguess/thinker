@@ -2,7 +2,7 @@
 <div class="footer">
 	<div class="footer_nav clearfix">
 		<p>
-			@2014 rguess
+			Copyright © 2014 rguess All Rights Reserved. 蜀ICP备14013185号
 		</p>
 	</div>
 </div>

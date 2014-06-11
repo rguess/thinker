@@ -36,7 +36,7 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article, Long> implement
 
 	@Override
 	public List<Article> listHots(Site curSite) {
-		PageRequest pageRequest = new PageRequest(1, 10);
+		PageRequest pageRequest = new PageRequest(1, 5);
 		return articleDao.findPage(pageRequest, "from Article as a where category.site=? order by a.hits desc", curSite).getResult();
 	}
 

@@ -13,9 +13,11 @@ import org.guess.core.utils.FreeMarkers;
 import org.guess.core.utils.web.ServletUtils;
 import org.guess.showcase.cms.model.Article;
 import org.guess.showcase.cms.model.Category;
+import org.guess.showcase.cms.model.Comment;
 import org.guess.showcase.cms.model.Site;
 import org.guess.showcase.cms.service.ArticleService;
 import org.guess.showcase.cms.service.CategoryService;
+import org.guess.showcase.cms.service.CommentService;
 import org.guess.showcase.cms.util.CmsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,9 +44,17 @@ public class HandleTemplate {
 	@Autowired
 	private ArticleService articleService;
 	
+	@Autowired
+	private CommentService commentService;
+	
 	@Autowired 
 	private HttpServletRequest request;
 
+	
+	/**
+	 * 静态化导航栏
+	 * @throws IOException
+	 */
 	@After("execution(* org.guess.showcase.cms.controller.CategoryController.create(..))||"
 			+ "execution(* org.guess.showcase.cms.controller.CategoryController.delete(..))||"
 			+ "execution(* org.guess.showcase.cms.controller.CategoryController.order(..))")
@@ -73,6 +83,10 @@ public class HandleTemplate {
 		logger.info("操作成功");
 	}
 	
+	/**
+	 * 静态化首页及侧边栏
+	 * @throws IOException
+	 */
 	@After("execution(* org.guess.showcase.cms.controller.ArticleController.edit(..))||"
 			+ "execution(* org.guess.showcase.cms.controller.ArticleController.delete(..))")
 	public void updateMainContent() throws IOException {
@@ -93,42 +107,22 @@ public class HandleTemplate {
 		sideModel.put("hots", hots);
 		sideModel.put("tags", tags);
 		FreeMarkers.writeFile("classpath:/template/"+curSite.getName(), "sider.ftl", sidePath, sideModel);
-		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * 发表评论后，静态化侧边栏评论
+	 */
+	@After("execution(* org.guess.showcase.cms.controller.FrontController.comment(..))")
+	public void updateSideComment() throws IOException {
+		Site curSite = CmsUtil.getCurrentSite(request);
+		
+		//静态化主要文章内容
+		List<Comment> list = commentService.listNewest(curSite);
+		
+		String indexPath = ServletUtils.getRealPath(request)+"/WEB-INF/content/front/"+curSite.getName()+"/template/side_comment.jsp";
+		Map<String,Object> model = Maps.newHashMap();
+		model.put("list", list);
+		FreeMarkers.writeFile("classpath:/template/"+curSite.getName(), "sider_comment.ftl", indexPath, model);
+		
+	}
 }

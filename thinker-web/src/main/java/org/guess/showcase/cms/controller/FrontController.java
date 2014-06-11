@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.guess.core.orm.Page;
 import org.guess.core.orm.PageRequest;
 import org.guess.core.orm.PropertyFilter;
+import org.guess.core.utils.web.ServletUtils;
 import org.guess.showcase.cms.model.Article;
 import org.guess.showcase.cms.model.Category;
 import org.guess.showcase.cms.model.Comment;
@@ -140,11 +141,11 @@ public class FrontController {
 	 * @throws Exception
 	 */
 	@RequestMapping("{site}/comment")
-	public String comment(Comment comment, @PathVariable("site") String site)
-			throws Exception {
+	public String comment(Comment comment, @PathVariable("site") String site,
+			HttpServletRequest request) throws Exception {
+		comment.setIp(ServletUtils.getIpAddr(request));
 		commentService.save(comment);
 		return "redirect:/" + site + "/article/" + comment.getArticle().getId()
 				+ ".html#comment-" + comment.getId();
 	}
-
 }

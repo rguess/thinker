@@ -128,7 +128,7 @@ ul.cooltab_nav li a.active{background:#333435;color:#f9c006;}
 .readers a.seps:hover span {color:#F9C006;}
 .r_comments ul{margin:0px 10px 0px 10px;border-top:2px solid #08A5E0;}
 .r_comments ul li {line-height:20px;margin-left:-8px;}
-.r_comments li img {height:32px;float:left;padding:1px;margin:4px 4px 0 0;}
+.r_comments li img.avatar {height:32px;float:left;padding:1px;margin:4px 4px 0 0;}
 .hcms_rollbox {position:fixed;background:none;width:270px;}
 /*--blog list--*/
 /*--圆角

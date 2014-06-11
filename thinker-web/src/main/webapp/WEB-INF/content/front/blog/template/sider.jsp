@@ -17,6 +17,7 @@
 				<li><a href="${ctx}/blog/article/42.html">vi操作</a></li>
 		</ul>
 	</div>
+	<%@ include file="side_comment.jsp"%>
 	<div class="widget widget_tag_cloud">
 		<h3>标签</h3>
 		<div class="tagcloud" id="ar_tags">
