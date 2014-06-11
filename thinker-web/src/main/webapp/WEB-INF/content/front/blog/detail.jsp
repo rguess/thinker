@@ -43,7 +43,7 @@
 				<strong>本文标签</strong>： 
 			</p>				
 			<p> 转载请保留链接:
-				<a href="<%=basePath %>blog/article/${obj.id}.html" title="${obj.title }"><%=basePath %>blog/article/${obj.id}.html</a>
+				<a href="http://www.rguess.com/blog/article/${obj.id}.html" title="${obj.title }">http://www.rguess.com/blog/article/${obj.id}.html</a>
 			</p>
 		</div>
 		<!-- 评论 -->
