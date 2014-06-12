@@ -1,5 +1,10 @@
 ##thinker(像一个思想者一样去写代码)
 
+##me
+* 个人博客  <a href="http://rguess.com" target="_blank">http://rguess.com</a>
+* github <a href="https://github.com/rguess" target="_blank">https://github.com/rguess</a>
+* gitoschina <a href="http://git.oschina.net/rguess" target="_blank">http://git.oschina.net/rguess</a>
+
 ##介绍
 * 工作中的积累，搭建的j2ee应用快速开发手架，重点在代码重构，一些常用功能的演示，工具，插件等的整理。ps:(参考<a href="https://github.com/springside" target="_blank">springside4</a>，<a href="https://github.com/zhangkaitao/es" target="_blank">es快速开发手架</a>，<a href="https://github.com/thinkgem/jeesite" target="_blank">jeesite</a>)
 * springmvc、spring、hibernate为基础框架
