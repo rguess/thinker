@@ -145,7 +145,7 @@
 			})
 			
 			function face(){
-				var r = parseInt(Math.random()*12);
+				var r = parseInt(Math.random()*12)+1;
 				var img = "${ctx}/assets/img/face/"+r+".png";
 				var path = "/assets/img/face/"+r+".png";
 				$("#sub_face").attr("src",img);
