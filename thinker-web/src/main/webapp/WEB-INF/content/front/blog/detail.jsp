@@ -55,7 +55,7 @@
 				<li class="comment even thread-even depth-1" id="comment-${item.id }">
 					<div id="comment-${item.id }" class="comment-body">
 						<div class="comment-author vcard">
-							<img alt="" src="http://s.gravatar.com/avatar/e52e12ad624c399a43bf25b2ebfdc2a2?s=40" class="avatar avatar-40 photo avatar-default" height="40" width="40">
+							<img alt="" src="http://s.gravatar.com/avatar/e52e12ad624c399a43bf25b2ebfdc2a1?s=40" class="avatar avatar-40 photo avatar-default" height="40" width="40">
 							<div class="floor">${status.index +1}楼</div>
 							<strong>${item.name }</strong>
 							<span class="commentmetadata">
@@ -75,12 +75,13 @@
 				<div class="jiange2"></div>
 				<div class="cancel-comment-reply">
 					<div id="real-avatar">
-						<img alt="" src="http://s.gravatar.com/avatar/e52e12ad624c399a43bf25b2ebfdc2a2?s=40" class="avatar avatar-40 photo avatar-default" height="40" width="40">
+						<img id="sub_face" alt="" src="http://s.gravatar.com/avatar/e52e12ad624c399a43bf25b2ebfdc2a1?s=40" class="avatar avatar-40 photo avatar-default" height="40" width="40">
 					</div>
 					<a rel="nofollow" id="cancel-comment-reply-link" href="/105.html#respond" style="display:none;">点击这里取消回复。</a>
 				</div>
 		    	<form action="${ctx }/blog/comment" method="post" id="commentform" onsubmit="return validate();">
 		    		<input type="hidden" name="article.id" value="${obj.id }">
+		    		<input id="face_path" type="hidden" name="facePath" value="">
       				<div id="comment-author-info">
 						<p>
 							<input type="text" name="name" class="commenttext" value="" size="22" tabindex="1" id="c_name">
@@ -111,7 +112,7 @@
 					document.body.focus();
 				} else if (e.shiftKey && e.which==13 || e.which == 10) {
 					$(".submit").click();
-				}          
+				}
 			})
 			
 			function isNotBlank(str){
@@ -138,6 +139,18 @@
 				
 				return true;
 			}
+			
+			$(function(){
+				face();
+			})
+			
+			function face(){
+				var r = parseInt(Math.random()*12);
+				var img = "${ctx}/assets/img/face/"+r+".png";
+				var path = "/assets/img/face/"+r+".png";
+				$("#sub_face").attr("src",img);
+				$("#face_path").val(path);
+			}
 		</script>
 		    </form>
 
@@ -151,7 +164,7 @@
 <script type="text/javascript" src="${ctx }/assets/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="${ctx }/assets/comp/xheditor/xheditor-1.2.1.min.js"></script>
 <script type="text/javascript" src="${ctx }/assets/comp/xheditor/xheditor_lang/zh-cn.js"></script>
-<script type="text/javascript">    
+<script type="text/javascript">
 	SyntaxHighlighter.all();
 </script>
 </body>
