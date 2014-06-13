@@ -12,15 +12,31 @@
 <title>${obj.title }</title>
 <meta name="decorator" content="cms_blog"/>
 <link href="${ctx }/assets/comp/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+	.c_s_face{
+		display: none;
+		position: absolute;
+		z-index: 20000;
+		padding: 2px;
+		border: 1px solid rgb(221, 221, 221);
+		background: rgb(255, 255, 255);
+	}
+	.c_s_face img{
+		cursor: pointer;
+	}
+	.c_s_face img.hover{
+		border: 1px solid red;
+	}
+</style>
 </head>
 <body>
 	<div id="breadcrumbs" class="con_box clearfix">
-				<div class="bcrumbs"><strong>
-					<a href="${ctx }/blog/index.html" title="返回首页">home</a></strong>
-					<a href="#" title="查看随笔中的全部文章">${obj.category.name }</a>	
-					<a>${obj.title }</a>
-				</div>
-			</div>
+		<div class="bcrumbs"><strong>
+			<a href="${ctx }/blog/index.html" title="返回首页">home</a></strong>
+			<a href="#" title="查看随笔中的全部文章">${obj.category.name }</a>	
+			<a>${obj.title }</a>
+		</div>
+	</div>
 	<div id="art_main1" class="art_white_bg fl">
 		<div class="art_title clearfix">        
 			<h1 align="center">${obj.title }</h1>
@@ -55,12 +71,9 @@
 				<li class="comment even thread-even depth-1" id="comment-${item.id }">
 					<div id="comment-${item.id }" class="comment-body">
 						<div class="comment-author vcard">
-							<img alt="" src="http://s.gravatar.com/avatar/e52e12ad624c399a43bf25b2ebfdc2a1?s=40" class="avatar avatar-40 photo avatar-default" height="40" width="40">
+							<img alt="" src="${ctx }${item.headPath}" class="avatar avatar-40 photo avatar-default" height="40" width="40">
 							<div class="floor">${status.index +1}楼</div>
 							<strong>${item.name }</strong>
-							<span class="commentmetadata">
-								<a class="comment-reply-link" href="/105.html?replytocom=104#respond" onclick="return addComment.moveForm(&quot;div-comment-104&quot;, &quot;104&quot;, &quot;respond&quot;, &quot;105&quot;)">[回复]</a>
-							</span>
 						</div>		
 						<span class="datetime">Post:${item.createDate } </span><div class="clear"></div>
 						<p>${item.content }</p>
@@ -74,14 +87,36 @@
 				<div class="b2"></div>
 				<div class="jiange2"></div>
 				<div class="cancel-comment-reply">
-					<div id="real-avatar">
-						<img id="sub_face" alt="" src="http://s.gravatar.com/avatar/e52e12ad624c399a43bf25b2ebfdc2a1?s=40" class="avatar avatar-40 photo avatar-default" height="40" width="40">
+					<div id="real-avatar" onmouseover="javascript:showFaces();" onmouseout="javascript:hideFaces();" style="cursor: pointer;">
+						<img id="sub_face" alt="" 
+							src="${ctx }/assets/img/face/1.png"
+							class="avatar avatar-40 photo avatar-default" 
+							height="40" width="40">
+						<!-- 选择图片区div -->
+						<div class="c_s_face" id="faces">
+							<div>
+								<img src="${ctx }/assets/img/face/1.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/2.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/3.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/4.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/5.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/6.png" height="40" width="40">
+							</div>
+							<div style="margin-top: 2px">
+								<img src="${ctx }/assets/img/face/7.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/8.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/9.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/10.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/11.png" height="40" width="40">
+								<img src="${ctx }/assets/img/face/12.png" height="40" width="40">
+							</div>
+						</div>
 					</div>
 					<a rel="nofollow" id="cancel-comment-reply-link" href="/105.html#respond" style="display:none;">点击这里取消回复。</a>
 				</div>
 		    	<form action="${ctx }/blog/comment" method="post" id="commentform" onsubmit="return validate();">
 		    		<input type="hidden" name="article.id" value="${obj.id }">
-		    		<input id="face_path" type="hidden" name="facePath" value="">
+		    		<input id="face_path" type="hidden" name="headPath" value="${ctx }/assets/img/face/1.png">
       				<div id="comment-author-info">
 						<p>
 							<input type="text" name="name" class="commenttext" value="" size="22" tabindex="1" id="c_name">
@@ -142,14 +177,42 @@
 			
 			$(function(){
 				face();
+				bindSelFaceE();
 			})
 			
 			function face(){
-				var r = parseInt(Math.random()*12);
+				var r = parseInt(Math.random()*12)+1;
 				var img = "${ctx}/assets/img/face/"+r+".png";
 				var path = "/assets/img/face/"+r+".png";
 				$("#sub_face").attr("src",img);
 				$("#face_path").val(path);
+			}
+			
+			//显示选择头像框
+			function showFaces(){
+				var top = $("#sub_face").position().top+40;
+				var left = $("#sub_face").position().left
+				$("#faces").css({"left":left+"px","top":top+"px"});
+				$("#faces").show();
+			}
+			
+			//隐藏选择头像框
+			function hideFaces(){
+				$("#faces").hide();
+			}
+			
+			//绑定选择头像时间
+			function bindSelFaceE(){
+				$("#faces img").mouseover(function(){
+					$(this).addClass("hover");
+				}).mouseout(function(){
+					$(this).removeClass("hover");
+				}).click(function(){
+					var path = $(this).attr("src").replace(new RegExp("${ctx}","gm"),"");
+					$("#sub_face").attr("src",$(this).attr("src"));
+					$("#face_path").val(path);
+					$("#faces").hide();
+				})
 			}
 		</script>
 		    </form>

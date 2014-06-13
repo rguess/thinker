@@ -66,6 +66,7 @@
 		App.activeMenu("cms/");
 		App.cancleActiveMenu("/cms/category/list");
 		App.cancleActiveMenu("/cms/site/list");
+		App.cancleActiveMenu("/cms/comment/list");
 		showTab();
 		UE.getEditor('ueditor');
 		
