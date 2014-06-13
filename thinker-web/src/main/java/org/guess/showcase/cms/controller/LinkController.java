@@ -15,6 +15,8 @@ import org.guess.showcase.cms.service.LinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.Lists;
@@ -39,6 +41,19 @@ public class LinkController extends BaseController<Link>{
 	
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Override
+	@RequestMapping(method = RequestMethod.POST, value = "/edit")
+	public String create(Link object) throws Exception {
+		return super.create(object);
+	};
+	
+	@Override
+	@RequestMapping(value = "/delete",method=RequestMethod.POST)
+	public String delete(@RequestParam("ids") Long[] ids , HttpServletRequest request)
+			throws Exception {
+		return super.delete(ids, request);
+	}
 	
 	@Override
 	public @ResponseBody

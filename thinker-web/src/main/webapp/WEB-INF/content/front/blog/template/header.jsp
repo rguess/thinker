@@ -2,7 +2,7 @@
 <div id="header">
    	<div id="header_in">
        	<div class="logo">
-       		<a href="#" title="thinker"><img src="${ctx }/assets/xyz/bg/images/logo1.png" alt="thinker"></a>
+       		<a href="${ctx }" title="thinker"><img src="${ctx }/assets/xyz/bg/images/logo1.png" alt="thinker"></a>
    		</div>
 	<div class="yiyu">
 		<p><br>一直被超越，从未被模仿</p>

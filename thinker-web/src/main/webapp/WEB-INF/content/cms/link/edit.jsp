@@ -116,6 +116,8 @@
 	$(function(){
 		App.activeMenu("cms/");
 		App.cancleActiveMenu("/cms/category/list");
+		App.cancleActiveMenu("/cms/site/list");
+		App.cancleActiveMenu("/cms/comment/list");
 	});
 	function showCaTree(){
 		$("#caTree").modal();

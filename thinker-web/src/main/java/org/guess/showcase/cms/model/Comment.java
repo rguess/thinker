@@ -48,6 +48,8 @@ public class Comment extends IdEntity {
 	 * 评论人网址
 	 */
 	private String url;
+	
+	private String headPath;
 	/**
 	 * 日期
 	 */
@@ -81,6 +83,12 @@ public class Comment extends IdEntity {
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private Article article;
 	
+	public String getHeadPath() {
+		return headPath;
+	}
+	public void setHeadPath(String headPath) {
+		this.headPath = headPath;
+	}
 	public String getUrl() {
 		return url;
 	}

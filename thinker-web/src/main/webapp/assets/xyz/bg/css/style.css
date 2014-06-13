@@ -612,3 +612,62 @@ a.tags:HOVER {
 	font-weight: normal;
 	color: rgb(153, 153, 153);
 }
+
+/* 友情链接 */
+.f_links{
+	position: fixed;
+	left: 0px;
+	top: 200px;
+	z-index: 20000;
+}
+
+.f_links .f_links_img{
+	cursor: pointer;
+	position: absolute;
+	right: -26px;
+	top: 10px;
+}
+
+.f_links .f_links_content{
+	display: none;
+	background-color: white;
+	border: solid 1px #e9e9e9;
+}
+
+.f_links .f_links_content li{
+	margin-left: 0px;
+	height: 28px;
+	overflow: hidden;
+	list-style: none;
+	width: 100%;
+}
+
+.f_links .f_links_content li a{
+	color: #565656;
+	display: block;
+	background-repeat: no-repeat;
+	padding: 5px 0 5px 28px;
+	text-decoration: none;
+	border: 1px solid #fff;
+	line-height: 18px;
+}
+
+.f_links .f_links_content li a:HOVER{
+	background-color: #f3f3f3;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/content/common/common.jsp"%>
 <html>
 <head>
-<title>rguess's博客</title>
+<title>rguess's博客|互联网技术个人博客</title>
 <meta name="decorator" content="cms_blog"/>
 </head>
 <body>
