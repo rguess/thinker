@@ -3,7 +3,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
 <head>
-<title>rguess's博客</title>
+<title>rguess's博客|互联网技术个人博客</title>
 <meta name="decorator" content="cms_blog"/>
 </head>
 <body>
@@ -322,6 +322,12 @@
 				</div>
     		</div>
      	</div>
+ 		<div class="page_navi">
+ 			<a href="${ctx }">1</a>
+ 			<a href="${ctx }/blog/page/2">2</a>
+ 			<a href="${ctx }/blog/page/2"> 下一页 </a>
+ 			<a href="${ctx }/blog/page/2" class="extend" title="跳转到最后一页"> 最后一页 </a>
+ 		</div>
  	</div>
 </body>
 </html>

@@ -4,6 +4,9 @@
 		<ul class="ulBox02">
 	    	<li class="current"><a href="${ctx }/blog/index.html">首页</a></li>
 				<li>
+						    <a href="${ctx }/blog/list/26.html">日记</a>
+				</li>
+				<li>
 						<a href="${ctx }/blog/list/27.html">技术</a>
 						<ul>
 							    <li><a href="${ctx }/blog/list/29.html">java</a></li>
@@ -13,9 +16,6 @@
 				</li>
 				<li>
 						    <a href="${ctx }/blog/list/31.html">随意</a>
-				</li>
-				<li>
-						    <a href="${ctx }/blog/list/26.html">日记</a>
 				</li>
 				<li>
 						<a href="${ctx }/blog/list/33.html">小伙伴</a>
