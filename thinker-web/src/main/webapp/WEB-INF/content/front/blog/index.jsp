@@ -47,7 +47,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-06-10</span>| 
 									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
-									<span>浏览 :  4</span>|
+									<span>浏览 :  15</span>|
 									<span>标签：<a href="#">设计模式</a></span>    
 									<span></span>
 								</td>
@@ -76,7 +76,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-06-10</span>| 
 									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
-									<span>浏览 :  9</span>|
+									<span>浏览 :  8</span>|
 									<span>标签：<a href="#">设计模式</a></span>    
 									<span></span>
 								</td>
@@ -310,7 +310,7 @@
 	                        	<td width="570">&nbsp;&nbsp;
 	                   				<span> 时间 : 2014-06-03</span>| 
 									<span>栏目 : <a href="#" title="查看java中的全部文章">java</a></span>| 
-									<span>浏览 :  22</span>|
+									<span>浏览 :  42</span>|
 									<span>标签：<a href="#">跨域,jquery,java</a></span>    
 									<span></span>
 								</td>
@@ -322,12 +322,11 @@
 				</div>
     		</div>
      	</div>
- 		<div class="page_navi">
- 			<a href="${ctx }">1</a>
- 			<a href="${ctx }/blog/page/2">2</a>
- 			<a href="${ctx }/blog/page/2"> 下一页 </a>
- 			<a href="${ctx }/blog/page/2" class="extend" title="跳转到最后一页"> 最后一页 </a>
- 		</div>
+ 	<div class="page_navi">
+			    <a href="http://www.rguess.com" class="current">1</a>
+				<a href="${ctx}/blog/page/2">2</a>
+				<a href="${ctx}/blog/page/3">3</a>
+	</div>
  	</div>
 </body>
 </html>

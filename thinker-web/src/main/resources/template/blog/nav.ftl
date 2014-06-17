@@ -2,7 +2,7 @@
 <div class="gridNav">
 	<div class="nav02">
 		<ul class="ulBox02">
-	    	<li class="current"><a href="${r'$'}{ctx }/blog/index.html">首页</a></li>
+	    	<li class="current"><a href="http://www.rguess.com">首页</a></li>
 	    	<#list categorys as item>
 				<li>
 					<#if ((item.childList)?size>0)>
