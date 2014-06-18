@@ -16,4 +16,5 @@ public interface CmsConstants {
 	 * 生成html后html的名称
 	 */
 	String ARTICLE_HTML_NAME = "index";
+	
 }
