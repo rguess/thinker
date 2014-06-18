@@ -263,7 +263,7 @@ ol.commentlist li div.floor{ float:right;color:#bbb}
 .copyright p.powered a, .footer_right p a{color:#e23a0a;}
 ---*/
 /*footer*/
-.footer { width:100%; padding:0px 0px 0px 0px; border-top:1px solid #ddd; }
+.footer { width:100%; padding:0px 0px 0px 0px;border-top:1px solid #ddd; }
 .footer .bottom_nav { width:auto; border-bottom:1px solid #ddd; padding:15px 0px; }
 .footer .bottom_nav ul { width:980px; list-style:none; margin:0px auto;}
 .footer .bottom_nav li { float:left; height:14px; line-height:14px; padding:0px 20px; border-right:2px solid #ccc;  }
