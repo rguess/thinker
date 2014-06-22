@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
+import org.guess.core.orm.Page;
+import org.guess.core.orm.PageRequest;
 import org.guess.core.utils.FreeMarkers;
 import org.guess.core.utils.web.ServletUtils;
 import org.guess.showcase.cms.model.Article;
@@ -98,10 +100,12 @@ public class HandleTemplate {
 		Site curSite = CmsUtil.getCurrentSite(request);
 		
 		//静态化主要文章内容
-		List<Article> list = articleService.listIndexs(curSite);
+		Page<Article> p = new Page<Article>(new PageRequest(1, 10));
+		Page<Article> page = articleService.listIndexs(curSite,p);
 		String indexPath = ServletUtils.getRealPath(request)+"/WEB-INF/content/front/"+curSite.getName()+"/index.jsp";
 		Map<String,Object> model = Maps.newHashMap();
-		model.put("list", list);
+		model.put("list", page.getResult());
+		model.put("sliders", page.getSlider(20));
 		FreeMarkers.writeFile("classpath:/template/"+curSite.getName(), "index.ftl", indexPath, model);
 		
 		//静态化最热文章和标签

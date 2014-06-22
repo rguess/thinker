@@ -7,9 +7,9 @@
 		<ul id="hots">
 				<li><a href="${ctx}/blog/article/35.html">关于我</a></li>
 				<li><a href="${ctx}/blog/article/37.html">shiro在remember me状态下session失效解决办法 </a></li>
+				<li><a href="${ctx}/blog/article/48.html">nginx代理tomcat系统不能获取真实ip解决办法</a></li>
 				<li><a href="${ctx}/blog/article/41.html">写于2014-5-24</a></li>
-				<li><a href="${ctx}/blog/article/38.html">jquery实现居中可拖拽窗体</a></li>
-				<li><a href="${ctx}/blog/article/39.html">java文件操作工具类</a></li>
+				<li><a href="${ctx}/blog/article/32.html">写于2014-5-18</a></li>
 		</ul>
 	</div>
 	<%@ include file="side_comment.jsp"%>
@@ -30,6 +30,7 @@
 			<a href="${ctx}/blog/tag/nginx.html" css="tags">nginx</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/生活.html" css="tags">生活</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/技术是什么.html" css="tags">技术是什么</a>&nbsp&nbsp&nbsp
+			<a href="${ctx}/blog/tag/心情.html" css="tags">心情</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/about me.html" css="tags">about me</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/思考.html" css="tags">思考</a>&nbsp&nbsp&nbsp
 			<a href="${ctx}/blog/tag/shiro.html" css="tags">shiro</a>&nbsp&nbsp&nbsp

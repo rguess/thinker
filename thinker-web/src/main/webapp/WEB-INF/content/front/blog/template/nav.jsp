@@ -2,7 +2,7 @@
 <div class="gridNav">
 	<div class="nav02">
 		<ul class="ulBox02">
-	    	<li class="current"><a href="${ctx }/blog/index.html">首页</a></li>
+	    	<li class="current"><a href="http://www.rguess.com">首页</a></li>
 				<li>
 						    <a href="${ctx }/blog/list/26.html">日记</a>
 				</li>

@@ -13,6 +13,7 @@ import org.guess.core.utils.web.ServletUtils;
 import org.guess.showcase.cms.model.Article;
 import org.guess.showcase.cms.model.Category;
 import org.guess.showcase.cms.model.Comment;
+import org.guess.showcase.cms.model.Site;
 import org.guess.showcase.cms.service.ArticleService;
 import org.guess.showcase.cms.service.CategoryService;
 import org.guess.showcase.cms.service.CommentService;
@@ -147,5 +148,24 @@ public class FrontController {
 		commentService.save(comment);
 		return "redirect:/" + site + "/article/" + comment.getArticle().getId()
 				+ ".html#comment-" + comment.getId();
+	}
+
+	/**
+	 * 文章分页查看
+	 */
+	@RequestMapping("{site}/page/{pageNo}")
+	public ModelAndView page(ModelAndView mav,
+			@PathVariable("site") String site,
+			@PathVariable("pageNo") int pageNo, HttpServletRequest request)
+			throws Exception {
+		Page<Article> p = new Page<Article>(new PageRequest(pageNo, 10));
+		CmsUtil.changeSite(request, site);
+		Site curSite = CmsUtil.getCurrentSite(request);
+		Page<Article> page = articleService.listIndexs(curSite, p);
+		mav.addObject("datas", page.getResult());
+		mav.addObject("sliders", page.getSlider(20));
+		mav.addObject("curNo", pageNo);
+		mav.setViewName("/front/" + site + "/page");
+		return mav;
 	}
 }

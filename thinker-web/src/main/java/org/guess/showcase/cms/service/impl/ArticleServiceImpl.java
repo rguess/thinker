@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.guess.core.orm.Page;
 import org.guess.core.orm.PageRequest;
 import org.guess.core.service.BaseServiceImpl;
 import org.guess.showcase.cms.dao.ArticleDao;
@@ -29,9 +30,8 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article, Long> implement
 	}
 
 	@Override
-	public List<Article> listIndexs(Site curSite) {
-		PageRequest pageRequest = new PageRequest(1, 10);
-		return articleDao.findPage(pageRequest, "from Article as a where category.site=? order by a.createDate desc", curSite).getResult();
+	public Page<Article> listIndexs(Site curSite, Page<Article> p) {
+		return articleDao.findPage(p, "from Article as a where category.site=? order by a.createDate desc", curSite);
 	}
 
 	@Override

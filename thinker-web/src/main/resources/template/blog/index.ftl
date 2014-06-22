@@ -3,7 +3,7 @@
 <c:set var="ctx" value="${r'$'}{pageContext.request.contextPath}" />
 <html>
 <head>
-<title>rguess's博客</title>
+<title>rguess's博客|互联网技术个人博客</title>
 <meta name="decorator" content="cms_blog"/>
 </head>
 <body>
@@ -59,6 +59,15 @@
     		</div>
      	</div>
  	</#list>
+ 	<div class="page_navi">
+ 		<#list sliders as s>
+ 			<#if s == 1>
+			    <a href="http://www.rguess.com" class="current">${s}</a>
+			<#else>
+				<a href="${r'$'}{ctx}/blog/page/${s}">${s}</a>
+			</#if>
+ 		</#list>
+	</div>
  	</div>
 </body>
 </html>
