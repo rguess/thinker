@@ -15,7 +15,7 @@ Page header
 .header .navbar-inner {
   filter:none !important;
   background-image: none !important;
-  background-color: #434343 !important;
+  background-color: rgb(47, 68, 89) !important;
 }
 
 .header .btn-navbar {  
@@ -24,7 +24,7 @@ Page header
 
 .header .nav .dropdown-toggle:hover, 
 .header .nav .dropdown.open .dropdown-toggle {
-  background-color: #4f4f4f !important;
+  background-color: rgb(56, 99, 133) !important;
 }
 
 .header .nav li.dropdown .dropdown-toggle i {
