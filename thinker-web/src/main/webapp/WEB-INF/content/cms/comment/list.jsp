@@ -81,7 +81,8 @@ $(document).ready(function() {
 		null,
 		[{cName:"name",cValue:"评论者昵称"},
 		 {cName:"content",cValue:"内容"},
-		 {cName:"ip",cValue:"ip地址"},
+		 {cName:"url",cValue:"url"},
+		 {cName:"email",cValue:"邮箱"},
 		 {cName:"createDate",cValue:"日期",format:function(i,value,item){
 			return new Date(value).format("yyyy-MM-dd hh:mm:ss");
 		 }},

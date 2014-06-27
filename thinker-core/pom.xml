@@ -17,6 +17,13 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
+	
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- servlet -->
 		<dependency>

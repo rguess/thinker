@@ -27,7 +27,7 @@ public class LinkServiceImpl extends BaseServiceImpl<Link, Long> implements
 	@Override
 	public List<Link> listFriendLinks(Site curSite) {
 		return linkDao.findPage(
-						new PageRequest(1, 10),
+						new PageRequest(1, 20),
 						"from Link where category.name like '%友情链接%' and category.site = ?",
 						curSite).getResult();
 	}
