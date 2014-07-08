@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.guess.core.orm.Page;
+import org.guess.core.orm.PageRequest.Sort;
 import org.guess.core.orm.PropertyFilter;
 import org.guess.core.utils.FileUtils;
 import org.guess.core.utils.UuidUtil;
@@ -165,6 +166,8 @@ public class ArticleController {
 		for (String id :cids) {
 			orfilters.add(new PropertyFilter("EQL_category.id", id));
 		}
+		page.setOrderBy("id");
+		page.setOrderDir(Sort.DESC);
 		Page<Article> pageData = aService.findPage(page,filters,orfilters);
 		return pageData.returnMap();
 	}
