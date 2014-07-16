@@ -9,4 +9,6 @@ public class SpirngTest {
 	public void test01(){
 		System.out.println(SpringVersion.getVersion());
 	}
+	
+	
 }
