@@ -9,6 +9,16 @@ public class ArrayTest {
 	int n = 0;
 	int m = 0;
 	
+	@Test
+	public void test4(){
+		String str1="abc";
+		String str2="abc";
+		System.out.println(str1==str2);//false
+		str1="bcd";
+		System.out.println(str1+","+str2);//bcd,abc
+		System.out.println(str1==str2);//false
+	}
+	
 	public void test3(){
 		int[] x = {1,2,3,1,4,5,6,1};
 		int[] y = new int[x.length];
@@ -51,13 +61,7 @@ public class ArrayTest {
 	@Test
 	public void test1() {
 		for (int i = 0; i < a.length; i++) {
-			if (a.length - i <= m) {
-				break;
-			}
 			for (int j = 0; j < b.length; j++) {
-				if (b.length - j <= m) {
-					break;
-				}
 				for (int x = 0;; x++) {
 					if ((x + i < a.length || x + j < b.length)
 							&& a[x + i] == b[x + j]) {
