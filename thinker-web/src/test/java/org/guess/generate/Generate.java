@@ -44,21 +44,18 @@ public class Generate {
 
 		// packageName
 		// 包名，这里如果更改包名，请在applicationContext.xml和srping-mvc.xml中配置base-package、packagesToScan属性，来指定多个（共4处需要修改）。
-		String packageName = "org.guess.showcase";
+		String packageName = "com.dview.modules";
 
-		String moduleName = "cms"; // 模块名，例：sys
-		String className = "comment"; // 类名，例：user
+		String moduleName = "sys"; // 模块名，例：sys
+		String className = "AirsRegion"; // 类名，例：user
 		String classAuthor = "rguess"; // 类作者，例：ThinkGem
-		String functionName = "评论"; // 功能名，例：用户
+		String functionName = "行政区"; // 功能名，例：用户
 		
 		List<Field> fields = new ArrayList<Field>();
 		fields.add(new Field("content", "内容", "String"));
 		fields.add(new Field("name", "名称", "String"));
 		fields.add(new Field("ip", "ip地址", "String"));
 		fields.add(new Field("createDate", "日期", "Date"));
-		fields.add(new Field("auditUser", "审核人", "User"));
-		fields.add(new Field("auditDate", "审核日期", "Date"));
-		fields.add(new Field("delFlag", "标记", "int"));
 		
 		
 
@@ -136,7 +133,7 @@ public class Generate {
 		String filePath = javaPath + separator + model.get("moduleName")
 				+ separator + "model" + separator
 				+ model.get("ClassName") + ".java";
-		writeFile(content, filePath);
+//		writeFile(content, filePath);
 		logger.info("Entity: {}", filePath);
 
 		// 生成 Dao
@@ -179,7 +176,7 @@ public class Generate {
 		writeFile(content, filePath);
 		logger.info("Controller: {}", filePath);
 		
-		// 生成 list.jsp
+	/*	// 生成 list.jsp
 		template = cfg.getTemplate("list.ftl");
 		content = FreeMarkers.renderTemplate(template, model);
 		filePath = viewPath + separator + "list.jsp";
@@ -191,7 +188,7 @@ public class Generate {
 		content = FreeMarkers.renderTemplate(template, model);
 		filePath = viewPath + separator + "edit.jsp";
 		writeFile(content, filePath);
-		logger.info("Controller: {}", filePath);
+		logger.info("Controller: {}", filePath);*/
 
 		logger.info("Generate Success.");
 	}
