@@ -208,23 +208,4 @@ public class WorkFlowController extends BaseWorkFlowController {
             response.getOutputStream().write(b, 0, len);
         }
     }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

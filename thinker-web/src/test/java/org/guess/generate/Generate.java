@@ -46,8 +46,8 @@ public class Generate {
 		// 包名，这里如果更改包名，请在applicationContext.xml和srping-mvc.xml中配置base-package、packagesToScan属性，来指定多个（共4处需要修改）。
 		String packageName = "com.dview.modules";
 
-		String moduleName = "sys"; // 模块名，例：sys
-		String className = "AirsRegion"; // 类名，例：user
+		String moduleName = "wf"; // 模块名，例：sys
+		String className = "WfTask"; // 类名，例：user
 		String classAuthor = "rguess"; // 类作者，例：ThinkGem
 		String functionName = "行政区"; // 功能名，例：用户
 		

@@ -6,10 +6,13 @@ import ${packageName}.${moduleName}.model.${ClassName};
 import org.springframework.stereotype.Repository;
 
 /**
- * ${functionName}daoImpl
- * @author ${classAuthor}
- * @version ${classVersion}
- */
+* 
+* @ClassName: ${ClassName}
+* @Description: ${ClassName}daoImpl
+* @author renzp
+* @date 2014-8-5 下午02:04:46
+*
+*/
 @Repository
 public class ${ClassName}DaoImpl extends HibernateDao<${ClassName},Long> implements ${ClassName}Dao {
 

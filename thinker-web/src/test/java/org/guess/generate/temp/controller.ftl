@@ -8,10 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * ${functionName}controller
- * @author ${classAuthor}
- * @version ${classVersion}
- */
+* 
+* @ClassName: ${ClassName}
+* @Description: ${ClassName}Controller
+* @author renzp
+* @date 2014-8-5 下午02:04:46
+*
+*/
 @Controller
 @RequestMapping("/${moduleName}/${className}")
 public class ${ClassName}Controller extends BaseController<${ClassName}>{

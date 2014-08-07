@@ -4,10 +4,13 @@ import org.guess.core.service.BaseService;
 import ${packageName}.${moduleName}.model.${ClassName};
 
 /**
- * ${functionName}service
- * @author ${classAuthor}
- * @version ${classVersion}
- */
+* 
+* @ClassName: ${ClassName}
+* @Description: ${ClassName}service
+* @author renzp
+* @date 2014-8-5 下午02:04:46
+*
+*/
 public interface ${ClassName}Service extends BaseService<${ClassName}, Long>{
 
 }
