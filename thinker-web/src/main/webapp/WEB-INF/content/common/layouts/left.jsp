@@ -19,7 +19,7 @@
 			</form>
 			<!-- END RESPONSIVE QUICK SEARCH FORM -->
 		</li>
-		<li class="start"><a href="index.html"> <i class="icon-home"></i>
+		<li class="start"><a href="${ctx }/index"> <i class="icon-home"></i>
 				<span class="title">首页</span> <span class="selected"></span>
 		</a></li>
 

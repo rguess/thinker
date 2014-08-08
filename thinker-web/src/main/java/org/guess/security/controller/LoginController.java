@@ -42,11 +42,14 @@ public class LoginController {
 	public String index() {
 		return "/front/blog/index";
 	}
+	
+	@RequestMapping(method = RequestMethod.GET,value="/index")
+	public String managerIndex() {
+		return "/index";
+	}
 
 	@RequestMapping(method = RequestMethod.GET,value="/login")
 	public String login() {
-		/*Object object = session.getAttribute(Constants.CURRENT_USER);
-		System.out.println(object);*/
 		return "login";
 	}
 
@@ -85,7 +88,7 @@ public class LoginController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return "redirect:/sys/user/list";
+			return "redirect:/index";
 		} else {
 			token.clear();
 		}

@@ -90,7 +90,7 @@
 		<property name="cacheManager" ref="shiroEhcacheManager" />
 		<property name="sessionManager" ref="sessionManager" />
 		<property name="kickoutAfter" value="false" />
-		<property name="maxSession" value="1" />
+		<property name="maxSession" value="10" />
 		<property name="kickoutUrl" value="/login?error=kickout" />
 	</bean>
 
