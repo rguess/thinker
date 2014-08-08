@@ -12,5 +12,8 @@ var Header = {
 				unBlockUI();
 			}
 		});
+	},
+	tips : function(){
+		alert("还没做0.0!");
 	}
 }
