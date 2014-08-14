@@ -471,7 +471,7 @@ public class HibernateDao<T, ID extends Serializable> extends
 	}
 	
 	/**
-	 * 暗属性创建orCriterion数组,辅助函数.
+	 * 按属性创建orCriterion数组,辅助函数.
 	 * @param orfilters
 	 * @return
 	 */

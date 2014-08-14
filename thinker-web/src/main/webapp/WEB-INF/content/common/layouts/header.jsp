@@ -75,19 +75,19 @@
 							<i class="icon-angle-down"></i>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="javascript:void(0);">
+						<li><a href="javascript:void(0);" onclick="javascript:Header.tips();">
 							<i class="icon-user"></i>&nbsp&nbsp&nbsp<span>个人信息</span>
 							</a>
 						</li>
-						<li><a href="javascript:void(0);" onclick="javascript:Header.changePwd();">
+						<li><a href="javascript:void(0);" onclick="javascript:Header.tips();">
 							<i class="icon-wrench"></i>&nbsp&nbsp&nbsp<span>修改密码</span>
 							</a>
 						</li>
-						<li><a href="javascript:void(0);">
+						<li><a href="javascript:void(0);" onclick="javascript:Header.tips();">
 							<i class="icon-calendar"></i>&nbsp&nbsp&nbsp<span>我的任务</span>
 							</a>
 						</li>
-						<li><a href="javascript:void(0);" onclick="javascript:Header.loadSysSetting();">
+						<li><a href="javascript:void(0);" onclick="javascript:Header.tips();">
 							<i class="icon-cog"></i>&nbsp&nbsp&nbsp<span>系统设置</span>
 							</a>
 						</li>

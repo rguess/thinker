@@ -68,5 +68,15 @@ Thumbs.db
 # 忽略所有的隐藏文件
 .*
 
+#忽略idea配置文件
+.idea/
+*/.idea/
+# */.iml
+*.iml
+*/*/.iml
+*/*/*/.iml
+*/*/*/*/.iml
+*/*/*/*/*/.iml
+
 # 在上面的规则中加入一条例外，即不要忽略.gitignore文件
 !.gitignore
