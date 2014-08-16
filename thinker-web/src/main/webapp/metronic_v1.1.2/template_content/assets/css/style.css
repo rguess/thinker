@@ -4510,7 +4510,7 @@ Choosen plugin css changes
   background-image: none !important;
   filter:none !important;
   box-shadow: none !important;
-  -webkit-box-shadow none !important;
+  -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   height: 31px !important;
   border-color: #e5e5e5;
