@@ -275,6 +275,12 @@
             <artifactId>freemarker</artifactId>
         </dependency>
 
+        <!--hibernate validater-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
         <!-- thinker -->
         <dependency>
             <groupId>org.guess.thinker</groupId>

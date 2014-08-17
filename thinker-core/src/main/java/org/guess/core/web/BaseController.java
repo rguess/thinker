@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.guess.core.orm.Page;
 import org.guess.core.orm.PropertyFilter;
@@ -68,7 +69,7 @@ public abstract class BaseController<T> {
 	 * @throws Exception
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/edit")
-	public String create(T object) throws Exception {
+	public String create(@Valid T object) throws Exception {
 		baseService.save(object);
 		return REDIRECT + listView;
 	}
