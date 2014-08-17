@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import org.guess.core.orm.IdEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "SYS_ROLE")

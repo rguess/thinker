@@ -14,7 +14,7 @@
        		http://www.springframework.org/schema/util
        		http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-    <aop:aspectj-autoproxy/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 	<context:annotation-config />
 	<!-- 使用annotation模式 -->
 	<context:component-scan base-package="org.guess">

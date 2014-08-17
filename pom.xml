@@ -40,6 +40,7 @@
         <activiti.version>5.14</activiti.version>
         <h2.version>1.3.173</h2.version>
         <freemarker.version>2.3.19</freemarker.version>
+        <hibernate-validator.version>5.0.3.Final</hibernate-validator.version>
     </properties>
 
     <dependencyManagement>
@@ -386,6 +387,13 @@
                 <groupId>org.apache.ant</groupId>
                 <artifactId>ant</artifactId>
                 <version>1.7.1</version>
+            </dependency>
+
+            <!--hibernate validater-->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
             </dependency>
 
         </dependencies>
