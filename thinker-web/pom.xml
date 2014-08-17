@@ -19,7 +19,7 @@
     <properties>
         <thinker-version>0.0.1-SNAPSHOT</thinker-version>
         <jetty.version>7.6.10.v20130312</jetty.version>
-        <webserver.port>8181</webserver.port>
+        <webserver.port>8888</webserver.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>false</downloadSources>
     </properties>

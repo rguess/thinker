@@ -59,3 +59,8 @@ i.ibtn{
 .notification .active>a{
 	background-color: green !important;
 }
+
+/*固定左边菜单栏，不随滚动条上下移动*/
+.page-sidebar{
+    position: fixed;
+}
