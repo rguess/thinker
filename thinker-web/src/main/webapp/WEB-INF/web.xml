@@ -87,20 +87,25 @@
 	<welcome-file-list>
 		<welcome-file>/login</welcome-file>
 	</welcome-file-list>
-	
+
 	<error-page>
 		<error-code>404</error-code>
-		<location>/errorpage/404.jsp</location>
-	</error-page>
-	
-	<error-page>
-		<error-code>403</error-code>
-		<location>/errorpage/403.jsp</location>
+		<location>/WEB-INF/content/errors/404.jsp</location>
 	</error-page>
 
     <error-page>
-        <error-code>500</error-code>
-        <location>/errorpage/500.jsp</location>
+        <error-code>400</error-code>
+        <location>/WEB-INF/content/errors/400.jsp</location>
     </error-page>
+	<!---->
+	<!--<error-page>-->
+		<!--<error-code>403</error-code>-->
+		<!--<location>/errorpage/403.jsp</location>-->
+	<!--</error-page>-->
+
+    <!--<error-page>-->
+        <!--<error-code>500</error-code>-->
+        <!--<location>/errorpage/500.jsp</location>-->
+    <!--</error-page>-->
 	
 </web-app>

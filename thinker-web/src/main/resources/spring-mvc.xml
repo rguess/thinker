@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  ">
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-	
-	<context:component-scan base-package="org.guess.**.controller"
-		use-default-filters="false">
-		<context:include-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
+
+    <context:component-scan base-package="org.guess.**.controller"
+                            use-default-filters="false">
+        <context:include-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!-- 指定自己定义的validator -->
     <mvc:annotation-driven validator="validator"/>
@@ -40,33 +41,54 @@
     </bean>
 
 
+    <!--视图配置-->
     <bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/content/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/content/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
-	<!-- 多视图配置 -->
-	<bean class="org.springframework.context.support.ResourceBundleMessageSource"
-		id="messageSource">
-		<property name="basename" value="messages" />
-	</bean>
+    <!-- 多视图配置 -->
+    <bean class="org.springframework.context.support.ResourceBundleMessageSource"
+          id="messageSource">
+        <property name="basename" value="messages"/>
+    </bean>
 
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="defaultEncoding" value="UTF-8" />
-		<property name="maxInMemorySize" value="4096">
-		</property>
-	</bean>
+    <!--上传文件配置-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxInMemorySize" value="4096">
+        </property>
+    </bean>
 
-	<!-- <mvc:interceptors> <bean class="org.guess.security.HandlerInterceptor1" 
-		/> </mvc:interceptors> -->
+    <!--统一异常处理-->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!-- 定义默认的异常处理页面 -->
+        <property name="defaultErrorView" value="errors/500"/>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.apache.shiro.authz.UnauthorizedException">errors/403</prop>
+                <prop key="javax.validation.ConstraintViolationException">errors/400</prop>
+            </props>
+        </property>
+        <property name="statusCodes">
+            <props>
+                <prop key="errors/500">500</prop>
+                <prop key="errors/403">403</prop>
+                <prop key="errors/400">400</prop>
+            </props>
+        </property>
+        <property name="warnLogCategory" value="WARN"/>
+    </bean>
 
-	<mvc:resources mapping="/assets/**" location="/assets/" />
-	<mvc:resources mapping="/upload/**" location="/upload/" />
-	<mvc:resources mapping="/metronic_v1.1.2/**" location="/metronic_v1.1.2/" />
-	<mvc:resources mapping="/metronic.bootstrap/**" location="/metronic.bootstrap/" />
+    <!-- <mvc:interceptors> <bean class="org.guess.security.HandlerInterceptor1"
+        /> </mvc:interceptors> -->
 
-	<mvc:resources mapping="/html/**" location="/html/" />
+    <mvc:resources mapping="/assets/**" location="/assets/"/>
+    <mvc:resources mapping="/upload/**" location="/upload/"/>
+    <mvc:resources mapping="/metronic_v1.1.2/**" location="/metronic_v1.1.2/"/>
+
+    <mvc:resources mapping="/html/**" location="/html/"/>
 
 </beans>
