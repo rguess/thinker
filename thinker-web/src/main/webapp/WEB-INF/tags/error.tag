@@ -1,8 +1,9 @@
-<%@ tag language="java" pageEncoding="UTF-8" description="错误信息通用"%>
+<%@ tag language="java" pageEncoding="UTF-8" description="错误信息通用" %>
 <%@ attribute name="errorStr" type="java.lang.String" required="true" description="错误类型信息" %>
 <html>
 <head>
     <title>错误页面</title>
+    <meta name="decorator" content="default"/>
 </head>
 <body>
 <div class="page-content">

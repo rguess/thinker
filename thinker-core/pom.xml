@@ -26,11 +26,12 @@
 		</dependency>
 
 		<!-- servlet -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jsp-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
+        <!-- j2ee web spec -->
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+        </dependency>
 
 		<!-- hibernate -->
 		<dependency>

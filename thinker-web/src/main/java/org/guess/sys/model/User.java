@@ -45,6 +45,7 @@ public class User extends IdEntity {
 	/** 状态 0 无效 1 有效 */
 	private int status = Constants.USER_STATUS_UNLOCK;
 	/** 备注 */
+    @NotEmpty
 	private String remark;
 
 	/** 创建时间 */
