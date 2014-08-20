@@ -22,7 +22,9 @@ var Chat = {
             timeout: 30 * 1000,
             success: function (data) {
                 var obj = $.parseJSON(data);
-                Chat.insertData(obj,"out");
+                if(App.isNundef(data)){
+                    Chat.insertData(obj,"out");
+                }
                 Chat.callback(data);
             },
             error: function (data) {

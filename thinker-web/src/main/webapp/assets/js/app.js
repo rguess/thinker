@@ -434,10 +434,10 @@ var App = function () {
     //高度自适应
     var responsiveWindowHeight = function(){
     	var winHeight = $(window).height();
-		$(".page-content").css("min-height",winHeight-80+"px");
+//		$(".page-content").css("min-height",winHeight-97+"px");
 		$(window).resize(function(){
 			var winHeight = $(window).height();
-			$(".page-content").css("min-height",winHeight-80+"px");
+//			$(".page-content").css("min-height",winHeight-97+"px");
 		});
     };
     
