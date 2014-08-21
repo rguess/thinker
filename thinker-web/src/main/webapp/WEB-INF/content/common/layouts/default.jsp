@@ -38,7 +38,7 @@
     <script src="${ctx}/assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="${ctx}/assets/comp/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script>
-        //设置路劲
+        //设置路径
         var ctx = "${ctx}";
         jQuery(document).ready(function () {
             //初始化

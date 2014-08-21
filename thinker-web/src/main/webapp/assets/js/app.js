@@ -143,13 +143,13 @@ var App = function () {
                 jQuery('.arrow', jQuery(this)).removeClass("open");
                 jQuery(this).parent().removeClass("open");
                 sub.slideUp(200, function () {
-                    handleContentHeight();
+//                    handleContentHeight();
                 });
             } else {
                 jQuery('.arrow', jQuery(this)).addClass("open");
                 jQuery(this).parent().addClass("open");
                 sub.slideDown(200, function () {
-                    handleContentHeight();
+//                    handleContentHeight();
                 });
             }
         });
@@ -206,13 +206,6 @@ var App = function () {
             }
         });
 
-        /*
-        sample code to handle portlet config popup on close
-        $('#portlet-config').on('hide', function (e) {
-            //alert(1);
-            //if (!data) return e.preventDefault() // stops modal from being shown
-        });
-        */
     }
 
     var handleFixInputPlaceholderForIE = function () {
@@ -356,7 +349,7 @@ var App = function () {
             width: 'auto',
             'onAddTag': function () {
                 alert(1);
-            },
+            }
         });
         $('#tags_2').tagsInput({
             width: 240
@@ -393,17 +386,6 @@ var App = function () {
             });
         }
 
-        /*
-        //if (isIE8 == false) {
-            $(window).resize(function(){
-               setPageScroller(); 
-            });
-            setPageScroller();
-        //} else {
-            $('.main').removeClass("main");
-        //}
-        */
-
         $('.scroller').each(function () {
             $(this).slimScroll({
                 //start: $('.blah:eq(1)'),
@@ -434,10 +416,10 @@ var App = function () {
     //高度自适应
     var responsiveWindowHeight = function(){
     	var winHeight = $(window).height();
-//		$(".page-content").css("min-height",winHeight-97+"px");
+		$(".page-content").css("min-height",winHeight-97+"px");
 		$(window).resize(function(){
 			var winHeight = $(window).height();
-//			$(".page-content").css("min-height",winHeight-97+"px");
+			$(".page-content").css("min-height",winHeight-97+"px");
 		});
     };
     
@@ -488,30 +470,9 @@ var App = function () {
     
     //初始化同步提交form的validate
     var handleSyncFormValidate = function(){
-    	/*if(isIE8){
-    		handleSyncFormValidateIE8();
-    		return;
-    	}*/
-//    	handleSyncFormValidateIE8();
 		if($(".form_sync").length !=0){
 			$.each($(".form_sync"),function(i,item){
 				$(item).validate();
-			});
-		}
-    };
-    
-    var handleSyncFormValidateIE8 = function(){
-    	if($(".form_sync").length !=0){
-			$.each($(".form_sync"),function(i,item){
-				var rules = {};
-				$.each($(item).find("input[validate]"),function(n,m){
-					rules[$(m).attr("name")] = eval('(' + $(m).attr("validate") + ')');
-				})
-				var cur_rules = $(item).validate({rules:rules}).settings.rules;
-				console.log(JSON.stringify(cur_rules));
-//				console.log($(item).validate({rules:rules}));
-//				console.log(JSON.stringify(cur_rules));
-//				$(item).validate({rules:rules});
 			});
 		}
     };
@@ -570,7 +531,6 @@ var App = function () {
             handleAccordions(); //handles accordions
             
             colseDIYWin();
-            responsiveWindowHeight();
             handleDatePicker();
             handleDateTimePicker();
             handleProLetRomColor();
@@ -579,6 +539,10 @@ var App = function () {
             if(isIE8 || isIE9 || isIE10){
             	handleResetForm();
             	handleBindEventPlaceHolderFontColorForIE();
+            }
+
+            if(isIE8){
+                responsiveWindowHeight();
             }
         },
 

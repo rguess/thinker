@@ -34,10 +34,10 @@ Page header
 /***
 Page sidebar
 ***/
-.page-content {
-  border-left: 1px solid #e2e2e2 !important;
-  border-bottom: 1px solid #e2e2e2 !important;
-}
+/*.page-content {*/
+  /*border-left: 1px solid #e2e2e2 !important;*/
+  /*border-bottom: 1px solid #e2e2e2 !important;*/
+/*}*/
 
 .page-sidebar > ul > li > a {
   border-top: 1px solid #e2e2e2 !important;

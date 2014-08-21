@@ -35,6 +35,7 @@
     min-height: 0;
     border-left: none !important;
     border-bottom: none !important;
+    padding-bottom: 20px;
 }
 
 /* 调低导航与内容的距离 */
@@ -71,6 +72,7 @@ i.ibtn {
     position: fixed;
     border-right: 1px solid #e2e2e2 !important;
     border-bottom: 1px solid #e2e2e2 !important;
+    height: 100% !important;
 }
 
 /*footer*/
@@ -81,4 +83,9 @@ i.ibtn {
     margin: 0 auto;
     bottom: 0;
     border-top: 1px solid #e2e2e2 !important;
+    background-color: #ffffff;
 }
+
+/*html,body,.page-container,.page-content{*/
+    /*height: 100% !important;*/
+/*}*/

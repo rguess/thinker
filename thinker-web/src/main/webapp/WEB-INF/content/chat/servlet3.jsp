@@ -71,6 +71,7 @@
 <script type="text/javascript" src="${ctx}/assets/js/chat/Chat.js"></script>
 <script type="text/javascript">
     $(function () {
+        App.activeMenu("/chat/servlet3");
         Chat.init();
     })
 </script>
