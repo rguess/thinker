@@ -36,7 +36,7 @@ public class Algorithm {
 	public void test(){
 		System.out.println(fengjie(200));
 		System.out.println(dengji(80));
-	}
+    }
 	
 	
 }

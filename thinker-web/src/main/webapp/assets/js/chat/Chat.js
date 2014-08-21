@@ -15,28 +15,32 @@ var Chat = {
     longPolling: function () {
         $.ajax({
             url: Chat.url + "/poll",
-            type:"POST",
+            type: "POST",
             async: true,
             cache: false,
             global: false,
             timeout: 30 * 1000,
             success: function (data) {
                 var obj = $.parseJSON(data);
-                if(App.isNundef(data)){
-                    Chat.insertData(obj,"out");
+                if (App.isNundef(data)) {
+                    Chat.insertData(obj, "out");
                 }
-                Chat.callback(data);
+                setTimeout(
+                    function () {
+                        Chat.longPolling();
+                    },
+                    10
+                );
             },
             error: function (data) {
-                Chat.callback(data);
+                setTimeout(
+                    function () {
+                        Chat.longPolling();
+                    },
+                        5 * 1000
+                );
             }
         });
-    },
-    /**
-     * 回调消息
-     */
-    callback: function (data) {
-        Chat.longPolling();
     },
     /**
      * 发送消息
@@ -45,13 +49,13 @@ var Chat = {
         $.ajax({
             url: Chat.url + "/send",
             type: "POST",
-            data : {msg:msg}
+            data: {msg: msg}
         });
     },
     /**
      * insertData
      */
-    insertData : function(data,inorout){
+    insertData: function (data, inorout) {
         var cont = $('#chats');
         var list = $('.chats', cont);
         var form = $('.chat-form', cont);
@@ -59,12 +63,12 @@ var Chat = {
         var btn = $('.btn', form);
 
 
-        var headerImgPath = (inorout == "in")?"avatar1":"avatar2";
+        var headerImgPath = (inorout == "in") ? "avatar1" : "avatar2";
         var time = new Date();
         var time_str = time.format("hh:mm:ss");
         var tpl = '';
-        tpl += '<li class="'+inorout+'">';
-        tpl += '<img class="avatar" alt="" src="'+ctx+'/assets/img/'+headerImgPath+'.jpg"/>';
+        tpl += '<li class="' + inorout + '">';
+        tpl += '<img class="avatar" alt="" src="' + ctx + '/assets/img/' + headerImgPath + '.jpg"/>';
         tpl += '<div class="message">';
         tpl += '<span class="arrow"></span>';
         tpl += '<a href="#" class="name">Bob Nilson</a>&nbsp;';
@@ -96,7 +100,7 @@ var Chat = {
             }
 
             Chat.send(text);
-            Chat.insertData({msg:text},"in");
+            Chat.insertData({msg: text}, "in");
             input.val("");
         }
 

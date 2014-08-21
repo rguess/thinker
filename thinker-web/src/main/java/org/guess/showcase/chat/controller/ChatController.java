@@ -1,5 +1,6 @@
 package org.guess.showcase.chat.controller;
 
+import org.guess.core.utils.web.ServletUtils;
 import org.guess.sys.util.UserUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,14 +36,12 @@ public class ChatController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "poll",method = RequestMethod.POST)
-    public DeferredResult<String> poll(HttpServletRequest request) {
-
-        String loginId = UserUtil.getCurrentUser().getLoginId();
-        return msgPublisher.startAsync(loginId);
+    @RequestMapping(value = "poll", method = RequestMethod.POST)
+    public DeferredResult<Object> poll(HttpServletRequest request) {
+        return msgPublisher.startAsync(UserUtil.getCurrentUser(), ServletUtils.getIpAddr(request));
     }
 
-    @RequestMapping(value = "send",method = RequestMethod.POST)
+    @RequestMapping(value = "send", method = RequestMethod.POST)
     @ResponseBody
     private void send(final HttpServletRequest req) {
         String sender = UserUtil.getCurrentUser().getLoginId();
