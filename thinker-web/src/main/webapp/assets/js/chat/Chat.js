@@ -37,7 +37,7 @@ var Chat = {
                     function () {
                         Chat.longPolling();
                     },
-                        5 * 1000
+                    10
                 );
             }
         });

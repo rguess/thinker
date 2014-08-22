@@ -413,7 +413,7 @@ var App = function () {
     	});
     };
     
-    //高度自适应
+    //IE8需要高度自适应
     var responsiveWindowHeight = function(){
     	var winHeight = $(window).height();
 		$(".page-content").css("min-height",winHeight-97+"px");

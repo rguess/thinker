@@ -56,6 +56,411 @@
                 </c:otherwise>
             </c:choose>
         </c:forEach>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="has-sub menu">
+            <a href="javascript:;">
+                <i class="ztree_root_close"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub">
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/user/list">
+                        <i class="diy_icon_01_05"></i>
+                        用户管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/role/list">
+                        <i class="diy_icon_01_10"></i>
+                        角色管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/resource/list">
+                        <i class="ztree_report"></i>
+                        资源菜单
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/icon/list">
+                        <i class="diy_icon_01_02"></i>
+                        图标管理
+                    </a>
+                </li>
+
+                <li class="menu-child">
+                    <a href="/thinker/sys/log/list">
+                        <i class="diy_icon_04_19"></i>
+                        系统日志
+                    </a>
+                </li>
+
+            </ul>
+        </li>
     </ul>
     <!-- END SIDEBAR MENU -->
 </div>
