@@ -44,7 +44,7 @@
                                         <a href="#" class="name">Lisa Wong</a>
                                         <span class="datetime">at Jul 25, 2012 11:09</span>
 										<span class="body">
-										广坤：你看一下这个demo需求吧，具体除了demo功能模块是这些。
+										你看一下这个demo需求吧，具体除了demo功能模块是这些。
 										</span>
                                     </div>
                                 </li>
@@ -67,7 +67,6 @@
     </div>
 </div>
 <%@ include file="/WEB-INF/content/common/plugins/jquery-ui.jsp" %>
-<%@ include file="/WEB-INF/content/common/plugins/jquery-slimscroll.jsp" %>
 <script type="text/javascript" src="${ctx}/assets/js/chat/Chat.js"></script>
 <script type="text/javascript">
     $(function () {

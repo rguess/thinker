@@ -14,7 +14,7 @@ var App = function () {
             isIE9 = true;
         }
 
-        isIE10 = !! navigator.userAgent.match(/MSIE 10/);
+        isIE10 = !!navigator.userAgent.match(/MSIE 10/);
 
         if (isIE10) {
             jQuery('html').addClass('ie10'); // set ie10 class on html element.
@@ -407,109 +407,139 @@ var App = function () {
     }
 
     //关闭自定义弹出层
-    var colseDIYWin = function(){
-    	$(".remove1").click(function(){
-    		$(this).closest(".diywindow").hide();
-    	});
+    var colseDIYWin = function () {
+        $(".remove1").click(function () {
+            $(this).closest(".diywindow").hide();
+        });
     };
-    
+
     //高度自适应
-    var responsiveWindowHeight = function(){
-    	var winHeight = $(window).height();
-		$(".page-content").css("min-height",winHeight-97+"px");
-		$(window).resize(function(){
-			var winHeight = $(window).height();
-			$(".page-content").css("min-height",winHeight-97+"px");
-		});
+    var responsiveWindowHeight = function () {
+        var winHeight = $(window).height();
+        $(".page-content").css("min-height", winHeight - 97 + "px");
     };
-    
+
     //dateTimepicker日历控件,没时间
-    var handleDatePicker = function(){
-    	if($(".form_date").length <= 0){
-    		return;
-    	}
-    	$(".form_date").datetimepicker({
-		        language:  'zh-CN',
-		        weekStart: 1,
-		        todayBtn:  1,
-				autoclose: 1,
-				todayHighlight: 1,
-				startView: 2,
-				minView: 2,
-				forceParse: 0
-		 });
+    var handleDatePicker = function () {
+        if ($(".form_date").length <= 0) {
+            return;
+        }
+        $(".form_date").datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
     };
-    
+
     //dateTimepicker日历控件,有时间
-    var handleDateTimePicker = function(){
-    	if($(".form_datetime").length <= 0){
-    		return;
-    	}
-    	$(".form_datetime").datetimepicker({
-	        language:  'zh-CN',
-	        weekStart: 1,
-	        todayBtn:  1,
-			autoclose: 1,
-			todayHighlight: 1,
-			startView: 2,
-			forceParse: 0,
-	        showMeridian: 1
-	    });
+    var handleDateTimePicker = function () {
+        if ($(".form_datetime").length <= 0) {
+            return;
+        }
+        $(".form_datetime").datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
     };
-    
+
     //portlet随机颜色
-    var handleProLetRomColor = function(){
-    	var colors = ["blue","light blue","red","yellow","green","purple","light grey"];
-		var prolet = $(".portlet");
-		$.each(colors,function(i,item){
-			prolet.removeClass(item);
-		});
-		var temp = parseInt(Math.random()*colors.length);
-		prolet.addClass(colors[temp]);
+    var handleProLetRomColor = function () {
+        var colors = ["blue", "light blue", "red", "yellow", "green", "purple", "light grey"];
+        var prolet = $(".portlet");
+        $.each(colors, function (i, item) {
+            prolet.removeClass(item);
+        });
+        var temp = parseInt(Math.random() * colors.length);
+        prolet.addClass(colors[temp]);
     };
-    
+
     //初始化同步提交form的validate
-    var handleSyncFormValidate = function(){
-		if($(".form_sync").length !=0){
-			$.each($(".form_sync"),function(i,item){
-				$(item).validate();
-			});
-		}
+    var handleSyncFormValidate = function () {
+        if ($(".form_sync").length != 0) {
+            $.each($(".form_sync"), function (i, item) {
+                $(item).validate();
+            });
+        }
     };
-    
+
     //处理IE8,9重置form的清除placeholder的问题
-    var handleResetForm = function(){
-    	$("form").bind("reset",function(){
-			$.each($(this).find("input"),function(i,item){
-				$(item).val($(item).attr("placeholder"));
-			});
-			return false;
-    	});
+    var handleResetForm = function () {
+        $("form").bind("reset", function () {
+            $.each($(this).find("input"), function (i, item) {
+                $(item).val($(item).attr("placeholder"));
+            });
+            return false;
+        });
     };
-    
+
     //处理IE8,9placeholder字体颜色问题
-    var handleBindEventPlaceHolderFontColorForIE = function(){
-    	$("input[placeholder]").live({
-    		keyup : handlePlaceHolderFontColorForIE,
-    		focus : handlePlaceHolderFontColorForIE,
-    		blur  : handlePlaceHolderFontColorForIE
-    	})
+    var handleBindEventPlaceHolderFontColorForIE = function () {
+        $("input[placeholder]").live({
+            keyup: handlePlaceHolderFontColorForIE,
+            focus: handlePlaceHolderFontColorForIE,
+            blur: handlePlaceHolderFontColorForIE
+        })
     };
-    
+
     //处理IE8,9placeholder字体颜色问题
-    var handlePlaceHolderFontColorForIE = function(){
-		if($(this).val() != "" && $(this).val() != $(this).attr("placeholder")){
-			$(this).removeClass("placeholder");
-		}else{
-			$(this).addClass("placeholder");
-		}
+    var handlePlaceHolderFontColorForIE = function () {
+        if ($(this).val() != "" && $(this).val() != $(this).attr("placeholder")) {
+            $(this).removeClass("placeholder");
+        } else {
+            $(this).addClass("placeholder");
+        }
     }
-    
+
+    //处理siderbar高度
+    var handleSidebarHeight = function () {
+        var height = $(window).height() - $(".header:first").height() - $(".footer:last").outerHeight() + 3;
+        var style = $(".page-sidebar").attr("style");
+        var partten = /height:\s?\d*px\s!important;/g;
+        if (partten.test(style)) {
+            $(".page-sidebar").attr("style", style.replace(partten, "height:" + height + "px !important;"));
+        } else {
+            $(".page-sidebar").attr("style", "height:" + height + "px !important;" + style);
+        }
+    }
+
+    //滚动siderbar
+    var handleScrollSidebar = function () {
+        var menu = $(".page-sidebar-menu");
+        var height = $(window).height() - $(".header:first").height() - $(".footer:last").outerHeight() + 3;
+        if (menu.parent('.slimScrollDiv').size() === 1) {
+            menu.slimScroll({
+                destroy: true
+            });
+            menu.removeAttr('style');
+        }
+        menu.slimScroll({
+            size: '7px',
+            color: '#a1b2bd',
+            opacity: .4,
+            position: 'right',
+            height: height + "px",
+            allowPageScroll: false,
+            disableFadeOut: false
+        });
+
+    }
+
     //缩小操作th宽度
-    var handleThWidth = function(){
-    	
+    var handleThWidth = function () {
+
     }
-    
+
     return {
         //main function to initiate template pages
         init: function () {
@@ -529,20 +559,30 @@ var App = function () {
             handleFixInputPlaceholderForIE(); // fixes/enables html5 placeholder attribute for IE9, IE8
             handleGoTop(); //handles scroll to top functionality in the footer
             handleAccordions(); //handles accordions
-            
+
             colseDIYWin();
             handleDatePicker();
             handleDateTimePicker();
             handleProLetRomColor();
             handleSyncFormValidate();
-            
-            if(isIE8 || isIE9 || isIE10){
-            	handleResetForm();
-            	handleBindEventPlaceHolderFontColorForIE();
+
+            handleScrollSidebar();
+            handleSidebarHeight();
+            $(window).resize(function () {
+                handleSidebarHeight();
+                handleScrollSidebar();
+            });
+
+            if (isIE8 || isIE9 || isIE10) {
+                handleResetForm();
+                handleBindEventPlaceHolderFontColorForIE();
             }
 
-            if(isIE8){
+            if (isIE8) {
                 responsiveWindowHeight();
+                $(window).resize(function () {
+                    responsiveWindowHeight();
+                });
             }
         },
 
@@ -614,104 +654,104 @@ var App = function () {
                 return false;
             }
         },
-        
+
         //判断值是否为null,"",undefined
-        isNundef : function(value){
-        	return value !== null && value !== "" && typeof(value) != "undefined";
+        isNundef: function (value) {
+            return value !== null && value !== "" && typeof(value) != "undefined";
         },
-        
+
         //判断值是否等于placeholder的值,
-        isEqPlacehoder : function($obj){
-        	if(App.isNundef($obj.attr("placeholder")) && $obj.val() === $obj.attr("placeholder")){
-        		return null;
-        	}
-        	return $obj.val();
+        isEqPlacehoder: function ($obj) {
+            if (App.isNundef($obj.attr("placeholder")) && $obj.val() === $obj.attr("placeholder")) {
+                return null;
+            }
+            return $obj.val();
         },
-        
+
         //高亮菜单
-        activeMenu : function(href){
-        	var a = $("a[href*='"+href+"']");
-        	var li = a.parent();
-        	li.addClass("active");
-        	var parent = li.parent().parent();
-        	parent.addClass("active").addClass("open");
-        	parent.find("a .arrow").addClass("open");
+        activeMenu: function (href) {
+            var a = $("a[href*='" + href + "']");
+            var li = a.parent();
+            li.addClass("active");
+            var parent = li.parent().parent();
+            parent.addClass("active").addClass("open");
+            parent.find("a .arrow").addClass("open");
         },
-        
+
         //取消高亮
-        cancleActiveMenu : function(href){
-        	$("a[href*='"+href+"']").parent().removeClass("active");
+        cancleActiveMenu: function (href) {
+            $("a[href*='" + href + "']").parent().removeClass("active");
         },
-        
+
         //生成操作按钮{icon:"iconUser",name:"操作",group:[{clickFn:"edit(2)",icon:"icon-pencil",name:"修改"}]}
-        initDropDownBtn : function(obj){
-        	var div = $('<div class="btn-group mini"></div>');
-    		var a = $('<a class="btn green mini" href="#" data-toggle="dropdown"></a>')
-    		.append('<i class="'+obj.icon+'"></i> ')
-    		.append(obj.name)
-    		.append('<i class="icon-angle-down"></i>');
-    		var ul = $('<ul class="dropdown-menu"></ul>');
-    		$.each(obj.group,function(i,item){
-    			ul.append('<li><a href="javascript:void(0)" onclick="javascript:'+item.clickFn+';"><i class="'+item.icon+'"></i>'+item.name+'</a></li>');
-    		});
-    		return div.append(a).append(ul);
+        initDropDownBtn: function (obj) {
+            var div = $('<div class="btn-group mini"></div>');
+            var a = $('<a class="btn green mini" href="#" data-toggle="dropdown"></a>')
+                .append('<i class="' + obj.icon + '"></i> ')
+                .append(obj.name)
+                .append('<i class="icon-angle-down"></i>');
+            var ul = $('<ul class="dropdown-menu"></ul>');
+            $.each(obj.group, function (i, item) {
+                ul.append('<li><a href="javascript:void(0)" onclick="javascript:' + item.clickFn + ';"><i class="' + item.icon + '"></i>' + item.name + '</a></li>');
+            });
+            return div.append(a).append(ul);
         },
-        
+
         //判断一个值是否在数组中
-        in_array : function(value,array){
-        	for(var i in array){
-                if(array[i]==value){
+        in_array: function (value, array) {
+            for (var i in array) {
+                if (array[i] == value) {
                     return true;
                 }
             }
             return false;
         },
-        
+
         //弹出框
-        alert : function(str){
-        	bootbox.alert(str);
+        alert: function (str) {
+            bootbox.alert(str);
         },
-        
+
         //选择框
-        confirm :function(callback){
-        	bootbox.confirm("确定？", callback);
+        confirm: function (callback) {
+            bootbox.confirm("确定？", callback);
         },
-        
+
         //文件下载
-	   downloadFile : function(fileName,fileUuid){
-		    var url = encodeURI(ctx+"/file/download?fileName="+fileName+"&fileUuid="+fileUuid);
-			window.location.href = encodeURI(url);
-	    },
-	    
-	    //初始化异步提交表单的验证
-	    initAsyncFormValidate : function(form,callback){
-	    	$(form).validate({
-			    submitHandler: function(form){
-			    	$(form).ajaxSubmit(callback);
-			    }
-			});
-	    },
-	    
-		//设置数据列表th宽度
-		setDataThWidth : function(){
-			$("th:contains('操作')").css("width","50px");
-		},
-		
-		//菜单过滤
-		doMenuFilter : function(obj){
-			if(!App.isNundef($(obj).val())){
-				$("li.menu,li.menu-child").show();
-				$("li.menu").removeClass("open");
-				$("li.menu-child.active").parent().closest("li").show();
-				return;
-			}
-			$("li.menu").addClass("open");
-			var value = $(obj).val();
-			$("li.menu,li.menu-child").hide();
-			$("li.menu-child:has(a:contains('"+value+"'))").show().parent().closest("li").show();
-			$("li.menu:has(a span:contains('"+value+"'))").show().find("li").show();
-		}
-		//为了兼容IE8在window.location.href不把header[referer]带上的问题,做以下封装
+        downloadFile: function (fileName, fileUuid) {
+            var url = encodeURI(ctx + "/file/download?fileName=" + fileName + "&fileUuid=" + fileUuid);
+            window.location.href = encodeURI(url);
+        },
+
+        //初始化异步提交表单的验证
+        initAsyncFormValidate: function (form, callback) {
+            $(form).validate({
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit(callback);
+                }
+            });
+        },
+
+        //设置数据列表th宽度
+        setDataThWidth: function () {
+            $("th:contains('操作')").css("width", "50px");
+        },
+
+        //菜单过滤
+        doMenuFilter: function (obj) {
+            if (!App.isNundef($(obj).val())) {
+                $("li.menu,li.menu-child").show();
+                $("li.menu").removeClass("open");
+                $("li.menu-child.active").parent().closest("li").show();
+                return;
+            }
+            $("li.menu").addClass("open");
+            var value = $(obj).val();
+            $("li.menu,li.menu-child").hide();
+            $("li.menu-child:has(a:contains('" + value + "'))").show().parent().closest("li").show();
+            $("li.menu:has(a span:contains('" + value + "'))").show().find("li").show();
+        }
+        //为了兼容IE8在window.location.href不把header[referer]带上的问题,做以下封装
 //		gotoUrl
     };
 }();

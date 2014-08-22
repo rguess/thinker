@@ -405,7 +405,7 @@ Page container
 /***
 Page sidebar
 ***/
-.page-sidebar > ul {
+.page-sidebar-menu {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -413,22 +413,22 @@ Page sidebar
   padding: 0; 
 }
 
-.page-sidebar > ul > li {
+.page-sidebar-menu > li {
   display: block;
   margin: 0;
   padding: 0; 
   border: 0px;
 }
 
-.page-sidebar > ul > li.start > a {
+.page-sidebar-menu > li.start > a {
    border-top-color: transparent !important;
 }
 
-.page-sidebar > ul > li:last-child > a {
+.page-sidebar-menu > li:last-child > a {
    border-bottom: 1px solid transparent !important;
 }
 
-.page-sidebar > ul > li > a {
+.page-sidebar-menu > li > a {
   display: block;
   position: relative;
   margin: 0;
@@ -439,18 +439,18 @@ Page sidebar
   font-weight: 300;
 }
 
-.page-sidebar > ul > li > a i {
+.page-sidebar-menu > li > a i {
   font-size: 16px;
   margin-right: 5px;
   text-shadow:none; 
 }
 
-.page-sidebar > ul > li.active > a {
+.page-sidebar-menu > li.active > a {
   border: none; 
   text-shadow:none;
 }  
 
-.page-sidebar > ul > li.active > a .selected {
+.page-sidebar-menu > li.active > a .selected {
   display: block;
   width: 8px;
   height: 25px;
@@ -474,7 +474,7 @@ Page sidebar
    text-shadow:none;
 }
 
-.page-sidebar > ul > li > a .arrow.open:before {   
+.page-sidebar-menu > li > a .arrow.open:before {   
    float: right;
    margin-top: 1px;
    margin-right: 5px;
@@ -487,25 +487,25 @@ Page sidebar
    text-shadow:none;
 }
 
-.page-sidebar > ul > li > ul.sub {
+.page-sidebar-menu > li > ul.sub {
   display: none;
   list-style: none;
   clear: both;
   margin: 8px 0px 8px 0px;
 }
 
-.page-sidebar > ul > li.active > ul.sub {
+.page-sidebar-menu > li.active > ul.sub {
   display: block;
 }
 
-.page-sidebar > ul > li > ul.sub > li {
+.page-sidebar-menu > li > ul.sub > li {
   background: none;
   margin: 0px;
   padding: 0px;
   margin-top: 1px !important;
 }
 
-.page-sidebar > ul > li > ul.sub > li > a {
+.page-sidebar-menu > li > ul.sub > li > a {
   display: block;
   margin: 0px 0px 0px 0px;
   padding: 5px 0px;
@@ -518,7 +518,7 @@ Page sidebar
   background: none;
 }
 
-.page-sidebar > ul > li > ul.sub > li > a > i {
+.page-sidebar-menu > li > ul.sub > li > a > i {
   font-size: 13px;
 }
 
@@ -644,38 +644,38 @@ Sidebar toggler(show/hide)
   margin-bottom: 6px;
 }
 
-.sidebar-closed > .page-sidebar > ul {
+.sidebar-closed > .page-sidebar-menu {
   width: 35px !important;
 }
 
-.sidebar-closed .page-sidebar > ul > li > a {
+.sidebar-closed .page-sidebar-menu > li > a {
   padding-left: 7px;
 }
 
-.sidebar-closed .page-sidebar > ul > li:hover {
+.sidebar-closed .page-sidebar-menu > li:hover {
   width: 225px;   
   position: relative;
   z-index: 2000;
   display: block !important;
 }
 
-.sidebar-closed .page-sidebar > ul > li:hover .selected {
+.sidebar-closed .page-sidebar-menu > li:hover .selected {
   display: none;
 }
 
-.sidebar-closed .page-sidebar > ul > li:hover > a > i {
+.sidebar-closed .page-sidebar-menu > li:hover > a > i {
   margin-right: 10px;
 }
 
-.sidebar-closed .page-sidebar > ul > li:hover .title {
+.sidebar-closed .page-sidebar-menu > li:hover .title {
   display: inline !important;
 }
 
-.sidebar-closed .page-sidebar > ul > li.has-sub .sub {
+.sidebar-closed .page-sidebar-menu > li.has-sub .sub {
   display: none !important;
 }
 
-.sidebar-closed .page-sidebar > ul > li.has-sub:hover .sub {  
+.sidebar-closed .page-sidebar-menu > li.has-sub:hover .sub {  
   width: 189px;
   position: absolute;
   z-index: 2000;
@@ -684,7 +684,7 @@ Sidebar toggler(show/hide)
   display: block !important;
 }
 
-.sidebar-closed .page-sidebar > ul > li.has-sub:hover .sub > li > a {
+.sidebar-closed .page-sidebar-menu > li.has-sub:hover .sub > li > a {
   padding-left: 15px !important;
 }
 

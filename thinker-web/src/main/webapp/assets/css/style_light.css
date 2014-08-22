@@ -39,32 +39,32 @@ Page sidebar
   /*border-bottom: 1px solid #e2e2e2 !important;*/
 /*}*/
 
-.page-sidebar > ul > li > a {
+.page-sidebar-menu > li > a {
   border-top: 1px solid #e2e2e2 !important;
   color: #000 !important;
   font-weight: 400;
 }
 
-.page-sidebar > ul > li:first-child > a {
+.page-sidebar-menu > li:first-child > a {
    border-top: 1px solid transparent !important;
 }
 
-.page-sidebar > ul > li:last-child > a {
+.page-sidebar-menu > li:last-child > a {
    border-bottom: 1px solid transparent !important;
 }
 
-.page-sidebar > ul > li a i {
+.page-sidebar-menu > li a i {
    color: #ccc !important;
 }
 
-.page-sidebar > ul > li.has-sub.open >a, 
-.page-sidebar > ul > li >a:hover, 
-.page-sidebar > ul > li:hover>a {  
+.page-sidebar-menu > li.has-sub.open >a, 
+.page-sidebar-menu > li >a:hover, 
+.page-sidebar-menu > li:hover>a {  
   background: #eee;
   border-top: 1px solid #e8e8e8;
 }
 
-.page-sidebar > ul > li.active > a .selected {
+.page-sidebar-menu > li.active > a .selected {
   right:-7px;
   top:1px;
   width: 7px;
@@ -72,30 +72,30 @@ Page sidebar
   background-image: url("../img/sidebar-menu-arrow-green.png");
 }  
 
-.page-sidebar > ul > li.active > a{
+.page-sidebar-menu > li.active > a{
   background: #28b779 !important;
   border-top-color: transparent !important;
   color:#fff !important;
 }  
-.page-sidebar > ul > li.active > a i {
+.page-sidebar-menu > li.active > a i {
   color:#fff !important;
 }
-.page-sidebar > ul > li > a.open {
+.page-sidebar-menu > li > a.open {
   background: #fff;
 }
 
-.page-sidebar > ul > li > ul.sub > li > a {
+.page-sidebar-menu > li > ul.sub > li > a {
   color: #000;
   margin-left:0px;  
   padding-left: 50px; 
 }
 
-.page-sidebar > ul > li > ul.sub > li:first-child > a {
+.page-sidebar-menu > li > ul.sub > li:first-child > a {
   border-top: 0px !important;
 }
 
-.page-sidebar > ul > li > ul.sub > li.active > a, 
-.page-sidebar > ul > li > ul.sub > li > a:hover {
+.page-sidebar-menu > li > ul.sub > li.active > a, 
+.page-sidebar-menu > li > ul.sub > li > a:hover {
   color: #818181 !important;
   background: #efefef !important;  
 }
@@ -131,7 +131,7 @@ Sidebar toggler
 }
 
 /* sub menu bg color on hover menu item */
-.sidebar-closed .page-sidebar > ul > li.has-sub:hover .sub {
+.sidebar-closed .page-sidebar-menu > li.has-sub:hover .sub {
   background-color: #fbfbfb;
 }
 
@@ -147,30 +147,30 @@ Landscape phone to portrait tablet
  	  border-right: none !important;
   }
 
-  .page-sidebar > ul > li > a {
+  .page-sidebar-menu > li > a {
     border-top: 1px solid #ccc !important;
   }
   
-  .page-sidebar > ul > li:first-child > a {
+  .page-sidebar-menu > li:first-child > a {
     border-top: 0 !important;
   }
 
-  .page-sidebar > ul > li:last-child > a {
+  .page-sidebar-menu > li:last-child > a {
     border-bottom: 0 !important;
   }
 
-  .page-sidebar > ul > li.has-sub.open > a, 
-  .page-sidebar > ul > li >a:hover, 
-  .page-sidebar > ul > li:hover>a {  
+  .page-sidebar-menu > li.has-sub.open > a, 
+  .page-sidebar-menu > li >a:hover, 
+  .page-sidebar-menu > li:hover>a {  
     background: #ccc;
   }
 
-  .page-sidebar > ul > li > a:hover > i {
+  .page-sidebar-menu > li > a:hover > i {
     color: #333 !important;
   }
 
-  .page-sidebar > ul > li > ul.sub > li.active > a, 
-  .page-sidebar > ul > li > ul.sub > li > a:hover {
+  .page-sidebar-menu > li > ul.sub > li.active > a, 
+  .page-sidebar-menu > li > ul.sub > li > a:hover {
     background: #ccc !important;  
   }
 

@@ -66,6 +66,7 @@
 <script src="${ctx}/assets/comp/breakpoints/breakpoints.js" type="text/javascript"></script>
 <script src="${ctx}/assets/comp/chosen-bootstrap/chosen/chosen.jquery.min.js" type="text/javascript"></script>
 <script src="${ctx}/assets/comp/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="${ctx}/assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="${ctx}/assets/js/app.js"></script>
 <script src="${ctx}/assets/js/util.js"></script>
 </body>

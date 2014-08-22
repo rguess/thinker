@@ -2,9 +2,9 @@
 <%@ include file="/WEB-INF/content/common/common.jsp" %>
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar nav-collapse collapse"
-     style="height: 91% !important;position:fixed; _position:absolute; _top:expression(offsetParent.scrollTop); _left:expression(offsetParent.scrollLeft);">
+     style="position:fixed; _position:absolute; _top:expression(offsetParent.scrollTop); _left:expression(offsetParent.scrollLeft);">
     <!-- BEGIN SIDEBAR MENU -->
-    <ul>
+    <ul class="page-sidebar-menu">
         <li>
             <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
             <div class="sidebar-toggler hidden-phone"></div>
