@@ -1,6 +1,7 @@
 package org.guess.showcase.chat.controller;
 
 import org.guess.core.utils.web.ServletUtils;
+import org.guess.showcase.chat.model.ChatingUser;
 import org.guess.sys.util.UserUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,8 +11,10 @@ import org.springframework.web.context.request.async.DeferredResult;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -32,6 +35,8 @@ public class ChatController {
     @RequestMapping
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView(indexView);
+        List<ChatingUser> list = msgPublisher.getChatingUsers();
+        mav.addObject("users",list);
         return mav;
     }
 

@@ -23,7 +23,7 @@ var Chat = {
             success: function (data) {
                 var obj = $.parseJSON(data);
                 if (App.isNundef(data)) {
-                    Chat.insertData(obj, "out");
+                    Chat.insertData(obj, "in");
                 }
                 setTimeout(
                     function () {
@@ -63,15 +63,15 @@ var Chat = {
         var btn = $('.btn', form);
 
 
-        var headerImgPath = (inorout == "in") ? "avatar1" : "avatar2";
+        var headerImgPath = (inorout == "in") ? "avatar1.jpg" : "avatar2.jpg";
         var time = new Date();
         var time_str = time.format("hh:mm:ss");
         var tpl = '';
         tpl += '<li class="' + inorout + '">';
-        tpl += '<img class="avatar" alt="" src="' + ctx + '/assets/img/' + headerImgPath + '.jpg"/>';
+        tpl += '<img class="avatar" alt="" src="' + ctx + '/assets/img/' + 'avatar.png' + '"/>';
         tpl += '<div class="message">';
         tpl += '<span class="arrow"></span>';
-        tpl += '<a href="#" class="name">Bob Nilson</a>&nbsp;';
+        tpl += '<a href="#" class="name">'+data.username+'</a>&nbsp;';
         tpl += '<span class="datetime">' + time_str + '</span>';
         tpl += '<span class="body">';
         tpl += '<b>' + data.msg + '</b>';
@@ -100,7 +100,7 @@ var Chat = {
             }
 
             Chat.send(text);
-            Chat.insertData({msg: text}, "in");
+            Chat.insertData({msg: text,username:me}, "in");
             input.val("");
         }
 
