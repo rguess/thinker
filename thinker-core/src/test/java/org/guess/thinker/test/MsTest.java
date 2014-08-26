@@ -25,7 +25,7 @@ public class MsTest {
 			word.replaceImage(selection, "E:\\tmp\\04.jpg");
 //			word.replaceBookMark("${a}", "12345");
 			//保存到path  
-			word.saveFileAs("E:\\tmp\\z.docx");
+			word.saveFileAs("E:\\tmp\\9.docx");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{

@@ -18,8 +18,8 @@
 
     <properties>
         <thinker-version>0.0.1-SNAPSHOT</thinker-version>
-        <jetty.version>7.6.10.v20130312</jetty.version>
-        <webserver.port>8181</webserver.port>
+        <jetty.version>9.0.4.v20130625</jetty.version>
+        <webserver.port>9999</webserver.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>false</downloadSources>
     </properties>
@@ -35,13 +35,15 @@
         <!-- j2ee web spec -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>jsp-api</artifactId>
-            <scope>provided</scope>
+            <artifactId>javax.servlet-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <scope>provided</scope>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -275,6 +277,12 @@
             <artifactId>freemarker</artifactId>
         </dependency>
 
+        <!--hibernate validater-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
         <!-- thinker -->
         <dependency>
             <groupId>org.guess.thinker</groupId>
@@ -287,24 +295,16 @@
         <finalName>thinker-web</finalName>
         <plugins>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>${webserver.port}</port>
-                        </connector>
-                    </connectors>
                     <webAppConfig>
                         <contextPath>/thinker</contextPath>
                     </webAppConfig>
-                    <systemProperties>
-                        <systemProperty>
-                            <name>org.mortbay.util.URI.charset</name>
-                            <value>${project.build.sourceEncoding}</value>
-                        </systemProperty>
-                    </systemProperties>
+                    <httpConnector>
+                        <port>9999</port>
+                    </httpConnector>
                 </configuration>
             </plugin>
         </plugins>

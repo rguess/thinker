@@ -1,32 +1,20 @@
 package org.guess.sys.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.guess.core.Constants;
 import org.guess.core.orm.IdEntity;
 import org.guess.core.utils.DateUtil;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import java.util.*;
 
 @Entity
 @Table(name = "SYS_USER")
@@ -36,20 +24,28 @@ public class User extends IdEntity {
 
 	/** 登录ID */
 	@Column(unique = true)
+    @Pattern(regexp = "^[a-zA-Z][a-zA-Z0-9_]{4,15}$")
 	private String loginId;
 	/** 密码 */
 	private String passwd;
 	/** 用户姓名 */
+    @NotEmpty
+    @Length(min = 2,max = 10)
 	private String name;
 	/** 电子邮件 */
+    @NotEmpty
+    @Email
 	private String email;
 	/** 手机号 */
+    @NotEmpty
+    @Pattern(regexp = "^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\\d{8})$")
 	private String mobilePhone;
 	/** 地址 */
 	private String address;
 	/** 状态 0 无效 1 有效 */
 	private int status = Constants.USER_STATUS_UNLOCK;
 	/** 备注 */
+    @NotEmpty
 	private String remark;
 
 	/** 创建时间 */

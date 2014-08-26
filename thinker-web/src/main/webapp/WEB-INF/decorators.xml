@@ -12,6 +12,7 @@
 		<pattern>/finance/*</pattern>
 		<pattern>/mobile/*</pattern>
 		<pattern>/workflow/*</pattern>
+        <pattern>/chat/*</pattern>
 	</decorator>
 	
 	<!-- CMS博客主题 -->

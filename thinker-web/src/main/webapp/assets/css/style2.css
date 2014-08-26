@@ -1,14 +1,13 @@
-
 /* 新加的 */
 .portlet-title .tools > a.remove1 {
-  background-image:url(../img/portlet-remove-icon.png);
-  background-repeat: no-repeat;
-  width: 11px;
+    background-image: url(../img/portlet-remove-icon.png);
+    background-repeat: no-repeat;
+    width: 11px;
 }
 
-.portlet.box .portlet-title .tools > a.remove1, 
+.portlet.box .portlet-title .tools > a.remove1,
 .portlet.solid .portlet-title .tools > a.remove1 {
-  background-image:url(../img/portlet-remove-icon-white.png);
+    background-image: url(../img/portlet-remove-icon-white.png);
 }
 
 /* .table-hover tbody tr:hover > td,
@@ -18,44 +17,75 @@
   cursor: pointer;
 } */
 
-.queryForm{
-	margin: 0 0;
+.queryForm {
+    margin: 0 0;
 }
 
-.selectedTr td{
-	background-color: #35aa47 !important;
-	color: white;
+.selectedTr td {
+    background-color: #35aa47 !important;
+    color: white;
 }
 
 .input-append .add-on > .halflings-icon
-.input-append .add-on > i, .input-append .add-on > [class^="icon-"]{
- 	margin-top: 10px
- }
- 
-/* 调低导航与内容的距离 */
-.page-content .breadcrumb{
-	margin-bottom: 10px;
-}
-.breadcrumb{
-	margin: 0 0 10px;
+.input-append .add-on > i, .input-append .add-on > [class^="icon-"] {
+    margin-top: 10px
 }
 
-.table th, .table td{
-	padding: 5px;
+.page-content {
+    min-height: 0;
+    border-left: none !important;
+    border-bottom: none !important;
+    padding-bottom: 20px;
+}
+
+/* 调低导航与内容的距离 */
+.page-content .breadcrumb {
+    margin-bottom: 10px;
+}
+
+.breadcrumb {
+    margin: 0 0 10px;
+}
+
+.table th, .table td {
+    padding: 5px;
 }
 
 /* 增加树状被选中样式 */
-.tree a.selected{
-	text-decoration: none;
-	background-color: rgb(28, 243, 183);
+.tree a.selected {
+    text-decoration: none;
+    background-color: rgb(28, 243, 183);
 }
 
 /* 定义i图标的按钮样式 */
-i.ibtn{
-	cursor: pointer;
+i.ibtn {
+    cursor: pointer;
 }
 
 /* 当前站点样式 */
-.notification .active>a{
-	background-color: green !important;
+.notification .active > a {
+    background-color: green !important;
 }
+
+/*固定左边菜单栏，不随滚动条上下移动*/
+.page-sidebar {
+    position: fixed;
+    border-right: 1px solid #e2e2e2 !important;
+    border-bottom: 1px solid #e2e2e2 !important;
+    height: 100% !important;
+}
+
+/*footer*/
+.footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+    border-top: 1px solid #e2e2e2 !important;
+    background-color: #ffffff;
+}
+
+/*html,body,.page-container,.page-content{*/
+/*height: 100% !important;*/
+/*}*/
