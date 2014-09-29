@@ -18,8 +18,9 @@ public class TestTimerTask extends TimerTask {
 
 class TestTimer {
 	public static void main(String[] args) {
-		Timer timer = new Timer();
-		TimerTask task = new TestTimerTask();
-		timer.schedule(task, 500L, 1000L);
-	}
+//		Timer timer = new Timer();
+//		TimerTask task = new TestTimerTask();
+//		timer.schedule(task, 500L, 1000L);
+        System.out.println("%你好");
+    }
 }
