@@ -94,7 +94,7 @@
                         });
                     });
                 });
-                $('#treeTable').treegrid({initialState: "collapsed"});
+                $('#treeTable').treegrid({initialState: "collapsed",saveState:true});
                 unBlockUI();
                 registerTdOnclickEvent();
             }
