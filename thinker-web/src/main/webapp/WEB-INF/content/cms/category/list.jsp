@@ -78,7 +78,7 @@ function initTree() {
 		url : "${ctx}/cms/category/tree",
 		success : function(data) {
 			fillData(data);
-			$('#treeTable').treegrid({initialState:"collapsed"});
+			$('#treeTable').treegrid({initialState: "collapsed",saveState:true});
 			App.setDataThWidth();
 			$('.tooltips').tooltip();
 			$("th:contains('排序')").css("width","60px");

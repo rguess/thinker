@@ -194,6 +194,10 @@
         restoreState: function() {
             var $this = $(this);
             if ($this.treegrid('getSetting', 'saveStateMethod') === 'cookie') {
+                if($.cookie($this.treegrid('getSetting', 'saveStateName')) == null){
+                    $this.treegrid('expand');
+                    return $this;
+                }
                 var stateArray = $.cookie($this.treegrid('getSetting', 'saveStateName')).split(',');
                 if ($.inArray($this.treegrid('getNodeId'), stateArray) !== -1) {
                     $this.treegrid('expand');

@@ -25,26 +25,13 @@
                         <div class="scroller" data-height="343px" data-always-visible="1" data-rail-visible1="1">
                             <ul class="chats">
                                 <li class="in">
-                                    <img class="avatar" alt="" src="${ctx}/assets/img/avatar1.jpg"/>
-
+                                    <img class="avatar" alt="" src="${ctx}/assets/img/avatar.png"/>
                                     <div class="message">
                                         <span class="arrow"></span>
-                                        <a href="#" class="name">Bob Nilson</a>
-                                        <span class="datetime">at Jul 25, 2012 11:09</span>
+                                        <a href="#" class="name">admin</a>
+                                        <span class="datetime"><tool:curDate /></span>
 										<span class="body">
-										你好，PICC项目DEMO修改，临时通知的，事情比较急，对方要求明天演示。北京这边现在人力比较紧张，需要你那边安排一下。辛苦！
-										</span>
-                                    </div>
-                                </li>
-                                <li class="out">
-                                    <img class="avatar" alt="" src="${ctx}/assets/img/avatar2.jpg"/>
-
-                                    <div class="message">
-                                        <span class="arrow"></span>
-                                        <a href="#" class="name">Lisa Wong</a>
-                                        <span class="datetime">at Jul 25, 2012 11:09</span>
-										<span class="body">
-										你看一下这个demo需求吧，具体除了demo功能模块是这些。
+										可以聊天了！
 										</span>
                                     </div>
                                 </li>
@@ -63,16 +50,49 @@
                 </div>
                 <!-- END PORTLET-->
             </div>
+            <div class="span4">
+                <div class="portlet">
+                    <div class="portlet-title line">
+                        <h4><i class="diy_icon_01_35"></i>在线</h4>
+
+                        <div class="tools">
+                            <a href="javascript:;" class="collapse"></a>
+                            <a href="javascript:;" class="remove"></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="scroller" data-height="432px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="row-fluid">
+                                <c:forEach var="obj" items="${users}">
+                                    <div class="user-info">
+                                        <img alt="" src="${ctx}/assets/img/avatar.png"/>
+                                        <div class="details">
+                                            <div>
+                                                <a href="#">${obj.user.name}</a>
+                                                <span>${obj.ip}</span>
+                                            </div>
+                                            <div>
+                                                <tool:curDate />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <%@ include file="/WEB-INF/content/common/plugins/jquery-ui.jsp" %>
-<script type="text/javascript" src="${ctx}/assets/js/chat/Chat.js"></script>
+<script type="text/javascript" src="${ctx}/assets/js/chat/chat.js"></script>
 <script type="text/javascript">
     $(function () {
         App.activeMenu("/chat/servlet3");
         Chat.init();
-    })
+    });
+    var me = "${sessionScope.c_user.loginId}"
 </script>
 </body>
 </html>

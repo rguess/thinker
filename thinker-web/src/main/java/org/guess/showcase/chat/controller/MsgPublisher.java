@@ -26,6 +26,13 @@ public class MsgPublisher {
     }
 
     /**
+     * 获取登录的用户
+     */
+    public List<ChatingUser> getChatingUsers(){
+        return chatingUsers;
+    }
+
+    /**
      * 根据User获取queue
      *
      * @param user

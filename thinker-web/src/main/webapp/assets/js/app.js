@@ -460,8 +460,15 @@ var App = function () {
         $.each(colors, function (i, item) {
             prolet.removeClass(item);
         });
-        var temp = parseInt(Math.random() * colors.length);
-        prolet.addClass(colors[temp]);
+        $.each(prolet, function (i, item) {
+            if ($(item).find(".portlet-title").hasClass("line")) {
+                return true;
+            } else {
+                var temp = parseInt(Math.random() * colors.length);
+                $(item).addClass(colors[temp]);
+            }
+
+        })
     };
 
     //初始化同步提交form的validate
