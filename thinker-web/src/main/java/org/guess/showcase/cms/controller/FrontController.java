@@ -146,7 +146,8 @@ public class FrontController {
 			HttpServletRequest request) throws Exception {
         String ip = ServletUtils.getIpAddr(request);
 
-		comment.setIp(ip);
+        System.out.println(comment.getContent().length());
+        comment.setIp(ip);
 		commentService.save(comment);
 		return "redirect:/" + site + "/article/" + comment.getArticle().getId()
 				+ ".html#comment-" + comment.getId();
