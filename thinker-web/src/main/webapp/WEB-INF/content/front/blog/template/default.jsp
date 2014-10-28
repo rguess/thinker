@@ -21,7 +21,10 @@
 <body>
 <%@ include file="header.jsp"%>
 <%@ include file="nav.jsp"%>
-	<div id="wrapper" class="clearfix">	
+	<div id="wrapper" class="clearfix">
+        <a href="#">
+            <img src="${ctx}/assets/xyz/bg/2345.gif" alt=""/>
+        </a>
 		<sitemesh:body />
 		<%@ include file="sider.jsp"%>
 	</div>

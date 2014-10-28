@@ -144,7 +144,9 @@ public class FrontController {
 	@RequestMapping("{site}/comment")
 	public String comment(Comment comment, @PathVariable("site") String site,
 			HttpServletRequest request) throws Exception {
-		comment.setIp(ServletUtils.getIpAddr(request));
+        String ip = ServletUtils.getIpAddr(request);
+
+		comment.setIp(ip);
 		commentService.save(comment);
 		return "redirect:/" + site + "/article/" + comment.getArticle().getId()
 				+ ".html#comment-" + comment.getId();
