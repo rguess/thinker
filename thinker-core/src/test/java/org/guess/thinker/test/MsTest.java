@@ -1,13 +1,8 @@
 package org.guess.thinker.test;
 
-import org.guess.core.utils.MsWordUtils;
-import org.junit.Test;
-
-import com.jacob.com.Dispatch;
-
 public class MsTest {
 
-	@Test
+	/*@Test
 	public void testJacob(){
 		MsWordUtils word = new MsWordUtils();
 		try {
@@ -32,5 +27,5 @@ public class MsTest {
 			word.closeDocument();  
 		    word.closeWord();
 		}
-	}
+	}*/
 }
