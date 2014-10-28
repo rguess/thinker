@@ -1,6 +1,5 @@
 package org.guess.test;
 
-import org.guess.core.utils.MsWordUtils;
 import org.guess.core.utils.security.Coder;
 import org.junit.Test;
 
@@ -13,7 +12,7 @@ public class FileTest {
 		System.out.println(Coder.encryptMD5("502876941@qq.com"));
 	}
 	
-	@Test
+	/*@Test
 	public void testJacob(){
 		MsWordUtils word = new MsWordUtils();
 		try {
@@ -33,6 +32,6 @@ public class FileTest {
 		    word.closeWord();
 		}
 	}
-	
+	*/
 	
 }

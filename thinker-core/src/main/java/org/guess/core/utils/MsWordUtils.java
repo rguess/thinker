@@ -1,7 +1,14 @@
+/*
 package org.guess.core.utils;
 
+import java.util.List;
+
+import com.jacob.activeX.ActiveXComponent;
+import com.jacob.com.ComThread;
+import com.jacob.com.Dispatch;
+import com.jacob.com.Variant;
+
 public class MsWordUtils {
-/*
 	// 建立一個word物件
 	private ActiveXComponent MsWordApp = null;
 
@@ -916,5 +923,5 @@ public class MsWordUtils {
 			System.out.println("指定的书签不存在 ");
 		}
 	}
-*/
 }
+*/
