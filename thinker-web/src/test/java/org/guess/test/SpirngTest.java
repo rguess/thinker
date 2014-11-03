@@ -25,6 +25,7 @@ public class SpirngTest {
     @Test
    public void test02(){
         System.out.println(DateUtil.getYesterday(new Date()));
+        System.out.println(DateUtil.getNowStr());
    }
 	
 	
