@@ -13,9 +13,9 @@
 <head>
     <title>thinker:<sitemesh:title/></title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <meta http-equiv="Cache-Control" content="no-store"/>
-    <meta http-equiv="Pragma" content="no-cache"/>
-    <meta http-equiv="Expires" content="0"/>
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
     <!-- <meta http-equiv="X-UA-Compatible" content="chrome=1" /> -->
 
     <!-- 基础样式 -->
