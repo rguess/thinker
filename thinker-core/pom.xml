@@ -149,10 +149,10 @@
 		<!-- JSON end -->
 
 		<!-- jacob -->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.jacob</groupId>
 			<artifactId>jacob</artifactId>
-		</dependency>
+		</dependency>-->
 		<!-- end jacob -->
 		
 		<!-- ant zip -->

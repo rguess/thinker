@@ -104,7 +104,7 @@ public class ArticleController {
 
 				// word转为html
 				String htmlFileName = articlefolerName + "/index";
-				WordToHtml.wordToHtml(tempFile.getAbsolutePath(), htmlFileName);
+//				WordToHtml.wordToHtml(tempFile.getAbsolutePath(), htmlFileName);
 				// 保存到数据库
 				article.setHtmlid(uuid);
 			}
@@ -120,7 +120,6 @@ public class ArticleController {
 	 * 处理富文本方式上传
 	 * 
 	 * @param article
-	 * @param articleFile
 	 * @throws Exception 
 	 */
 	private void handleRichTextType(Article article) throws Exception {
