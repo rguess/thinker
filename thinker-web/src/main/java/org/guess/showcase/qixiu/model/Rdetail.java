@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -32,15 +33,18 @@ public class Rdetail extends IdEntity {
     /**
      * 维修时间
      */
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date xiudate;
 
     /**
      * 提醒下次更换或维修日期
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date nextxiu;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="record_id")
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity=Record.class)
     @NotFound(action = NotFoundAction.IGNORE)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Record record;
@@ -61,12 +65,20 @@ public class Rdetail extends IdEntity {
         this.jiage = jiage;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getXiudate() {
+        return xiudate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setXiudate(Date xiudate) {
+        this.xiudate = xiudate;
+    }
+
+    public Record getRecord() {
+        return record;
+    }
+
+    public void setRecord(Record record) {
+        this.record = record;
     }
 
     public Date getNextxiu() {
@@ -76,4 +88,6 @@ public class Rdetail extends IdEntity {
     public void setNextxiu(Date nextxiu) {
         this.nextxiu = nextxiu;
     }
+
+
 }

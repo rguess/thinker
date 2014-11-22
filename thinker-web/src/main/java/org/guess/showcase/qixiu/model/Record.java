@@ -8,7 +8,7 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * 汽修记录
@@ -41,9 +41,11 @@ public class Record extends IdEntity {
      */
     private String customer;
 
-    @OneToMany(targetEntity=Rdetail.class,fetch = FetchType.LAZY,cascade= CascadeType.ALL,mappedBy = "record")
+    @OneToMany(targetEntity=Rdetail.class,fetch = FetchType.LAZY,cascade= CascadeType.ALL)
+    @JoinColumn(name="record_id")
+    @NotFound(action = NotFoundAction.IGNORE)
     @OrderBy("id desc ")
-    private Set<Rdetail> details;
+    private List<Rdetail> details;
 
     /**
      * 用户
@@ -53,11 +55,11 @@ public class Record extends IdEntity {
     @NotFound(action= NotFoundAction.IGNORE)
     private User user;
 
-    public Set<Rdetail> getDetails() {
+    public List<Rdetail> getDetails() {
         return details;
     }
 
-    public void setDetails(Set<Rdetail> details) {
+    public void setDetails(List<Rdetail> details) {
         this.details = details;
     }
 

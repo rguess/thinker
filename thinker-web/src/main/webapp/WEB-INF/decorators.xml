@@ -13,6 +13,7 @@
 		<pattern>/mobile/*</pattern>
 		<pattern>/workflow/*</pattern>
         <pattern>/chat/*</pattern>
+        <pattern>/qixiu/*</pattern>
 	</decorator>
 	
 	<!-- CMS博客主题 -->
