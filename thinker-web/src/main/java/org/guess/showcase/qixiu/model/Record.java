@@ -6,8 +6,10 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,6 +42,12 @@ public class Record extends IdEntity {
      * 客户姓名
      */
     private String customer;
+    /**
+     * 最新维修时间
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date latestDate;
 
     @OneToMany(targetEntity=Rdetail.class,fetch = FetchType.LAZY,cascade= CascadeType.ALL)
     @JoinColumn(name="record_id")
@@ -54,6 +62,14 @@ public class Record extends IdEntity {
     @JoinColumn(name = "USER_ID")
     @NotFound(action= NotFoundAction.IGNORE)
     private User user;
+
+    public Date getLatestDate() {
+        return latestDate;
+    }
+
+    public void setLatestDate(Date latestDate) {
+        this.latestDate = latestDate;
+    }
 
     public List<Rdetail> getDetails() {
         return details;

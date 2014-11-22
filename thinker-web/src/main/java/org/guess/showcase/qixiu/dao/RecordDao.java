@@ -5,7 +5,7 @@ import org.guess.showcase.cms.model.Comment;
 import org.guess.showcase.qixiu.model.Record;
 
 /**
- * 评论dao
+ * 记录dao
  * @author rguess
  * @version 2014-06-04
  */

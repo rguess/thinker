@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <form action="${ctx }/qixiu/record/create" class="form-horizontal form_sync"
+                        <form action="${ctx }/qixiu/record/edit" class="form-horizontal form_sync"
                               method="post" id="form1">
                             <!-- 用户ID -->
                             <input type="hidden" value="${obj.id }" name="id">
@@ -68,47 +68,103 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label">详细记录:</label>
+                                <label class="control-label">最新维修时间:</label>
 
                                 <div class="controls">
-                                    <%--<input type="hidden" value="${obj.id }" name="details[0].record.id">--%>
                                     <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
-                                        <input class="m-wrap" name="details[0].xiudate"
+                                        <input class="m-wrap" name="latestDate"
                                                type="text" readonly="readonly"
-                                               value="<fmt:formatDate value='${obj.details[0].xiudate }'/>"
-                                               placeholder="维修日期">
+                                               value="<fmt:formatDate value='${obj.latestDate }'/>">
                                             <span class="add-on">
                                                 <i class="icon-th"></i>
                                             </span>
                                     </div>
-
-                                    <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
-                                        <input class="m-wrap" id="nextxiu" name="details[0].nextxiu"
-                                               type="text" readonly="readonly"
-                                               value="<fmt:formatDate value='${obj.details[0].nextxiu }'/>"
-                                               placeholder="提醒下次维修日期">
-                                            <span class="add-on">
-                                                <i class="icon-th"></i>
-                                            </span>
-                                    </div>
-
-                                    <input type="text" class="span3 m-wrap"
-                                           placeholder="维修类别"
-                                           name="details[0].leibie" value="${obj.details[0].leibie }"/>
-
-                                    <div style="margin-top: 10px"></div>
-                                    <div class="input-append">
-                                        <input name="details[0].jiage" class="m-wrap " type="text"
-                                               placeholder="维修价格" value="${obj.details[0].jiage }"><span
-                                            class="add-on">元</span>
-                                    </div>
-                                    <a href="javascript:void(0)" style="font-size: 30px"
-                                       onclick="javascript:adddetail()">+</a>
-                                    <a href="javascript:void(0)" style="font-size: 30px"
-                                       onclick="javascript:deldetail();">-</a>
-
-                                    <div style="margin-top: 10px"></div>
                                 </div>
+                            </div>
+                            <div class="control-group" id="ddiv">
+                                <label class="control-label">详细记录:</label>
+
+                                <c:if test="${empty obj.details}">
+                                    <div class="controls dlist">
+                                        <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
+                                            <input class="m-wrap" name="details[0].xiudate"
+                                                   type="text" readonly="readonly"
+                                                   value="<fmt:formatDate value='${obj.details[0].xiudate }'/>"
+                                                   placeholder="维修日期">
+                                            <span class="add-on">
+                                                <i class="icon-th"></i>
+                                            </span>
+                                        </div>
+
+                                        <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
+                                            <input class="m-wrap" name="details[0].nextxiu"
+                                                   type="text" readonly="readonly"
+                                                   value="<fmt:formatDate value='${obj.details[0].nextxiu }'/>"
+                                                   placeholder="提醒下次维修日期">
+                                            <span class="add-on">
+                                                <i class="icon-th"></i>
+                                            </span>
+                                        </div>
+
+                                        <input type="text" class="span3 m-wrap"
+                                               placeholder="维修类别"
+                                               name="details[0].leibie" value="${obj.details[0].leibie }"/>
+
+                                        <div style="margin-top: 10px"></div>
+                                        <div class="input-append">
+                                            <input name="details[0].jiage" class="m-wrap " type="text"
+                                                   placeholder="维修价格" value="${obj.details[0].jiage }"><span
+                                                class="add-on">元</span>
+                                        </div>
+                                        <a href="javascript:void(0)" class="btn icn-only blue"
+                                           onclick="javascript:adddetail()"><i class="icon-plus"></i></a>
+
+                                        <div style="margin-top: 10px"></div>
+                                    </div>
+                                </c:if>
+
+                                <c:forEach var="item" items="${obj.details}" varStatus="status">
+                                    <div class="controls dlist">
+                                        <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
+                                            <input class="m-wrap" name="details[${status.index}].xiudate"
+                                                   type="text" readonly="readonly"
+                                                   value="<fmt:formatDate value='${obj.details[status.index].xiudate }'/>"
+                                                   placeholder="维修日期">
+                                            <span class="add-on">
+                                                <i class="icon-th"></i>
+                                            </span>
+                                        </div>
+
+                                        <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
+                                            <input class="m-wrap" name="details[${status.index}].nextxiu"
+                                                   type="text" readonly="readonly"
+                                                   value="<fmt:formatDate value='${obj.details[status.index].nextxiu }'/>"
+                                                   placeholder="提醒下次维修日期">
+                                            <span class="add-on">
+                                                <i class="icon-th"></i>
+                                            </span>
+                                        </div>
+
+                                        <input type="text" class="span3 m-wrap"
+                                               placeholder="维修类别"
+                                               name="details[${status.index}].leibie"
+                                               value="${obj.details[status.index].leibie }"/>
+
+                                        <div style="margin-top: 10px"></div>
+                                        <div class="input-append">
+                                            <input name="details[${status.index}].jiage" class="m-wrap " type="text"
+                                                   placeholder="维修价格" value="${obj.details[status.index].jiage }"><span
+                                                class="add-on">元</span>
+                                        </div>
+                                        <a href="javascript:void(0)" class="btn icn-only blue"
+                                           onclick="javascript:adddetail()"><i class="icon-plus"></i></a>
+                                        <c:if test="${status.index > 0}">
+                                            <a href="javascript:void(0)" class="btn icn-only red"
+                                               onclick="javascript:deldetail(this)"><i class="icon-remove"></i></a>
+                                        </c:if>
+                                        <div style="margin-top: 10px"></div>
+                                    </div>
+                                </c:forEach>
                             </div>
 
                             <div class="control-group">
@@ -133,8 +189,28 @@
 <%@ include file="/WEB-INF/content/common/plugins/jquery-validation.jsp" %>
 <%@ include file="/WEB-INF/content/common/plugins/datepicker.jsp" %>
 <script type="text/javascript">
+    var html = {
+        d1: function (index) {
+            return $('<div class="input-append date form_date" data-date-format="yyyy-mm-dd"></div>')
+                    .append($('<input class="m-wrap" name="details[' + index + '].xiudate" type = "text" value = "" placeholder = "维修日期" >>'))
+        },
+        d2: function (index) {
+            return $('<div class="input-append date form_date" data-date-format="yyyy-mm-dd"></div>')
+                    .append($('<input class="m-wrap" name="details[' + index + '].nextxiu" type = "text" value = "" placeholder = "提醒下次维修日期" >>'))
+        },
+        d3: function (index) {
+            return $('<input type="text" class="span3 m-wrap" placeholder="维修类别" name="details[' + index + '].leibie" value=""/>')
+        },
+        d4: function (index) {
+            return $('<div class="input-append"><input name="details[' + index + '].jiage" class="m-wrap" type="text" placeholder="维修价格" value=""><span class="add-on">元</span></div>')
 
-    var copments = {
+        },
+        d5: function () {
+            return $('<div style="margin-top: 10px"></div>');
+        },
+        d6: function () {
+            return $('<a href="javascript:void(0)" class="btn icn-only blue" onclick="javascript:adddetail()"><i class="icon-plus"></i></a><a href="javascript:void(0)" class="btn icn-only red" onclick="javascript:deldetail(this)"><i class="icon-remove"></i></a>');
+        }
 
     }
 
@@ -143,7 +219,19 @@
     });
 
     function adddetail() {
-        alert(12);
+        var index = $(".dlist").length;
+        $("#ddiv").append($('<div class="controls dlist"></div>')
+                .append(html.d1(index))
+                .append(html.d2(index))
+                .append(html.d3(index))
+                .append(html.d5())
+                .append(html.d4(index))
+                .append(html.d6(index))
+                .append(html.d5()));
+    }
+
+    function deldetail(obj) {
+        $(obj).closest('.dlist').remove();
     }
 </script>
 </body>

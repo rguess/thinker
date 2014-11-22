@@ -1,5 +1,6 @@
 package org.guess.showcase.qixiu.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.guess.core.orm.IdEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -18,6 +19,7 @@ import java.util.Date;
 @Entity
 @Table(name = "q_record_detail")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@JsonIgnoreProperties(value = {"record" })
 public class Rdetail extends IdEntity {
 
 	/**

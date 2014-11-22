@@ -5,6 +5,7 @@ import org.guess.showcase.cms.model.Comment;
 import org.guess.showcase.cms.service.CommentService;
 import org.guess.showcase.qixiu.model.Rdetail;
 import org.guess.showcase.qixiu.model.Record;
+import org.guess.showcase.qixiu.service.RdetailService;
 import org.guess.showcase.qixiu.service.RecordService;
 import org.guess.sys.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,14 @@ public class RecordController extends BaseController<Record>{
 	@Autowired
 	private RecordService recordService;
 
+    @Autowired
+    private RdetailService rdetailService;
+
 
     @RequestMapping(method = RequestMethod.POST, value = "/edit")
     public String create(@Valid Record object) throws Exception {
         object.setUser(UserUtil.getCurrentUser());
+        rdetailService.delByRecordId(object.getId());
         recordService.save(object);
         return REDIRECT + listView;
     }

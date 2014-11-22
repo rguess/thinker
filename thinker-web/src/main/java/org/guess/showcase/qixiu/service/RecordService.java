@@ -8,7 +8,7 @@ import org.guess.showcase.qixiu.model.Record;
 import java.util.List;
 
 /**
- * 评论service
+ * 记录service
  * @author rguess
  * @version 2014-06-04
  */
