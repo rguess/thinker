@@ -32,7 +32,7 @@ public class FinanceController extends BaseController<Finance>{
 	@RequestMapping(value="/jsonp.json")
 	@ResponseBody
 	public JSONPObject gethyinfo(ModelMap map,@RequestParam String callback){
-	    map.put("pi", "hello,I'm Fjtsssss");
+	    map.put("pi", "hello,I'm Fjt");
 	    JSONPObject obj = new JSONPObject(callback, map);
 	    System.out.println(obj.getFunction());
 	    return new JSONPObject(callback, map);

@@ -1,6 +1,10 @@
 package org.guess.algorithm;
 
+import org.guess.core.utils.DateUtil;
 import org.junit.Test;
+
+import java.text.ParseException;
+import java.util.Date;
 
 /**
  * 各类算法
@@ -33,9 +37,10 @@ public class Algorithm {
 	}
 	
 	@Test
-	public void test(){
+	public void test() throws ParseException {
 		System.out.println(fengjie(200));
 		System.out.println(dengji(80));
+        System.out.println(DateUtil.format(DateUtil.addDay(DateUtil.parse("2014-10-22"),75)));
     }
 	
 	

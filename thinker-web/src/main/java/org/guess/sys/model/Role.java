@@ -10,23 +10,31 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.guess.core.jsonview.IdView;
 import org.guess.core.orm.IdEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "SYS_ROLE")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Role extends IdEntity {
 
+    public static interface RoleBasicInfoView extends IdView{}
+    public static interface RoleBasicInfoView1 extends IdView{}
+
 	/** 名称 */
+    @JsonView(RoleBasicInfoView.class)
 	private String name;
 	
 	/** 中文名称 */
+    @JsonView(value = {RoleBasicInfoView.class,RoleBasicInfoView1.class})
 	private String realName;
 	
 	/** 备注 */
+    @JsonView(RoleBasicInfoView.class)
 	private String remark;
 
 	/** 所属用户 */

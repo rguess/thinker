@@ -5,6 +5,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.guess.core.jsonview.IdView;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 @MappedSuperclass
 public abstract class IdEntity {
 
@@ -13,6 +17,7 @@ public abstract class IdEntity {
 //	@SequenceGenerator(name = "oracle_id", sequenceName = "oracle_id", allocationSize = 1)
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(IdView.class)
 	protected Long id;
 
 	public Long getId() {

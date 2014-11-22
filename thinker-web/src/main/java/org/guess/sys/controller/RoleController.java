@@ -1,9 +1,8 @@
 package org.guess.sys.controller;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonView;
 import org.apache.commons.lang.StringUtils;
+import org.guess.core.orm.Page;
 import org.guess.core.web.BaseController;
 import org.guess.sys.model.Resource;
 import org.guess.sys.model.Role;
@@ -13,6 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/sys/role/")
@@ -48,6 +52,12 @@ public class RoleController extends BaseController<Role> {
 		}
 		role.setResources(rcs);
 		return super.create(role);
+	}
+	
+	@Override
+	@JsonView(Role.RoleBasicInfoView.class)
+	public Map<String, Object> page(Page<Role> page, HttpServletRequest request) {
+		return super.page(page, request);
 	}
 
 }
