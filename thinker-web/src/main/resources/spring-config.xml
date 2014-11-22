@@ -55,6 +55,7 @@
 				<value>org.guess.showcase.workflow.model</value>
 				<value>org.guess.showcase.finance.model</value>
 				<value>org.guess.showcase.cms.model</value>
+                <value>org.guess.showcase.qixiu.model</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
