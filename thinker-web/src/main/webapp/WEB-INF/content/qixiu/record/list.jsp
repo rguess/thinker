@@ -2,13 +2,13 @@
 <%@ include file="/WEB-INF/content/common/common.jsp" %>
 <html>
 <head>
-    <title>用户列表</title>
+    <title>记录列表</title>
 </head>
 <body>
 <div class="page-content">
     <div class="container-fluid">
         <!-- 页面导航 -->
-        <tool:navBar pageTitle="用户列表" pageTitleContent="showcase-记录-列表" titleIcon="icon-home"/>
+        <tool:navBar pageTitle="记录列表" pageTitleContent="showcase-记录-列表" titleIcon="icon-home"/>
         <!-- 主体内容 -->
         <div class="row-fluid">
             <div class="span12">
@@ -27,35 +27,24 @@
                         <div class="row-fluid">
                             <form class="queryForm span8">
                                 <div class="row-fluid">
-                                    <!-- <div class="span3">
-                                        <div class="control-group">
-                                           <div class="controls">
-                                              <input type="text" id="email" class="m-wrap span12" placeholder="邮箱">
-                                           </div>
-                                        </div>
-                                     </div> -->
-
-                                    <div class="span2">
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <input type="text" id="name" class="m-wrap span12" placeholder="姓名">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="span4">
                                         <div class="control-group">
-                                            <div class="controls input-append date form_date"
-                                                 data-date-format="yyyy-mm-dd"
-                                                 id="time">
-                                                <input id="createDate" class="span10 m-wrap" type="text"
-                                                       readonly="readonly" placeholder="时间">
-                                                <span class="add-on"><i class="icon-th"></i></span>
+                                            <div class="controls">
+                                                <input type="text" id="filters" class="m-wrap span12"
+                                                       placeholder="姓名&电话&车牌">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span4 ">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input type="text" id="daterange" class="m-wrap span12"
+                                                       placeholder="时间范围" readonly="readonly">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="span5">
+                                    <div class="span3">
                                         <div class="control-group">
                                             <div class="controls">
                                                 <a class="btn blue" href="javascript:void(0)"
@@ -71,7 +60,20 @@
                                     </div>
                                 </div>
                             </form>
-                            <tool:operBtns modelKey="user"></tool:operBtns>
+                            <div class="span4 pull-right">
+                                <a class="btn green" href="javascript:void(0)" onclick="Page.addObj();">
+                                    添加 <i class="icon-plus"></i>
+                                </a>
+                                <a class="btn blue" href="javascript:void(0);" onclick="Page.updateObj();">
+                                    修改<i class="icon-pencil"></i>
+                                </a>
+                                <a class="btn red" href="javascript:void(0);" onclick="Page.deleteObj();">
+                                    删除<i class="icon-trash"></i>
+                                </a>
+                                <a class="btn blue" href="javascript:void(0);" onclick="Page.viewObj();">
+                                    详细<i class="icon-search"></i>
+                                </a>
+                            </div>
                         </div>
                         <table class="table table-striped table-bordered table-hover" id="sample_1">
 
@@ -84,6 +86,7 @@
 </div>
 <%@ include file="/WEB-INF/content/common/plugins/datepicker.jsp" %>
 <%@ include file="/WEB-INF/content/common/plugins/page.jsp" %>
+<%@ include file="/WEB-INF/content/common/plugins/daterangepicker.jsp" %>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -101,17 +104,34 @@
                     {cName: "phone", cValue: "手机", noSort: true},
                     {cName: "chepai", cValue: "车牌"},
                     {cName: "chexing", cValue: "车型"},
+                    {cName:"latestDate",cValue:"最新修改"},
                     {cName: "remark", cValue: "备注"}
                 ]
         );
+        $('#daterange').daterangepicker({
+            ranges: {
+                '今日': ['today', 'today'],
+                '昨日': ['yesterday', 'yesterday'],
+                '本月': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
+                '今日开始到本周五': [Date.today(), Date.today().next().friday()],
+                '今日开始的一周': ['today', Date.today().add({days: 7})],
+                '今日到本月末尾': ['today', Date.today().moveToLastDayOfMonth()]
+            },
+            startDate: "2014/05/05",
+            endDate: "2014/05/05"
+        });
     });
 
     function doQuery() {
-        var queryObj = {
-            search_LIKES_email: App.isEqPlacehoder($("#email")),
-            search_LIKES_name: App.isEqPlacehoder($("#name")),
-            search_EQD_createDate: App.isEqPlacehoder($("#createDate"))
-        };
+        var queryObj = {};
+        if (App.isNundef($("#daterange").val()) && App.isEqPlacehoder($("#daterange")) != null) {
+            var arr = $("#daterange").val().split("-")
+            queryObj = {
+                "search_GED_latestDate": arr[0].replaceAll("/", "-") + " 00:00:00",
+                "search_LED_latestDate": arr[1].replaceAll("/", "-") + " 23:59:59"
+            }
+        }
+        queryObj["search_LIKES_phone_OR_customer_OR_chepai"] = App.isEqPlacehoder($("#filters"));
         Page.doQuery(queryObj);
     }
 </script>

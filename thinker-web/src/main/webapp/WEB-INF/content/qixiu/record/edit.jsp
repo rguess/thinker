@@ -1,3 +1,4 @@
+<%@ page import="org.guess.core.utils.DateUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/content/common/common.jsp" %>
 <c:set var="pageTitle" value="${empty obj ? '添加':'修改' }" scope="page"/>
@@ -71,13 +72,10 @@
                                 <label class="control-label">最新维修时间:</label>
 
                                 <div class="controls">
-                                    <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
-                                        <input class="m-wrap" name="latestDate"
-                                               type="text" readonly="readonly"
-                                               value="<fmt:formatDate value='${obj.latestDate }'/>">
-                                            <span class="add-on">
-                                                <i class="icon-th"></i>
-                                            </span>
+                                    <div class="span6 m-wrap">
+                                        <input type="text" class="span6 m-wrap"
+                                               validate="{required:true}"
+                                               name="latestDate" value="<%=DateUtil.getToday()%>" readonly="readonly"/>
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +105,7 @@
                                         </div>
 
                                         <input type="text" class="span3 m-wrap"
-                                               placeholder="维修类别"
+                                               placeholder="维修项目"
                                                name="details[0].leibie" value="${obj.details[0].leibie }"/>
 
                                         <div style="margin-top: 10px"></div>
@@ -146,7 +144,7 @@
                                         </div>
 
                                         <input type="text" class="span3 m-wrap"
-                                               placeholder="维修类别"
+                                               placeholder="维修项目"
                                                name="details[${status.index}].leibie"
                                                value="${obj.details[status.index].leibie }"/>
 
@@ -158,8 +156,8 @@
                                         </div>
                                         <a href="javascript:void(0)" class="btn icn-only blue"
                                            onclick="javascript:adddetail()"><i class="icon-plus"></i></a>
-                                        <c:if test="${status.index > 0}">
-                                            <a href="javascript:void(0)" class="btn icn-only red"
+                                        <c:if test="${status.last && !status.first}">
+                                            <a href="javascript:void(0)" class="btn icn-only red delbtn"
                                                onclick="javascript:deldetail(this)"><i class="icon-remove"></i></a>
                                         </c:if>
                                         <div style="margin-top: 10px"></div>
@@ -199,7 +197,7 @@
                     .append($('<input class="m-wrap" name="details[' + index + '].nextxiu" type = "text" value = "" placeholder = "提醒下次维修日期" >>'))
         },
         d3: function (index) {
-            return $('<input type="text" class="span3 m-wrap" placeholder="维修类别" name="details[' + index + '].leibie" value=""/>')
+            return $('<input type="text" class="span3 m-wrap" placeholder="维修项目" name="details[' + index + '].leibie" value=""/>')
         },
         d4: function (index) {
             return $('<div class="input-append"><input name="details[' + index + '].jiage" class="m-wrap" type="text" placeholder="维修价格" value=""><span class="add-on">元</span></div>')
@@ -209,7 +207,7 @@
             return $('<div style="margin-top: 10px"></div>');
         },
         d6: function () {
-            return $('<a href="javascript:void(0)" class="btn icn-only blue" onclick="javascript:adddetail()"><i class="icon-plus"></i></a><a href="javascript:void(0)" class="btn icn-only red" onclick="javascript:deldetail(this)"><i class="icon-remove"></i></a>');
+            return $('<a href="javascript:void(0)" class="btn icn-only blue" onclick="javascript:adddetail()"><i class="icon-plus"></i></a><a href="javascript:void(0)" class="btn icn-only red delbtn" onclick="javascript:deldetail(this)"><i class="icon-remove"></i></a>');
         }
 
     }
@@ -219,6 +217,7 @@
     });
 
     function adddetail() {
+        $(".delbtn").remove();
         var index = $(".dlist").length;
         $("#ddiv").append($('<div class="controls dlist"></div>')
                 .append(html.d1(index))
@@ -232,6 +231,9 @@
 
     function deldetail(obj) {
         $(obj).closest('.dlist').remove();
+        if($('.dlist').length >1){
+            $(".dlist:last").find("a").after($('<a href="javascript:void(0)" class="btn icn-only red delbtn" onclick="javascript:deldetail(this)"><i class="icon-remove"></i></a>'));
+        }
     }
 </script>
 </body>
