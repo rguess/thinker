@@ -1,7 +1,9 @@
 package org.guess.showcase.qixiu.controller;
 
 import org.guess.core.orm.Page;
+import org.guess.core.orm.PageRequest;
 import org.guess.core.orm.PropertyFilter;
+import org.guess.core.utils.DateUtil;
 import org.guess.core.web.BaseController;
 import org.guess.showcase.cms.model.Comment;
 import org.guess.showcase.cms.service.CommentService;
@@ -14,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -62,4 +65,22 @@ public class RecordController extends BaseController<Record> {
         page.setOrderDir("desc");
         return pageData.returnMap();
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "toReminder")
+    public String toReminder(){
+        return "/qixiu/record/reminder";
+    }
+
+    @RequestMapping("reminder")
+    @ResponseBody
+    public Map<String, Object> reminder(Page<Record> page, HttpServletRequest request) {
+        page.setPageSize(10000);
+        Page<Rdetail> pageData = rdetailService.findPage(page, "from Rdetail where " +
+                "YEAR(nextxiu) = '" + DateUtil.getYear(DateUtil.getCurrenDateTime()) + "' " +
+                "and MONTH(nextxiu) = '" + DateUtil.getMonth(DateUtil.getCurrenDateTime()) + "' " +
+                "and record.user.id = " + UserUtil.getCurrentUser().getId());
+        return pageData.returnMap();
+    }
+
+
 }

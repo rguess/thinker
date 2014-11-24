@@ -38,9 +38,12 @@ public class Algorithm {
 	
 	@Test
 	public void test() throws ParseException {
-		System.out.println(fengjie(200));
-		System.out.println(dengji(80));
-        System.out.println(DateUtil.format(DateUtil.addDay(DateUtil.parse("2014-10-22"),75)));
+//		System.out.println(fengjie(200));
+//		System.out.println(dengji(80));
+//      System.out.println(DateUtil.format(DateUtil.addDay(DateUtil.parse("2014-10-22"),75)));
+
+        System.out.println(DateUtil.getCurrenDate());
+        System.out.println(DateUtil.getYear(DateUtil.getCurrenDateTime()));
     }
 	
 	

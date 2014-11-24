@@ -126,7 +126,7 @@
                                         <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
                                             <input class="m-wrap" name="details[${status.index}].xiudate"
                                                    type="text" readonly="readonly"
-                                                   value="<fmt:formatDate value='${obj.details[status.index].xiudate }'/>"
+                                                   value="<fmt:formatDate value='${item.xiudate }'/>"
                                                    placeholder="维修日期">
                                             <span class="add-on">
                                                 <i class="icon-th"></i>
@@ -136,7 +136,7 @@
                                         <div class="input-append date form_date" data-date-format="yyyy-mm-dd">
                                             <input class="m-wrap" name="details[${status.index}].nextxiu"
                                                    type="text" readonly="readonly"
-                                                   value="<fmt:formatDate value='${obj.details[status.index].nextxiu }'/>"
+                                                   value="<fmt:formatDate value='${item.nextxiu }'/>"
                                                    placeholder="提醒下次维修日期">
                                             <span class="add-on">
                                                 <i class="icon-th"></i>
@@ -146,12 +146,12 @@
                                         <input type="text" class="span3 m-wrap"
                                                placeholder="维修项目"
                                                name="details[${status.index}].leibie"
-                                               value="${obj.details[status.index].leibie }"/>
+                                               value="${item.leibie }"/>
 
                                         <div style="margin-top: 10px"></div>
                                         <div class="input-append">
                                             <input name="details[${status.index}].jiage" class="m-wrap " type="text"
-                                                   placeholder="维修价格" value="${obj.details[status.index].jiage }"><span
+                                                   placeholder="维修价格" value="${item.jiage }"><span
                                                 class="add-on">元</span>
                                         </div>
                                         <a href="javascript:void(0)" class="btn icn-only blue"
@@ -231,7 +231,7 @@
 
     function deldetail(obj) {
         $(obj).closest('.dlist').remove();
-        if($('.dlist').length >1){
+        if ($('.dlist').length > 1) {
             $(".dlist:last").find("a").after($('<a href="javascript:void(0)" class="btn icn-only red delbtn" onclick="javascript:deldetail(this)"><i class="icon-remove"></i></a>'));
         }
     }

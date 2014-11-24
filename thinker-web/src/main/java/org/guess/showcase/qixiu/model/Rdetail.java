@@ -19,7 +19,6 @@ import java.util.Date;
 @Entity
 @Table(name = "q_record_detail")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@JsonIgnoreProperties(value = {"record" })
 public class Rdetail extends IdEntity {
 
 	/**

@@ -21,7 +21,7 @@ import java.util.List;
 @Entity
 @Table(name = "q_record")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@JsonIgnoreProperties(value = {"details" })
+@JsonIgnoreProperties(value = {"details","user" })
 public class Record extends IdEntity {
 
 	/**
@@ -54,7 +54,7 @@ public class Record extends IdEntity {
     @OneToMany(targetEntity=Rdetail.class,fetch = FetchType.LAZY,cascade= CascadeType.ALL)
     @JoinColumn(name="record_id")
     @NotFound(action = NotFoundAction.IGNORE)
-    @OrderBy("id desc ")
+    @OrderBy("id asc ")
     private List<Rdetail> details;
 
     /**
