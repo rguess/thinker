@@ -24,12 +24,19 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <div class="row-fluid">
+                        <div class="tabbable tabbable-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab_1_1" data-toggle="tab">当月</a></li>
+                                <li><a href="#tab_1_1" data-toggle="tab">今年</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_1_1">
+                                    <table class="table table-striped table-bordered table-hover" id="sample_1">
 
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                        <table class="table table-striped table-bordered table-hover" id="sample_1">
-
-                        </table>
                     </div>
                 </div>
             </div>
@@ -49,26 +56,26 @@
                 },
                 null,
                 [
-                    {cName: "customer", cValue: "姓名", format: function (i, value, item) {
+                    {cName: "customer", cValue: "姓名", noSort: true, format: function (i, value, item) {
                         return item.record.customer;
                     }},
                     {cName: "phone", cValue: "手机", noSort: true, format: function (i, value, item) {
                         return item.record.phone;
                     }},
-                    {cName: "chepai", cValue: "车牌", format: function (i, value, item) {
+                    {cName: "chepai", cValue: "车牌", noSort: true, format: function (i, value, item) {
                         return item.record.chepai;
                     }},
-                    {cName: "chexing", cValue: "车型", format: function (i, value, item) {
+                    {cName: "chexing", cValue: "车型", noSort: true, format: function (i, value, item) {
                         return item.record.chexing;
                     }},
-                    {cName: "latestDate", cValue: "最后维修日期", format: function (i, value, item) {
+                    {cName: "latestDate", cValue: "最后维修日期", noSort: true, format: function (i, value, item) {
                         return item.record.latestDate;
                     }},
                     {cName: "leibie", cValue: "维修项目"},
                     {cName: "jiage", cValue: "价格"},
                     {cName: "nextxiu", cValue: "提醒日期"},
                     {cName: "xiudate", cValue: "维修日期"},
-                    {cName: "remark", cValue: "备注"}
+                    {cName: "remark", cValue: "备注", noSort: true}
                 ]
         );
     });

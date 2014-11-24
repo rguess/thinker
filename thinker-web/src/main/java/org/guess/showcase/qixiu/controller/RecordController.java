@@ -60,14 +60,16 @@ public class RecordController extends BaseController<Record> {
 
         List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request, "search");
         filters.add(new PropertyFilter("EQL_user.id", String.valueOf(UserUtil.getCurrentUser().getId())));
+        if (page.getOrderBy() == null || page.getOrderDir() == null) {
+            page.setOrderBy("latestDate");
+            page.setOrderDir("desc");
+        }
         Page<Record> pageData = recordService.findPage(page, filters);
-        page.setOrderBy("latestDate");
-        page.setOrderDir("desc");
         return pageData.returnMap();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "toReminder")
-    public String toReminder(){
+    public String toReminder() {
         return "/qixiu/record/reminder";
     }
 
@@ -75,10 +77,19 @@ public class RecordController extends BaseController<Record> {
     @ResponseBody
     public Map<String, Object> reminder(Page<Record> page, HttpServletRequest request) {
         page.setPageSize(10000);
+        String orderBy = page.getOrderBy();
+        String orderDir = page.getOrderDir();
+        page.setOrderBy("");
+        page.setOrderDir("");
+        String orderStr = "";
+        if (orderBy != null && orderDir != null) {
+            orderStr = "order by " + orderBy + " " + orderDir;
+        }
         Page<Rdetail> pageData = rdetailService.findPage(page, "from Rdetail where " +
                 "YEAR(nextxiu) = '" + DateUtil.getYear(DateUtil.getCurrenDateTime()) + "' " +
                 "and MONTH(nextxiu) = '" + DateUtil.getMonth(DateUtil.getCurrenDateTime()) + "' " +
-                "and record.user.id = " + UserUtil.getCurrentUser().getId());
+                "and record.user.id = " + UserUtil.getCurrentUser().getId() + " "
+                + orderStr);
         return pageData.returnMap();
     }
 

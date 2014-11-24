@@ -13,6 +13,7 @@ import java.util.Date;
 
 /**
  * 客户车详细记录
+ *
  * @author rguess
  * @version 2014-11-22
  */
@@ -21,15 +22,15 @@ import java.util.Date;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Rdetail extends IdEntity {
 
-	/**
-	 * 类别
-	 */
-	private String leibie;
+    /**
+     * 类别
+     */
+    private String leibie;
 
     /**
      * 维修价格
      */
-    private double jiage;
+    private Double jiage = new Double(0);
 
     /**
      * 维修时间
@@ -45,7 +46,7 @@ public class Rdetail extends IdEntity {
     @Temporal(TemporalType.DATE)
     private Date nextxiu;
 
-    @ManyToOne(fetch = FetchType.LAZY,targetEntity=Record.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Record.class)
     @NotFound(action = NotFoundAction.IGNORE)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Record record;
@@ -58,11 +59,11 @@ public class Rdetail extends IdEntity {
         this.leibie = leibie;
     }
 
-    public double getJiage() {
+    public Double getJiage() {
         return jiage;
     }
 
-    public void setJiage(double jiage) {
+    public void setJiage(Double jiage) {
         this.jiage = jiage;
     }
 
