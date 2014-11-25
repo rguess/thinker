@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,7 +76,7 @@ public class RecordController extends BaseController<Record> {
 
     @RequestMapping("reminder")
     @ResponseBody
-    public Map<String, Object> reminder(Page<Record> page, HttpServletRequest request) {
+    public Map<String, Object> reminder(Page<Record> page, @RequestParam("key") String key) {
         page.setPageSize(10000);
         String orderBy = page.getOrderBy();
         String orderDir = page.getOrderDir();
@@ -85,11 +86,17 @@ public class RecordController extends BaseController<Record> {
         if (orderBy != null && orderDir != null) {
             orderStr = "order by " + orderBy + " " + orderDir;
         }
-        Page<Rdetail> pageData = rdetailService.findPage(page, "from Rdetail where " +
-                "YEAR(nextxiu) = '" + DateUtil.getYear(DateUtil.getCurrenDateTime()) + "' " +
-                "and MONTH(nextxiu) = '" + DateUtil.getMonth(DateUtil.getCurrenDateTime()) + "' " +
-                "and record.user.id = " + UserUtil.getCurrentUser().getId() + " "
-                + orderStr);
+        StringBuffer hql = new StringBuffer("from Rdetail where 1=1 ");
+        String yearStr = "and YEAR(nextxiu) = '" + DateUtil.getYear(DateUtil.getCurrenDateTime()) + "' ";
+        String monthStr = "and MONTH(nextxiu) = '" + DateUtil.getMonth(DateUtil.getCurrenDateTime()) + "' ";
+        String userAndOrderStr = "and record.user.id = " + UserUtil.getCurrentUser().getId() + " " + orderStr;
+        if ("month".equals(key)) {
+            hql.append(yearStr).append(monthStr);
+        } else if ("year".equals(key)) {
+            hql.append(yearStr);
+        }
+        hql.append(userAndOrderStr);
+        Page<Rdetail> pageData = rdetailService.findPage(page, hql.toString());
         return pageData.returnMap();
     }
 

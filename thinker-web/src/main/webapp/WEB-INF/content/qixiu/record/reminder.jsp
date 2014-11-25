@@ -26,8 +26,8 @@
                     <div class="portlet-body">
                         <div class="tabbable tabbable-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab_1_1" data-toggle="tab">当月</a></li>
-                                <li><a href="#tab_1_1" data-toggle="tab">今年</a></li>
+                                <li class="active"><a href="#tab_1_1" data-toggle="tab" onclick="changeTab('month')">当月</a></li>
+                                <li><a href="#tab_1_1" data-toggle="tab" onclick="changeTab('year')">今年</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1_1">
@@ -48,13 +48,22 @@
     $(document).ready(function () {
         //高亮左侧菜单
         App.activeMenu("qixiu/record/toReminder");
+        initData(0);
+    });
+
+    function changeTab(key) {
+        Page.clear();
+        initData(key);
+    }
+
+    function initData(option) {
         Page.initData(
                 {
                     url: "${ctx}/qixiu/record/reminder",
                     tableId: "#sample_1",
                     pageSize: 10
                 },
-                null,
+                {key:option},
                 [
                     {cName: "customer", cValue: "姓名", noSort: true, format: function (i, value, item) {
                         return item.record.customer;
@@ -78,7 +87,7 @@
                     {cName: "remark", cValue: "备注", noSort: true}
                 ]
         );
-    });
+    }
 </script>
 </body>
 </html>
